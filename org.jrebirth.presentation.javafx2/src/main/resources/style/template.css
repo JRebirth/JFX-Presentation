@@ -1,0 +1,139 @@
+/*.root{
+    -fx-font-size: 16pt;
+    -fx-font-family: "Courier New";
+    -fx-base: rgb(132, 145, 47);
+    -fx-background: rgb(225, 228, 203);
+}*/
+
+#SlideStack{
+	
+	-fx-background-image : url("../images/background.png");
+	-fx-background-color: transparent;
+    -fx-background-position: center center;
+    -fx-background-size : stretch;
+    
+    -fx-fill : #A0DCFF ;
+}
+
+.introTitle {
+	-fx-font : 72px "Segoe UI";
+	-fx-fill: #000000;
+}
+
+
+.header{
+	
+	/*-fx-fill:  linear-gradient(from 0% 0% to 100% 100%, white 100%, white 70%);*/
+	-fx-background-color: rgba(255,255,255,0.6);
+	-fx-background-radius: 8px;
+}
+
+.footer{
+	
+	/* -fx-fill:  linear-gradient(from 0% 0% to 100% 100%, white 100%, white 70%);*/
+	-fx-background-color: rgba(255,255,255,0.6);
+	-fx-background-radius: 8px;
+	
+    /* -fx-background-position: left bottom;*/
+
+	-fx-background-image : url("../images/toulousejug_mini.png");
+	-fx-background-repeat: no-repeat;
+}
+
+/*.classicContainer {
+	
+	-fx-padding : 20px;
+	-fx-margin : 40px;
+
+}*/
+
+VBox.content {
+	-fx-padding:30px;
+	-fx-background-color: rgba(255,255,255,0.6);
+	-fx-background-radius: 10px;
+	
+}
+
+.item0 {
+	
+	-fx-font : 3em "Neuton Cursive";
+	-fx-fill : #004442;
+}
+
+.item1 {
+
+	-fx-font : 2.5em "Neuton Cursive";
+	-fx-fill : #169E99;
+	-fx-padding-left : 40px;
+	-fx-translate-x : 40 ;
+}
+
+.item2 {
+
+	-fx-font : 2em "Neuton Cursive";
+	-fx-fill : #169E99;
+	-fx-padding-left : 80px;
+	-fx-translate-x : 80;
+}
+ 
+.link0 {
+	
+	-fx-font : 1.5em "Neuton Cursive";
+	-fx-fill : #004442;
+}
+.link1 {
+	
+	-fx-font : 1.3em "Neuton Cursive";
+	-fx-fill : #004442;
+}
+
+/**
+ * Place Slide
+ */
+/*StackPane.place {
+	-fx-background-position: left top;	
+	-fx-background-image-size: stretch stretch;
+	-fx-background-repeat: no-repeat;
+	-fx-background-image : url("../images/intro/1280px-Toulouse_Capitole_Night_Wikimedia_Commons.jpg");
+}*/
+
+/**
+ * Me Slide
+ */
+VBox.me{
+	-fx-background-position: 600px top;	
+	-fx-background-repeat: no-repeat;
+	-fx-background-image : url("../images/me/seb.jpg");
+}
+
+/**************************************/
+/** 			SPLASHES             **/
+/**************************************/
+
+.splashContainer {
+	-fx-background-color: transparent;
+    -fx-background-position: right bottom;	
+}
+
+.splashText{
+	-fx-fill : #000000; /*#A0DCFF ;*/
+	-fx-text-alignment : center;
+	-fx-font: 3.5em "BorisBlackBloxx";
+	/* -fx-padding : 10px;*/
+}
+
+/** Do You see */
+.doyousee{
+	-fx-background-color:#FFFFFF;
+	-fx-background-image : url("../images/splash/Hands_up.jpg");
+	-fx-background-position: center bottom;
+	-fx-background-repeat : no-repeat;
+}
+
+/** DogFooding */
+.dogfooding {
+	-fx-background-image : url("../images/splash/Dog_Fooding.jpg");
+	-fx-background-position: center center;
+	-fx-background-repeat : no-repeat;
+}
+

@@ -1,0 +1,43 @@
+/*
+VBox.nodeContent{
+	-fx-padding: 200px 0 0 0;
+	-fx-background-position: center top;	
+	-fx-background-repeat: no-repeat;
+	-fx-background-image : url("../images/uml/node.png");
+}
+
+VBox.parentContent{
+	-fx-padding:200px 0 0 0;
+	-fx-background-position: center top;	
+	-fx-background-repeat: no-repeat;
+	-fx-background-image : url("../images/uml/parent.png");
+}
+
+VBox.paneContent{
+	-fx-padding: 200px 0 0 0;
+	-fx-background-position: center top;	
+	-fx-background-repeat: no-repeat;
+	-fx-background-image : url("../images/uml/pane.png");
+}
+
+VBox.shapeContent{
+	-fx-padding: 200px 0 0 0;
+	-fx-background-position: center top;	
+	-fx-background-repeat: no-repeat;
+	-fx-background-image : url("../images/uml/shape.png");
+}
+
+VBox.controlContent{
+	-fx-padding: 200px 0 0 0;
+	-fx-background-position: center top;	
+	-fx-background-repeat: no-repeat;
+	-fx-background-image : url("../images/uml/control.png");
+}
+*/
+VBox.workerContent{
+	/*-fx-padding:200px 0 0 0;
+	-fx-background-position: center bottom;	*/
+	-fx-background-repeat: no-repeat;
+	/*-fx-background-image : url("../images/uml/worker.png");*/
+}
+

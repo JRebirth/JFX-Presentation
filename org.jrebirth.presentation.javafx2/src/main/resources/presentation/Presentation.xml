@@ -1,0 +1,1683 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<presentation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.jrebirth.org/Presentation" xsi:schemaLocation="http://www.jrebirth.org/Presentation Presentation.xsd">
+
+	<title>Présentation de JavaFX 2.0</title>
+	<date>20/02/2012</date>
+	<event>ToulouseJUG</event>
+	<place>Epitech</place>
+
+	<speakers>
+		<speaker firstName="Sébastien" lastName="Bordes" email="contact@jrebirth.org" job="JRebirth" />
+	</speakers>
+
+	<slides>
+
+	
+		<!-- Conference Place -->
+		<slide style="place" modelClass="org.jrebirth.presentation.ui.slides.place.PlaceModel">
+		</slide>
+
+		<!-- Presentation Title -->
+		<slide style="intro" modelClass="org.jrebirth.presentation.ui.slides.intro.IntroModel">
+			<title>JavaFX2Prez.create()\n\t\t   .title("How to")\n\t\t   .build()\n\t\t   .start();</title>
+		</slide>
+
+		<!-- MOI -->
+		<slide style="me">
+			<title>Sébastien Bordes</title>
+			<content>
+				<item>Développeur</item>
+				<item>Technologies</item>
+				<item level="1">Swing</item>
+				<item level="1">Web (page et ajax)</item>
+				<item level="1">Eclipse RCP</item>
+				<item level="1">Flash-Flex (AS3)</item>
+				<item level="1">Silverlight (C#)</item>
+				<item>@SebastienBordes</item>
+				<item link="true">seb@jrebirth.org</item>
+				<item link="true">blog.webeo.fr</item>
+				<item>Graphismes</item>
+				<item level="1">xoxi@xoxi.fr</item>
+			</content>
+		</slide>
+
+		<!-- Le plan -->
+		<slide>
+			<title>Plan</title>
+			<content>
+				<item>RIAs &amp; Architecture</item>
+				<item>API par l'exemple</item>
+				<item level="1">Les éléments graphiques</item>
+				<item level="1">Le Design</item>
+				<item level="1">La Mécanique</item>
+				<item level="1">L'enrichissement</item>
+				<item>Interopérabilité &amp; Déploiement</item>
+				<item>Architecture Logicielle</item>
+				<item>Les Extras</item>
+				<item>Retex</item>
+			</content>
+		</slide>
+	
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+		<!-- Pourquoi choisir JavaFX ? -->
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+
+		<!-- HOOK -->
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" style="doyousee">
+			<title>Avez-vous \ndéjà vu\n une application\n JavaFX 2 ?</title>
+		</slide>
+
+		<!-- HOOK -->
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" style="dogfooding">
+			<title>Vraiment ??</title>
+		</slide>
+
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel">
+			<title>JavaFX != JAVA</title>
+		</slide>
+		
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel">
+			<title>JavaFX 2\n IS \n JAVA</title>
+		</slide>
+				
+		<!-- Source Code -->
+		<slide>
+			<title>Pour les curieux</title>
+			<content>
+				<item>Pour installer l'application</item>
+				<item level="1">javaws -import http://www.jrebirth.org/prez/Prez.jnlp</item>
+				<item>Pour lancer l'application en ligne</item>
+				<item level="1" link="true">www.jrebirth.org/demo.html</item>
+				<item>Pour voir le code</item>
+				<item level="1" link="true">source.jrebirth.org/wsvn/JRebirth/JRebirth/trunk/org.jrebirth.presentation.javafx2</item>
+				<item>Pour télécharger la démo</item>
+				<item level="1" link="true">repo.jrebirth.org/jrebirth-release-local/org/jrebirth/presentation/javafx2/1.0.0</item>
+				<item>Pour télécharger le Framework utilisé</item>
+				<item level="1" link="true">repo.jrebirth.org/jrebirth-release-local/org/jrebirth/core/0.4.0</item>
+			</content>
+		</slide>
+
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel">
+			<title>Celui qui trouve\n un Bug ...\n\n ... le corrige !</title>
+		</slide>
+		
+		<!-- Les RIAs -->
+		<slide modelClass="org.jrebirth.presentation.ui.slides.why.WhyUseModel">
+			<title>Pourquoi choisir JavaFX 2 ?</title>
+			<content>
+				<title>Qui Fait Quoi</title>
+				<!-- L'offre -->
+				<item>Communauté</item>
+				<item level="1">JQuery, prototype ...</item>
+				<item>Apple</item>
+				<item level="1">iOS et Safari</item>
+				<item>Google</item>
+				<item level="1">Android, Chrome, GWT &amp; co</item>
+				<item>Adobe</item>
+				<item level="1">Flash, Flex et Edge</item>
+				<item>Microsoft</item>
+				<item level="1">Silverlight, IE</item>
+				<item>Oracle</item>
+				<item level="1">Applet, JavaFX 1.3 et 2</item>
+			</content>
+
+			<content name="Multithread">
+				<title>Multithreadé</title>
+				<item>Apple</item>
+				<item level="1">iOS</item>
+				<item>Google</item>
+				<item level="1">Android</item>
+				<item>Microsoft</item>
+				<item level="1">Silverlight</item>
+				<item>Oracle</item>
+				<item level="1">JavaFX 2</item>
+			</content>
+
+			<content name="CrossPlatform">
+				<title>Cross Platform</title>
+				<!-- Riche -->
+				<item>Microsoft</item>
+				<item level="1">Silverlight</item>
+				<item>Oracle</item>
+				<item level="1">JavaFX 2</item>
+			</content>
+
+			<content name="OpenSource">
+				<title>API OS + Ecosystème</title>
+				<item>Oracle</item>
+				<item level="1">JavaFX 2</item>
+			</content>
+		</slide>
+
+		<!-- <item html="true"> <![CDATA[ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html><head> 
+			<title></title> <style type="text/css"> code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; } </style> <meta http-equiv="Content-Type" content="text/html; 
+			charset=iso-8859-1" /> </head> <body> <div align="left" class="java"> <table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff"> <tr> <td nowrap="nowrap" 
+			valign="top" align="left"> <code> <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font> <font color="#7f0055"> <b>this</b> </font> <font 
+			color="#000000">.stage&nbsp;=&nbsp;StageBuilder.create </font> <font color="#000000">()</font> <br /> <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			</font> <font color="#000000">.height</font> <font color="#000000">(</font> <font color="#990000">600</font> <font color="#000000">)</font> <br /> <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			</font> <font color="#000000">.width</font> <font color="#000000">(</font> <font color="#990000">800</font> <font color="#000000">)</font> <br /> <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			</font> <font color="#000000">.resizable</font> <font color="#000000">(</font> <font color="#7f0055"> <b>true</b> </font> <font color="#000000">)</font> <br /> <font 
+			color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font> <font color="#000000">.focused</font> <font 
+			color="#000000">(</font> <font color="#7f0055"> <b>true</b> </font> <font color="#000000">)</font> <br /> <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			</font> <font color="#000000">.title</font> <font color="#000000">(</font> <font color="#000000">title</font> <font color="#000000">)</font> <br /> <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			</font> <font color="#000000">.style</font> <font color="#000000">(</font> <font color="#000000">stageStyle</font> <font color="#000000">)</font> <br /> <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			</font> <font color="#000000">.scene</font> <font color="#000000">(</font> <font color="#000000">scene</font> <font color="#000000">)</font> <font color="#000000">.build</font> 
+			<font color="#000000">()</font> <font color="#000000">;</font> </code> </td> </tr> </table> </div> </body> </html> ]]> </item> -->
+
+		<!-- Installation -->
+		<slide>
+			<title>Comment on l'installe ?</title>
+			<content>
+				<item>SDK fourni avec le JDK (7u2)</item>
+				<item>Runtime</item>
+				<item level="1">bin => .dll et .exe</item>
+				<item level="1">deploy.jar - Webstart</item>
+				<item level="1">javaws.jar - API JNLP</item>
+				<item level="1">jfxrt.jar - API JFX2</item>
+				<item level="1">plugin.jar - Plugin Web</item>
+
+				<item>SDK</item>
+				<item level="1">bin - javafxpackager.exe</item>
+				<item level="1">Javadoc</item>
+				<item level="1">Runtime - qq dlls + jfxrt.jar</item>
+				<item level="1">tools (ant + doclet)</item>
+			</content>
+		</slide>
+
+		<!-- Architecture -->
+		<slide>
+			<title>Java FX 2.0 Architecture</title>
+			<content>
+				<item image="images/bg/Architecture_JavaFX_2.png" />
+			</content>
+		</slide>
+
+
+		<!-- HELLO -->
+		<slide modelClass="org.jrebirth.presentation.ui.slides.hello.HelloModel">
+			<title>Hello Toulouse</title>
+		</slide>
+
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+		<!-- API PAR L'EXEMPLE -->
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+		<!-- HOOK -->
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel">
+			<content>
+				<!-- <title>API par l'exemple</title> -->
+				<item image="images/splash/Api.jpg" />
+			</content>
+		</slide>
+
+
+		<!-- Les JavaBuilder -->
+		<slide>
+			<title>Les Java Builder</title>
+			<content>
+				<item>Plus concis (avec un bon formateur)</item>
+				<item>Remplace les constructeurs à N paramètres</item>
+				<item>Builder générique réutilisable</item>
+				<item>Extensible par héritage</item>
+				<item level="1">Builder&lt;B extends Builder&lt;B&gt;&gt;</item>
+				<item level="1" link="true">blog.netopyr.com/2012/01/24/advantages-of-javafx-builders/</item>
+				<item level="1" link="true">fxexperience.com/2012/01/extending-pathbuilder/</item>
+				<item html="true">
+				<![CDATA[
+				
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#7f0055"><b>final&nbsp;</b></font><font color="#000000">Text&nbsp;text&nbsp;=&nbsp;TextBuilder.create</font><font color="#000000">()</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.styleClass</font><font color="#000000">(</font><font color="#2a00ff">&#34;item&#34;&nbsp;</font><font color="#000000">+&nbsp;item.getLevel</font><font color="#000000">())</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.text</font><font color="#000000">(</font><font color="#000000">item.getValue</font><font color="#000000">())</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.opacity</font><font color="#000000">(</font><font color="#990000">1.0</font><font color="#000000">)</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.build</font><font color="#000000">()</font><font color="#000000">;</font></code>
+</td>
+  <!-- end source code -->
+   </tr>
+</table>
+</div>
+</body></html>
+				 ]]>
+				</item>
+			</content>
+		</slide>
+
+		<!-- Stage et Scene -->
+		<slide modelClass="org.jrebirth.presentation.ui.slides.stage.StageModel">
+			<title>Stage et Scene</title>
+			<content>
+
+				<item>Screen</item>
+				<item level="1">Permet la gestion du multi-écran</item>
+
+				<item>Stage</item>
+				<item level="1">Equivalent de la JFrame</item>
+				<item level="1">Plusieurs types (Decorated, Undecorated, Transparent, Utility)</item>
+				<item>PopupWindow</item>
+
+				<item>Scene</item>
+				<item level="1">Lié à un seul Stage</item>
+				<item level="1">Possède un RootNode</item>
+				<item level="1">...mais n'est pas un node</item>
+
+			</content>
+		</slide>
+
+		<!-- Node part1 -->
+		<slide>
+			<title>Node</title>
+			<content>
+				<item>Tout élément visuel est un Node</item>
+				<item image="images/uml/node.png" />
+				<item>Parent (Branches)</item>
+				<item>Shape (Feuilles)</item>
+				<item>ImageView</item>
+				<item>MediaView</item>
+			</content>
+		</slide>
+
+		<!-- Node part2 -->
+		<slide style="nodeContent">
+			<title>Node</title>
+			<content>
+				<item>StateFul</item>
+				<item>ID</item>
+				<item level="1">lookup(String cssSelector)</item>
+				<item>Bounds</item>
+				<item level="1">boundsInLocal, boundsInParent, layoutBounds</item>
+				<item level="1">x, y => Top, Left</item>
+
+				<item>Transformations</item>
+				<item level="1">Translate</item>
+				<item level="1">Scale</item>
+				<item level="1">Rotate</item>
+
+			</content>
+		</slide>
+
+		<!-- Node part3 -->
+		<slide style="nodeContent">
+			<title>Node</title>
+			<content>
+				<item>Style (classe et propriétés)</item>
+				<item>Opacité et visibilité</item>
+				<item>Focus => requestFocus()</item>
+				<item>Gestion des événements</item>
+				<item>Conversion de coordonnées</item>
+			</content>
+		</slide>
+
+		<!-- Parent -->
+		<slide style="parentContent">
+			<title>Parent</title>
+			<content>
+				<item image="images/uml/parent.png" />
+				<item>Group</item>
+				<item level="1">Pas de redimensionnement, Effet groupé</item>
+
+				<item>Region</item>
+				<item level="1">Base des conteneurs redimensionnable</item>
+				<item level="1">Contient une liste observable</item>
+
+				<item>WebView</item>
+				<item level="1">Gére un moteur de rendu web</item>
+
+				<item>Control</item>
+				<item level="1">Base des composants graphiques</item>
+			</content>
+		</slide>
+
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+		<!-- LES ELEMENTS GRAPHIQUES -->
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+
+		<!-- HOOK LES ELEMENTS GRAPHIQUES -->
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel">
+			<content>
+				<!-- <title>Les éléments graphiques</title> -->
+				<item image="images/splash/Les_éléments_graphiques.jpg" />
+			</content>
+		</slide>
+
+		<!-- Layout -->
+		<slide modelClass="org.jrebirth.presentation.ui.slides.layout.LayoutModel" style="paneContent">
+			<title>Layout</title>
+			<content>
+				<item image="images/uml/pane.png" />
+				<item>getChildren().add(Node... node)</item>
+				<item image="images/uml/control_pane.png" />
+			</content>
+
+			<content name="BorderConstraint">
+				<item>Utilisation de méthodes statiques</item>
+				<item level="1">BorderPane.setMargin(Node child, Insets value)</item>
+				<item level="1">BorderPane.setAlignment(Node child, Pos value)</item>
+			</content>
+
+			<content name="BoxConstraint">
+				<title>HBox, VBox</title>
+				<item level="1">HBox et VBox</item>
+				<item level="1">setMargin(Node child, Insets value)</item>
+				<item level="1">setVgrow(Node child, Priority value) [VHBox only]</item>
+				<item level="1">setHgrow(Node child, Priority value) [HBox only]</item>
+			</content>
+
+			<content name="StackConstraint">
+				<item>2 Méthodes statiques</item>
+				<item level="1">static void setAlignment(Node child, Pos value)</item>
+				<item level="1">static void setMargin(Node child, Insets value)</item>
+				<item>Attention faux ami</item>
+				<item level="1">void setAlignment(Pos value)</item>
+			</content>
+
+			<content name="TileConstraint">
+				<item>setAlignment(Node node, Pos value)</item>
+				<item>setMargin(Node node, Insets value)</item>
+			</content>
+
+			<content name="GridConstaint">
+				<item>Layout le plus customisable</item>
+				<item>&gt;10 méthodes statiques</item>
+				<item level="1">int columnIndex</item>
+				<item level="1">int rowIndex</item>
+				<item level="1">int columnspan</item>
+				<item level="1">int rowspan</item>
+				<item level="1">HPos halignment</item>
+				<item level="1">VPos valignment</item>
+				<item level="1">Priority hgrow</item>
+				<item level="1">Priority vgrow</item>
+				<item level="1">Insets margin</item>
+				<item>Attention Column puis Row</item>
+			</content>
+		</slide>
+
+		<!-- Shapes -->
+		<slide modelClass="org.jrebirth.presentation.ui.slides.shape.ShapeModel" style="shapeContent">
+			<title>Shape</title>
+			<content>
+				<item image="images/uml/shape.png" />
+				<item>Pas de redimensionnement</item>
+				<item>Entourable (Stroke)</item>
+				<item>Remplissable (Fill)</item>
+				<item>union, intersect, subtract </item>
+			</content>
+		</slide>
+
+		<!-- Controls -->
+		<slide modelClass="org.jrebirth.presentation.ui.slides.control.ControlModel" style="controlContent">
+			<title>Control</title>
+			<content>
+				<item image="images/uml/control.png" />
+				<item>Skinnable</item>
+				<item level="1">Tous les Controls le sont</item>
+				<item>Skin</item>
+				<item level="1">Skin est un node</item>
+				<item level="1">Est lié au composant Skinnable</item>
+			</content>
+		</slide>
+
+		<!-- Charts -->
+		<slide modelClass="org.jrebirth.presentation.ui.slides.chart.ChartModel">
+			<title>Charts</title>
+			<content>
+				<item image="images/uml/chart.png" scale="0.6" />
+				<item>Titre + Légende + couleurs via CSS</item>
+				<item>Animations</item>
+				<item>Valeurs + Node</item>
+				<item level="1">PieChart.Data</item>
+				<item level="1">XYChart.Data </item>
+				<item level="1">XYChart.Series</item>
+			</content>
+		</slide>
+
+		<!-- MEDIA -->
+		<slide modelClass="org.jrebirth.presentation.ui.slides.media.MediaModel">
+			<title>Media</title>
+			<content>
+				<item>Gestion de sons (mp3, wav, AIFF, AAC)</item>
+				<item>Gestion de vidéos (FLV [VP6], H.264/AVC)</item>
+				<item link="true">blogs.oracle.com/javafx/entry/mpeg_4_multimedia_support_in</item>
+				<item>Accélération matérielle</item>
+				<item>Analyseur de bandes</item>
+			</content>
+			<content name="Audio">
+				<item image="images/demo/fxexperience_audio_demo.png" />
+				<item level="1">by Jasper Pott</item>
+				<item link="true" level="1">http://fxexperience.com/2012/01/fun-javafx-2-0-audio-player/</item>
+			</content>
+		</slide>
+
+		<!-- BROWSER -->
+		<slide modelClass="org.jrebirth.presentation.ui.slides.browser.BrowserModel">
+			<title>WebView et WebEngine</title>
+			<content>
+				<item>Manipulable comme un Node ordinaire</item>
+				<item>Moteur performant (WebKit pour l'instant)</item>
+				<item>Sera compatible HTML5 (WebSocket ...)</item>
+			</content>
+
+			<content name="Browser">
+				<item link="true">http://mrdoob.com/projects/chromeexperiments/ball_pool/</item>
+			</content>
+
+			<content name="Gradient">
+				<item link="true">http://html5demos.com/canvas-grad</item>
+			</content>
+
+		</slide>
+
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+		<!-- LE DESIGN -->
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+
+		<!-- HOOK -->
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel">
+			<content>
+				<!-- <title>Le Design</title> -->
+				<item image="images/splash/Le_Design.jpg" />
+			</content>
+		</slide>
+
+
+		<!-- FXML -->
+		<slide modelClass="org.jrebirth.presentation.ui.slides.fxml.FXMLModel">
+			<title>FXML</title>
+			<content>
+				<item>Ecriture des vues en XML</item>
+				<item>fx:controller</item>
+				<item>onAction="#handleSomething"</item>
+				<item>Annotations @FXML et fx:id</item>
+				<item> &lt;fx:script&gt; => Javascript</item>
+				<item>Séparation Développeur/Graphiste</item>
+				<item>FXMLLoader + getController()</item>
+				<item>SceneBuilder prochainement disponible</item>
+				<item>Conversion depuis FXG</item>
+			</content>
+			<content name="sampleFXML">
+				<title>Sample</title>
+				<item html="true">
+				<![CDATA[
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#000000">&lt;?xml&nbsp;version=</font><font color="#2a00ff">&#34;1.0&#34;&nbsp;</font><font color="#000000">encoding=</font><font color="#2a00ff">&#34;UTF-8&#34;</font><font color="#000000">?&gt;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#000000">&lt;?</font><font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">javafx.scene.layout.*?&gt;</font><br />
+<font color="#000000">&lt;?</font><font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">javafx.scene.control.*?&gt;</font><br />
+<font color="#000000">&lt;?</font><font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">javafx.scene.*?&gt;</font><br />
+<font color="#000000">&lt;?</font><font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">javafx.scene.image.*?&gt;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#000000">&lt;BorderPane&nbsp;fx:controller=</font><font color="#2a00ff">&#34;your.java.Controller&#34;&nbsp;</font><font color="#000000">xmlns:fx=</font><font color="#2a00ff">&#34;http://javafx.com/fxml&#34;</font><font color="#000000">&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;top&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Label&nbsp;text=</font><font color="#2a00ff">&#34;%aLabelText&#34;&nbsp;</font><font color="#000000">style=</font><font color="#2a00ff">&#34;-fx-font:&nbsp;NORMAL&nbsp;16&nbsp;Verdana;&#34;</font><font color="#000000">/&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;/top&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;center&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;ImageView&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;image&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;Image&nbsp;url=</font><font color="#2a00ff">&#34;@anImage.jpg&#34;</font><font color="#000000">/&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;/image&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;/ImageView&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;/center&gt;</font><br />
+<font color="#000000">&lt;/BorderPane&gt;&nbsp;&nbsp;</font></code>
+   </td>
+  <!-- end source code -->
+   </tr>
+</table>
+</div>
+</body></html>					
+				]]>
+				
+				</item>
+			</content>
+			<content name="sampleController">
+				<title>Sample Controller</title>
+				<item html="true">
+				<![CDATA[
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">ArchNodeController&nbsp;</font><font color="#7f0055"><b>implements&nbsp;</b></font><font color="#000000">Initializable&nbsp;</font><font color="#000000">{</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@FXML</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#000000">Group&nbsp;nodes;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*&nbsp;{</font><font color="#7f9fbf">@inheritDoc</font><font color="#3f5fbf">}</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*/</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@Override</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">initialize</font><font color="#000000">(</font><font color="#7f0055"><b>final&nbsp;</b></font><font color="#000000">URL&nbsp;arg0,&nbsp;</font><font color="#7f0055"><b>final&nbsp;</b></font><font color="#000000">ResourceBundle&nbsp;arg1</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>this</b></font><font color="#000000">.nodes.setVisible</font><font color="#000000">(</font><font color="#7f0055"><b>false</b></font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">showNodes</font><font color="#000000">(</font><font color="#7f0055"><b>final&nbsp;</b></font><font color="#7f0055"><b>boolean&nbsp;</b></font><font color="#000000">b</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>this</b></font><font color="#000000">.nodes.setVisible</font><font color="#000000">(</font><font color="#000000">b</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#000000">}</font></code>
+    
+   </td>
+   </tr>
+</table>
+</div>
+</body></html>				
+				]]>
+				
+				</item>
+			</content>
+
+		</slide>
+
+		<!-- CSS -->
+		<slide>
+			<title>CSS</title>
+			<content>
+				<item>Inspiré des CSS HTML</item>
+				<item>Préfixe -fx-</item>
+				<item>Pas de positionnement et de gestion de layout</item>
+				<item>Quelques spécificités (derivation, var, corner)</item>
+				<item>9 Slice Scaling</item>
+				<item>Layering</item>
+				<item>Lié à un l'objet Scene</item>
+				<item>Compilable en binaires</item>
+			</content>
+		</slide>
+		<!-- Largement inspiré de CSS 2.1 Background et border CSS3 -->
+
+		<!-- Les Ressources -->
+		<slide modelClass="org.jrebirth.presentation.ui.slides.resources.ResourcesModel">
+			<title>Les Ressources</title>
+			
+			<content>
+				<title></title>
+				<item>Polices</item>
+				<item level="1">Préchargement requis pour les CSS</item>
+				<item level="1">Taille par défaut</item>
+				
+				<item>Images</item>
+				<item level="1">Image View + Image</item>
+				<item level="1">Thread.currentThread()</item>
+				<item level="1">.getContextClassLoader().getResourceAsStream()</item>
+				<item level="1">Problème de gestion des images en CMJN</item>
+
+			</content>
+			
+			<content name="Color">
+				<title>Les Couleurs</title>
+				<item>Couleurs simples</item>
+				<item level="1">Web (#FFFFFF)</item>
+				<item level="1">RGB (255,255,255) ou RGB(1,1,1)</item>
+				<item level="1">HSB (255,255,255)</item>
+				<item level="1">Nuance de gris</item>
+
+				<item>Dégradé de couleurs</item>
+				<item level="1">Linéaire</item>
+				<item level="1">Radial</item>
+			</content>
+		</slide>
+
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+		<!-- LA MECANIQUE -->
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+
+		<!-- HOOK -->
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Tile">
+			<content>
+				<!-- <title>La Mécanique</title> -->
+				<item image="images/splash/La_Mécanique.jpg" />
+			</content>
+		</slide>
+
+		<!-- Gestion des Threads -->
+		<slide>
+			<title>La gestion des Threads</title>
+			<content>
+				<item>Thread graphique unique [JAT]</item>
+				<item level="1">Gestion des événements</item>
+				<item level="1">Platform.isFxApplicationThread()</item>
+				<item level="1">Platform.runLater(Runnable)</item>
+				<item>Prism Thread [QuantumRenderer]</item>
+				<item level="1">Rendu N, Calcul N+1</item>
+				<item>Media Thread</item>
+				<item>Autres Threads</item>
+				<item level="1">main</item>
+				<item level="1">JavaFX-Launcher</item>
+				<item level="1">Disposer (Daemon)</item>
+				<item level="1">Thread-2 (Daemon)</item>
+				<item level="1">+ les vôtres !!</item>
+
+			</content>
+		</slide>
+
+		<!-- Tasks -->
+		<slide>
+			<title>Les Tâches</title>
+			<content>
+				<item image="images/uml/worker.png" />
+				<item>Gestion des autres threads</item>
+				<item level="1">Interface Worker</item>
+				<item level="1">WorkStatus</item>
+				<item level="1">Service</item>
+				<item level="1">Task</item>
+			</content>
+		</slide>
+
+		<!-- Handler -->
+		<slide modelClass="org.jrebirth.presentation.ui.slides.handler.HandlerModel">
+			<title>EventHandler et EventFilter</title>
+			<content>
+				<item>Phase de Capture</item>
+				<item level="1">Du Stage jusqu'à  l'élément déclencheur</item>
+				<item level="1">Interception avec addEventFilters()</item>
+
+				<item>Phase de Bubbling</item>
+				<item level="1">De l'élément déclencheur jusqu'au Stage</item>
+				<item level="1">Interception avec addEventHandlers()</item>
+
+				<item>Arborescence</item>
+				<item level="1">Stage</item>
+				<item level="1">Scene</item>
+				<item level="1">BorderPane</item>
+				<item level="2">Label (Top)</item>
+				<item level="2">TextArea (Center)</item>
+				<item level="2">Button (Bottom)</item>
+			</content>
+
+			<content name="EventHandler">
+				<item>Event</item>
+				<item level="1">ActionEvent, InputEvent, ListView.EditEvent, MediaErrorEvent</item>
+				<item level="1">TableColumn.CellEditEvent, TreeItem.TreeModificationEvent</item>
+				<item level="1">TreeView.EditEvent, WebEvent, WindowEvent</item>
+				<item>EventType&lt;Event&gt;, EventHandler&lt;Event&gt;</item>
+				<item>Utilisation</item>
+				<item level="1">addEventHandler(MouseEvent.MOUSE_CLICKED, </item>
+				<item level="1">        new EventHandler&lt;MouseEvent&gt;(...) )</item>
+				<item level="1">setOnMouseClicked(new EventHandler&lt;MouseEvent&gt;(...) )</item>
+				<item>Mais 1 seul EventHandler par classe [anonyme|interne]</item>
+				<item level="1">JRebirth => MouseHandler + MouseAdapter</item>
+			</content>
+
+		</slide>
+
+		<!-- Properties -->
+		<slide modelClass="org.jrebirth.presentation.ui.slides.property.PropertyModel">
+			<title>Observable et Binding</title>
+			<content>
+				<title>Collection</title>
+				<item>Ecoute des modifications d’une collection</item>
+				<item level="1">ObservableList</item>
+				<item level="1">ObservableMap</item>
+				<item level="1">FxCollections</item>
+			</content>
+
+			<content name="JavaBean">
+				<title>Java Beans</title>
+				<item>Accesseurs et Mutateurs (Encapsulation)</item>
+				<item html="true">
+			<![CDATA[
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">01</font>&nbsp;<font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">JavaBean&nbsp;</font><font color="#000000">{</font><br />
+<font color="#808080">02</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">03</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**&nbsp;The&nbsp;bean&nbsp;integer&nbsp;value.&nbsp;*/</font><br />
+<font color="#808080">04</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;</b></font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">value;</font><br />
+<font color="#808080">05</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">06</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**</font><br />
+<font color="#808080">07</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*&nbsp;</font><font color="#7f9fbf">@param&nbsp;</font><font color="#3f5fbf">value&nbsp;The&nbsp;value&nbsp;to&nbsp;set.</font><br />
+<font color="#808080">08</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*/</font><br />
+<font color="#808080">09</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;final&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">setValue</font><font color="#000000">(</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">value</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">10</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>this</b></font><font color="#000000">.value&nbsp;=&nbsp;value;</font><br />
+<font color="#808080">11</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">12</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">13</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**</font><br />
+<font color="#808080">14</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*&nbsp;</font><font color="#7f9fbf">@return&nbsp;</font><font color="#3f5fbf">Returns&nbsp;the&nbsp;value.</font><br />
+<font color="#808080">15</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*/</font><br />
+<font color="#808080">16</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;final&nbsp;</b></font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">getValue</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">17</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#000000">value;</font><br />
+<font color="#808080">18</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">19</font>&nbsp;<font color="#000000">}</font></code>
+    
+   </td>
+   </tr>
+</table>
+</div>
+</body></html>
+			]]>
+			
+				</item>
+			</content>
+
+			<content name="JavaProperty">
+				<title>Properties</title>
+				<item>Les Java Beans ++</item>
+				<item html="true">
+		<![CDATA[
+		<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">01</font>&nbsp;<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">javafx.beans.property.IntegerProperty;</font><br />
+<font color="#808080">02</font>&nbsp;<font color="#7f0055"><b>import&nbsp;</b></font><font color="#000000">javafx.beans.property.SimpleIntegerProperty;</font><br />
+<font color="#808080">03</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">04</font>&nbsp;<font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">JavaProperty&nbsp;</font><font color="#000000">{</font><br />
+<font color="#808080">05</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">06</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**&nbsp;The&nbsp;integer&nbsp;property.&nbsp;*/</font><br />
+<font color="#808080">07</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>private&nbsp;final&nbsp;</b></font><font color="#000000">IntegerProperty&nbsp;intProperty&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">SimpleIntegerProperty</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">08</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">09</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**</font><br />
+<font color="#808080">10</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*&nbsp;</font><font color="#7f9fbf">@return&nbsp;</font><font color="#3f5fbf">Returns&nbsp;the&nbsp;value.</font><br />
+<font color="#808080">11</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*/</font><br />
+<font color="#808080">12</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;final&nbsp;</b></font><font color="#7f0055"><b>double&nbsp;</b></font><font color="#000000">getValue</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">13</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#000000">intProperty.get</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">14</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">15</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">16</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**</font><br />
+<font color="#808080">17</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*&nbsp;</font><font color="#7f9fbf">@param&nbsp;</font><font color="#3f5fbf">value&nbsp;The&nbsp;value&nbsp;to&nbsp;set.</font><br />
+<font color="#808080">18</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*/</font><br />
+<font color="#808080">19</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;final&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">setValue</font><font color="#000000">(</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">value</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">20</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">intProperty.set</font><font color="#000000">(</font><font color="#000000">value</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">21</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">22</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">23</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**</font><br />
+<font color="#808080">24</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*&nbsp;</font><font color="#7f9fbf">@return&nbsp;</font><font color="#3f5fbf">the&nbsp;integer&nbsp;property.</font><br />
+<font color="#808080">25</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*/</font><br />
+<font color="#808080">26</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#000000">IntegerProperty&nbsp;intProperty</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">27</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#000000">intProperty;</font><br />
+<font color="#808080">28</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">29</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">30</font>&nbsp;<font color="#000000">}</font></code>
+    
+   </td>
+   </tr>
+</table>
+</div>
+</body></html>
+		]]>
+		</item>
+
+			</content>
+
+			<content name="XXXProperty">
+				<title>JavaFX Properties</title>
+				<item>Les Types Primitifs</item>
+				<item level="1">Boolean, Double, Float, Integer, Long, String</item>
+				<item>Extensible</item>
+				<item level="1">ObjectProperty&lt;T&gt;</item>
+				<item>Version ReadOnly ou Wrapper</item>
+				<item>Lien entre properties (add,divide ....)</item>
+				<item>ChangeListener &amp; InvalidationListener</item>
+			</content>
+
+			<content name="Binding">
+				<title>Le Binding</title>
+				<item>Unidirectionnel ou Bidirectionnel</item>
+				<item html="true">
+		<![CDATA[
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">01</font>&nbsp;<font color="#7f0055"><b>final&nbsp;</b></font><font color="#000000">NumberFormat&nbsp;nf&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">DecimalFormat</font><font color="#000000">(</font><font color="#2a00ff">&#34;0.0&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#808080">02</font>&nbsp;<font color="#7f0055"><b>final&nbsp;</b></font><font color="#000000">Circle&nbsp;c&nbsp;=&nbsp;CircleBuilder.create</font><font color="#000000">()</font><font color="#000000">.fill</font><font color="#000000">(</font><font color="#000000">Color.AQUA</font><font color="#000000">)</font><font color="#000000">.radius</font><font color="#000000">(</font><font color="#990000">50</font><font color="#000000">)</font><font color="#000000">.build</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">03</font>&nbsp;<font color="#7f0055"><b>final&nbsp;</b></font><font color="#000000">Slider&nbsp;s&nbsp;=&nbsp;SliderBuilder.create</font><font color="#000000">()</font><font color="#000000">.min</font><font color="#000000">(</font><font color="#990000">0.1</font><font color="#000000">)</font><font color="#000000">.max</font><font color="#000000">(</font><font color="#990000">5</font><font color="#000000">)</font><font color="#000000">.value</font><font color="#000000">(</font><font color="#990000">1.0</font><font color="#000000">)</font><font color="#000000">.majorTickUnit</font><font color="#000000">(</font><font color="#990000">1.0</font><font color="#000000">)</font><font color="#000000">.maxWidth</font><font color="#000000">(</font><font color="#990000">200</font><font color="#000000">)</font><font color="#000000">.build</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">04</font>&nbsp;<font color="#7f0055"><b>final&nbsp;</b></font><font color="#000000">Label&nbsp;l&nbsp;=&nbsp;LabelBuilder.create</font><font color="#000000">()</font><font color="#000000">.build</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#808080">05</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">06</font>&nbsp;<font color="#000000">c.scaleXProperty</font><font color="#000000">()</font><font color="#000000">.bind</font><font color="#000000">(</font><font color="#000000">s.valueProperty</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">07</font>&nbsp;<font color="#000000">c.scaleYProperty</font><font color="#000000">()</font><font color="#000000">.bind</font><font color="#000000">(</font><font color="#000000">s.valueProperty</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#808080">08</font>&nbsp;<font color="#ffffff"></font><br />
+<font color="#808080">09</font>&nbsp;<font color="#000000">s.valueProperty</font><font color="#000000">()</font><font color="#000000">.addListener</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">ChangeListener&lt;Number&gt;</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#808080">10</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#646464">@Override</font><br />
+<font color="#808080">11</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">changed</font><font color="#000000">(</font><font color="#000000">ObservableValue&lt;?&nbsp;</font><font color="#7f0055"><b>extends&nbsp;</b></font><font color="#000000">Number&gt;&nbsp;observable,&nbsp;Number&nbsp;oldValue,&nbsp;Number&nbsp;newValue</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#808080">12</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">l.setText</font><font color="#000000">(</font><font color="#000000">nf.format</font><font color="#000000">(</font><font color="#000000">newValue</font><font color="#000000">))</font><font color="#000000">;</font><br />
+<font color="#808080">13</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#808080">14</font>&nbsp;<font color="#000000">})</font><font color="#000000">;</font></code>
+    
+   </td>
+   </tr>
+</table>
+</div>
+</body></html>
+		]]>
+		</item>
+			</content>
+		</slide>
+
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+		<!-- L'enrichissement -->
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+		<!-- HOOK -->
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Fade">
+			<content>
+				<!-- <title>L'enrichissement</title> -->
+				<item image="images/splash/L'enrichissement.jpg" />
+			</content>
+		</slide>
+
+		<!-- Drag And Drop -->
+		<slide>
+			<title>Drag and Drop</title>
+			<content>
+				<item>Node et Scene ou monde extérieur</item>
+				<item level="1">Copy, Move, Link</item>
+				<item level="1">DragBoard</item>
+				<item>Gesture source</item>
+				<item level="1">source.setOnDragDetected</item>
+				<item level="1">source.startDragAndDrop</item>
+				<item level="1">source.setOnDragDone</item>
+
+				<item>Gesture target</item>
+				<item level="1">target.setOnDragOver</item>
+				<item level="1">target.setOnDragEntered</item>
+				<item level="1">target.setOnDragExited</item>
+				<item level="1">target.setOnDragDropped</item>
+
+			</content>
+		</slide>
+
+		<!-- Transition -->
+		<slide modelClass="org.jrebirth.presentation.ui.slides.animation.AnimationModel">
+			<title>Animations</title>
+			<content>
+				<item>Groupées</item>
+				<item level="1">ParallelTransition</item>
+				<item level="1">SequentialTransition</item>
+				<item>Atomiques</item>
+				<item>Timeline</item>
+			</content>
+
+			<content name="FillTransition">
+				<title>FillTransition</title>
+				<item html="true">
+				<![CDATA[
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">1</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">FillTransitionBuilder.create</font><font color="#000000">()</font><br />
+<font color="#808080">2</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.shape</font><font color="#000000">(</font><font color="#000000">demoRectangle</font><font color="#000000">)</font><br />
+<font color="#808080">3</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.fromValue</font><font color="#000000">(</font><font color="#000000">PrezColors.GRADIENT_1.get</font><font color="#000000">())</font><br />
+<font color="#808080">4</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.toValue</font><font color="#000000">(</font><font color="#000000">PrezColors.GRADIENT_2.get</font><font color="#000000">())</font><br />
+<font color="#808080">5</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.autoReverse</font><font color="#000000">(</font><font color="#7f0055"><b>true</b></font><font color="#000000">)</font><br />
+<font color="#808080">6</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.cycleCount</font><font color="#000000">(</font><font color="#000000">Animation.INDEFINITE</font><font color="#000000">)</font><br />
+<font color="#808080">7</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.interpolator</font><font color="#000000">(</font><font color="#000000">Interpolator.EASE_IN</font><font color="#000000">)</font><br />
+<font color="#808080">8</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.duration</font><font color="#000000">(</font><font color="#000000">Duration.seconds</font><font color="#000000">(</font><font color="#990000">1</font><font color="#000000">))</font><br />
+<font color="#808080">9</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.build</font><font color="#000000">()</font><font color="#000000">.play</font><font color="#000000">()</font><font color="#000000">;</font></code>
+    
+   </td>
+   </tr>
+</table>
+</div>
+</body></html>
+				]]>
+				</item>
+			</content>
+			<content name="StrokeTransition">
+				<title>StrokeTransition</title>
+				<item html="true">
+				<![CDATA[
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">1</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">StrokeTransitionBuilder.create</font><font color="#000000">()</font><br />
+<font color="#808080">2</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.shape</font><font color="#000000">(</font><font color="#000000">demoRectangle</font><font color="#000000">)</font><br />
+<font color="#808080">3</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.fromValue</font><font color="#000000">(</font><font color="#000000">PrezColors.GRADIENT_1.get</font><font color="#000000">())</font><br />
+<font color="#808080">4</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.toValue</font><font color="#000000">(</font><font color="#000000">PrezColors.GRADIENT_2.get</font><font color="#000000">())</font><br />
+<font color="#808080">5</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.autoReverse</font><font color="#000000">(</font><font color="#7f0055"><b>true</b></font><font color="#000000">)</font><br />
+<font color="#808080">6</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.cycleCount</font><font color="#000000">(</font><font color="#000000">Animation.INDEFINITE</font><font color="#000000">)</font><br />
+<font color="#808080">7</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.interpolator</font><font color="#000000">(</font><font color="#000000">Interpolator.EASE_IN</font><font color="#000000">)</font><br />
+<font color="#808080">8</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.duration</font><font color="#000000">(</font><font color="#000000">Duration.seconds</font><font color="#000000">(</font><font color="#990000">1</font><font color="#000000">))</font><br />
+<font color="#808080">9</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.build</font><font color="#000000">()</font><font color="#000000">.play</font><font color="#000000">()</font><font color="#000000">;</font></code>
+   </td>
+   </tr>
+</table>
+</div>
+</body></html>
+				]]>
+				</item>
+			</content>
+			<content name="FadeTransition">
+				<title>FadeTransition</title>
+				<item html="true">
+				<![CDATA[
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">1</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">FadeTransitionBuilder.create</font><font color="#000000">()</font><br />
+<font color="#808080">2</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.node</font><font color="#000000">(</font><font color="#000000">demoRectangle</font><font color="#000000">)</font><br />
+<font color="#808080">3</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.fromValue</font><font color="#000000">(</font><font color="#990000">0.0</font><font color="#000000">)</font><br />
+<font color="#808080">4</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.toValue</font><font color="#000000">(</font><font color="#990000">1.0</font><font color="#000000">)</font><br />
+<font color="#808080">5</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.autoReverse</font><font color="#000000">(</font><font color="#7f0055"><b>true</b></font><font color="#000000">)</font><br />
+<font color="#808080">6</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.cycleCount</font><font color="#000000">(</font><font color="#000000">Animation.INDEFINITE</font><font color="#000000">)</font><br />
+<font color="#808080">7</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.interpolator</font><font color="#000000">(</font><font color="#000000">Interpolator.EASE_IN</font><font color="#000000">)</font><br />
+<font color="#808080">8</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.duration</font><font color="#000000">(</font><font color="#000000">Duration.seconds</font><font color="#000000">(</font><font color="#990000">1</font><font color="#000000">))</font><br />
+<font color="#808080">9</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.build</font><font color="#000000">()</font><font color="#000000">.play</font><font color="#000000">()</font><font color="#000000">;</font></code>
+   </td>
+   </tr>
+</table>
+</div>
+</body></html>
+				]]>
+				</item>
+			</content>
+			<content name="PauseTransition">
+				<title>PauseTransition</title>
+				<item html="true">
+				<![CDATA[
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">01</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">SequentialTransitionBuilder.create</font><font color="#000000">()</font><br />
+<font color="#808080">02</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.autoReverse</font><font color="#000000">(</font><font color="#7f0055"><b>true</b></font><font color="#000000">)</font><br />
+<font color="#808080">03</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.cycleCount</font><font color="#000000">(</font><font color="#000000">Animation.INDEFINITE</font><font color="#000000">)</font><br />
+<font color="#808080">04</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.children</font><font color="#000000">(</font><br />
+<font color="#808080">05</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">RotateTransitionBuilder.create</font><font color="#000000">()</font><br />
+<font color="#808080">06</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.node</font><font color="#000000">(</font><font color="#000000">demoRectangle</font><font color="#000000">)</font><br />
+<font color="#808080">07</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.fromAngle</font><font color="#000000">(</font><font color="#990000">0</font><font color="#000000">)</font><br />
+<font color="#808080">08</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.toAngle</font><font color="#000000">(</font><font color="#990000">180</font><font color="#000000">)</font><br />
+<font color="#808080">09</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.interpolator</font><font color="#000000">(</font><font color="#000000">Interpolator.EASE_IN</font><font color="#000000">)</font><br />
+<font color="#808080">10</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.duration</font><font color="#000000">(</font><font color="#000000">Duration.millis</font><font color="#000000">(</font><font color="#990000">400</font><font color="#000000">))</font><br />
+<font color="#808080">11</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.build</font><font color="#000000">()</font><font color="#000000">,</font><br />
+<font color="#808080">12</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">PauseTransitionBuilder.create</font><font color="#000000">()</font><font color="#000000">.duration</font><font color="#000000">(</font><font color="#000000">Duration.millis</font><font color="#000000">(</font><font color="#990000">600</font><font color="#000000">))</font><font color="#000000">.build</font><font color="#000000">())</font><br />
+<font color="#808080">13</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.build</font><font color="#000000">()</font><font color="#000000">.play</font><font color="#000000">()</font><font color="#000000">;</font></code>
+    
+   </td>
+  <!-- end source code -->
+   </tr>
+</table>
+</div>
+</body></html>
+				]]>
+				</item>
+			</content>
+			<content name="RotateTransition">
+				<title>RotateTransition</title>
+				<item html="true">
+				<![CDATA[
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">1</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">RotateTransitionBuilder.create</font><font color="#000000">()</font><br />
+<font color="#808080">2</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.node</font><font color="#000000">(</font><font color="#000000">demoRectangle</font><font color="#000000">)</font><br />
+<font color="#808080">3</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.autoReverse</font><font color="#000000">(</font><font color="#7f0055"><b>true</b></font><font color="#000000">)</font><br />
+<font color="#808080">4</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.fromAngle</font><font color="#000000">(</font><font color="#990000">0</font><font color="#000000">)</font><br />
+<font color="#808080">5</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.toAngle</font><font color="#000000">(</font><font color="#990000">540</font><font color="#000000">)</font><br />
+<font color="#808080">6</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.cycleCount</font><font color="#000000">(</font><font color="#000000">Animation.INDEFINITE</font><font color="#000000">)</font><br />
+<font color="#808080">7</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.interpolator</font><font color="#000000">(</font><font color="#000000">Interpolator.EASE_IN</font><font color="#000000">)</font><br />
+<font color="#808080">8</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.duration</font><font color="#000000">(</font><font color="#000000">Duration.seconds</font><font color="#000000">(</font><font color="#990000">1</font><font color="#000000">))</font><br />
+<font color="#808080">9</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.build</font><font color="#000000">()</font><font color="#000000">.play</font><font color="#000000">()</font><font color="#000000">;</font></code>
+   </td>
+   </tr>
+</table>
+</div>
+</body></html>
+				]]>
+				</item>
+			</content>
+			<content name="ScaleTransition">
+				<title>ScaleTransition</title>
+				<item html="true">
+				<![CDATA[
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">01</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ScaleTransitionBuilder.create</font><font color="#000000">()</font><br />
+<font color="#808080">02</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.node</font><font color="#000000">(</font><font color="#000000">demoRectangle</font><font color="#000000">)</font><br />
+<font color="#808080">03</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.fromX</font><font color="#000000">(</font><font color="#990000">1.0</font><font color="#000000">)</font><br />
+<font color="#808080">04</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.byX</font><font color="#000000">(</font><font color="#990000">0.1</font><font color="#000000">)</font><br />
+<font color="#808080">05</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.toX</font><font color="#000000">(</font><font color="#990000">2.0</font><font color="#000000">)</font><br />
+<font color="#808080">06</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.fromY</font><font color="#000000">(</font><font color="#990000">1.0</font><font color="#000000">)</font><br />
+<font color="#808080">07</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.byY</font><font color="#000000">(</font><font color="#990000">0.1</font><font color="#000000">)</font><br />
+<font color="#808080">08</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.toY</font><font color="#000000">(</font><font color="#990000">2.0</font><font color="#000000">)</font><br />
+<font color="#808080">09</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.autoReverse</font><font color="#000000">(</font><font color="#7f0055"><b>true</b></font><font color="#000000">)</font><br />
+<font color="#808080">10</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.cycleCount</font><font color="#000000">(</font><font color="#000000">Animation.INDEFINITE</font><font color="#000000">)</font><br />
+<font color="#808080">11</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.interpolator</font><font color="#000000">(</font><font color="#000000">Interpolator.EASE_IN</font><font color="#000000">)</font><br />
+<font color="#808080">12</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.duration</font><font color="#000000">(</font><font color="#000000">Duration.seconds</font><font color="#000000">(</font><font color="#990000">1</font><font color="#000000">))</font><br />
+<font color="#808080">13</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.build</font><font color="#000000">()</font><font color="#000000">.play</font><font color="#000000">()</font><font color="#000000">;</font></code>
+   </td>
+   </tr>
+</table>
+</div>
+</body></html>				
+				]]>
+				</item>
+			</content>
+			<content name="TranslateTransition">
+				<title>TranslateTransition</title>
+				<item html="true">
+				<![CDATA[
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">01</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">TranslateTransitionBuilder.create</font><font color="#000000">()</font><br />
+<font color="#808080">02</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.node</font><font color="#000000">(</font><font color="#000000">demoRectangle</font><font color="#000000">)</font><br />
+<font color="#808080">03</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.fromX</font><font color="#000000">(</font><font color="#990000">0.0</font><font color="#000000">)</font><br />
+<font color="#808080">04</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.toX</font><font color="#000000">(</font><font color="#990000">400.0</font><font color="#000000">)</font><br />
+<font color="#808080">05</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.fromY</font><font color="#000000">(</font><font color="#990000">0.0</font><font color="#000000">)</font><br />
+<font color="#808080">06</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.toY</font><font color="#000000">(</font><font color="#990000">200</font><font color="#000000">)</font><br />
+<font color="#808080">07</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.autoReverse</font><font color="#000000">(</font><font color="#7f0055"><b>true</b></font><font color="#000000">)</font><br />
+<font color="#808080">08</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.cycleCount</font><font color="#000000">(</font><font color="#000000">Animation.INDEFINITE</font><font color="#000000">)</font><br />
+<font color="#808080">09</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.interpolator</font><font color="#000000">(</font><font color="#000000">Interpolator.EASE_BOTH</font><font color="#000000">)</font><br />
+<font color="#808080">10</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.duration</font><font color="#000000">(</font><font color="#000000">Duration.seconds</font><font color="#000000">(</font><font color="#990000">1</font><font color="#000000">))</font><br />
+<font color="#808080">11</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.build</font><font color="#000000">()</font><font color="#000000">.play</font><font color="#000000">()</font><font color="#000000">;</font></code>
+   </td>
+   </tr>
+</table>
+</div>
+</body></html>
+				]]>
+				</item>
+			</content>
+			<content name="PathTransition">
+				<title>PathTransition</title>
+				<item html="true">
+				<![CDATA[
+				
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">1</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">String&nbsp;path&nbsp;=&nbsp;</font><font color="#2a00ff">&#34;M0&nbsp;230.717C0&nbsp;230.717&nbsp;206.085&nbsp;48.7446&nbsp;313.587&nbsp;86.8569&nbsp;421.089&nbsp;124.969&nbsp;407.816&nbsp;319.824&nbsp;506.692&nbsp;298.352&nbsp;605.567&nbsp;276.881&nbsp;704.442&nbsp;-39.8258&nbsp;800&nbsp;4.19133&#34;</font><font color="#000000">;</font><br />
+<font color="#808080">2</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">PathTransitionBuilder.create</font><font color="#000000">()</font><br />
+<font color="#808080">3</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.node</font><font color="#000000">(</font><font color="#000000">demoRectangle</font><font color="#000000">)</font><br />
+<font color="#808080">4</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.path</font><font color="#000000">(</font><font color="#000000">SVGPathBuilder.create</font><font color="#000000">()</font><font color="#000000">.content</font><font color="#000000">(</font><font color="#000000">path</font><font color="#000000">)</font><font color="#000000">.build</font><font color="#000000">())</font><br />
+<font color="#808080">5</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.autoReverse</font><font color="#000000">(</font><font color="#7f0055"><b>true</b></font><font color="#000000">)</font><br />
+<font color="#808080">6</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.cycleCount</font><font color="#000000">(</font><font color="#000000">Animation.INDEFINITE</font><font color="#000000">)</font><br />
+<font color="#808080">7</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.interpolator</font><font color="#000000">(</font><font color="#000000">Interpolator.EASE_IN</font><font color="#000000">)</font><br />
+<font color="#808080">8</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.duration</font><font color="#000000">(</font><font color="#000000">Duration.seconds</font><font color="#000000">(</font><font color="#990000">1</font><font color="#000000">))</font><br />
+<font color="#808080">9</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.build</font><font color="#000000">()</font><font color="#000000">.play</font><font color="#000000">()</font><font color="#000000">;</font></code>
+    
+   </td>
+   </tr>
+</table>
+</div>
+</body></html>
+				]]>
+				</item>
+			</content>
+			<content name="Timeline">
+				<title>Timeline</title>
+				<item>Utilisation de KeyFrame</item>
+				<item level="1">Permet de modifier toutes les properties javafx</item>
+				<item level="1">KeyValue</item>
+				<item level="1">onFinished</item>
+				<item>AnimationTimer</item>
+			</content>
+		</slide>
+
+		<!-- Effets -->
+		<slide modelClass="org.jrebirth.presentation.ui.slides.effect.EffectModel">
+			<title>Effets</title>
+			<content>
+				<item>node.setEffect(effect)</item>
+				<item>Les effets sont chaînables</item>
+				<item level="1">effect.setInput(effect)</item>
+			</content>
+		</slide>
+
+		<!-- La 2D -->
+		<slide>
+			<title>La 2D</title>
+			<content>
+				<item>Tout est 2D</item>
+				<item>Possibilité d'ajouter un moteur physique</item>
+				<item level="1">JBox2D</item>
+				<item link="true">jbox2d.org</item>
+				<item link="true">thisiswhatiknowabout.blogspot.com/2011/11/hello-world-jbox2d-with-javafx-20.html</item>
+			</content>
+		</slide>
+
+		<!-- La 3D -->
+		<slide>
+			<title>La 3D</title>
+			<content>
+				<item>Gestion de la coordonnée z</item>
+				<item>Point2D et Rectangle 2D</item>
+				<item>Point3D</item>
+				<item>Rendu de la Scene</item>
+				<item level="1">ParallelCamera</item>
+				<item level="1">PerspectiveCamera</item>
+			</content>
+		</slide>
+
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+		<!-- INTEGRATION ET DEPLOIEMENT -->
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+
+		<!-- HOOK -->
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Fade">
+			<content>
+				<!-- <title>Intégration et Déploiement</title> -->
+				<item image="images/splash/Integration_et_deploiement.jpg" />
+			</content>
+		</slide>
+
+		<!-- Intégration avec l'existant -->
+		<slide>
+			<title>Intégration</title>
+			<content>
+				<item>Swing - JFXPanel</item>
+				<item level="1">Attention à  la gestion des threads EDT et JAT</item>
+				<item level="1">final JFXPanel fxPanel = new JFXPanel();</item>
+				<item level="1">Platform.runLater => fxPanel.setScene(scene);</item>
+				<item level="1">SwingUtilities.invokeLater</item>
+
+				<item>SWT (EclipseRCP) - FXCanvas</item>
+				<item level="1">FXCanvas canvas = new FXCanvas(shell, SWT.NONE);   </item>
+				<item level="1">canvas.setScene(scene);</item>
+
+				<item>Javascript</item>
+				<item level="1">Communication bi-directionnelle</item>
+			</content>
+		</slide>
+
+		<!-- Les Outils -->
+		<slide>
+			<title>Avec quoi développer</title>
+			<content>
+				<item>NetBeans (ant inside)</item>
+				<item>IntelliJ IDEA</item>
+				<item>Eclipse + e(fx)clipse</item>
+				<item>... ou tout IDE Java</item>
+				<item>Votre Usine de développement Java</item>
+				<item level="1">Git</item>
+				<item level="1">Maven</item>
+				<item level="1">Jenkins</item>
+				<item level="1">Sonar</item>
+				<item level="1">Artifactory</item>
+			</content>
+		</slide>
+
+		<!-- Packaging -->
+		<slide>
+			<title>Packaging</title>
+			<content>
+				<item>En standalone</item>
+				<item level="1">Jar+Libs</item>
+				<item>En Java Web Start</item>
+				<item level="1">Jnlp + jars (signés)</item>
+				<item>En ligne</item>
+				<item level="1">Html + Javascript + jnlp + jars (signés)</item>
+				<item>En natif</item>
+				<item level="1">Izpack + launch4j + jars (seulement pour Windows)</item>
+				<item>Attention à vos resources !!!</item>
+				<item level="1">All-in-One jar ...</item>
+				<item level="1">ou copier à côté (recquiert un protocole)</item>
+			</content>
+		</slide>
+
+		<!-- Déploiement -->
+		<slide>
+			<title>Déploiement</title>
+			<content>
+				<item>Ligne de commande [javafxpackager]</item>
+				<item>Tâche Ant</item>
+				<item>Manuellement (via IDE)</item>
+				<item level="1">NetBeans</item>
+				<item level="1">Eclipse + Plugin E(fx)clipse</item>
+				<item>Avec Maven</item>
+				<item level="1" link="true">blog.webeo.fr/post/2012/01/29/How-to-build-and-package-JavaFX-2-Application-with-Maven</item>
+			</content>
+		</slide>
+
+		<!-- Java Webstart -->
+		<slide modelClass="org.jrebirth.presentation.ui.slides.jws.JWSModel">
+			<title>Java Webstart</title>
+			<content>
+				<item>Destiné à l'origine à Swing</item>
+				<item>Capable de diffuser tout types de binaires</item>
+				<item>Gestion de cache</item>
+				<item>Restrictions de sécurité</item>
+				<item>Signature des jars</item>
+			</content>
+
+			<content name="Jnlp">
+				<title>Jnlp</title>
+				<item>Java Network Launching Protocol</item>
+				<item html="true">
+				<![CDATA[
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#000000">&lt;?xml&nbsp;version=</font><font color="#2a00ff">&#34;1.0&#34;&nbsp;</font><font color="#000000">encoding=</font><font color="#2a00ff">&#34;UTF-8&#34;&nbsp;</font><font color="#000000">?&gt;</font><br />
+<font color="#000000">&lt;jnlp&nbsp;spec=</font><font color="#2a00ff">&#34;1.0+&#34;&nbsp;</font><font color="#000000">xmlns:jfx=</font><font color="#2a00ff">&#34;http://javafx.com&#34;&nbsp;</font><font color="#000000">codebase=</font><font color="#2a00ff">&#34;http://www.jrebirth.org/prez&#34;&nbsp;</font><font color="#000000">href=</font><font color="#2a00ff">&#34;Prez.jnlp&#34;</font><font color="#000000">&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;information&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;title&gt;JavaFX&nbsp;</font><font color="#990000">2.0&nbsp;</font><font color="#000000">Presentation&lt;/title&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;vendor&gt;S&eacute;bastien&nbsp;Bordes&lt;/vendor&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;homepage&nbsp;href=</font><font color="#2a00ff">&#34;http://www.jrebirth.org&#34;</font><font color="#000000">/&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;description&gt;Interactive&nbsp;Presentation&nbsp;of&nbsp;JavaFX2&nbsp;capabilities&lt;/description&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;offline-allowed/&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;/information&gt;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;security&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;all-permissions/&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;/security&gt;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;resources&nbsp;os=</font><font color="#2a00ff">&#34;Windows&#34;&nbsp;</font><font color="#000000">arch=</font><font color="#2a00ff">&#34;x86&#34;</font><font color="#000000">&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;jfx:javafx-runtime&nbsp;version=</font><font color="#2a00ff">&#34;2.0+&#34;&nbsp;</font><font color="#000000">href=</font><font color="#2a00ff">&#34;http://download.oracle.com/otn-pub/java/javafx/javafx-windows-i586__Vlatest.exe&nbsp;&#34;</font><font color="#000000">/&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;/resources&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;resources&nbsp;os=</font><font color="#2a00ff">&#34;Windows&#34;&nbsp;</font><font color="#000000">arch=</font><font color="#2a00ff">&#34;x64&#34;</font><font color="#000000">&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;jfx:javafx-runtime&nbsp;version=</font><font color="#2a00ff">&#34;2.0+&#34;&nbsp;</font><font color="#000000">href=</font><font color="#2a00ff">&#34;http://download.oracle.com/otn-pub/java/javafx/javafx-windows-x64__Vlatest.exe&nbsp;&#34;</font><font color="#000000">/&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;/resources&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;resources&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;j2se&nbsp;version=</font><font color="#2a00ff">&#34;1.7+&#34;&nbsp;</font><font color="#000000">/&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;jar&nbsp;href=</font><font color="#2a00ff">&#34;javafx2-1.0.0-SNAPSHOT.jar&#34;&nbsp;</font><font color="#000000">main=</font><font color="#2a00ff">&#34;true&#34;</font><font color="#000000">/&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;jar&nbsp;href=</font><font color="#2a00ff">&#34;jaxb-api-2.2.1.jar&#34;</font><font color="#000000">/&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;jar&nbsp;href=</font><font color="#2a00ff">&#34;stax-api-1.0-2.jar&#34;</font><font color="#000000">/&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;jar&nbsp;href=</font><font color="#2a00ff">&#34;activation-1.1.jar&#34;</font><font color="#000000">/&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;jar&nbsp;href=</font><font color="#2a00ff">&#34;jaxb-impl-2.2.1.jar&#34;</font><font color="#000000">/&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">&lt;jar&nbsp;href=</font><font color="#2a00ff">&#34;core-0.4.0-SNAPSHOT.jar&#34;</font><font color="#000000">/&gt;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;/resources&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;applet-desc&nbsp;&nbsp;width=</font><font color="#2a00ff">&#34;1024&#34;&nbsp;</font><font color="#000000">height=</font><font color="#2a00ff">&#34;768&#34;&nbsp;</font><font color="#000000">main-</font><font color="#7f0055"><b>class</b></font><font color="#000000">=</font><font color="#2a00ff">&#34;com.javafx.main.NoJavaFXFallback&#34;&nbsp;&nbsp;</font><font color="#000000">name=</font><font color="#2a00ff">&#34;JavaFX&nbsp;2.0&nbsp;Presentation&#34;&nbsp;</font><font color="#000000">/&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;jfx:javafx-desc&nbsp;&nbsp;width=</font><font color="#2a00ff">&#34;1024&#34;&nbsp;</font><font color="#000000">height=</font><font color="#2a00ff">&#34;768&#34;&nbsp;</font><font color="#000000">main-</font><font color="#7f0055"><b>class</b></font><font color="#000000">=</font><font color="#2a00ff">&#34;org.jrebirth.presentation.Presentation&#34;&nbsp;&nbsp;</font><font color="#000000">name=</font><font color="#2a00ff">&#34;JavaFX&nbsp;2.0&nbsp;Presentation&#34;&nbsp;</font><font color="#000000">/&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;update&nbsp;check=</font><font color="#2a00ff">&#34;timeout&#34;</font>&nbsp;policy=</font><font color="#2a00ff">&#34;prompt-update&#34;</font><font color="#000000">/&gt;</font><br />
+<font color="#000000">&lt;/jnlp&gt;</font></code>
+   </td>
+   </tr>
+</table>
+</div>
+
+</body></html>
+				]]>
+				</item>
+			</content>
+			<content name="Viewer">
+				<title>Cache Viewer</title>
+				<item>javaws -viewer</item>
+				<item>Configuration et gestion du cache</item>
+				<item>&lt;update check="always" policy="prompt-update"&gt;</item>
+				<item image="images/deploy/javaws-viewer.png"></item>
+
+			</content>
+
+		</slide>
+
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+		<!-- Architecture Logicielle -->
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+
+		<!-- HOOK Architecture Logicielle -->
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Tile">
+			<content>
+				<!-- <title>Architecture Logicielle\n quelques pistes de \n rélexion</title> -->
+				<item image="images/splash/Architecture_Logicielle.jpg" />
+			</content>
+		</slide>
+
+		<!-- Communication -->
+		<slide>
+			<title>Communication</title>
+			<content>
+				<item>Full Java</item>
+
+				<item>Plus simple que :</item>
+				<item level="1">JSON, XML</item>
+				<item level="1">BlazeDS</item>
+				<item level="1">Wcf Services</item>
+
+				<item>par exemple :</item>
+				<item level="1">Spring Http Invokers</item>
+				<item level="1">Web Services</item>
+				<item level="1">Restlet :D</item>
+				<item level="1">JMS</item>
+				<item level="1">...</item>
+			</content>
+		</slide>
+
+		<!-- Les Design Pattern -->
+		<slide modelClass="org.jrebirth.presentation.ui.slides.pattern.PatternModel">
+			<title>Design pattern</title>
+			<content>
+				<title>Custom</title>
+
+				<item>Avec injections de dépendances</item>
+				<item level="1">Google Guice</item>
+				<item level="1">Spring Ioc</item>
+				<item>Bien pour les petits projets ...</item>
+				<item>... mais SoC aléatoire</item>
+			</content>
+
+			<content name="PureMVC">
+				<title>PureMVC</title>
+				<item>Model View Controller + Facades</item>
+				<item image="images/pattern/puremvc.png" />
+				<item link="true">puremvc.org/</item>
+			</content>
+
+			<content name="MVVM">
+				<title>MVVM</title>
+				<item>Model View ViewModel</item>
+				<item image="images/pattern/mvvm.png" />
+				<item>+ *.xaml.cs => Controller :(</item>
+				<item level="1">par Microsoft</item>
+			</content>
+
+			<content name="JRebirth">
+				<title>JRebirth WCS-MVC</title>
+				<item>Wave Command Service - Model View Controller</item>
+				<item image="images/pattern/JRebirth.png" />
+				<item level="1">utilisé pour cette démo</item>
+				<item link="true">www.jrebirth.org</item>
+			</content>
+
+		</slide>
+
+
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+		<!-- Les Extras -->
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+
+		<!-- HOOK -->
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel">
+			<content>
+				<!-- <title>Les Extras</title> -->
+				<item image="images/splash/Un_petit_extra.jpg" />
+			</content>
+		</slide>
+		
+		<!-- Polyglote -->
+		<slide>
+			<title>Polyglote ?</title>
+			<content>
+				<item>Java seul (getter and setter)</item>
+				<item>Java Builder [ XXXBuilder.create().yyy(value).build(); ]</item>
+				<item>GroovyFx</item>
+				<item>ScalaFx</item>
+				<item>Visage</item>
+				<item>fxgraph (efxclipse)</item>
+			</content>
+		</slide>
+
+		<!-- Road Map -->
+		<slide>
+			<title>La Road Map</title>
+			<content>
+				<item>Write Once, Run Everywhere</item>
+				<item level="1">Version stable pour Mac et Linux</item>
+				<item level="1">Android et iOS ?</item>
+
+				<item>JavaFX Scene Builder</item>
+				<item>Data Services</item>
+				<item>3D Graphics</item>
+				<item>Fonctions SmartPhone et Tablette</item>
+				<item level="1">Multi-Touch</item>
+				<item level="1">GPS</item>
+				<item level="1">Gyro</item>
+				<item level="1">Acceleromètre</item>
+			</content>
+		</slide>
+
+		<!-- Les Extras -->
+		<slide>
+			<title>Autres Composants</title>
+			<content>
+				<item>JFxtras (migration depuis 1.3)</item>
+				<item>DataFX</item>
+				<item>MigLayout</item>
+				<item>JRebirth</item>
+			</content>
+		</slide>
+
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+		<!-- Bilan -->
+		<!-- ************************************************************************* -->
+		<!-- ************************************************************************* -->
+
+		<!-- Wake Up ! -->
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Tile60k">
+			<content>
+				<!-- <title>RETEX à chaud !</title> -->
+				<item image="images/splash/Retex.jpg" />
+			</content>
+		</slide>
+
+		<!-- Les Plus Full Java Thread graphique unique mais gestion Multi-Thread Rapidité Accélération matérielle et support software API complête Les Moins Support SE 
+			(que Windows pour le moment) Packaging Pas de cache de jars (signés ou non) -->
+
+		<slide>
+			<title>RETEX</title>
+			<content>
+				<title>Dog Fooding</title>
+				<item>+ de 15000 lignes de Java</item>
+				<item>Fichier XML de presque 2000 lignes glurp!</item>
+				<item>Chronophage</item>
+				<item>Parfait pour apprendre ...</item>
+				<item>...Real Life Problems</item>
+			</content>
+		</slide>
+
+		<slide>
+			<title>RETEX</title>
+			<content>
+				<title>Les -</title>
+				<item>Pas encore mobile (bientôt ...)</item>
+				<item>Pas assez de composants personalisés</item>
+				<item>API 3D un peu légère</item>
+				<item>IDE pas encore assez complet</item>
+				<item>Communauté [re]-naissante</item>
+			</content>
+		</slide>
+
+		<slide>
+			<title>RETEX</title>
+			<content>
+				<title>Les +</title>
+				<item>Meilleure API pour faire une RIA</item>
+				<item>Richesse de Java</item>
+				<item level="1">Librairies</item>
+				<item level="1">Software Factory</item>
+				<item>Accélération matérielle ou logicielle</item>
+				<item>Gestion optimale des Threads</item>
+				<item>Java Web Start</item>
+				<item>What Else ?</item>
+			</content>
+		</slide>
+
+		<slide>
+			<title>Pour aller plus loin</title>
+			<content>
+				<item>Ressources</item>
+				<item level="1">docs.oracle.com/javafx</item>
+				<item level="1">http://www.oracle.com/technetwork/java/javafx/samples/index.html</item>
+				<item level="1">forums.oracle.com/forums/forum.jspa?forumID=1385</item>
+
+				<item>Blogs</item>
+				<item level="1">www.fxperience.com</item>
+				<item level="1">blog.netopyr.com</item>
+				<item level="1">javafxpert.com</item>
+				<item level="1">amyfowlersblog.blogspot.com</item>
+				<item level="1">thisiswhatiknowabout.blogspot.com</item>
+
+			</content>
+		</slide>
+
+		<!-- THX -->
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel">
+			<title>Merci\nde votre attention</title>
+		</slide>
+
+		<!-- Des Questions -->
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel">
+			<title>Avez-vous des\nquestions ?</title>
+		</slide>
+
+	</slides>
+
+</presentation>

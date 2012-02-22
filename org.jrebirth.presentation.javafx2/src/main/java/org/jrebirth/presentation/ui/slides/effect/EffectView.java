@@ -1,0 +1,585 @@
+package org.jrebirth.presentation.ui.slides.effect;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.control.Label;
+import javafx.scene.control.LabelBuilder;
+import javafx.scene.control.Slider;
+import javafx.scene.control.SliderBuilder;
+import javafx.scene.effect.Blend;
+import javafx.scene.effect.BlendBuilder;
+import javafx.scene.effect.BlendMode;
+import javafx.scene.effect.Bloom;
+import javafx.scene.effect.BloomBuilder;
+import javafx.scene.effect.BlurType;
+import javafx.scene.effect.BoxBlur;
+import javafx.scene.effect.BoxBlurBuilder;
+import javafx.scene.effect.ColorAdjust;
+import javafx.scene.effect.ColorAdjustBuilder;
+import javafx.scene.effect.DisplacementMap;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.DropShadowBuilder;
+import javafx.scene.effect.Effect;
+import javafx.scene.effect.FloatMap;
+import javafx.scene.effect.GaussianBlur;
+import javafx.scene.effect.GaussianBlurBuilder;
+import javafx.scene.effect.Glow;
+import javafx.scene.effect.GlowBuilder;
+import javafx.scene.effect.ImageInputBuilder;
+import javafx.scene.effect.InnerShadow;
+import javafx.scene.effect.InnerShadowBuilder;
+import javafx.scene.effect.Light;
+import javafx.scene.effect.Lighting;
+import javafx.scene.effect.LightingBuilder;
+import javafx.scene.effect.MotionBlur;
+import javafx.scene.effect.MotionBlurBuilder;
+import javafx.scene.effect.PerspectiveTransform;
+import javafx.scene.effect.PerspectiveTransformBuilder;
+import javafx.scene.effect.Reflection;
+import javafx.scene.effect.ReflectionBuilder;
+import javafx.scene.effect.SepiaTone;
+import javafx.scene.effect.SepiaToneBuilder;
+import javafx.scene.effect.Shadow;
+import javafx.scene.effect.ShadowBuilder;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.ImageViewBuilder;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPaneBuilder;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.HBoxBuilder;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.StackPaneBuilder;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+
+import org.jrebirth.core.exception.CoreException;
+import org.jrebirth.presentation.PrezColors;
+import org.jrebirth.presentation.ui.template.AbstractTemplateView;
+
+/**
+ * 
+ * The class <strong>PatternView</strong>.
+ * 
+ * @author Sébastien Bordes
+ * 
+ * @version $Revision: 72 $ $Author: sbordes $
+ * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
+ */
+public final class EffectView extends AbstractTemplateView<EffectModel, BorderPane, EffectController> {
+
+    /**
+     * The <code>CUSTOM_CAR</code> field is used to TODO
+     */
+    private static final String CUSTOM_CAR = "images/bg/Custom_Car.jpg";
+
+    private static final String ORANGE = "images/bg/Orange_dans_assiette.jpg";
+
+    private static final NumberFormat DECIMAL = new DecimalFormat("0.0");
+
+    /**
+     * Default Constructor.
+     * 
+     * @param model the controls view model
+     * 
+     * @throws CoreException if build fails
+     */
+    public EffectView(final EffectModel model) throws CoreException {
+        super(model);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected Node getContentPanel() {
+
+        return buildDefaultContent(getModel().getDefaultContent());
+    }
+
+    /**
+     * TODO To complete.
+     * 
+     * @param string
+     * @param fx
+     */
+    private void displayImage(String image, Effect fx) {
+        ImageView iv = ImageViewBuilder.create()
+                .effect(fx)
+                .image(loadImage(image))
+                .build();
+        BorderPane.setMargin(iv, new Insets(10));
+        getRootNode().setCenter(iv);
+    }
+
+    /**
+     * TODO To complete.
+     */
+    protected void displayComparedImage(String image, Effect fx) {
+        Image img = loadImage(image);
+
+        ImageView iv1 = ImageViewBuilder.create()
+                .image(img)
+                .clip(new Rectangle(img.getWidth() / 2, 0, img.getWidth() / 2, img.getHeight()))
+                .build();
+        ImageView iv2 = ImageViewBuilder.create()
+                .image(img)
+                .clip(new Rectangle(0, 0, img.getWidth() / 2, img.getHeight()))
+                .effect(fx)
+                .build();
+
+        // Line l = LineBuilder.create()
+        // .strokeWidth(4)
+        // .startX(img.getWidth() / 2)
+        // .startY(0)
+        // .endX(img.getWidth() / 2)
+        // .endY(img.getHeight())
+        // .build();
+
+        // l.addEventHandler(arg0, arg1)Filter(MouseEvent.MOUSE_DRAGGED, new EventHandler() {
+        //
+        // });
+        StackPane sp = StackPaneBuilder.create()
+                .prefWidth(img.getWidth())
+                .prefHeight(img.getHeight())
+                .children(iv1, /* l, */iv2)
+                .build();
+
+        BorderPane.setMargin(sp, new Insets(10));
+        getRootNode().setCenter(sp);
+    }
+
+    /**
+     * TODO To complete.
+     * 
+     * @param buildSlider
+     */
+    private void displaySliders(Node... node) {
+        getRootNode().setRight(FlowPaneBuilder.create().orientation(Orientation.VERTICAL).alignment(Pos.CENTER).children(node).build());
+        BorderPane.setMargin(getRootNode().getRight(), new Insets(10));
+        BorderPane.setAlignment(getRootNode().getRight(), Pos.CENTER);
+
+        // getRootNode().getRight().setStyle("-fx-border-color:#000000;-fx-border-width:2px;");
+    }
+
+    /**
+     * TODO To complete.
+     * 
+     * @param string
+     * @param levelProperty
+     * @param i
+     * @param d
+     */
+    private HBox buildIntegerSlider(String name, IntegerProperty property, int min, int max) {
+
+        Slider slider = SliderBuilder.create()
+                .min(min)
+                .max(max)
+                .maxWidth(80)
+                .value(property.intValue())
+                .blockIncrement(0.1)
+                .build();
+
+        final Label valueLabel = LabelBuilder.create().text(name).build();
+
+        property.bind(slider.valueProperty());
+
+        slider.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+                event.consume();
+            }
+
+        });
+        slider.valueProperty().addListener(new ChangeListener<Number>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                valueLabel.setText(DECIMAL.format(newValue));
+            }
+        });
+
+        return HBoxBuilder.create()
+                .children(
+                        LabelBuilder.create().text(name).build(),
+                        slider,
+                        valueLabel
+                ).maxWidth(200)
+                .build();
+    }
+
+    /**
+     * TODO To complete.
+     * 
+     * @param string
+     * @param levelProperty
+     * @param i
+     * @param d
+     */
+    private HBox buildSlider(String name, DoubleProperty property, double min, double max) {
+
+        Slider slider = SliderBuilder.create()
+                .min(min)
+                .max(max)
+                .maxWidth(80)
+                .value(property.doubleValue())
+                .blockIncrement(0.1)
+                .build();
+
+        slider.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent event) {
+                event.consume();
+            }
+
+        });
+
+        final Label valueLabel = LabelBuilder.create().text(name).build();
+
+        slider.adjustValue(property.doubleValue());
+        property.bind(slider.valueProperty());
+
+        slider.valueProperty().addListener(new ChangeListener<Number>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                valueLabel.setText(DECIMAL.format(newValue));
+            }
+        });
+
+        return HBoxBuilder.create()
+                .children(
+                        LabelBuilder.create().text(name).build(),
+                        slider,
+                        valueLabel
+                )
+                .build();
+    }
+
+    /**
+     * TODO To complete.
+     */
+    public void showReflection() {
+        getSubTitle().setText("Reflection");
+
+        Reflection fx = ReflectionBuilder.create()
+                .fraction(0.5)
+                .topOffset(10)
+                .topOpacity(0.5)
+                .bottomOpacity(0)
+                .build();
+
+        displayImage(CUSTOM_CAR, fx);
+        displaySliders(buildSlider("Fraction", fx.fractionProperty(), 0, 1.0));
+        BorderPane.setAlignment(getRootNode().getCenter(), Pos.TOP_CENTER);
+
+    }
+
+    /**
+     * TODO To complete.
+     */
+    public void showSepiaTone() {
+        getSubTitle().setText("SepiaTone");
+
+        SepiaTone st = SepiaToneBuilder.create().level(1.0).build();
+
+        displayComparedImage(CUSTOM_CAR, st);
+        displaySliders(buildSlider("Tone Level", st.levelProperty(), 0, 1.0));
+
+        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+    }
+
+    /**
+     * TODO To complete.
+     */
+    public void showBloom() {
+        getSubTitle().setText("Bloom");
+
+        Bloom b = BloomBuilder.create().threshold(0.5).build();
+
+        displayComparedImage(CUSTOM_CAR, b);
+        displaySliders(buildSlider("Threshold", b.thresholdProperty(), 0, 1.0));
+
+        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+    }
+
+    /**
+     * TODO To complete.
+     */
+    public void showDropShadow() {
+        getSubTitle().setText("Drop Shadow");
+
+        DropShadow fx = DropShadowBuilder.create()
+                .blurType(BlurType.GAUSSIAN)
+                .color(PrezColors.DROP_SHADOW.get())
+                .offsetX(30)
+                .offsetY(30)
+                .build();
+
+        displayImage(CUSTOM_CAR, fx);
+        displaySliders(
+                buildSlider("Radius", fx.radiusProperty(), 0, 127.0),
+                buildSlider("Height", fx.heightProperty(), 0, 255.0),
+                buildSlider("Width", fx.widthProperty(), 0, 255.0),
+                buildSlider("Offset X", fx.offsetXProperty(), 0, 255.0),
+                buildSlider("Offset Y", fx.offsetYProperty(), 0, 255.0));
+        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+
+    }
+
+    /**
+     * TODO To complete.
+     */
+    public void showInnerShadow() {
+        getSubTitle().setText("Inner Shadow");
+
+        InnerShadow fx = InnerShadowBuilder.create()
+                .blurType(BlurType.GAUSSIAN)
+                .color(PrezColors.INNER_SHADOW.get())
+                .build();
+
+        displayImage(CUSTOM_CAR, fx);
+        displaySliders(
+                buildSlider("Choke", fx.chokeProperty(), 0, 1.0),
+                buildSlider("Radius", fx.radiusProperty(), 0, 127.0),
+                buildSlider("Height", fx.heightProperty(), 0, 255.0),
+                buildSlider("Width", fx.widthProperty(), 0, 255.0),
+                buildSlider("Offset X", fx.offsetXProperty(), 0, 255.0),
+                buildSlider("Offset Y", fx.offsetYProperty(), 0, 255.0));
+        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+    }
+
+    /**
+     * TODO To complete.
+     */
+    public void showBoxBlur() {
+        getSubTitle().setText("Box Blur");
+
+        BoxBlur fx = BoxBlurBuilder.create()
+                .width(15)
+                .height(15)
+                .iterations(3)
+                .build();
+
+        displayImage(CUSTOM_CAR, fx);
+        displaySliders(
+                buildIntegerSlider("Iteration", fx.iterationsProperty(), 0, 3),
+                buildSlider("Width", fx.widthProperty(), 0, 255),
+                buildSlider("Height", fx.heightProperty(), 0, 255));
+
+        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+    }
+
+    /**
+     * TODO To complete.
+     */
+    public void showMotionBlur() {
+        getSubTitle().setText("Motion Blur");
+
+        MotionBlur fx = MotionBlurBuilder.create()
+                .radius(8.0)
+                .angle(150)
+                .build();
+
+        displayComparedImage(CUSTOM_CAR, fx);
+        displaySliders(
+                buildSlider("Radius", fx.radiusProperty(), 0, 63.0),
+                buildSlider("Angle", fx.angleProperty(), 0, 360));
+        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+    }
+
+    /**
+     * TODO To complete.
+     */
+    public void showGaussianBlur() {
+        getSubTitle().setText("Gaussian Blur");
+
+        GaussianBlur fx = GaussianBlurBuilder.create()
+                .build();
+
+        displayComparedImage(CUSTOM_CAR, fx);
+        displaySliders(buildSlider("Radius", fx.radiusProperty(), 0, 63.0));
+
+        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+    }
+
+    /**
+     * TODO To complete.
+     */
+    public void showShadow() {
+        getSubTitle().setText("Shadow");
+
+        Shadow fx = ShadowBuilder.create()
+                .blurType(BlurType.GAUSSIAN)
+                .color(Color.WHITESMOKE)
+                .build();
+
+        displayComparedImage(CUSTOM_CAR, fx);
+        displaySliders(
+                buildSlider("Width", fx.widthProperty(), 0, 255.0),
+                buildSlider("Height", fx.heightProperty(), 0, 255.0),
+                buildSlider("Radius", fx.radiusProperty(), 0, 127.0));
+
+        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+    }
+
+    /**
+     * TODO To complete.
+     */
+    public void showGlow() {
+        getSubTitle().setText("Glow");
+
+        Glow fx = GlowBuilder.create()
+                .level(0.7)
+                .build();
+
+        displayComparedImage(CUSTOM_CAR, fx);
+        displaySliders(buildSlider("Level", fx.levelProperty(), 0, 1.0));
+
+        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+    }
+
+    /**
+     * TODO To complete.
+     */
+    public void showLighting() {
+        getSubTitle().setText("Lighting");
+
+        Light.Distant light = new Light.Distant();
+        light.setAzimuth(-135.0);
+
+        Lighting fx = LightingBuilder.create()
+                .light(light)
+                .diffuseConstant(10.0)
+                .surfaceScale(20.0)
+                .build();
+
+        displayImage(CUSTOM_CAR, fx);
+        displaySliders(
+                buildSlider("Diffuse Constant", fx.diffuseConstantProperty(), 0, 2.0),
+                buildSlider("Specular Constant", fx.specularConstantProperty(), 0, 2.0),
+                buildSlider("Specular Exponent", fx.specularExponentProperty(), 0, 10.0),
+                buildSlider("Light Azimuth", light.azimuthProperty(), 0, 100.0),
+                buildSlider("Light Elevation", light.elevationProperty(), 0, 100.0));
+        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+    }
+
+    /**
+     * TODO To complete.
+     */
+    public void showPerspectiveTransform() {
+        getSubTitle().setText("PerspectiveTransform");
+
+        PerspectiveTransform fx = PerspectiveTransformBuilder.create()
+                .ulx(0.0)
+                .uly(0.0)
+                .urx(600.0)
+                .ury(0.0)
+                .lrx(600.0)
+                .lry(400.0)
+                .llx(0.0)
+                .lly(600.0)
+                .build();
+
+        displayImage(CUSTOM_CAR, fx);
+        displaySliders(
+                buildSlider("ULX", fx.ulxProperty(), 0, 600.0),
+                buildSlider("ULY", fx.ulyProperty(), 0, 600.0),
+
+                buildSlider("URX", fx.urxProperty(), 0, 600.0),
+                buildSlider("URY", fx.uryProperty(), 0, 600.0),
+
+                buildSlider("LRX", fx.lrxProperty(), 0, 600.0),
+                buildSlider("LRY", fx.lryProperty(), 0, 600.0),
+
+                buildSlider("LLX", fx.llxProperty(), 0, 600.0),
+                buildSlider("LLY", fx.llyProperty(), 0, 600.0));
+        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+
+    }
+
+    /**
+     * TODO To complete.
+     */
+    public void showBlend() {
+        getSubTitle().setText("Blend");
+
+        Blend fx = BlendBuilder.create()
+                .opacity(0.5)
+                .bottomInput(ImageInputBuilder.create().source(loadImage(CUSTOM_CAR)).build())
+                .mode(BlendMode.EXCLUSION)
+                .build();
+
+        displayImage(ORANGE, fx);
+        displaySliders(buildSlider("Opacity", fx.opacityProperty(), 0, 1.0));
+        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+    }
+
+    /**
+     * TODO To complete.
+     */
+    public void showColorAdjust() {
+        getSubTitle().setText("ColorAdjust");
+
+        ColorAdjust fx = ColorAdjustBuilder.create()
+                .hue(0.5)
+                .saturation(0.4)
+                .brightness(0.5)
+                .contrast(0.5)
+                .build();
+
+        displayImage(CUSTOM_CAR, fx);
+        displaySliders(
+                buildSlider("Hue", fx.hueProperty(), -1.0, 1.0),
+                buildSlider("Saturation", fx.saturationProperty(), -1.0, 1.0),
+                buildSlider("Brightness", fx.brightnessProperty(), -1.0, 1.0),
+                buildSlider("Contrast", fx.contrastProperty(), -1.0, 1.0)
+
+        );
+        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+
+    }
+
+    /**
+     * TODO To complete.
+     */
+    public void showDisplacementMap() {
+
+        getSubTitle().setText("DisplacementMap");
+
+        int w = 220;
+        int h = 100;
+        FloatMap map = new FloatMap();
+        map.setWidth(w);
+        map.setHeight(h);
+
+        for (int i = 0; i < w; i++) {
+            double v = (Math.sin(i / 50.0 * Math.PI) - 0.5) / 40.0;
+            for (int j = 0; j < h; j++) {
+                map.setSamples(i, j, 0.0f, (float) v);
+            }
+        }
+
+        DisplacementMap dm = new DisplacementMap();
+        dm.setMapData(map);
+
+        displayImage(CUSTOM_CAR, dm);
+        displaySliders();
+        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+
+    }
+
+}
