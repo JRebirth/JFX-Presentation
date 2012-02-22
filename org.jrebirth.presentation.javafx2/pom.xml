@@ -6,7 +6,7 @@
 	<groupId>org.jrebirth.presentation</groupId>
 	<artifactId>javafx2</artifactId>
 
-	<version>1.0.0</version>
+	<version>1.1.0-SNASPSHOT</version>
 	<name>JavaFX 2.0 Presentation</name>
 	<url>http://www.jrebirth.org</url>
 	<description>Interactive Presentation of JavaFX2 capabilities</description>
@@ -238,7 +238,7 @@
 		<dependency>
 			<groupId>org.jrebirth</groupId>
 			<artifactId>core</artifactId>
-			<version>0.4.0</version>
+			<version>0.5.0-SNASPSHOT</version>
 		</dependency>
 
 
