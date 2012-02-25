@@ -24,7 +24,7 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
 public final class ArchView extends AbstractTemplateView<ArchModel, BorderPane, ArchController> {
 
     /** The Archi FXML Controller */
-    private FXMLComponent<ArchNodeController> archComponent;
+    private FXMLComponent archComponent;
 
     /**
      * Default Constructor.
@@ -66,7 +66,7 @@ public final class ArchView extends AbstractTemplateView<ArchModel, BorderPane, 
      * @return Returns the archiPane.
      */
     ArchNodeController getArchiController() {
-        return this.archComponent.getController();
+        return (ArchNodeController) this.archComponent.getController();
     }
 
     /**
