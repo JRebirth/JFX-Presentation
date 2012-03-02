@@ -1,16 +1,9 @@
 package org.jrebirth.presentation.ui.splash;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javafx.animation.Interpolator;
 import javafx.animation.ScaleTransition;
 import javafx.animation.ScaleTransitionBuilder;
-import javafx.animation.SequentialTransition;
-import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.PaneBuilder;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
@@ -54,7 +47,7 @@ public final class SplashView extends AbstractSlideView<SplashModel, BorderPane,
     @Override
     protected void customInitializeComponents() {
 
-        getRootNode().getStyleClass().add((getModel().getStyleClass() == null) ? "splashContainer" : getModel().getStyleClass());
+        getRootNode().getStyleClass().add(getModel().getStyleClass() == null ? "splashContainer" : getModel().getStyleClass());
 
         this.splashText = TextBuilder.create()
                 .text(getModel().getTitle())
@@ -74,8 +67,8 @@ public final class SplashView extends AbstractSlideView<SplashModel, BorderPane,
      * {@inheritDoc}
      */
     @Override
-    public void animate() {
-    	
+    public void show() {
+
         getTextTransition().playFromStart();
     }
 
@@ -90,7 +83,7 @@ public final class SplashView extends AbstractSlideView<SplashModel, BorderPane,
      * @return Returns the textTransition.
      */
     ScaleTransition getTextTransition() {
-    	if(this.textTransition == null){
+        if (this.textTransition == null) {
             this.textTransition = ScaleTransitionBuilder.create()
                     .node(this.splashText)
                     .duration(Duration.millis(800))
@@ -100,8 +93,8 @@ public final class SplashView extends AbstractSlideView<SplashModel, BorderPane,
                     .byX(2)
                     .byY(2)
                     .build();
-    	}
+        }
         return this.textTransition;
     }
-    
+
 }

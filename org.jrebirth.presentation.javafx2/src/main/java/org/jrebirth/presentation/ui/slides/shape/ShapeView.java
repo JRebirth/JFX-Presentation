@@ -133,7 +133,7 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, BorderPane
         openArc2.setType(ArcType.OPEN);
         openArc2.setFill(PrezColors.GRADIENT_3.get());
 
-        FlowPane fp = FlowPaneBuilder.create().children(roundArc, chordArc, openArc, roundArc2, chordArc2, openArc2).build();
+        final FlowPane fp = FlowPaneBuilder.create().children(roundArc, chordArc, openArc, roundArc2, chordArc2, openArc2).build();
 
         getRootNode().setCenter(fp);
 
@@ -173,7 +173,7 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, BorderPane
         fullCircle.setFill(PrezColors.GRADIENT_1.get());
         // fullCircle.setBlendMode(BlendMode.LIGHTEN);
 
-        FlowPane fp = FlowPaneBuilder.create().children(plainCircle, strokeCircle, fullCircle).build();
+        final FlowPane fp = FlowPaneBuilder.create().children(plainCircle, strokeCircle, fullCircle).build();
 
         getRootNode().setCenter(fp);
 

@@ -64,7 +64,16 @@ public final class StackView extends AbstractView<StackModel, StackPane, StackCo
      * {@inheritDoc}
      */
     @Override
-    public void animate() {
+    public void show() {
         // Nothing to do yet
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void hide() {
+        // Nothing to do yet
+
     }
 }

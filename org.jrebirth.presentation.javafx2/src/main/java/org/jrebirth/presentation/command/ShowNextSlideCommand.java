@@ -1,5 +1,7 @@
 package org.jrebirth.presentation.command;
 
+import javafx.application.Platform;
+
 import org.jrebirth.core.command.impl.CommandImpl;
 import org.jrebirth.core.link.Wave;
 import org.jrebirth.presentation.ui.stack.StackModel;
@@ -20,8 +22,14 @@ public final class ShowNextSlideCommand extends CommandImpl {
     @Override
     public void run(final Wave wave) {
 
-        getModel(StackModel.class).next();
+        Platform.runLater(new Runnable() {
 
+            @Override
+            public void run() {
+                getModel(StackModel.class).next();
+
+            }
+        });
     }
 
 }

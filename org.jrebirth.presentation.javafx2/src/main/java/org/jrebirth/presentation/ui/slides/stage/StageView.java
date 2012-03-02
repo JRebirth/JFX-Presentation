@@ -50,7 +50,7 @@ public final class StageView extends AbstractTemplateView<StageModel, BorderPane
      * {@inheritDoc}
      */
     @Override
-    public void animate() {
+    public void show() {
         // Nothing to do yet
 
     }

@@ -99,7 +99,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, BorderPa
         // Nothing to do yet
         super.customInitializeComponents();
 
-        boxEffect = InnerShadowBuilder.create().blurType(BlurType.THREE_PASS_BOX).radius(8.0).offsetX(2).offsetY(2).color(Color.WHITE).build();
+        this.boxEffect = InnerShadowBuilder.create().blurType(BlurType.THREE_PASS_BOX).radius(8.0).offsetX(2).offsetY(2).color(Color.WHITE).build();
 
         getRootNode().setMaxSize(1000, 750);
     }
@@ -116,7 +116,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, BorderPa
      * {@inheritDoc}
      */
     @Override
-    public void animate() {
+    public void show() {
         // getFadeTransition().playFromStart();
     }
 
@@ -132,8 +132,8 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, BorderPa
      * 
      * @return
      */
-    protected StackPaneBuilder<?> stackPane(double width, double height, Pos p, Node n, String style) {
-        return StackPaneBuilder.create().prefWidth(width).prefHeight(height).alignment(p).children(n).style(style).effect(boxEffect);
+    protected StackPaneBuilder<?> stackPane(final double width, final double height, final Pos p, final Node n, final String style) {
+        return StackPaneBuilder.create().prefWidth(width).prefHeight(height).alignment(p).children(n).style(style).effect(this.boxEffect);
     }
 
     /**
@@ -142,7 +142,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, BorderPa
      * @param string
      * @return
      */
-    private LabelBuilder<?> label(String text) {
+    private LabelBuilder<?> label(final String text) {
         return LabelBuilder.create().text(text).scaleX(2.0).scaleY(2.0).textFill(Color.WHITE);
     }
 
@@ -251,12 +251,12 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, BorderPa
         hb.setMaxSize(800, 400);
 
         hb.getChildren().add(stackPane(200, 200, Pos.CENTER, label("1").build(), BG_1).build());
-        Node n = stackPane(400, 200, Pos.CENTER, label("2").build(), BG_2).build();
+        final Node n = stackPane(400, 200, Pos.CENTER, label("2").build(), BG_2).build();
         HBox.setHgrow(n, Priority.ALWAYS);
         hb.getChildren().add(n);
         hb.getChildren().add(stackPane(150, 200, Pos.CENTER, label("3").build(), BG_3).build());
         hb.getChildren().add(stackPane(200, 200, Pos.CENTER, label("4").build(), BG_4).build());
-        Node n2 = stackPane(300, 200, Pos.CENTER, label("5").build(), BG_5).build();
+        final Node n2 = stackPane(300, 200, Pos.CENTER, label("5").build(), BG_5).build();
         HBox.setHgrow(n2, Priority.NEVER);
         hb.getChildren().add(n2);
 
@@ -313,10 +313,10 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, BorderPa
         }
         flow2.setStyle(BG_4);
 
-        Label label1 = LabelBuilder.create().text("Vertical [400x200]").build();
-        VBox v1 = VBoxBuilder.create().children(label1, flow1).build();
-        Label label2 = LabelBuilder.create().text("Horizontal [200x400]").build();
-        VBox v2 = VBoxBuilder.create().children(label2, flow2).build();
+        final Label label1 = LabelBuilder.create().text("Vertical [400x200]").build();
+        final VBox v1 = VBoxBuilder.create().children(label1, flow1).build();
+        final Label label2 = LabelBuilder.create().text("Horizontal [200x400]").build();
+        final VBox v2 = VBoxBuilder.create().children(label2, flow2).build();
 
         // StackPane.setAlignment(v1, Pos.CENTER_LEFT);
         // StackPane.setMargin(v1, new Insets(40));
@@ -354,11 +354,11 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, BorderPa
                 RowConstraintsBuilder.create().minHeight(200).build()
                 );
 
-        StackPane sp1 = stackPane(150, 200, Pos.CENTER, label("First").build(), BG_1).build();
-        StackPane sp2 = stackPane(200, 200, Pos.CENTER, label("Second").build(), BG_2).build();
-        StackPane sp3 = stackPane(150, 100, Pos.CENTER, label("Third").build(), BG_3).build();
-        StackPane sp4 = stackPane(200, 100, Pos.CENTER, label("Fourth").build(), BG_4).build();
-        StackPane sp5 = stackPane(150, 300, Pos.CENTER, label("Fifth").build(), BG_5).build();
+        final StackPane sp1 = stackPane(150, 200, Pos.CENTER, label("First").build(), BG_1).build();
+        final StackPane sp2 = stackPane(200, 200, Pos.CENTER, label("Second").build(), BG_2).build();
+        final StackPane sp3 = stackPane(150, 100, Pos.CENTER, label("Third").build(), BG_3).build();
+        final StackPane sp4 = stackPane(200, 100, Pos.CENTER, label("Fourth").build(), BG_4).build();
+        final StackPane sp5 = stackPane(150, 300, Pos.CENTER, label("Fifth").build(), BG_5).build();
 
         GridPane.setConstraints(sp1, 0, 0);
         GridPane.setConstraints(sp2, 1, 0);
@@ -413,15 +413,15 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, BorderPa
 
         final AnchorPane anchorpane = new AnchorPane();
 
-        Node n1 = stackPane(400, 500, Pos.CENTER, label("Anchor 1 [bottom:10, left:10]").build(), BG_1).build();
+        final Node n1 = stackPane(400, 500, Pos.CENTER, label("Anchor 1 [bottom:10, left:10]").build(), BG_1).build();
         AnchorPane.setBottomAnchor(n1, 10.0);
         AnchorPane.setLeftAnchor(n1, 10.0);
 
-        Node n2 = stackPane(300, 200, Pos.CENTER, label("Anchor 2 [top:30, right:10]").build(), BG_2).build();
+        final Node n2 = stackPane(300, 200, Pos.CENTER, label("Anchor 2 [top:30, right:10]").build(), BG_2).build();
         AnchorPane.setTopAnchor(n2, 30.0);
         AnchorPane.setRightAnchor(n2, 10.0);
 
-        Node n3 = stackPane(500, 200, Pos.CENTER, label("No Anchor").build(), BG_3).build();
+        final Node n3 = stackPane(500, 200, Pos.CENTER, label("No Anchor").build(), BG_3).build();
 
         anchorpane.getChildren().addAll(n1, n2, n3);
 
@@ -437,7 +437,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, BorderPa
 
         getSubTitle().setText("Accordion");
 
-        Accordion accordion = new Accordion();
+        final Accordion accordion = new Accordion();
 
         accordion.getPanes().add(new TitledPane("First Row", stackPane(700, 400, Pos.CENTER, label("First").build(), BG_1).build()));
         accordion.getPanes().add(new TitledPane("Second Row", stackPane(700, 400, Pos.CENTER, label("Second").build(), BG_2).build()));

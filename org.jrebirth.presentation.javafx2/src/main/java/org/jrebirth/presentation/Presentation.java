@@ -37,7 +37,7 @@ public final class Presentation extends AbstractApplication<StackPane> {
      * {@inheritDoc}
      */
     @Override
-    protected Class<? extends Model> getFirstModelClass() {
+    public Class<? extends Model> getFirstModelClass() {
         return StackModel.class;
     }
 

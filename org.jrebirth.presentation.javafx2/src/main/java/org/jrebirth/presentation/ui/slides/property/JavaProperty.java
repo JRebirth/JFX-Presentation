@@ -12,21 +12,21 @@ public class JavaProperty {
      * @return Returns the value.
      */
     public final double getValue() {
-        return intProperty.get();
+        return this.intProperty.get();
     }
 
     /**
      * @param value The value to set.
      */
-    public final void setValue(int value) {
-        intProperty.set(value);
+    public final void setValue(final int value) {
+        this.intProperty.set(value);
     }
 
     /**
      * @return the integer property.
      */
     public IntegerProperty intProperty() {
-        return intProperty;
+        return this.intProperty;
     }
 
 }

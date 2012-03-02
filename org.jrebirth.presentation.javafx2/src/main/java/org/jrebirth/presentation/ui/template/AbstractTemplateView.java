@@ -112,7 +112,7 @@ public abstract class AbstractTemplateView<M extends AbstractTemplateModel<?, ?,
      * {@inheritDoc}
      */
     @Override
-    public void animate() {
+    public void show() {
 
         // FadeTransitionBuilder.create()
         // .node(getRootNode().getTop())
@@ -179,10 +179,10 @@ public abstract class AbstractTemplateView<M extends AbstractTemplateModel<?, ?,
                 .alignment(Pos.BASELINE_RIGHT)
                 .build();
 
-        FlowPane fp = FlowPaneBuilder.create()
+        final FlowPane fp = FlowPaneBuilder.create()
                 .orientation(Orientation.HORIZONTAL)
                 .alignment(Pos.BASELINE_CENTER)
-                .children(subTitle)
+                .children(this.subTitle)
                 // .style("-fx-background-color:#CCCCCC")
                 .build();
 
@@ -273,7 +273,7 @@ public abstract class AbstractTemplateView<M extends AbstractTemplateModel<?, ?,
     protected VBox buildDefaultContent(final SlideContent slideContent) {
 
         if (slideContent.getTitle() != null) {
-            subTitle.setText(slideContent.getTitle());
+            this.subTitle.setText(slideContent.getTitle());
         }
 
         final VBox vbox = new VBox();
@@ -370,7 +370,7 @@ public abstract class AbstractTemplateView<M extends AbstractTemplateModel<?, ?,
      * 
      * @param slideStep the slide step to show
      */
-    public void showSlideStep(SlideStep slideStep) {
+    public void showSlideStep(final SlideStep slideStep) {
         getRootNode().setCenter(buildDefaultContent(getModel().getContent(slideStep)));
     }
 }

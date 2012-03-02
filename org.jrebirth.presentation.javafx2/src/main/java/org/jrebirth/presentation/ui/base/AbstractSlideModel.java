@@ -56,8 +56,7 @@ public abstract class AbstractSlideModel<M extends AbstractSlideModel<M, V, S>, 
      * {@inheritDoc}
      */
     @Override
-    protected void prepareView() {
-        super.prepareView();
+    protected void customInitialize() {
 
         // Load the default slide step (if exists)
         if (getStepList().size() > 0) {
@@ -69,16 +68,8 @@ public abstract class AbstractSlideModel<M extends AbstractSlideModel<M, V, S>, 
      * {@inheritDoc}
      */
     @Override
-    protected void customInitialize() {
-
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     protected void customInitializeInnerModels() {
-        // Nothing to do generic TODO
+        // Nothing to do generic
         getClass();
     }
 
@@ -88,7 +79,7 @@ public abstract class AbstractSlideModel<M extends AbstractSlideModel<M, V, S>, 
     // @Override
     @Override
     protected void processAction(final Wave wave) {
-        // Nothing to do generic TODO
+        // Nothing to do generic
         getClass();
     }
 
@@ -179,7 +170,7 @@ public abstract class AbstractSlideModel<M extends AbstractSlideModel<M, V, S>, 
      */
     public SlideContent getContent(final SlideStep slideStep) {
         if (getSlide().getContent() != null && !getSlide().getContent().isEmpty()) {
-            for (SlideContent sc : getSlide().getContent()) {
+            for (final SlideContent sc : getSlide().getContent()) {
                 if (sc.getName() != null && !sc.getName().isEmpty() && sc.getName().equals(slideStep.toString())) {
                     return sc;
                 }

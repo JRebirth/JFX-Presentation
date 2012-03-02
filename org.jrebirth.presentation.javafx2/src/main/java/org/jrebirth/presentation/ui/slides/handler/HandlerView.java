@@ -13,7 +13,6 @@ import javafx.scene.control.TextAreaBuilder;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.BorderPaneBuilder;
 import javafx.scene.layout.PaneBuilder;
-import javafx.scene.text.TextBuilder;
 import javafx.stage.Stage;
 import javafx.stage.StageBuilder;
 import javafx.stage.StageStyle;
@@ -34,21 +33,21 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  */
 public final class HandlerView extends AbstractTemplateView<HandlerModel, BorderPane, HandlerController> {
 
-	/** The stage used for demo. */
+    /** The stage used for demo. */
     private Stage stage;
-    
+
     /** The scene used for demo. */
     private Scene scene;
-    
+
     /** The layout used for demo. */
     private BorderPane borderPane;
-    
+
     /** The button used for demo. */
     private Button button;
-    
+
     /** The text area used for demo. */
     private TextArea center;
-    
+
     /** The label used for demo. */
     private Node top;
 
@@ -67,8 +66,8 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Border
      * {@inheritDoc}
      */
     @Override
-	protected void customInitializeComponents() {
-		super.customInitializeComponents();
+    protected void customInitializeComponents() {
+        super.customInitializeComponents();
         this.top = LabelBuilder.create()
                 .text("Top Label")
                 .style("-fx-background-color: #CCCCCC;-fx-font-size:1.4em;-fx-label-padding:20px")
@@ -109,11 +108,9 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Border
                 .title("Event Filtering and Handling Demo")
                 .style(StageStyle.DECORATED)
                 .scene(this.scene).build();
-	}
+    }
 
-
-
-	/**
+    /**
      * @return Returns the stage.
      */
     Stage getStage() {

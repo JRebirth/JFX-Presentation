@@ -51,9 +51,9 @@ public final class ResourcesView extends AbstractTemplateView<ResourcesModel, Bo
      * TODO To complete.
      */
     public void showColor() {
-        VBox vb = buildDefaultContent(getModel().getContent(ResourcesSlideStep.Color));
+        final VBox vb = buildDefaultContent(getModel().getContent(ResourcesSlideStep.Color));
 
-        RadialGradient rg = RadialGradientBuilder.create()
+        final RadialGradient rg = RadialGradientBuilder.create()
                 .centerX(0.5)
                 .centerY(0.5).radius(0.5)
                 .stops(
@@ -62,7 +62,7 @@ public final class ResourcesView extends AbstractTemplateView<ResourcesModel, Bo
                 )
                 .build();
 
-        LinearGradient lg = LinearGradientBuilder.create()
+        final LinearGradient lg = LinearGradientBuilder.create()
                 .stops(
                         StopBuilder.create().color(PrezColors.GRADIENT_3.get()).offset(0).build(),
                         StopBuilder.create().color(PrezColors.GRADIENT_1.get()).offset(1).build()

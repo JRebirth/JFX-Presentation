@@ -1,7 +1,5 @@
 package org.jrebirth.presentation.ui.slides.media;
 
-import java.io.File;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import javafx.animation.Interpolator;
@@ -54,13 +52,13 @@ public final class MediaView extends AbstractTemplateView<MediaModel, BorderPane
      * TODO To complete.
      */
     public void showVideo() {
-        URL mediaURL = Thread.currentThread().getContextClassLoader().getResource("media/Strobo.flv");
-		mediaPlayer = new MediaPlayer(new Media(mediaURL.toString()));
-		javafx.scene.media.MediaView mv = new javafx.scene.media.MediaView(mediaPlayer);
-		mediaPlayer.setCycleCount(-1);
+        final URL mediaURL = Thread.currentThread().getContextClassLoader().getResource("media/Strobo.flv");
+        this.mediaPlayer = new MediaPlayer(new Media(mediaURL.toString()));
+        final javafx.scene.media.MediaView mv = new javafx.scene.media.MediaView(this.mediaPlayer);
+        this.mediaPlayer.setCycleCount(-1);
 
-		mediaPlayer.play();
-		getRootNode().setCenter(mv);
+        this.mediaPlayer.play();
+        getRootNode().setCenter(mv);
 
     }
 
@@ -68,7 +66,7 @@ public final class MediaView extends AbstractTemplateView<MediaModel, BorderPane
      * TODO To complete.
      */
     public void showAudio() {
-        mediaPlayer.stop();
+        this.mediaPlayer.stop();
 
     }
 

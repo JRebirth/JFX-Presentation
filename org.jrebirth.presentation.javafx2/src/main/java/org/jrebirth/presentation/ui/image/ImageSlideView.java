@@ -43,8 +43,8 @@ public final class ImageSlideView extends
     /** The image to display */
     private Image image;
 
-    /** The numlber of tiles per row and column. */
-    private int tilePerRow = 5;
+    /** The number of tiles per row and column. */
+    private int tilePerRow = 50;
 
     /**
      * Default Constructor.
@@ -63,35 +63,38 @@ public final class ImageSlideView extends
     @Override
     protected void customInitializeComponents() {
 
-        image = loadImage(getModel().getImage());
+        this.image = loadImage(getModel().getImage());
 
-        if (getModel().getSlide().getAnimation() == null || !"Tile".equalsIgnoreCase(getModel().getSlide().getAnimation().name())) {
-            getRootNode().getChildren().add(ImageViewBuilder.create().image(image).layoutX(0).layoutY(0).fitWidth(image.getWidth()).fitHeight(image.getHeight()).build());
+        if (getModel().getSlide().getAnimation() == null || !"Tile".equalsIgnoreCase(getModel().getSlide().getAnimation().name())
+                && !"Tile_60_k".equalsIgnoreCase(getModel().getSlide().getAnimation().name())) {
+            getRootNode().getChildren().add(ImageViewBuilder.create().image(this.image).layoutX(0).layoutY(0).fitWidth(this.image.getWidth()).fitHeight(this.image.getHeight()).build());
         }
+        getTileTransition();
+        getFadeTransition();
 
     }
 
     Image getImage() {
-        return image;
+        return this.image;
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public void animate() {
+    public void show() {
 
         if (getModel().getSlide().getAnimation() != null && "Tile".equalsIgnoreCase(getModel().getSlide().getAnimation().name())) {
-            for (Node n : getRootNode().getChildren()) {
+            for (final Node n : getRootNode().getChildren()) {
                 n.setOpacity(0.0);
             }
-            tilePerRow = 5;
+            this.tilePerRow = 5;
             getTileTransition().play();
         } else if (getModel().getSlide().getAnimation() != null && "Tile_60_k".equalsIgnoreCase(getModel().getSlide().getAnimation().name())) {
-            for (Node n : getRootNode().getChildren()) {
+            for (final Node n : getRootNode().getChildren()) {
                 n.setOpacity(0.0);
             }
-            tilePerRow = 50;
+            this.tilePerRow = 50;
             getTileTransition().play();
         }
 
@@ -106,7 +109,7 @@ public final class ImageSlideView extends
      */
     Animation getFadeTransition() {
         if (this.fadeTransition == null) {
-            fadeTransition = FadeTransitionBuilder.create().node(getRootNode()).fromValue(0).toValue(1).duration(Duration.seconds(1)).build();
+            this.fadeTransition = FadeTransitionBuilder.create().node(getRootNode()).fromValue(0).toValue(1).duration(Duration.seconds(1)).build();
         }
         return this.fadeTransition;
     }
@@ -119,17 +122,17 @@ public final class ImageSlideView extends
 
             // Map<Point2D, ImageView> tiles = new HashMap<>();
 
-            double width = getImage().getWidth();
-            double height = getImage().getHeight();
-            double tileWidth = width / tilePerRow;
-            double tileHeight = height / tilePerRow;
+            final double width = getImage().getWidth();
+            final double height = getImage().getHeight();
+            final double tileWidth = width / this.tilePerRow;
+            final double tileHeight = height / this.tilePerRow;
 
-            List<Animation> fades = new ArrayList<>();
+            final List<Animation> fades = new ArrayList<>();
 
             for (double x = 0; x < width; x += tileWidth) {
                 for (double y = 0; y < height; y += tileHeight) {
 
-                    ImageView iv = ImageViewBuilder
+                    final ImageView iv = ImageViewBuilder
                             .create()
                             .image(getImage())
                             .clip(RectangleBuilder.create().x(x).y(y)
@@ -159,8 +162,8 @@ public final class ImageSlideView extends
             this.tileTransition.setOnFinished(new EventHandler<ActionEvent>() {
 
                 @Override
-                public void handle(ActionEvent arg0) {
-                    for (Node n : getRootNode().getChildren()) {
+                public void handle(final ActionEvent arg0) {
+                    for (final Node n : getRootNode().getChildren()) {
                         n.setOpacity(1.0);
                     }
 

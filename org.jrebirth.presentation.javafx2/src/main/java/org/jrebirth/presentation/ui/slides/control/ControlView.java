@@ -170,7 +170,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
 
         getSubTitle().setText("Progress");
 
-        VBox vb = VBoxBuilder.create().spacing(20).alignment(Pos.CENTER).build();
+        final VBox vb = VBoxBuilder.create().spacing(20).alignment(Pos.CENTER).build();
 
         vb.getChildren().addAll(
                 ProgressBarBuilder.create().build(),
@@ -199,7 +199,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
 
         getSubTitle().setText("Separator");
 
-        Separator s = SeparatorBuilder.create().minHeight(20).maxWidth(700).halignment(HPos.CENTER).build();
+        final Separator s = SeparatorBuilder.create().minHeight(20).maxWidth(700).halignment(HPos.CENTER).build();
 
         getRootNode().setCenter(s);
         BorderPane.setAlignment(s, Pos.CENTER);
@@ -213,7 +213,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
 
         getSubTitle().setText("MenuBar");
 
-        MenuBar menubar = MenuBarBuilder.create()
+        final MenuBar menubar = MenuBarBuilder.create()
                 .menus(
                         MenuBuilder.create().graphic(LabelBuilder.create().text("Menu 1").build())
                                 .items(
@@ -253,7 +253,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
     public void showToolBar() {
         getSubTitle().setText("ToolBar");
 
-        ToolBar toolbar = ToolBarBuilder.create()
+        final ToolBar toolbar = ToolBarBuilder.create()
                 .items(
                         new Button("Lorem"),
                         new Button("Ipsum"),
@@ -276,7 +276,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
 
         getSubTitle().setText("ListView");
 
-        ObservableList<String> list = populateList();
+        final ObservableList<String> list = populateList();
 
         final ListView<String> horizontalListView = new ListView<String>();
         horizontalListView.setOrientation(Orientation.HORIZONTAL);
@@ -288,7 +288,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
         verticalListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         verticalListView.setPrefWidth(400);
 
-        FlowPane fp = FlowPaneBuilder.create()
+        final FlowPane fp = FlowPaneBuilder.create()
                 .children(horizontalListView, verticalListView)
                 .hgap(30)
                 .build();
@@ -305,15 +305,16 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
      * @return
      */
     private ObservableList<String> populateList() {
-        ObservableList<String> list = FXCollections.observableArrayList();
+        final ObservableList<String> list = FXCollections.observableArrayList();
 
-        BufferedReader in = new BufferedReader(new InputStreamReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("org/jrebirth/presentation/ui/slides/control/sdkTree.txt")));
+        final BufferedReader in = new BufferedReader(new InputStreamReader(Thread.currentThread().getContextClassLoader()
+                .getResourceAsStream("org/jrebirth/presentation/ui/slides/control/sdkTree.txt")));
         String line;
         try {
             while ((line = in.readLine()) != null) {
                 list.add(line);
             }
-        } catch (IOException e) {
+        } catch (final IOException e) {
             e.printStackTrace();
         }
         return list;
@@ -326,16 +327,16 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
 
         getSubTitle().setText("TableView");
 
-        TableColumn pathColumn = new TableColumn();
+        final TableColumn pathColumn = new TableColumn();
         pathColumn.setPrefWidth(700);
         pathColumn.setText("Path");
         pathColumn.setCellValueFactory(new PropertyValueFactory("key"));
-        TableColumn extColumn = new TableColumn();
+        final TableColumn extColumn = new TableColumn();
         extColumn.setPrefWidth(200);
         extColumn.setText("Extension");
         extColumn.setCellValueFactory(new PropertyValueFactory("value"));
 
-        TableView<Pair<String, String>> tableView = new TableView<>();
+        final TableView<Pair<String, String>> tableView = new TableView<>();
         tableView.setItems(populateTable());
         tableView.getColumns().addAll(pathColumn, extColumn);
 
@@ -350,9 +351,10 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
      * @return
      */
     private ObservableList<Pair<String, String>> populateTable() {
-        ObservableList<Pair<String, String>> list = FXCollections.observableArrayList();
+        final ObservableList<Pair<String, String>> list = FXCollections.observableArrayList();
 
-        BufferedReader in = new BufferedReader(new InputStreamReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("org/jrebirth/presentation/ui/slides/control/sdkTree.txt")));
+        final BufferedReader in = new BufferedReader(new InputStreamReader(Thread.currentThread().getContextClassLoader()
+                .getResourceAsStream("org/jrebirth/presentation/ui/slides/control/sdkTree.txt")));
         String line;
         try {
             while ((line = in.readLine()) != null) {
@@ -363,7 +365,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
                 }
 
             }
-        } catch (IOException e) {
+        } catch (final IOException e) {
             e.printStackTrace();
         }
         return list;
@@ -379,7 +381,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
 
         try {
             populateTree(treeRoot);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             e.printStackTrace();
         }
 
@@ -399,16 +401,17 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
      * @param treeRoot the root to populate
      * @throws IOException id an error occured while opening the sample file
      */
-    private void populateTree(TreeItem<String> treeRoot) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("org/jrebirth/presentation/ui/slides/control/sdkTree.txt")));
+    private void populateTree(final TreeItem<String> treeRoot) throws IOException {
+        final BufferedReader in = new BufferedReader(new InputStreamReader(Thread.currentThread().getContextClassLoader()
+                .getResourceAsStream("org/jrebirth/presentation/ui/slides/control/sdkTree.txt")));
 
-        Map<String, TreeItem<String>> map = new HashMap<>();
+        final Map<String, TreeItem<String>> map = new HashMap<>();
         String line;
         while ((line = in.readLine()) != null) {
 
-            String[] path = line.split("/");
+            final String[] path = line.split("/");
 
-            TreeItem<String> ti = new TreeItem<>(path[path.length - 1]);
+            final TreeItem<String> ti = new TreeItem<>(path[path.length - 1]);
             map.put(line, ti);
 
             if (path.length == 1) {

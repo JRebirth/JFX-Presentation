@@ -69,7 +69,7 @@ public final class ChartView extends AbstractTemplateView<ChartModel, BorderPane
      * {@inheritDoc}
      */
     @Override
-    public void animate() {
+    public void show() {
     }
 
     /**
@@ -152,10 +152,10 @@ public final class ChartView extends AbstractTemplateView<ChartModel, BorderPane
     public void showArea() {
         getSubTitle().setText("Area Chart");
 
-        NumberAxis xAxis = new NumberAxis("X Values", 1.0d, 9.0d, 2.0d);
+        final NumberAxis xAxis = new NumberAxis("X Values", 1.0d, 9.0d, 2.0d);
         xAxis.setTickLength(12.0f);
-        NumberAxis yAxis = new NumberAxis("Y Values", 0.0d, 10.0d, 2.0d);
-        ObservableList<AreaChart.Series> areaChartData = FXCollections.observableArrayList(
+        final NumberAxis yAxis = new NumberAxis("Y Values", 0.0d, 10.0d, 2.0d);
+        final ObservableList<AreaChart.Series> areaChartData = FXCollections.observableArrayList(
                 new AreaChart.Series("Series 1", FXCollections.observableArrayList(
                         new AreaChart.Data(0, 4),
                         new AreaChart.Data(2, 5),
@@ -182,7 +182,7 @@ public final class ChartView extends AbstractTemplateView<ChartModel, BorderPane
                         ))
                 );
 
-        AreaChart chart = new AreaChart(xAxis, yAxis, areaChartData);
+        final AreaChart chart = new AreaChart(xAxis, yAxis, areaChartData);
 
         getRootNode().setCenter(chart);
 
@@ -319,7 +319,7 @@ public final class ChartView extends AbstractTemplateView<ChartModel, BorderPane
     public void showCandle() {
         getSubTitle().setText("Custom Chart");
 
-        double[][] data = new double[][] {
+        final double[][] data = new double[][] {
                 /* Fortran Intel */
                 { 1, 1.00, 1.00, 1.00, 1.02, 1.84, 3.09, 25.26 },
                 /* C GNU gcc */

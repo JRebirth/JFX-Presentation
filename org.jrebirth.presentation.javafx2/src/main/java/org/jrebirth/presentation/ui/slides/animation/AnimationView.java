@@ -62,18 +62,18 @@ public final class AnimationView extends AbstractTemplateView<AnimationModel, Bo
      * 
      * @param slideStep
      */
-    public void buildDemoRectangle(AnimationSlideStep slideStep) {
+    public void buildDemoRectangle(final AnimationSlideStep slideStep) {
 
-        VBox vb = buildDefaultContent(getModel().getContent(slideStep));
+        final VBox vb = buildDefaultContent(getModel().getContent(slideStep));
 
-        demoRectangle = RectangleBuilder.create()
+        this.demoRectangle = RectangleBuilder.create()
                 .width(200)
                 .height(200)
                 .strokeWidth(10)
                 .fill(PrezColors.GRADIENT_3.get())
                 .build();
-        vb.getChildren().add(0, demoRectangle);
-        StackPane.setAlignment(demoRectangle, Pos.TOP_CENTER);
+        vb.getChildren().add(0, this.demoRectangle);
+        StackPane.setAlignment(this.demoRectangle, Pos.TOP_CENTER);
 
         getRootNode().setCenter(vb);
     }
@@ -84,7 +84,7 @@ public final class AnimationView extends AbstractTemplateView<AnimationModel, Bo
     public void showFade() {
 
         FadeTransitionBuilder.create()
-                .node(demoRectangle)
+                .node(this.demoRectangle)
                 .fromValue(0.0)
                 .toValue(1.0)
                 .autoReverse(true)
@@ -99,7 +99,7 @@ public final class AnimationView extends AbstractTemplateView<AnimationModel, Bo
      */
     public void showFill() {
         FillTransitionBuilder.create()
-                .shape(demoRectangle)
+                .shape(this.demoRectangle)
                 .fromValue(PrezColors.GRADIENT_1.get())
                 .toValue(PrezColors.GRADIENT_2.get())
                 .autoReverse(true)
@@ -114,9 +114,9 @@ public final class AnimationView extends AbstractTemplateView<AnimationModel, Bo
      * TODO To complete.
      */
     public void showPath() {
-        String path = "M0 230.717C0 230.717 206.085 48.7446 313.587 86.8569 421.089 124.969 407.816 319.824 506.692 298.352 605.567 276.881 704.442 -39.8258 800 4.19133";
+        final String path = "M0 230.717C0 230.717 206.085 48.7446 313.587 86.8569 421.089 124.969 407.816 319.824 506.692 298.352 605.567 276.881 704.442 -39.8258 800 4.19133";
         PathTransitionBuilder.create()
-                .node(demoRectangle)
+                .node(this.demoRectangle)
                 .path(SVGPathBuilder.create().content(path).build())
                 .autoReverse(true)
                 .cycleCount(Animation.INDEFINITE)
@@ -136,7 +136,7 @@ public final class AnimationView extends AbstractTemplateView<AnimationModel, Bo
                 .cycleCount(Animation.INDEFINITE)
                 .children(
                         RotateTransitionBuilder.create()
-                                .node(demoRectangle)
+                                .node(this.demoRectangle)
                                 .fromAngle(0)
                                 .toAngle(180)
                                 .interpolator(Interpolator.EASE_IN)
@@ -151,7 +151,7 @@ public final class AnimationView extends AbstractTemplateView<AnimationModel, Bo
      */
     public void showRotate() {
         RotateTransitionBuilder.create()
-                .node(demoRectangle)
+                .node(this.demoRectangle)
                 .autoReverse(true)
                 .fromAngle(0)
                 .toAngle(540)
@@ -167,7 +167,7 @@ public final class AnimationView extends AbstractTemplateView<AnimationModel, Bo
      */
     public void showScale() {
         ScaleTransitionBuilder.create()
-                .node(demoRectangle)
+                .node(this.demoRectangle)
                 .fromX(1.0)
                 .byX(0.1)
                 .toX(2.0)
@@ -187,7 +187,7 @@ public final class AnimationView extends AbstractTemplateView<AnimationModel, Bo
      */
     public void showStroke() {
         StrokeTransitionBuilder.create()
-                .shape(demoRectangle)
+                .shape(this.demoRectangle)
                 .fromValue(PrezColors.GRADIENT_1.get())
                 .toValue(PrezColors.GRADIENT_2.get())
                 .autoReverse(true)
@@ -203,7 +203,7 @@ public final class AnimationView extends AbstractTemplateView<AnimationModel, Bo
     public void showTranslate() {
 
         TranslateTransitionBuilder.create()
-                .node(demoRectangle)
+                .node(this.demoRectangle)
                 .fromX(0.0)
                 .toX(400.0)
                 .fromY(0.0)

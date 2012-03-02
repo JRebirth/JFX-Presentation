@@ -61,15 +61,15 @@ public final class PropertyView extends AbstractTemplateView<PropertyModel, Bord
      */
     public void showBinding() {
 
-        VBox vb = buildDefaultContent(getModel().getContent(PropertySlideStep.Binding));
+        final VBox vb = buildDefaultContent(getModel().getContent(PropertySlideStep.Binding));
 
         final NumberFormat nf = new DecimalFormat("0.0");
         final Circle c = CircleBuilder.create().fill(PrezColors.SHAPE_BLUE.get()).radius(50).build();
         final Slider s = SliderBuilder.create().min(0.1).max(5).value(1.0).majorTickUnit(1.0).maxWidth(200).build();
         final Label l = LabelBuilder.create().text("1.0").build();
 
-        FlowPane fp = FlowPaneBuilder.create().children(s, l).build();
-        StackPane sp = StackPaneBuilder.create()
+        final FlowPane fp = FlowPaneBuilder.create().children(s, l).build();
+        final StackPane sp = StackPaneBuilder.create()
                 .children(fp, c)
                 .build();
 
@@ -84,7 +84,7 @@ public final class PropertyView extends AbstractTemplateView<PropertyModel, Bord
         s.valueProperty().addListener(new ChangeListener<Number>() {
 
             @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+            public void changed(final ObservableValue<? extends Number> observable, final Number oldValue, final Number newValue) {
                 l.setText(nf.format(newValue));
             }
         });

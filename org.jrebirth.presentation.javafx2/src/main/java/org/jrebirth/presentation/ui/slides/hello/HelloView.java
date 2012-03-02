@@ -68,7 +68,7 @@ public final class HelloView extends AbstractTemplateView<HelloModel, BorderPane
      * {@inheritDoc}
      */
     @Override
-    public void animate() {
+    public void show() {
         getAppImageView().toBack();
         getCodeImageView().toFront();
     }

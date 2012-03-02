@@ -35,7 +35,7 @@ public final class ImageSlideModel extends AbstractSlideModel<ImageSlideModel, I
      * @return the title
      */
     public String getTitle() {
-        return (getSlide().getTitle() == null) ? "" : getSlide().getTitle().replaceAll("\\\\n", "\n");
+        return getSlide().getTitle() == null ? "" : getSlide().getTitle().replaceAll("\\\\n", "\n");
     }
 
     /**
@@ -47,8 +47,8 @@ public final class ImageSlideModel extends AbstractSlideModel<ImageSlideModel, I
         return getSlide().getStyle();
     }
 
-	public String getImage() {
-		return getSlide().getContent().get(0).getItem().get(0).getImage();
-	}
+    public String getImage() {
+        return getSlide().getContent().get(0).getItem().get(0).getImage();
+    }
 
 }

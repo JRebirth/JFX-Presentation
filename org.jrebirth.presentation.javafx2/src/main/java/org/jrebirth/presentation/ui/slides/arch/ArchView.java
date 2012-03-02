@@ -41,7 +41,7 @@ public final class ArchView extends AbstractTemplateView<ArchModel, BorderPane, 
      * {@inheritDoc}
      */
     @Override
-    public void animate() {
+    public void show() {
         ScaleTransitionBuilder.create()
                 .node(getArchiPane())
                 .duration(Duration.millis(600))

@@ -78,7 +78,8 @@ public final class StackModel extends AbstractModel<StackModel, StackView> {
             this.selectedSlideModel = (SlideModel<SlideStep>) getModel(modelClass, new MultitonKey(slide));
             this.selectedSlideModel.setSlideNumber(this.slidePosition);
             getView().getRootNode().getChildren().add(this.selectedSlideModel.getRootNode());
-            this.selectedSlideModel.getView().animate();
+
+            // this.selectedSlideModel.getView().animate();
 
             this.selectedSlide = slide;
             // Define the current position

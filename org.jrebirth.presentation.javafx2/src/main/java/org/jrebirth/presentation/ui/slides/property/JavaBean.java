@@ -8,7 +8,7 @@ public class JavaBean {
     /**
      * @param value The value to set.
      */
-    public final void setValue(int value) {
+    public final void setValue(final int value) {
         this.value = value;
     }
 
@@ -16,6 +16,6 @@ public class JavaBean {
      * @return Returns the value.
      */
     public final int getValue() {
-        return value;
+        return this.value;
     }
 }

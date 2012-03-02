@@ -65,7 +65,7 @@ public final class PlaceView extends AbstractSlideView<PlaceModel, StackPane, Pl
      * {@inheritDoc}
      */
     @Override
-    public void animate() {
+    public void show() {
         getFadeTransition().playFromStart();
     }
 

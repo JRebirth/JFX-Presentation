@@ -77,7 +77,7 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
                 .minHeight(500)
                 .build();
 
-        label.getStyleClass().add("introTitle");
+        this.label.getStyleClass().add("introTitle");
 
         // label.scaleXProperty().bind(Bindings.divide(getModel().getLocalFacade().getGlobalFacade().getApplication().getStage().widthProperty(), 1024));
         // label.scaleYProperty().bind(Bindings.divide(getModel().getLocalFacade().getGlobalFacade().getApplication().getStage().heightProperty(), 768));
@@ -110,7 +110,7 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
      * {@inheritDoc}
      */
     @Override
-    public void animate() {
+    public void show() {
         getFadeTransition().playFromStart();
         this.typeWriter.play();
     }

@@ -35,7 +35,7 @@ public final class SplashModel extends AbstractSlideModel<SplashModel, SplashVie
      * @return the title
      */
     public String getTitle() {
-        return (getSlide().getTitle() == null) ? "" : getSlide().getTitle().replaceAll("\\\\n", "\n");
+        return getSlide().getTitle() == null ? "" : getSlide().getTitle().replaceAll("\\\\n", "\n");
     }
 
     /**

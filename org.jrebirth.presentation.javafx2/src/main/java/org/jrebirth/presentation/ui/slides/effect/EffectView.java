@@ -114,8 +114,8 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
      * @param string
      * @param fx
      */
-    private void displayImage(String image, Effect fx) {
-        ImageView iv = ImageViewBuilder.create()
+    private void displayImage(final String image, final Effect fx) {
+        final ImageView iv = ImageViewBuilder.create()
                 .effect(fx)
                 .image(loadImage(image))
                 .build();
@@ -126,14 +126,14 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
     /**
      * TODO To complete.
      */
-    protected void displayComparedImage(String image, Effect fx) {
-        Image img = loadImage(image);
+    protected void displayComparedImage(final String image, final Effect fx) {
+        final Image img = loadImage(image);
 
-        ImageView iv1 = ImageViewBuilder.create()
+        final ImageView iv1 = ImageViewBuilder.create()
                 .image(img)
                 .clip(new Rectangle(img.getWidth() / 2, 0, img.getWidth() / 2, img.getHeight()))
                 .build();
-        ImageView iv2 = ImageViewBuilder.create()
+        final ImageView iv2 = ImageViewBuilder.create()
                 .image(img)
                 .clip(new Rectangle(0, 0, img.getWidth() / 2, img.getHeight()))
                 .effect(fx)
@@ -150,7 +150,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
         // l.addEventHandler(arg0, arg1)Filter(MouseEvent.MOUSE_DRAGGED, new EventHandler() {
         //
         // });
-        StackPane sp = StackPaneBuilder.create()
+        final StackPane sp = StackPaneBuilder.create()
                 .prefWidth(img.getWidth())
                 .prefHeight(img.getHeight())
                 .children(iv1, /* l, */iv2)
@@ -165,7 +165,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
      * 
      * @param buildSlider
      */
-    private void displaySliders(Node... node) {
+    private void displaySliders(final Node... node) {
         getRootNode().setRight(FlowPaneBuilder.create().orientation(Orientation.VERTICAL).alignment(Pos.CENTER).children(node).build());
         BorderPane.setMargin(getRootNode().getRight(), new Insets(10));
         BorderPane.setAlignment(getRootNode().getRight(), Pos.CENTER);
@@ -181,9 +181,9 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
      * @param i
      * @param d
      */
-    private HBox buildIntegerSlider(String name, IntegerProperty property, int min, int max) {
+    private HBox buildIntegerSlider(final String name, final IntegerProperty property, final int min, final int max) {
 
-        Slider slider = SliderBuilder.create()
+        final Slider slider = SliderBuilder.create()
                 .min(min)
                 .max(max)
                 .maxWidth(80)
@@ -198,7 +198,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
         slider.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
             @Override
-            public void handle(MouseEvent event) {
+            public void handle(final MouseEvent event) {
                 event.consume();
             }
 
@@ -206,7 +206,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
         slider.valueProperty().addListener(new ChangeListener<Number>() {
 
             @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+            public void changed(final ObservableValue<? extends Number> observable, final Number oldValue, final Number newValue) {
                 valueLabel.setText(DECIMAL.format(newValue));
             }
         });
@@ -228,9 +228,9 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
      * @param i
      * @param d
      */
-    private HBox buildSlider(String name, DoubleProperty property, double min, double max) {
+    private HBox buildSlider(final String name, final DoubleProperty property, final double min, final double max) {
 
-        Slider slider = SliderBuilder.create()
+        final Slider slider = SliderBuilder.create()
                 .min(min)
                 .max(max)
                 .maxWidth(80)
@@ -241,7 +241,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
         slider.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
             @Override
-            public void handle(MouseEvent event) {
+            public void handle(final MouseEvent event) {
                 event.consume();
             }
 
@@ -255,7 +255,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
         slider.valueProperty().addListener(new ChangeListener<Number>() {
 
             @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+            public void changed(final ObservableValue<? extends Number> observable, final Number oldValue, final Number newValue) {
                 valueLabel.setText(DECIMAL.format(newValue));
             }
         });
@@ -275,7 +275,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
     public void showReflection() {
         getSubTitle().setText("Reflection");
 
-        Reflection fx = ReflectionBuilder.create()
+        final Reflection fx = ReflectionBuilder.create()
                 .fraction(0.5)
                 .topOffset(10)
                 .topOpacity(0.5)
@@ -294,7 +294,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
     public void showSepiaTone() {
         getSubTitle().setText("SepiaTone");
 
-        SepiaTone st = SepiaToneBuilder.create().level(1.0).build();
+        final SepiaTone st = SepiaToneBuilder.create().level(1.0).build();
 
         displayComparedImage(CUSTOM_CAR, st);
         displaySliders(buildSlider("Tone Level", st.levelProperty(), 0, 1.0));
@@ -308,7 +308,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
     public void showBloom() {
         getSubTitle().setText("Bloom");
 
-        Bloom b = BloomBuilder.create().threshold(0.5).build();
+        final Bloom b = BloomBuilder.create().threshold(0.5).build();
 
         displayComparedImage(CUSTOM_CAR, b);
         displaySliders(buildSlider("Threshold", b.thresholdProperty(), 0, 1.0));
@@ -322,7 +322,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
     public void showDropShadow() {
         getSubTitle().setText("Drop Shadow");
 
-        DropShadow fx = DropShadowBuilder.create()
+        final DropShadow fx = DropShadowBuilder.create()
                 .blurType(BlurType.GAUSSIAN)
                 .color(PrezColors.DROP_SHADOW.get())
                 .offsetX(30)
@@ -346,7 +346,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
     public void showInnerShadow() {
         getSubTitle().setText("Inner Shadow");
 
-        InnerShadow fx = InnerShadowBuilder.create()
+        final InnerShadow fx = InnerShadowBuilder.create()
                 .blurType(BlurType.GAUSSIAN)
                 .color(PrezColors.INNER_SHADOW.get())
                 .build();
@@ -368,7 +368,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
     public void showBoxBlur() {
         getSubTitle().setText("Box Blur");
 
-        BoxBlur fx = BoxBlurBuilder.create()
+        final BoxBlur fx = BoxBlurBuilder.create()
                 .width(15)
                 .height(15)
                 .iterations(3)
@@ -389,7 +389,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
     public void showMotionBlur() {
         getSubTitle().setText("Motion Blur");
 
-        MotionBlur fx = MotionBlurBuilder.create()
+        final MotionBlur fx = MotionBlurBuilder.create()
                 .radius(8.0)
                 .angle(150)
                 .build();
@@ -407,7 +407,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
     public void showGaussianBlur() {
         getSubTitle().setText("Gaussian Blur");
 
-        GaussianBlur fx = GaussianBlurBuilder.create()
+        final GaussianBlur fx = GaussianBlurBuilder.create()
                 .build();
 
         displayComparedImage(CUSTOM_CAR, fx);
@@ -422,7 +422,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
     public void showShadow() {
         getSubTitle().setText("Shadow");
 
-        Shadow fx = ShadowBuilder.create()
+        final Shadow fx = ShadowBuilder.create()
                 .blurType(BlurType.GAUSSIAN)
                 .color(Color.WHITESMOKE)
                 .build();
@@ -442,7 +442,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
     public void showGlow() {
         getSubTitle().setText("Glow");
 
-        Glow fx = GlowBuilder.create()
+        final Glow fx = GlowBuilder.create()
                 .level(0.7)
                 .build();
 
@@ -458,10 +458,10 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
     public void showLighting() {
         getSubTitle().setText("Lighting");
 
-        Light.Distant light = new Light.Distant();
+        final Light.Distant light = new Light.Distant();
         light.setAzimuth(-135.0);
 
-        Lighting fx = LightingBuilder.create()
+        final Lighting fx = LightingBuilder.create()
                 .light(light)
                 .diffuseConstant(10.0)
                 .surfaceScale(20.0)
@@ -483,7 +483,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
     public void showPerspectiveTransform() {
         getSubTitle().setText("PerspectiveTransform");
 
-        PerspectiveTransform fx = PerspectiveTransformBuilder.create()
+        final PerspectiveTransform fx = PerspectiveTransformBuilder.create()
                 .ulx(0.0)
                 .uly(0.0)
                 .urx(600.0)
@@ -517,7 +517,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
     public void showBlend() {
         getSubTitle().setText("Blend");
 
-        Blend fx = BlendBuilder.create()
+        final Blend fx = BlendBuilder.create()
                 .opacity(0.5)
                 .bottomInput(ImageInputBuilder.create().source(loadImage(CUSTOM_CAR)).build())
                 .mode(BlendMode.EXCLUSION)
@@ -534,7 +534,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
     public void showColorAdjust() {
         getSubTitle().setText("ColorAdjust");
 
-        ColorAdjust fx = ColorAdjustBuilder.create()
+        final ColorAdjust fx = ColorAdjustBuilder.create()
                 .hue(0.5)
                 .saturation(0.4)
                 .brightness(0.5)
@@ -560,20 +560,20 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
 
         getSubTitle().setText("DisplacementMap");
 
-        int w = 220;
-        int h = 100;
-        FloatMap map = new FloatMap();
+        final int w = 220;
+        final int h = 100;
+        final FloatMap map = new FloatMap();
         map.setWidth(w);
         map.setHeight(h);
 
         for (int i = 0; i < w; i++) {
-            double v = (Math.sin(i / 50.0 * Math.PI) - 0.5) / 40.0;
+            final double v = (Math.sin(i / 50.0 * Math.PI) - 0.5) / 40.0;
             for (int j = 0; j < h; j++) {
                 map.setSamples(i, j, 0.0f, (float) v);
             }
         }
 
-        DisplacementMap dm = new DisplacementMap();
+        final DisplacementMap dm = new DisplacementMap();
         dm.setMapData(map);
 
         displayImage(CUSTOM_CAR, dm);
