@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.jrebirth.core.link.Wave;
-import org.jrebirth.core.ui.impl.AbstractModel;
+import org.jrebirth.core.ui.AbstractModel;
 import org.jrebirth.presentation.model.Slide;
 import org.jrebirth.presentation.model.SlideContent;
 
@@ -40,7 +40,7 @@ public abstract class AbstractSlideModel<M extends AbstractSlideModel<M, V, S>, 
      */
     public Slide getSlide() {
         if (this.slide == null) {
-            this.slide = Slide.class.cast(getModelObject().getValue());
+            this.slide = Slide.class.cast(getModelObject()/* .getValue() */);
         }
         return this.slide;
     }

@@ -3,7 +3,7 @@ package org.jrebirth.presentation.ui.base;
 import javafx.scene.Parent;
 
 import org.jrebirth.core.exception.CoreException;
-import org.jrebirth.core.ui.impl.AbstractView;
+import org.jrebirth.core.ui.AbstractView;
 
 /**
  * 

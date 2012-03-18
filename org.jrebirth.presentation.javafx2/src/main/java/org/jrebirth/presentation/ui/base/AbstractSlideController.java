@@ -6,9 +6,9 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
 import org.jrebirth.core.exception.CoreException;
+import org.jrebirth.core.ui.AbstractController;
 import org.jrebirth.core.ui.adapter.DefaultKeyAdapter;
 import org.jrebirth.core.ui.adapter.DefaultMouseAdapter;
-import org.jrebirth.core.ui.impl.AbstractController;
 import org.jrebirth.presentation.command.ShowNextSlideCommand;
 import org.jrebirth.presentation.command.ShowPreviousSlideCommand;
 import org.jrebirth.presentation.command.ShowSlideMenuCommand;

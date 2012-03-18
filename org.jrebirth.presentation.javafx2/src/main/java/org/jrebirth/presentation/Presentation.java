@@ -1,6 +1,7 @@
 package org.jrebirth.presentation;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
@@ -64,34 +65,42 @@ public final class Presentation extends AbstractApplication<StackPane> {
      */
     @Override
     protected void customizeScene(final Scene scene) {
-        scene.getStylesheets().add("style/template.css");
-        scene.getStylesheets().add("style/candle.css");
 
-        // Manage F11 button to switch full screen
-        scene.addEventFilter(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>() {
+        Platform.runLater(new Runnable() {
 
             @Override
-            public void handle(final KeyEvent event) {
-                if (event.isControlDown()) {
-                    if (event.getCode() == KeyCode.ADD || event.getCode() == KeyCode.PLUS) {
-                        getScene().getRoot().setScaleX(getScene().getRoot().getScaleX() + 0.05);
-                        getScene().getRoot().setScaleY(getScene().getRoot().getScaleY() + 0.05);
-                        event.consume();
-                    } else if (event.getCode() == KeyCode.SUBTRACT || event.getCode() == KeyCode.MINUS) {
-                        getScene().getRoot().setScaleX(getScene().getRoot().getScaleX() - 0.05);
-                        getScene().getRoot().setScaleY(getScene().getRoot().getScaleY() - 0.05);
-                        event.consume();
-                    } else if (event.getCode() == KeyCode.DIGIT0 || event.getCode() == KeyCode.NUMPAD0) {
-                        getScene().getRoot().setScaleX(1.0);
-                        getScene().getRoot().setScaleY(1.0);
-                        event.consume();
+            public void run() {
+                scene.getStylesheets().add("style/template.css");
+                // scene.getStylesheets().add("style/candle.css");
+
+                // Manage F11 button to switch full screen
+                scene.addEventFilter(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>() {
+
+                    @Override
+                    public void handle(final KeyEvent event) {
+                        if (event.isControlDown()) {
+                            if (event.getCode() == KeyCode.ADD || event.getCode() == KeyCode.PLUS) {
+                                getScene().getRoot().setScaleX(getScene().getRoot().getScaleX() + 0.05);
+                                getScene().getRoot().setScaleY(getScene().getRoot().getScaleY() + 0.05);
+                                event.consume();
+                            } else if (event.getCode() == KeyCode.SUBTRACT || event.getCode() == KeyCode.MINUS) {
+                                getScene().getRoot().setScaleX(getScene().getRoot().getScaleX() - 0.05);
+                                getScene().getRoot().setScaleY(getScene().getRoot().getScaleY() - 0.05);
+                                event.consume();
+                            } else if (event.getCode() == KeyCode.DIGIT0 || event.getCode() == KeyCode.NUMPAD0) {
+                                getScene().getRoot().setScaleX(1.0);
+                                getScene().getRoot().setScaleY(1.0);
+                                event.consume();
+                            }
+                        }
                     }
-                }
+                });
+
+                // Preload font for CSS
+                PrezFonts.SPLASH.get();
+
             }
         });
-
-        // Preload font for CSS
-        PrezFonts.SPLASH.get();
 
     }
 }

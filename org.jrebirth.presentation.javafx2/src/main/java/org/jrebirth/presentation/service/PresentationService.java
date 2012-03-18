@@ -13,7 +13,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 import org.jrebirth.core.exception.CoreException;
-import org.jrebirth.core.service.impl.ServiceImpl;
+import org.jrebirth.core.service.ServiceImpl;
 import org.jrebirth.presentation.model.Presentation;
 
 /**

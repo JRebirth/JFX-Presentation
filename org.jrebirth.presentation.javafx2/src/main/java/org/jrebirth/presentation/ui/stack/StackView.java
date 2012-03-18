@@ -6,7 +6,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 
 import org.jrebirth.core.exception.CoreException;
-import org.jrebirth.core.ui.impl.AbstractView;
+import org.jrebirth.core.ui.AbstractView;
 
 /**
  * 

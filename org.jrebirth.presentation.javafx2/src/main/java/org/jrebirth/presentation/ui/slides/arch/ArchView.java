@@ -7,7 +7,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.util.Duration;
 
 import org.jrebirth.core.exception.CoreException;
-import org.jrebirth.core.ui.impl.FXMLComponent;
+import org.jrebirth.core.ui.fxml.FXMLComponent;
 import org.jrebirth.presentation.ui.template.AbstractTemplateView;
 
 /**

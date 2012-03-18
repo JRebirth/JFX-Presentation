@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 
-import org.jrebirth.core.ui.impl.AbstractFXMLController;
+import org.jrebirth.core.ui.fxml.AbstractFXMLController;
 
 /**
  * The class <strong>ArchNodeController</strong>.

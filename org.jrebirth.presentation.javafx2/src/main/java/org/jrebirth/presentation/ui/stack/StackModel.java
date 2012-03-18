@@ -2,10 +2,9 @@ package org.jrebirth.presentation.ui.stack;
 
 import java.util.List;
 
-import org.jrebirth.core.facade.impl.MultitonKey;
 import org.jrebirth.core.link.Wave;
+import org.jrebirth.core.ui.AbstractModel;
 import org.jrebirth.core.ui.Model;
-import org.jrebirth.core.ui.impl.AbstractModel;
 import org.jrebirth.presentation.model.Slide;
 import org.jrebirth.presentation.service.PresentationService;
 import org.jrebirth.presentation.ui.base.SlideModel;
@@ -30,13 +29,16 @@ public final class StackModel extends AbstractModel<StackModel, StackView> {
     /** The current slide model selected. */
     private SlideModel<SlideStep> selectedSlideModel;
 
+    /** Store a strong reference to the service to avoid reloading. */
+    private PresentationService presentationService;
+
     /**
      * {@inheritDoc}
      */
     @Override
     protected void customInitialize() {
         // Load the Presentation content
-        final List<Slide> slideList = getService(PresentationService.class).getPresentation().getSlides().getSlide();
+        final List<Slide> slideList = getPresentationService().getPresentation().getSlides().getSlide();
         if (!slideList.isEmpty()) {
             this.slidePosition = 0;
             displaySlide(slideList.get(this.slidePosition));
@@ -60,6 +62,16 @@ public final class StackModel extends AbstractModel<StackModel, StackView> {
     }
 
     /**
+     * @return Returns the presentationService.
+     */
+    public PresentationService getPresentationService() {
+        if (this.presentationService == null) {
+            this.presentationService = getService(PresentationService.class);
+        }
+        return this.presentationService;
+    }
+
+    /**
      * Display a slide.
      * 
      * @param slide the slide to display
@@ -69,13 +81,13 @@ public final class StackModel extends AbstractModel<StackModel, StackView> {
             if (this.selectedSlide != null) {
                 final Class<Model> selectedModelClass = (Class<Model>) Class.forName(this.selectedSlide.getModelClass());
                 // Hide previous slide
-                getView().getRootNode().getChildren().removeAll(getModel(selectedModelClass, new MultitonKey(this.selectedSlide)).getRootNode());
+                getView().getRootNode().getChildren().removeAll(getModel(selectedModelClass, this.selectedSlide).getRootNode());
             }
 
             final Class<Model> modelClass = (Class<Model>) Class.forName(slide.getModelClass());
             // Show current slide
 
-            this.selectedSlideModel = (SlideModel<SlideStep>) getModel(modelClass, new MultitonKey(slide));
+            this.selectedSlideModel = (SlideModel<SlideStep>) getModel(modelClass, slide);
             this.selectedSlideModel.setSlideNumber(this.slidePosition);
             getView().getRootNode().getChildren().add(this.selectedSlideModel.getRootNode());
 
@@ -111,8 +123,8 @@ public final class StackModel extends AbstractModel<StackModel, StackView> {
      */
     public void next() {
         if (this.selectedSlideModel.nextStep()) {
-            this.slidePosition = Math.min(this.slidePosition + 1, getService(PresentationService.class).getPresentation().getSlides().getSlide().size() - 1);
-            displaySlide(getService(PresentationService.class).getPresentation().getSlides().getSlide().get(this.slidePosition));
+            this.slidePosition = Math.min(this.slidePosition + 1, getPresentationService().getPresentation().getSlides().getSlide().size() - 1);
+            displaySlide(getPresentationService().getPresentation().getSlides().getSlide().get(this.slidePosition));
         }
     }
 
@@ -122,7 +134,7 @@ public final class StackModel extends AbstractModel<StackModel, StackView> {
     public void previous() {
         if (this.selectedSlideModel.previousStep()) {
             this.slidePosition = Math.max(this.slidePosition - 1, 0);
-            displaySlide(getService(PresentationService.class).getPresentation().getSlides().getSlide().get(this.slidePosition));
+            displaySlide(getPresentationService().getPresentation().getSlides().getSlide().get(this.slidePosition));
         }
     }
 
