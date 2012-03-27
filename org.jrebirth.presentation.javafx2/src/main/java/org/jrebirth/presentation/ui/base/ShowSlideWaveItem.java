@@ -18,4 +18,13 @@ public enum ShowSlideWaveItem implements WaveItem {
     /** The Slide step type to show. */
     SLIDE_STEP_TYPE;
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Class<?> dataClass() {
+        // Nothing to do yet
+        return null;
+    }
+
 }
