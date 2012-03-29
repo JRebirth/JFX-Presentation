@@ -20,8 +20,6 @@ import org.jrebirth.presentation.ui.stack.StackModel;
  * 
  * @author Sébastien Bordes
  * 
- * @version $Revision: 85 $ $Author: sbordes $
- * @since $Date: 2011-10-19 19:16:15 +0200 (Wed, 19 Oct 2011) $
  */
 public final class Presentation extends AbstractApplication<StackPane> {
 
