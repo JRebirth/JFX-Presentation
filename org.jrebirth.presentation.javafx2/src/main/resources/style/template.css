@@ -56,13 +56,13 @@ VBox.content {
 
 .item0 {
 	
-	-fx-font : 3em "Neuton Cursive";
+	-fx-font : 1.9em "Neuton Cursive";
 	-fx-fill : #004442;
 }
 
 .item1 {
 
-	-fx-font : 2.5em "Neuton Cursive";
+	-fx-font : 1.4em "Neuton Cursive";
 	-fx-fill : #169E99;
 	-fx-padding-left : 40px;
 	-fx-translate-x : 40 ;
@@ -70,7 +70,7 @@ VBox.content {
 
 .item2 {
 
-	-fx-font : 2em "Neuton Cursive";
+	-fx-font : 1.4em "Neuton Cursive";
 	-fx-fill : #169E99;
 	-fx-padding-left : 80px;
 	-fx-translate-x : 80;
@@ -78,12 +78,12 @@ VBox.content {
  
 .link0 {
 	
-	-fx-font : 1.5em "Neuton Cursive";
+	-fx-font : 1.3em "Neuton Cursive";
 	-fx-fill : #004442;
 }
 .link1 {
 	
-	-fx-font : 1.3em "Neuton Cursive";
+	-fx-font : 1.2em "Neuton Cursive";
 	-fx-fill : #004442;
 }
 
@@ -118,7 +118,7 @@ VBox.me{
 .splashText{
 	-fx-fill : #000000; /*#A0DCFF ;*/
 	-fx-text-alignment : center;
-	-fx-font: 3.5em "BorisBlackBloxx";
+	-fx-font: 2.0em "BorisBlackBloxx";
 	/* -fx-padding : 10px;*/
 }
 
