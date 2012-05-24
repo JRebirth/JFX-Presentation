@@ -10,7 +10,7 @@
 	<name>JavaFX 2.0 Presentation</name>
 	<url>http://www.jrebirth.org</url>
 	<description>Interactive Presentation of JavaFX2 capabilities</description>
-	
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
@@ -24,7 +24,7 @@
 		<system>Jenkins</system>
 		<url>http://ci.jrebirth.org/job/Presentation-Trunk/</url>
 	</ciManagement>
-	
+
 	<scm>
 		<connection>scm:git:git://github.com/JRebirth/JFX-Presentation.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/JRebirth/JFX-Presentation.git</developerConnection>
@@ -44,7 +44,7 @@
 			<comments>CeCILL-C Free Software Licence</comments>
 		</license>
 	</licenses>
-	
+
 	<build>
 
 		<resources>
@@ -64,7 +64,7 @@
 				</includes>
 			</resource>
 		</resources>
-		
+
 		<plugins>
 
 			<plugin>
@@ -77,7 +77,7 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -220,20 +220,13 @@
 			<version>0.6.0-SNAPSHOT</version>
 		</dependency>
 
-
-		<dependency>
-			<groupId>com.oracle.javafx</groupId>
-			<artifactId>jfxrt</artifactId>
-			<scope>provided</scope>
-			<version>2.1</version>
-		</dependency>
-
-
 		<dependency>
 			<groupId>org.jrebirth</groupId>
 			<artifactId>presentation</artifactId>
 			<version>0.6.0-SNAPSHOT</version>
 		</dependency>
+
+
 	</dependencies>
 
 
@@ -260,37 +253,10 @@
 
 	</distributionManagement>
 
-	<repositories>
-		<repository>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<id>releases</id>
-			<name>libs-release</name>
-			<url>http://repo.jrebirth.org/libs-release</url>
-		</repository>
-		<repository>
-			<snapshots />
-			<id>snapshots</id>
-			<name>libs-snapshot</name>
-			<url>http://repo.jrebirth.org/libs-snapshot</url>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<id>central</id>
-			<name>plugins-release</name>
-			<url>http://repo.jrebirth.org/plugins-release</url>
-		</pluginRepository>
-		<pluginRepository>
-			<snapshots />
-			<id>snapshots</id>
-			<name>plugins-snapshot</name>
-			<url>http://repo.jrebirth.org/plugins-snapshot</url>
-		</pluginRepository>
-	</pluginRepositories>
+	<!-- <repositories> <repository> <snapshots> <enabled>false</enabled> </snapshots> <id>releases</id> <name>libs-release</name> <url>http://repo.jrebirth.org/libs-release</url> 
+		</repository> <repository> <snapshots /> <id>snapshots</id> <name>libs-snapshot</name> <url>http://repo.jrebirth.org/libs-snapshot</url> </repository> </repositories> 
+		<pluginRepositories> <pluginRepository> <snapshots> <enabled>false</enabled> </snapshots> <id>central</id> <name>plugins-release</name> <url>http://repo.jrebirth.org/plugins-release</url> 
+		</pluginRepository> <pluginRepository> <snapshots /> <id>snapshots</id> <name>plugins-snapshot</name> <url>http://repo.jrebirth.org/plugins-snapshot</url> </pluginRepository> 
+		</pluginRepositories> -->
 
 </project>
