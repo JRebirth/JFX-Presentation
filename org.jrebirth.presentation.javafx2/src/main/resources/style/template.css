@@ -15,11 +15,14 @@
     -fx-fill : #A0DCFF ;
 }
 
-.introTitle {
-	-fx-font : 72px "Segoe UI";
-	-fx-fill: #000000;
+.intro .introTitle {
+	-fx-font : 90px "1942 Report";
+	-fx-fill: #CCCCCC;
 }
-
+.introbis .introTitle {
+	-fx-font : 80px "OliJo";
+	-fx-fill: #CCCCCC;
+}
 
 .header{
 	
