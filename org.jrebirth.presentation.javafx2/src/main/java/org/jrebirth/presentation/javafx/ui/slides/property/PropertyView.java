@@ -91,4 +91,13 @@ public final class PropertyView extends AbstractTemplateView<PropertyModel, Bord
 
         getRootNode().setCenter(vb);
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doReload() {
+        // Nothing to do yet
+        
+    }
 }

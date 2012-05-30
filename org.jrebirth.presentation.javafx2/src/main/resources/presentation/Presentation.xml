@@ -12,12 +12,23 @@
 
 	<slides>
 	
-		<!-- Conference Place -->
-		<slide style="place" modelClass="org.jrebirth.presentation.javafx.ui.slides.place.PlaceModel" >
+	<!--  TEST ZONE -->
+	<!--  TEST ZONE -->
+	<!--  TEST ZONE -->
+	
+
+	
+	<!--  END TEST ZONE -->
+	<!--  END TEST ZONE -->
+	<!--  END TEST ZONE -->
+	
+ 		<!-- Conference Place -->
+		<slide style="place" modelClass="org.jrebirth.presentation.javafx.ui.slides.place.PlaceModel" showAnimation="FadeIn" hideAnimation="FadeOut">
 		</slide>
+		
 
 		<!-- Presentation Title -->
-		<slide style="intro" modelClass="org.jrebirth.presentation.javafx.ui.slides.intro.IntroModel" hideAnimation="MoveToLeft" >
+		<slide style="intro" modelClass="org.jrebirth.presentation.javafx.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="MoveToLeft" >
 			<title>La Revolution\n\tJavaFX 2</title>
 		</slide>
 		
@@ -26,23 +37,26 @@
 		</slide>
 
 		<!-- MOI -->
-		<slide style="me" hideAnimation="MoveToLeft">
+		<slide style="me">
 			<title>Sébastien Bordes</title>
 			<content>
-				<item>Développeur</item>
+				<item>Developpeur</item>
+				<item level="1"></item>
 				<item>Technologies</item>
 				<item level="1">Swing</item>
-				<item level="1">Web (page et ajax)</item>
+				<item level="1">JEE</item>
 				<item level="1">Eclipse RCP</item>
 				<item level="1">Flash-Flex (AS3)</item>
 				<item level="1">Silverlight (C#)</item>
-				<item>@SebastienBordes</item>
-				<item link="true">seb@jrebirth.org</item>
+				<item>@s8bordes</item>
+				<item level="1">seb@jrebirth.org</item>
+				<item link="true">www.jrebirth.org</item>
 				<item link="true">blog.webeo.fr</item>
-				<item>Graphismes</item>
+				<item>Artwork by</item>
 				<item level="1">xoxi@xoxi.fr</item>
 			</content>
 		</slide>
+
 
 		<!-- Le plan -->
 		<slide>
@@ -68,21 +82,25 @@
 		<!-- ************************************************************************* -->
 
 		<!-- HOOK -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.splash.SplashModel" style="doyousee">
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" style="doyousee">
 			<title>Avez-vous \ndéjà vu\n une application\n JavaFX 2 ?</title>
 		</slide>
 
 		<!-- HOOK -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.splash.SplashModel" style="dogfooding">
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" style="dogfooding">
 			<title>Vraiment ??</title>
 		</slide>
 
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.splash.SplashModel">
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel">
 			<title>JavaFX != JAVA</title>
 		</slide>
 		
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.splash.SplashModel">
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel">
 			<title>JavaFX 2\n IS \n JAVA</title>
+		</slide>
+		
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel">
+			<title>En 2012\nJavaFX 2\n=\nJavaFX</title>
 		</slide>
 				
 		<!-- Source Code -->
@@ -90,20 +108,14 @@
 			<title>Pour les curieux</title>
 			<content>
 				<item>Pour installer l'application</item>
-				<item level="1">javaws -import http://www.jrebirth.org/prez/Prez.jnlp</item>
+				<item level="1">javaws -import http://www.jrebirth.org/breizhcamp/Prez.jnlp</item>
+				<item></item>
 				<item>Pour lancer l'application en ligne</item>
-				<item level="1" link="true">www.jrebirth.org/demo.html</item>
+				<item level="1" link="true">www.jrebirth.org/breizhcamp.html</item>
+				<item></item>
 				<item>Pour voir le code</item>
-				<item level="1" link="true">source.jrebirth.org/wsvn/JRebirth/JRebirth/trunk/org.jrebirth.presentation.javafx2</item>
-				<item>Pour télécharger la démo</item>
-				<item level="1" link="true">repo.jrebirth.org/jrebirth-release-local/org/jrebirth/presentation/javafx2/1.0.0</item>
-				<item>Pour télécharger le Framework utilisé</item>
-				<item level="1" link="true">repo.jrebirth.org/jrebirth-release-local/org/jrebirth/core/0.4.0</item>
+				<item level="1" link="true">github.com/JRebirth/JFX-Presentation</item>
 			</content>
-		</slide>
-
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.splash.SplashModel">
-			<title>Celui qui trouve\n un Bug ...\n\n ... le corrige !</title>
 		</slide>
 		
 		<!-- Les RIAs -->
@@ -173,7 +185,7 @@
 		<slide>
 			<title>Comment on l'installe ?</title>
 			<content>
-				<item>SDK fourni avec le JDK (7u2)</item>
+				<item>SDK fourni avec le JDK (à partir de la 7u2)</item>
 				<item>Runtime</item>
 				<item level="1">bin => .dll et .exe</item>
 				<item level="1">deploy.jar - Webstart</item>
@@ -1672,12 +1684,12 @@
 		</slide>
 
 		<!-- THX -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.splash.SplashModel">
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel">
 			<title>Merci\nde votre attention</title>
 		</slide>
 
 		<!-- Des Questions -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.splash.SplashModel">
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel">
 			<title>Avez-vous des\nquestions ?</title>
 		</slide>
 

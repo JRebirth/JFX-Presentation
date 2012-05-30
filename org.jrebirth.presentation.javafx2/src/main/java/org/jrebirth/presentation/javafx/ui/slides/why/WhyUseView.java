@@ -36,4 +36,13 @@ public final class WhyUseView extends AbstractTemplateView<WhyUseModel, BorderPa
         return buildDefaultContent(getModel().getDefaultContent());
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doReload() {
+        // Nothing to do yet
+        
+    }
+
 }

@@ -582,4 +582,13 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doReload() {
+        // Nothing to do yet
+        
+    }
+
 }

@@ -470,4 +470,13 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, BorderPane
         BorderPane.setMargin(tp, new Insets(40));
 
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doReload() {
+        // Nothing to do yet
+        
+    }
 }

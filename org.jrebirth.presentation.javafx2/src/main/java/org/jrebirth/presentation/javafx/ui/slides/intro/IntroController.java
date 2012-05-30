@@ -4,12 +4,9 @@ import org.jrebirth.core.exception.CoreException;
 import org.jrebirth.presentation.ui.base.AbstractSlideController;
 
 /**
- * The class <strong>ControlsController</strong>.
+ * The class <strong>IntroController</strong>.
  * 
  * @author Sébastien Bordes
- * 
- * @version $Revision: 72 $ $Author: sbordes $
- * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
 public final class IntroController extends AbstractSlideController<IntroModel, IntroView> {
 
@@ -22,6 +19,22 @@ public final class IntroController extends AbstractSlideController<IntroModel, I
      */
     public IntroController(final IntroView view) throws CoreException {
         super(view);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void customInitializeEventAdapters() throws CoreException {
+        super.customInitializeEventAdapters();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void customInitializeEventHandlers() throws CoreException {
+        super.customInitializeEventHandlers();
     }
 
 }

@@ -54,4 +54,13 @@ public final class FutureView extends AbstractTemplateView<FutureModel, BorderPa
         getRootNode().setCenter(appImageView);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doReload() {
+        // Nothing to do yet
+        
+    }
+
 }

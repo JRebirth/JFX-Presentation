@@ -116,7 +116,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, BorderPa
      * {@inheritDoc}
      */
     @Override
-    public void show() {
+    public void doStart() {
         // getFadeTransition().playFromStart();
     }
 
@@ -509,6 +509,15 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, BorderPa
 
         getRootNode().setCenter(tp);
 
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doReload() {
+        // Nothing to do yet
+        
     }
 
 }

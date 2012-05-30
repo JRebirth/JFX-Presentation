@@ -179,4 +179,13 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Border
         this.stage.toFront();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doReload() {
+        // Nothing to do yet
+        
+    }
+
 }

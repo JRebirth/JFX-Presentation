@@ -77,4 +77,13 @@ public final class ResourcesView extends AbstractTemplateView<ResourcesModel, Bo
 
         getRootNode().setCenter(vb);
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doReload() {
+        // Nothing to do yet
+        
+    }
 }

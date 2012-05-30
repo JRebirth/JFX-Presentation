@@ -68,7 +68,7 @@ public final class HelloView extends AbstractTemplateView<HelloModel, BorderPane
      * {@inheritDoc}
      */
     @Override
-    public void show() {
+    public void doStart() {
         getAppImageView().toBack();
         getCodeImageView().toFront();
     }
@@ -225,5 +225,14 @@ public final class HelloView extends AbstractTemplateView<HelloModel, BorderPane
         timer.start();
         getAppCarousselTransition().playFromStart();
         getCodeCarousselTransition().playFromStart();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doReload() {
+        // Nothing to do yet
+        
     }
 }

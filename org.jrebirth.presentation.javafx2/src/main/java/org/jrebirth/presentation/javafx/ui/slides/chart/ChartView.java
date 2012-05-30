@@ -69,7 +69,7 @@ public final class ChartView extends AbstractTemplateView<ChartModel, BorderPane
      * {@inheritDoc}
      */
     @Override
-    public void show() {
+    public void doStart() {
     }
 
     /**
@@ -395,6 +395,15 @@ public final class ChartView extends AbstractTemplateView<ChartModel, BorderPane
         }
 
         getRootNode().setCenter(bc);
+
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doReload() {
+        // Nothing to do yet
 
     }
 

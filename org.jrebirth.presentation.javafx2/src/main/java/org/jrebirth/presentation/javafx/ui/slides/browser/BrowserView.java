@@ -58,7 +58,7 @@ public final class BrowserView extends AbstractTemplateView<BrowserModel, Border
      * {@inheritDoc}
      */
     @Override
-    public void show() {
+    public void doStart() {
     }
 
     /**
@@ -106,6 +106,15 @@ public final class BrowserView extends AbstractTemplateView<BrowserModel, Border
         this.browser.setEffect(ReflectionBuilder.create().build());
         this.browser.getEngine().reload();
         this.browser.setCache(true);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doReload() {
+        // Nothing to do yet
+
     }
 
 }

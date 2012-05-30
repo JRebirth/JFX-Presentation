@@ -36,4 +36,13 @@ public final class JWSView extends AbstractTemplateView<JWSModel, BorderPane, JW
         return buildDefaultContent(getModel().getDefaultContent());
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doReload() {
+        // Nothing to do yet
+        
+    }
+
 }

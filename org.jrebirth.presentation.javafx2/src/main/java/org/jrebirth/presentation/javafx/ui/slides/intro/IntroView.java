@@ -2,15 +2,12 @@ package org.jrebirth.presentation.javafx.ui.slides.intro;
 
 import java.util.Random;
 
-import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.LabelBuilder;
-import javafx.scene.image.ImageView;
-import javafx.scene.image.ImageViewBuilder;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
@@ -24,23 +21,14 @@ import org.jrebirth.presentation.ui.base.AbstractSlideView;
  * The custom introduction slide.
  * 
  * @author Sébastien Bordes
- * 
- * @version $Revision: 72 $ $Author: sbordes $
- * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
 public final class IntroView extends AbstractSlideView<IntroModel, StackPane, IntroController> {
-
-    /** The intro name transition. */
-    private FadeTransition fadeTransition;
 
     /** The typewriter animation. */
     private Timeline typeWriter;
 
     /** The label shown. */
     private Label label;
-
-    /** The label shown. */
-    private ImageView background;
 
     /**
      * Default Constructor.
@@ -58,15 +46,6 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
      */
     @Override
     protected void customInitializeComponents() {
-
-        if ("intro".equals(getModel().getSlide().getStyle())) {
-            this.background = ImageViewBuilder.create()
-                    .image(loadImage("images/intro/Intro_ToulouseJug_Toulouse_Capitole.jpg"))
-                    .build();
-
-            getRootNode().getChildren().add(this.background);
-            StackPane.setAlignment(this.background, Pos.CENTER);
-        }
 
         this.label = LabelBuilder
                 .create()
@@ -90,12 +69,6 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
         getRootNode().getChildren().add(this.label);
         StackPane.setAlignment(this.label, Pos.CENTER);
 
-        this.fadeTransition = new FadeTransition(Duration.seconds(2), this.background);
-        this.fadeTransition.setFromValue(1.0f);
-        this.fadeTransition.setToValue(0.0f);
-        this.fadeTransition.setCycleCount(1);
-        this.fadeTransition.setAutoReverse(false);
-
         this.typeWriter = new Timeline();
         this.typeWriter.setDelay(Duration.millis(500));
         String content = "";
@@ -103,7 +76,7 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
         final Random r = new Random();
         for (final char c : getModel().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t").toCharArray()) {
 
-            d = d.add(Duration.millis(r.nextInt() % 90 + 90));
+            d = d.add(Duration.millis(r.nextInt() % 90 + 130));
             this.typeWriter.getKeyFrames().add(new KeyFrame(d, new KeyValue(this.label.textProperty(), new String(content + c))));
             content += c;
         }
@@ -113,16 +86,17 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
      * {@inheritDoc}
      */
     @Override
-    public void show() {
-        getFadeTransition().playFromStart();
+    public void doStart() {
         this.typeWriter.play();
     }
 
     /**
-     * @return Returns the fadeTransition.
+     * {@inheritDoc}
      */
-    FadeTransition getFadeTransition() {
-        return this.fadeTransition;
+    @Override
+    public void doReload() {
+        this.typeWriter.play();
+
     }
 
 }

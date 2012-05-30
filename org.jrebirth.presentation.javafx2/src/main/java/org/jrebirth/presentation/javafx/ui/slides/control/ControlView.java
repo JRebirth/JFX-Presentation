@@ -422,4 +422,13 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
 
         }
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doReload() {
+        // Nothing to do yet
+        
+    }
 }

@@ -50,7 +50,7 @@ public final class StageView extends AbstractTemplateView<StageModel, BorderPane
      * {@inheritDoc}
      */
     @Override
-    public void show() {
+    public void doStart() {
         // Nothing to do yet
 
     }
@@ -102,6 +102,15 @@ public final class StageView extends AbstractTemplateView<StageModel, BorderPane
         this.stage.centerOnScreen();
         this.stage.show();
         this.stage.toFront();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doReload() {
+        // Nothing to do yet
+        
     }
 
 }

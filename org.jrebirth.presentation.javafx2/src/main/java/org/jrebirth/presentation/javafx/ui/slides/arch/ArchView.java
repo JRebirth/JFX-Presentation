@@ -41,7 +41,7 @@ public final class ArchView extends AbstractTemplateView<ArchModel, BorderPane, 
      * {@inheritDoc}
      */
     @Override
-    public void show() {
+    public void doStart() {
         ScaleTransitionBuilder.create()
                 .node(getArchiPane())
                 .duration(Duration.millis(600))
@@ -144,6 +144,15 @@ public final class ArchView extends AbstractTemplateView<ArchModel, BorderPane, 
      */
     void showJvm() {
         // getArchiController().showNodes(false);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doReload() {
+        // Nothing to do yet
+
     }
 
 }

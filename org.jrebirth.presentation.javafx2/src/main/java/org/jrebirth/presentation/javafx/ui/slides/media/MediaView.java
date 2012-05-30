@@ -108,4 +108,13 @@ public final class MediaView extends AbstractTemplateView<MediaModel, BorderPane
                 .build().play();
 
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doReload() {
+        // Nothing to do yet
+        
+    }
 }

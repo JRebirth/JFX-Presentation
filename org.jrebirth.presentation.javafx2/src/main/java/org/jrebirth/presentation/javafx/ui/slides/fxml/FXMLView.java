@@ -36,4 +36,13 @@ public final class FXMLView extends AbstractTemplateView<FXMLModel, BorderPane, 
         return buildDefaultContent(getModel().getDefaultContent());
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doReload() {
+        // Nothing to do yet
+        
+    }
+
 }
