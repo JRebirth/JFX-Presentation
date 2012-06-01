@@ -95,7 +95,7 @@
 							<implementation-vendor>seb</implementation-vendor>
 							<implementation-title>Prez</implementation-title>
 							<implementation-version>1.0</implementation-version>
-							<JavaFX-Application-Class>org.jrebirth.presentation.Presentation</JavaFX-Application-Class>
+							<JavaFX-Application-Class>org.jrebirth.presentation.javafx.Presentation</JavaFX-Application-Class>
 							<JavaFX-Class-Path>presentation-0.4.0-SNAPSHOT.jar
 								jaxb-api-2.2.1.jar stax-api-1.0-2.jar activation-1.1.jar
 								jaxb-impl-2.2.1.jar core-0.4.0-SNAPSHOT.jar</JavaFX-Class-Path>
@@ -123,7 +123,7 @@
 
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>webstart-maven-plugin</artifactId>
-				<version>1.0-beta-3-SNAPSHOT</version>
+				<version>1.0-beta-3</version>
 
 				<!-- do not bind to install phase - - > <executions> <execution> <goals> <goal>package</goal> </goals> </execution> </executions> -->
 
@@ -160,7 +160,7 @@
 
 						<!-- used to automatically identify the jar containing the main class. -->
 						<!-- this is perhaps going to change -->
-						<mainClass>org.jrebirth.presentation.Presentation</mainClass>
+						<mainClass>org.jrebirth.presentation.javafx.Presentation</mainClass>
 					</jnlp>
 
 

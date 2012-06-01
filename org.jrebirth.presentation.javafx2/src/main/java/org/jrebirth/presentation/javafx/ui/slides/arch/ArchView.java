@@ -87,7 +87,15 @@ public final class ArchView extends AbstractTemplateView<ArchModel, BorderPane, 
     /**
      * TODO To complete.
      */
-    void showMediaAndWebEngine() {
+    void showMediaEngine() {
+        // Nothing to do yet
+
+    }
+
+    /**
+     * TODO To complete.
+     */
+    void showWebEngine() {
         // Nothing to do yet
 
     }
@@ -111,7 +119,7 @@ public final class ArchView extends AbstractTemplateView<ArchModel, BorderPane, 
     /**
      * TODO To complete.
      */
-    void showJava2D() {
+    void showHardwareAcceleration() {
         // Nothing to do yet
 
     }

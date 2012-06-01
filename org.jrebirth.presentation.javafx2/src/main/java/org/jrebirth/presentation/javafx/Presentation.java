@@ -1,7 +1,6 @@
 package org.jrebirth.presentation.javafx;
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
@@ -14,9 +13,9 @@ import org.jrebirth.core.ui.Model;
 import org.jrebirth.presentation.ui.stack.StackModel;
 
 /**
- * The class <strong>JRebirthAnalyzer</strong>.
+ * The class <strong>Presentation</strong>.
  * 
- * The application that demonstrate how to use JRebirth Framework. It also allow to show all JRebirth events.
+ * Application as support for live javafx presentation.
  * 
  * @author Sébastien Bordes
  * 
@@ -45,7 +44,7 @@ public final class Presentation extends AbstractApplication<StackPane> {
      */
     @Override
     protected String getApplicationTitle() {
-        return "JavaFX 2.0 - Presentation";
+        return "JavaFX 2.1 - Presentation";
     }
 
     /**
@@ -64,43 +63,36 @@ public final class Presentation extends AbstractApplication<StackPane> {
     @Override
     protected void customizeScene(final Scene scene) {
 
-        Platform.runLater(new Runnable() {
+        scene.getStylesheets().add("style/template.css");
+        // scene.getStylesheets().add("style/candle.css");
+
+        // Manage F11 button to switch full screen
+        scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
 
             @Override
-            public void run() {
-                scene.getStylesheets().add("style/template.css");
-                // scene.getStylesheets().add("style/candle.css");
-
-                // Manage F11 button to switch full screen
-                scene.addEventFilter(KeyEvent.KEY_RELEASED, new EventHandler<KeyEvent>() {
-
-                    @Override
-                    public void handle(final KeyEvent event) {
-                        if (event.isControlDown()) {
-                            if (event.getCode() == KeyCode.ADD || event.getCode() == KeyCode.PLUS) {
-                                getScene().getRoot().setScaleX(getScene().getRoot().getScaleX() + 0.05);
-                                getScene().getRoot().setScaleY(getScene().getRoot().getScaleY() + 0.05);
-                                event.consume();
-                            } else if (event.getCode() == KeyCode.SUBTRACT || event.getCode() == KeyCode.MINUS) {
-                                getScene().getRoot().setScaleX(getScene().getRoot().getScaleX() - 0.05);
-                                getScene().getRoot().setScaleY(getScene().getRoot().getScaleY() - 0.05);
-                                event.consume();
-                            } else if (event.getCode() == KeyCode.DIGIT0 || event.getCode() == KeyCode.NUMPAD0) {
-                                getScene().getRoot().setScaleX(1.0);
-                                getScene().getRoot().setScaleY(1.0);
-                                event.consume();
-                            }
-                        }
+            public void handle(final KeyEvent event) {
+                if (event.isControlDown()) {
+                    if (event.getCode() == KeyCode.ADD || event.getCode() == KeyCode.PLUS) {
+                        getScene().getRoot().setScaleX(getScene().getRoot().getScaleX() + 0.05);
+                        getScene().getRoot().setScaleY(getScene().getRoot().getScaleY() + 0.05);
+                        event.consume();
+                    } else if (event.getCode() == KeyCode.SUBTRACT || event.getCode() == KeyCode.MINUS) {
+                        getScene().getRoot().setScaleX(getScene().getRoot().getScaleX() - 0.05);
+                        getScene().getRoot().setScaleY(getScene().getRoot().getScaleY() - 0.05);
+                        event.consume();
+                    } else if (event.getCode() == KeyCode.DIGIT0 || event.getCode() == KeyCode.NUMPAD0) {
+                        getScene().getRoot().setScaleX(1.0);
+                        getScene().getRoot().setScaleY(1.0);
+                        event.consume();
                     }
-                });
-
-                // Preload font for CSS
-                JfxFonts.SPLASH.get();
-                JfxFonts.TYPEWRITER.get();
-                JfxFonts.TYPEWRITER2.get();
-
+                }
             }
         });
+
+        // Preload font for CSS
+        JfxFonts.SPLASH.get();
+        JfxFonts.TYPEWRITER.get();
+        JfxFonts.TYPEWRITER2.get();
 
     }
 }

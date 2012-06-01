@@ -23,7 +23,7 @@
 	<!--  END TEST ZONE -->
 	
  		<!-- Conference Place -->
-		<slide style="place" modelClass="org.jrebirth.presentation.javafx.ui.slides.place.PlaceModel" showAnimation="FadeIn" hideAnimation="FadeOut">
+		<slide style="place" modelClass="org.jrebirth.presentation.javafx.ui.slides.place.PlaceModel" showAnimation="SlidingTopBottomProgressive" hideAnimation="FadeOut">
 		</slide>
 		
 
@@ -37,10 +37,10 @@
 		</slide>
 
 		<!-- MOI -->
-		<slide style="me">
+		<slide style="me" showAnimation="MoveFromRight" hideAnimation="FadeOut" >
 			<title>Sébastien Bordes</title>
 			<content>
-				<item>Developpeur</item>
+				<item>Développeur</item>
 				<item level="1"></item>
 				<item>Technologies</item>
 				<item level="1">Swing</item>
@@ -59,7 +59,7 @@
 
 
 		<!-- Le plan -->
-		<slide>
+		<slide showAnimation="FadeIn" hideAnimation="ScaleToMin">
 			<title>Plan</title>
 			<content>
 				<item>RIAs &amp; Architecture</item>
@@ -221,7 +221,7 @@
 		<!-- ************************************************************************* -->
 		<!-- ************************************************************************* -->
 		<!-- HOOK -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.image.ImageSlideModel">
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel">
 			<content>
 				<!-- <title>API par l'exemple</title> -->
 				<item image="images/splash/Api.jpg" />
@@ -365,7 +365,7 @@
 		<!-- ************************************************************************* -->
 
 		<!-- HOOK LES ELEMENTS GRAPHIQUES -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.image.ImageSlideModel">
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel">
 			<content>
 				<!-- <title>Les éléments graphiques</title> -->
 				<item image="images/splash/Les_éléments_graphiques.jpg" />
@@ -506,7 +506,7 @@
 		<!-- ************************************************************************* -->
 
 		<!-- HOOK -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.image.ImageSlideModel">
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel">
 			<content>
 				<!-- <title>Le Design</title> -->
 				<item image="images/splash/Le_Design.jpg" />
@@ -674,7 +674,7 @@
 		<!-- ************************************************************************* -->
 
 		<!-- HOOK -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.image.ImageSlideModel" animation="Tile">
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Tile">
 			<content>
 				<!-- <title>La Mécanique</title> -->
 				<item image="images/splash/La_Mécanique.jpg" />
@@ -932,7 +932,7 @@
 		<!-- ************************************************************************* -->
 		<!-- ************************************************************************* -->
 		<!-- HOOK -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.image.ImageSlideModel" animation="Fade">
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Fade">
 			<content>
 				<!-- <title>L'enrichissement</title> -->
 				<item image="images/splash/L'enrichissement.jpg" />
@@ -1315,7 +1315,7 @@
 		<!-- ************************************************************************* -->
 
 		<!-- HOOK -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.image.ImageSlideModel" animation="Fade">
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Fade">
 			<content>
 				<!-- <title>Intégration et Déploiement</title> -->
 				<item image="images/splash/Integration_et_deploiement.jpg" />
@@ -1486,7 +1486,7 @@
 		<!-- ************************************************************************* -->
 
 		<!-- HOOK Architecture Logicielle -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.image.ImageSlideModel" animation="Tile">
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Tile">
 			<content>
 				<!-- <title>Architecture Logicielle\n quelques pistes de \n rélexion</title> -->
 				<item image="images/splash/Architecture_Logicielle.jpg" />
@@ -1559,7 +1559,7 @@
 		<!-- ************************************************************************* -->
 
 		<!-- HOOK -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.image.ImageSlideModel">
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel">
 			<content>
 				<!-- <title>Les Extras</title> -->
 				<item image="images/splash/Un_petit_extra.jpg" />
@@ -1616,7 +1616,7 @@
 		<!-- ************************************************************************* -->
 
 		<!-- Wake Up ! -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.image.ImageSlideModel" animation="Tile60k">
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Tile60k">
 			<content>
 				<!-- <title>RETEX à chaud !</title> -->
 				<item image="images/splash/Retex.jpg" />

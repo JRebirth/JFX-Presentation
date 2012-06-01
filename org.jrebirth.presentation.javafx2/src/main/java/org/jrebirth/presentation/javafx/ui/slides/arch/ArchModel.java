@@ -27,7 +27,8 @@ public final class ArchModel extends AbstractTemplateModel<ArchModel, ArchView, 
     public void showSlideStep(final ArchSlideStep slideStep) {
 
         switch (slideStep) {
-
+            case Background:
+                break;
             case JVM:
                 getView().showJvm();
                 break;
@@ -40,17 +41,17 @@ public final class ArchModel extends AbstractTemplateModel<ArchModel, ArchView, 
             case Prism:
                 getView().showPrism();
                 break;
-            case Java2D:
-                getView().showJava2D();
+            case HardwareAcceleration:
+                getView().showHardwareAcceleration();
                 break;
-            case OpenGL_D3D:
-                getView().showOpenGLAndD3D();
-                break;
-            case GlassWindowingToolit:
+            case GlassWindowingToolkit:
                 getView().showGlassWindowingToolit();
                 break;
-            case MediaAndWebEngine:
-                getView().showMediaAndWebEngine();
+            case MediaEngine:
+                getView().showMediaEngine();
+                break;
+            case WebEngine:
+                getView().showWebEngine();
                 break;
             default:
         }

@@ -12,16 +12,31 @@ import org.jrebirth.presentation.ui.base.SlideStep;
  */
 public enum ArchSlideStep implements SlideStep {
 
-    /** The slide text. */
+    /** The background image. */
+    Background,
+
+    /** The Java Virtual Machine. */
     JVM,
-    /** The . */
+
+    /** The JavaFX Public API. */
     JavaFXApi,
 
+    /** The Quantum layer. */
     QuantumTookit,
+
+    /** The Windowing toolkit. */
+    GlassWindowingToolkit,
+
+    /** The Prism Engine. */
     Prism,
-    Java2D,
-    OpenGL_D3D,
-    GlassWindowingToolit,
-    MediaAndWebEngine;
+
+    /** The Hardware acceleration used Direct3D, OpenGL, Java2D. */
+    HardwareAcceleration,
+
+    /** The Media Engine. */
+    MediaEngine,
+
+    /** The Web Engine. */
+    WebEngine;
 
 }
