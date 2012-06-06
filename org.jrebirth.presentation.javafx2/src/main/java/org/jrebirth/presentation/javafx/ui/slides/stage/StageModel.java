@@ -1,7 +1,5 @@
 package org.jrebirth.presentation.javafx.ui.slides.stage;
 
-import javafx.stage.StageStyle;
-
 import org.jrebirth.presentation.ui.template.AbstractTemplateModel;
 
 /**
@@ -33,18 +31,24 @@ public final class StageModel extends AbstractTemplateModel<StageModel, StageVie
             case Text:
                 getView().showSlideStep(slideStep);
                 break;
-            case Decorated:
-                getView().showStage(StageStyle.DECORATED, "StageStyle.DECORATED");
+            case Show:
+                getView().showStages();
                 break;
-            case Transparent:
-                getView().showStage(StageStyle.TRANSPARENT, "StageStyle.TRANSPARENT");
+            case Release:
+                getView().releaseStages();
                 break;
-            case Undecorated:
-                getView().showStage(StageStyle.UNDECORATED, "StageStyle.UNDECORATED");
-                break;
-            case Utility:
-                getView().showStage(StageStyle.UTILITY, "StageStyle.UTILITY");
-                break;
+            // case Decorated:
+            // getView().showStage(StageStyle.DECORATED, "StageStyle.DECORATED");
+            // break;
+            // case Transparent:
+            // getView().showStage(StageStyle.TRANSPARENT, "StageStyle.TRANSPARENT");
+            // break;
+            // case Undecorated:
+            // getView().showStage(StageStyle.UNDECORATED, "StageStyle.UNDECORATED");
+            // break;
+            // case Utility:
+            // getView().showStage(StageStyle.UTILITY, "StageStyle.UTILITY");
+            // break;
             default:
         }
     }

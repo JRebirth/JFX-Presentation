@@ -11,33 +11,32 @@
 	</speakers>
 
 	<slides>
-	
-	<!--  TEST ZONE -->
-	<!--  TEST ZONE -->
-	<!--  TEST ZONE -->
-	
 
-	
-	<!--  END TEST ZONE -->
-	<!--  END TEST ZONE -->
-	<!--  END TEST ZONE -->
-	
- 		<!-- Conference Place -->
+		<!-- TEST ZONE -->
+		<!-- TEST ZONE -->
+		<!-- TEST ZONE -->
+		
+		
+		<!-- END TEST ZONE -->
+		<!-- END TEST ZONE -->
+		<!-- END TEST ZONE -->
+
+		<!-- Conference Place -->
 		<slide style="place" modelClass="org.jrebirth.presentation.javafx.ui.slides.place.PlaceModel" showAnimation="SlidingTopBottomProgressive" hideAnimation="FadeOut">
 		</slide>
-		
+
 
 		<!-- Presentation Title -->
-		<slide style="intro" modelClass="org.jrebirth.presentation.javafx.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="MoveToLeft" >
+		<slide style="intro" modelClass="org.jrebirth.presentation.javafx.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="MoveToLeft">
 			<title>La Revolution\n\tJavaFX 2</title>
 		</slide>
-		
+
 		<slide style="introbis" modelClass="org.jrebirth.presentation.javafx.ui.slides.intro.IntroModel" showAnimation="MoveFromRight" hideAnimation="MoveToLeft">
-			<title>Prez.create()\n\t   .title("How to")\n\t   .build()\n\t   .start();</title>
+			<title>Prez.create()\n\t .title("How to")\n\t .build()\n\t .start();</title>
 		</slide>
 
 		<!-- MOI -->
-		<slide style="me" showAnimation="MoveFromRight" hideAnimation="FadeOut" >
+		<slide style="me" showAnimation="MoveFromRight" hideAnimation="FadeOut">
 			<title>Sébastien Bordes</title>
 			<content>
 				<item>Développeur</item>
@@ -71,10 +70,10 @@
 				<item>Interopérabilité &amp; Déploiement</item>
 				<item>Architecture Logicielle</item>
 				<item>Les Extras</item>
-				<item>Retex</item>
+				<item>Bilan</item>
 			</content>
 		</slide>
-	
+
 		<!-- ************************************************************************* -->
 		<!-- ************************************************************************* -->
 		<!-- Pourquoi choisir JavaFX ? -->
@@ -94,15 +93,15 @@
 		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel">
 			<title>JavaFX != JAVA</title>
 		</slide>
-		
+
 		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel">
 			<title>JavaFX 2\n IS \n JAVA</title>
 		</slide>
-		
+
 		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel">
 			<title>En 2012\nJavaFX 2\n=\nJavaFX</title>
 		</slide>
-				
+
 		<!-- Source Code -->
 		<slide>
 			<title>Pour les curieux</title>
@@ -117,7 +116,7 @@
 				<item level="1" link="true">github.com/JRebirth/JFX-Presentation</item>
 			</content>
 		</slide>
-		
+
 		<!-- Les RIAs -->
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.why.WhyUseModel">
 			<title>Pourquoi choisir JavaFX 2 ?</title>
@@ -186,18 +185,19 @@
 			<title>Comment on l'installe ?</title>
 			<content>
 				<item>SDK fourni avec le JDK (à partir de la 7u2)</item>
+				<item></item>
 				<item>Runtime</item>
-				<item level="1">bin => .dll et .exe</item>
+				<item level="1">bin => .dll ou .so</item>
 				<item level="1">deploy.jar - Webstart</item>
 				<item level="1">javaws.jar - API JNLP</item>
 				<item level="1">jfxrt.jar - API JFX2</item>
 				<item level="1">plugin.jar - Plugin Web</item>
-
+				<item></item>
 				<item>SDK</item>
 				<item level="1">bin - javafxpackager.exe</item>
 				<item level="1">Javadoc</item>
 				<item level="1">Runtime - qq dlls + jfxrt.jar</item>
-				<item level="1">tools (ant + doclet)</item>
+				<item level="1">tools (ant + doclet + jmx)</item>
 			</content>
 		</slide>
 
@@ -294,9 +294,10 @@
 			</content>
 		</slide>
 
-		<!-- Node part1 -->
-		<slide>
+		<!-- Node -->
+		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.node.NodeModel" style="nodeContent">
 			<title>Node</title>
+
 			<content>
 				<item>Tout élément visuel est un Node</item>
 				<item image="images/uml/node.png" />
@@ -304,14 +305,12 @@
 				<item>Shape (Feuilles)</item>
 				<item>ImageView</item>
 				<item>MediaView</item>
+				<item>Canvas (2.2)</item>
 			</content>
-		</slide>
 
-		<!-- Node part2 -->
-		<slide style="nodeContent">
-			<title>Node</title>
-			<content>
-				<item>StateFul</item>
+			<content name="Stateful">
+				<title>Stateful</title>
+
 				<item>ID</item>
 				<item level="1">lookup(String cssSelector)</item>
 				<item>Bounds</item>
@@ -322,14 +321,10 @@
 				<item level="1">Translate</item>
 				<item level="1">Scale</item>
 				<item level="1">Rotate</item>
-
 			</content>
-		</slide>
 
-		<!-- Node part3 -->
-		<slide style="nodeContent">
-			<title>Node</title>
-			<content>
+			<content name="Extra">
+				<title>Extra</title>
 				<item>Style (classe et propriétés)</item>
 				<item>Opacité et visibilité</item>
 				<item>Focus => requestFocus()</item>
@@ -337,6 +332,7 @@
 				<item>Conversion de coordonnées</item>
 			</content>
 		</slide>
+
 
 		<!-- Parent -->
 		<slide style="parentContent">
@@ -572,7 +568,7 @@
 </div>
 </body></html>					
 				]]>
-				
+
 				</item>
 			</content>
 			<content name="sampleController">
@@ -613,7 +609,7 @@
 </div>
 </body></html>				
 				]]>
-				
+
 				</item>
 			</content>
 
@@ -638,13 +634,13 @@
 		<!-- Les Ressources -->
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.resources.ResourcesModel">
 			<title>Les Ressources</title>
-			
+
 			<content>
 				<title></title>
 				<item>Polices</item>
 				<item level="1">Préchargement requis pour les CSS</item>
 				<item level="1">Taille par défaut</item>
-				
+
 				<item>Images</item>
 				<item level="1">Image View + Image</item>
 				<item level="1">Thread.currentThread()</item>
@@ -652,7 +648,7 @@
 				<item level="1">Problème de gestion des images en CMJN</item>
 
 			</content>
-			
+
 			<content name="Color">
 				<title>Les Couleurs</title>
 				<item>Couleurs simples</item>
@@ -744,7 +740,7 @@
 				<item>EventType&lt;Event&gt;, EventHandler&lt;Event&gt;</item>
 				<item>Utilisation</item>
 				<item level="1">addEventHandler(MouseEvent.MOUSE_CLICKED, </item>
-				<item level="1">        new EventHandler&lt;MouseEvent&gt;(...) )</item>
+				<item level="1"> new EventHandler&lt;MouseEvent&gt;(...) )</item>
 				<item level="1">setOnMouseClicked(new EventHandler&lt;MouseEvent&gt;(...) )</item>
 				<item>Mais 1 seul EventHandler par classe [anonyme|interne]</item>
 				<item level="1">JRebirth => MouseHandler + MouseAdapter</item>
@@ -808,7 +804,7 @@
 </div>
 </body></html>
 			]]>
-			
+
 				</item>
 			</content>
 
@@ -868,7 +864,7 @@
 </div>
 </body></html>
 		]]>
-		</item>
+				</item>
 
 			</content>
 
@@ -922,7 +918,7 @@
 </div>
 </body></html>
 		]]>
-		</item>
+				</item>
 			</content>
 		</slide>
 
@@ -1565,7 +1561,7 @@
 				<item image="images/splash/Un_petit_extra.jpg" />
 			</content>
 		</slide>
-		
+
 		<!-- Polyglote -->
 		<slide>
 			<title>Polyglote ?</title>
@@ -1616,16 +1612,17 @@
 		<!-- ************************************************************************* -->
 
 		<!-- Wake Up ! -->
-		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Tile60k">
+	<!-- 	<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Tile60k">
 			<content>
-				<!-- <title>RETEX à chaud !</title> -->
+				< ! - - <title>RETEX à chaud !</title> - - >
 				<item image="images/splash/Retex.jpg" />
 			</content>
 		</slide>
 
+-->
 		<!-- Les Plus Full Java Thread graphique unique mais gestion Multi-Thread Rapidité Accélération matérielle et support software API complête Les Moins Support SE 
 			(que Windows pour le moment) Packaging Pas de cache de jars (signés ou non) -->
-
+<!-- 
 		<slide>
 			<title>RETEX</title>
 			<content>
@@ -1664,6 +1661,8 @@
 				<item>What Else ?</item>
 			</content>
 		</slide>
+		
+		-->
 
 		<slide>
 			<title>Pour aller plus loin</title>

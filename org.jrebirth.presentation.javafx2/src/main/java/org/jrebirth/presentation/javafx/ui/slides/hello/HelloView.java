@@ -1,12 +1,14 @@
 package org.jrebirth.presentation.javafx.ui.slides.hello;
 
+import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
-import javafx.animation.Interpolator;
 import javafx.animation.ParallelTransition;
+import javafx.animation.ParallelTransitionBuilder;
 import javafx.animation.PathTransition;
 import javafx.animation.PathTransitionBuilder;
 import javafx.animation.ScaleTransition;
 import javafx.animation.ScaleTransitionBuilder;
+import javafx.animation.TranslateTransitionBuilder;
 import javafx.scene.Group;
 import javafx.scene.GroupBuilder;
 import javafx.scene.Node;
@@ -35,9 +37,6 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  * The custom introduction slide.
  * 
  * @author Sébastien Bordes
- * 
- * @version $Revision: 72 $ $Author: sbordes $
- * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
 public final class HelloView extends AbstractTemplateView<HelloModel, BorderPane, HelloController> {
 
@@ -45,7 +44,7 @@ public final class HelloView extends AbstractTemplateView<HelloModel, BorderPane
     private ParallelTransition appCarousselTransition;
 
     /** The code carousel transition. */
-    private ParallelTransition codeCarousselTransition;
+    private Animation codeCarousselTransition;
 
     /** The image view of the code. */
     private ImageView codeImageView;
@@ -62,92 +61,6 @@ public final class HelloView extends AbstractTemplateView<HelloModel, BorderPane
      */
     public HelloView(final HelloModel model) throws CoreException {
         super(model);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void doStart() {
-        getAppImageView().toBack();
-        getCodeImageView().toFront();
-    }
-
-    /**
-     * @return Returns the carousselTransition.
-     */
-    ParallelTransition getAppCarousselTransition() {
-        if (this.appCarousselTransition == null) {
-
-            // Rotating
-            final MoveTo mt = MoveToBuilder.create().x(0).y(200).build();
-            final QuadCurveTo qct = QuadCurveToBuilder.create().controlX(500).controlY(100).x(0).y(0).build();
-            final Path p = PathBuilder.create().elements(mt, qct).build();
-            final PathTransition pt = PathTransitionBuilder.create().path(p).duration(Duration.seconds(4)).interpolator(Interpolator.EASE_BOTH).build();
-
-            // Scaling
-            final ScaleTransition st = ScaleTransitionBuilder.create().fromX(0.4).fromY(0.4).toX(1.4).toY(1.4).duration(Duration.seconds(4))
-                    .interpolator(Interpolator.EASE_BOTH).build();
-
-            // Global
-            this.appCarousselTransition = new ParallelTransition();
-            this.appCarousselTransition.getChildren().addAll(pt, st);
-            this.appCarousselTransition.setCycleCount(1);
-
-            this.appCarousselTransition.setAutoReverse(true);
-            this.appCarousselTransition.setNode(getAppImageView());
-        }
-        return this.appCarousselTransition;
-    }
-
-    /**
-     * @return Returns the carousselTransition.
-     */
-    ParallelTransition getCodeCarousselTransition() {
-        if (this.codeCarousselTransition == null) {
-            // Rotating
-            final MoveTo mt = MoveToBuilder.create().x(0).y(0).build();
-            final QuadCurveTo qct = QuadCurveToBuilder.create().controlX(-500).controlY(100).x(0).y(300).build();
-            final Path p = PathBuilder.create().elements(mt, qct).build();
-            final PathTransition pt = PathTransitionBuilder.create().path(p).duration(Duration.seconds(4)).interpolator(Interpolator.EASE_BOTH).build();
-
-            // Scaling
-            final ScaleTransition st = ScaleTransitionBuilder.create().fromX(1).fromY(1).toX(0.3).toY(0.3).duration(Duration.seconds(4))
-                    .interpolator(Interpolator.EASE_BOTH).build();
-
-            // Global
-            this.codeCarousselTransition = new ParallelTransition();
-            this.codeCarousselTransition.getChildren().addAll(pt, st);
-            this.codeCarousselTransition.setCycleCount(1);
-
-            this.codeCarousselTransition.setAutoReverse(true);
-            this.codeCarousselTransition.setNode(getCodeImageView());
-        }
-        return this.codeCarousselTransition;
-    }
-
-    /**
-     * @return Returns the codeImageView.
-     */
-    public ImageView getCodeImageView() {
-        return this.codeImageView;
-    }
-
-    /**
-     * @return Returns the appImageView.
-     */
-    public ImageView getAppImageView() {
-        return this.appImageView;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected void customInitializeComponents() {
-        super.customInitializeComponents();
-
-        this.codeImageView.requestFocus();
     }
 
     /**
@@ -176,9 +89,11 @@ public final class HelloView extends AbstractTemplateView<HelloModel, BorderPane
         this.appImageView = new ImageView(app);
 
         final StackPane sp = new StackPane();
+        sp.setPrefSize(800, 600);
+        sp.setStyle("-fx-background-color:#000000");
 
         final Group group = GroupBuilder.create()
-                .children(this.appImageView, this.codeImageView)
+                .children(/* this.appImageView, */this.codeImageView)
                 .build();
 
         sp.getChildren().add(group);
@@ -192,18 +107,165 @@ public final class HelloView extends AbstractTemplateView<HelloModel, BorderPane
     }
 
     /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doStart() {
+        super.doStart();
+        // getAppImageView().toBack();
+        // getCodeImageView().toFront();
+    }
+
+    /**
+     * @return Returns the carousselTransition.
+     */
+    ParallelTransition getAppCarousselTransition() {
+        if (this.appCarousselTransition == null) {
+
+            // // Rotating
+            // final MoveTo mt = MoveToBuilder.create()
+            // .x(0)
+            // .y(200)
+            // .build();
+            // final QuadCurveTo qct = QuadCurveToBuilder.create()
+            // .controlX(500)
+            // .controlY(100)
+            // .x(0)
+            // .y(0)
+            // .build();
+            // final Path p = PathBuilder.create()
+            // .elements(mt, qct)
+            // .build();
+            // final PathTransition pt = PathTransitionBuilder.create()
+            // .path(p)
+            // .duration(Duration.seconds(4))
+            // .interpolator(Interpolator.EASE_BOTH)
+            // .build();
+            //
+            // // Scaling
+            // final ScaleTransition st = ScaleTransitionBuilder.create()
+            // .fromX(0.25)
+            // .fromY(0.25)
+            // .toX(1.4)
+            // .toY(1.4)
+            // .duration(Duration.seconds(4))
+            // .interpolator(Interpolator.EASE_BOTH)
+            // .build();
+            //
+            // // Global
+            // this.appCarousselTransition = ParallelTransitionBuilder.create()
+            // .children(pt, st)
+            // .cycleCount(1)
+            // .autoReverse(true)
+            // .node(getAppImageView())
+            // .build();
+
+        }
+        return this.appCarousselTransition;
+    }
+
+    /**
+     * @return Returns the carousselTransition.
+     */
+    Animation getCodeCarousselTransition() {
+        if (this.codeCarousselTransition == null) {
+
+            // Rotating
+            final MoveTo mt = MoveToBuilder.create()
+                    .x(0)
+                    .y(0)
+                    .build();
+
+            final QuadCurveTo qct = QuadCurveToBuilder.create()
+                    .controlX(800)
+                    .controlY(100)
+                    .x(0)
+                    .y(300)
+                    .build();
+            final QuadCurveTo qct1 = QuadCurveToBuilder.create()
+                    .controlX(-800)
+                    .controlY(100)
+                    .x(0)
+                    .y(0)
+                    .build();
+
+            final Path p = PathBuilder.create()
+                    .elements(mt, qct, qct1)
+                    .build();
+
+            final PathTransition pt = PathTransitionBuilder.create()
+                    .path(p)
+                    .duration(Duration.seconds(4))
+                    // .interpolator(Interpolator.EASE_BOTH)
+                    .build();
+
+            // Scaling
+            final ScaleTransition st = ScaleTransitionBuilder.create()
+                    .fromX(1.0)
+                    .fromY(1.0)
+                    .toX(0.6)
+                    .toY(0.6)
+                    .duration(Duration.seconds(4))
+                    // .interpolator(Interpolator.EASE_BOTH)
+                    .build();
+
+            // Global
+            this.codeCarousselTransition = ParallelTransitionBuilder.create()
+                    .children(
+
+                    )
+                    .build();
+
+            this.codeCarousselTransition = TranslateTransitionBuilder.create()
+                    .node(getCodeImageView())
+                    .fromX(0)
+                    .fromY(0)
+                    .byY(300)
+                    .byY(300)
+                    .toX(300)
+                    .toY(300)
+                    .build();
+        }
+        return this.codeCarousselTransition;
+    }
+
+    /**
+     * @return Returns the codeImageView.
+     */
+    public ImageView getCodeImageView() {
+        return this.codeImageView;
+    }
+
+    /**
+     * @return Returns the appImageView.
+     */
+    public ImageView getAppImageView() {
+        return this.appImageView;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void customInitializeComponents() {
+        super.customInitializeComponents();
+
+        // this.codeImageView.requestFocus();
+    }
+
+    /**
      * TODO To complete.
      */
     public void showCode() {
-        this.codeImageView.setLayoutX(0);
-        this.codeImageView.setLayoutX(0);
-        this.codeImageView.setScaleX(0.8);
-        this.codeImageView.setScaleY(0.8);
-
-        this.appImageView.setLayoutX(0);
-        this.appImageView.setLayoutY(200);
-        this.appImageView.setScaleX(0.4);
-        this.appImageView.setScaleY(0.4);
+        // this.codeImageView.setLayoutX(0);
+        // this.codeImageView.setLayoutX(0);
+        // this.codeImageView.setScaleX(1);
+        // this.codeImageView.setScaleY(1);
+        //
+        // // this.appImageView.setLayoutX(0);
+        // // this.appImageView.setLayoutY(200);
+        // this.appImageView.setScaleX(0.25);
+        // this.appImageView.setScaleY(0.25);
     }
 
     /**
@@ -214,17 +276,18 @@ public final class HelloView extends AbstractTemplateView<HelloModel, BorderPane
 
             @Override
             public void handle(final long now) {
-                if (now > getAppCarousselTransition().getTotalDuration().toMillis()) {
-                    getAppImageView().toFront();
-                    getCodeImageView().toBack();
-                }
+                // if (now > getAppCarousselTransition().getTotalDuration().toMillis()) {
+                // getAppImageView().toFront();
+                // getCodeImageView().toBack();
+                // }
 
             }
 
         };
         timer.start();
-        getAppCarousselTransition().playFromStart();
-        getCodeCarousselTransition().playFromStart();
+
+        // getAppCarousselTransition().play();
+        getCodeCarousselTransition().play();
     }
 
     /**
@@ -233,6 +296,6 @@ public final class HelloView extends AbstractTemplateView<HelloModel, BorderPane
     @Override
     public void doReload() {
         // Nothing to do yet
-        
+
     }
 }

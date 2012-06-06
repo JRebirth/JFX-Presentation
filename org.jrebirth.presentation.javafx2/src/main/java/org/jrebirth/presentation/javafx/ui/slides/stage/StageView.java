@@ -1,5 +1,8 @@
 package org.jrebirth.presentation.javafx.ui.slides.stage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.SceneBuilder;
@@ -33,7 +36,7 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
 public final class StageView extends AbstractTemplateView<StageModel, BorderPane, StageController> {
 
     /** The stage shown for demo purpose. */
-    private Stage stage;
+    private final List<Stage> stageList = new ArrayList<>();
 
     /**
      * Default Constructor.
@@ -50,15 +53,6 @@ public final class StageView extends AbstractTemplateView<StageModel, BorderPane
      * {@inheritDoc}
      */
     @Override
-    public void doStart() {
-        // Nothing to do yet
-
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     protected Node getContentPanel() {
         return PaneBuilder.create().build();
     }
@@ -69,13 +63,15 @@ public final class StageView extends AbstractTemplateView<StageModel, BorderPane
      * @param stageStyle the style of the stage
      * @param title the title to display.
      */
-    public void showStage(final StageStyle stageStyle, final String title) {
+    public Stage showStage(final StageStyle stageStyle, final String title, final double x, final double y) {
 
-        getSubTitle().setText(title);
+        // getSubTitle().setText(title);
+        //
+        // if (this.stage != null) {
+        // this.stage.close();
+        // }
 
-        if (this.stage != null) {
-            this.stage.close();
-        }
+        Stage stage;
 
         final Label stageTitle = LabelBuilder.create()
                 .text(title)
@@ -90,18 +86,22 @@ public final class StageView extends AbstractTemplateView<StageModel, BorderPane
                 .fill(Color.TRANSPARENT)
                 .build();
 
-        this.stage = StageBuilder.create()
-                .height(600)
-                .width(800)
+        stage = StageBuilder.create()
+                .height(300)
+                .width(400)
+                .x(x)
+                .y(y)
                 .resizable(true)
                 .focused(true)
                 .title(title)
                 .style(stageStyle)
                 .scene(scene).build();
 
-        this.stage.centerOnScreen();
-        this.stage.show();
-        this.stage.toFront();
+        // this.stage.centerOnScreen();
+        stage.show();
+        stage.toFront();
+
+        return stage;
     }
 
     /**
@@ -110,7 +110,25 @@ public final class StageView extends AbstractTemplateView<StageModel, BorderPane
     @Override
     public void doReload() {
         // Nothing to do yet
-        
+
     }
 
+    /**
+     * TODO To complete.
+     */
+    public void showStages() {
+        this.stageList.add(showStage(StageStyle.DECORATED, "StageStyle.DECORATED", 74, 56));
+        this.stageList.add(showStage(StageStyle.TRANSPARENT, "StageStyle.TRANSPARENT", 74, 56 * 2 + 300));
+        this.stageList.add(showStage(StageStyle.UNDECORATED, "StageStyle.UNDECORATED", 74 * 2 + 400, 56));
+        this.stageList.add(showStage(StageStyle.UTILITY, "StageStyle.UTILITY", 74 * 2 + 400, 56 * 2 + 300));
+    }
+
+    /**
+     * TODO To complete.
+     */
+    public void releaseStages() {
+        for (final Stage stage : this.stageList) {
+            stage.close();
+        }
+    }
 }
