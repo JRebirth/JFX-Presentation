@@ -3,7 +3,7 @@ package org.jrebirth.presentation.javafx.ui.slides.future;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.PaneBuilder;
 
 import org.jrebirth.core.exception.CoreException;
@@ -20,7 +20,7 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  * @version $Revision: 72 $ $Author: sbordes $
  * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
-public final class FutureView extends AbstractTemplateView<FutureModel, BorderPane, FutureController> {
+public final class FutureView extends AbstractTemplateView<FutureModel, AnchorPane, FutureController> {
 
     /**
      * Default Constructor.
@@ -51,7 +51,7 @@ public final class FutureView extends AbstractTemplateView<FutureModel, BorderPa
         final Image app = loadImage("images/future/timeline.gif");
         final ImageView appImageView = new ImageView(app);
 
-        getRootNode().setCenter(appImageView);
+        showCustomSlideStep(appImageView);
     }
 
     /**
@@ -60,7 +60,7 @@ public final class FutureView extends AbstractTemplateView<FutureModel, BorderPa
     @Override
     public void doReload() {
         // Nothing to do yet
-        
+
     }
 
 }

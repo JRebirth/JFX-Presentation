@@ -8,7 +8,7 @@ import javafx.animation.RotateTransitionBuilder;
 import javafx.animation.ScaleTransitionBuilder;
 import javafx.animation.SequentialTransitionBuilder;
 import javafx.scene.Node;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
@@ -25,7 +25,7 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  * @version $Revision: 72 $ $Author: sbordes $
  * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
-public final class MediaView extends AbstractTemplateView<MediaModel, BorderPane, MediaController> {
+public final class MediaView extends AbstractTemplateView<MediaModel, AnchorPane, MediaController> {
 
     private MediaPlayer mediaPlayer;
 
@@ -58,7 +58,9 @@ public final class MediaView extends AbstractTemplateView<MediaModel, BorderPane
         this.mediaPlayer.setCycleCount(-1);
 
         this.mediaPlayer.play();
-        getRootNode().setCenter(mv);
+        // getRootNode().setCenter(mv);
+
+        showCustomSlideStep(mv);
 
     }
 
@@ -67,7 +69,6 @@ public final class MediaView extends AbstractTemplateView<MediaModel, BorderPane
      */
     public void showAudio() {
         this.mediaPlayer.stop();
-
     }
 
     /**
@@ -77,7 +78,7 @@ public final class MediaView extends AbstractTemplateView<MediaModel, BorderPane
 
         ParallelTransitionBuilder.create()
                 .interpolator(Interpolator.EASE_BOTH)
-                .node(getRootNode().getCenter())
+                .node(getSlideContent()) // getRootNode().getCenter()
                 .children(
                         RotateTransitionBuilder.create()
                                 .byAngle(7200)
@@ -115,6 +116,6 @@ public final class MediaView extends AbstractTemplateView<MediaModel, BorderPane
     @Override
     public void doReload() {
         // Nothing to do yet
-        
+
     }
 }

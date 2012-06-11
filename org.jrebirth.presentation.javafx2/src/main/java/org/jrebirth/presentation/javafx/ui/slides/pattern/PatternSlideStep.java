@@ -15,6 +15,7 @@ public enum PatternSlideStep implements SlideStep {
     Text,
     PureMVC,
     MVVM,
+    Jacp,
     JRebirth;
 
 }

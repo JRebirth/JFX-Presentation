@@ -27,20 +27,29 @@
 .header{
 	
 	/*-fx-fill:  linear-gradient(from 0% 0% to 100% 100%, white 100%, white 70%);*/
-	-fx-background-color: rgba(255,255,255,0.6);
-	-fx-background-radius: 8px;
+	/*-fx-background-color: rgba(255,255,255,0.6);*/
+	/*-fx-background-radius: 8px;*/
 }
 
 .footer{
 	
 	/* -fx-fill:  linear-gradient(from 0% 0% to 100% 100%, white 100%, white 70%);*/
-	-fx-background-color: rgba(255,255,255,0.6);
-	-fx-background-radius: 8px;
+	/*-fx-background-color: rgba(255,255,255,0.6);
+	-fx-background-radius: 8px;*/
 	
     /* -fx-background-position: left bottom;*/
 
-	-fx-background-image : url("../images/toulousejug_mini.png");
-	-fx-background-repeat: no-repeat;
+	/*-fx-background-image : url("../images/toulousejug_mini.png");
+	-fx-background-repeat: no-repeat;*/
+}
+
+.content {
+	/*-fx-background-color: rgba(242,242,242,1.0);
+	-fx-background-radius: 2px;*/
+	-fx-padding : 20px 50px 20px 50px;
+	
+	-fx-background-color: rgba(242,242,242,1.0);
+	-fx-background-radius: 0 2px 0 0;
 }
 
 /*.classicContainer {
@@ -51,9 +60,8 @@
 }*/
 
 VBox.content {
-	-fx-padding:30px;
-	-fx-background-color: rgba(255,255,255,0.6);
-	-fx-background-radius: 10px;
+	/*-fx-padding:30px;*/
+	
 	
 }
 
@@ -104,7 +112,7 @@ VBox.content {
  * Me Slide
  */
 VBox.me{
-	-fx-background-position: 850px 20px, 300px 40px, 300px 370px;	
+	-fx-background-position: 700px 20px, 300px 40px, 300px 300px;	
 	-fx-background-repeat: no-repeat, no-repeat, no-repeat;
 	-fx-background-image : url("../images/me/seb.jpg"), url("../images/me/SudIngenierie_clear.png"), url("../images/me/JRebirth_128x128.png");
 }
@@ -139,4 +147,8 @@ VBox.me{
 	-fx-background-position: center center;
 	-fx-background-repeat : no-repeat;
 }
+/*
+.raw {
+	-fx-fill : #FFFFFF;
+}*/
 

@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.SceneBuilder;
 import javafx.scene.control.Label;
 import javafx.scene.control.LabelBuilder;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.PaneBuilder;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.StackPaneBuilder;
@@ -33,7 +33,7 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  * @version $Revision: 72 $ $Author: sbordes $
  * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
-public final class StageView extends AbstractTemplateView<StageModel, BorderPane, StageController> {
+public final class StageView extends AbstractTemplateView<StageModel, AnchorPane, StageController> {
 
     /** The stage shown for demo purpose. */
     private final List<Stage> stageList = new ArrayList<>();

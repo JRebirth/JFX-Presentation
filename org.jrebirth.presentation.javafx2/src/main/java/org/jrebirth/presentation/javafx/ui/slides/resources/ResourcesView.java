@@ -1,7 +1,7 @@
 package org.jrebirth.presentation.javafx.ui.slides.resources;
 
 import javafx.scene.Node;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPaneBuilder;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.LinearGradient;
@@ -26,7 +26,7 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  * @version $Revision: 72 $ $Author: sbordes $
  * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
-public final class ResourcesView extends AbstractTemplateView<ResourcesModel, BorderPane, ResourcesController> {
+public final class ResourcesView extends AbstractTemplateView<ResourcesModel, AnchorPane, ResourcesController> {
 
     /**
      * Default Constructor.
@@ -75,7 +75,7 @@ public final class ResourcesView extends AbstractTemplateView<ResourcesModel, Bo
                 )
                 .build());
 
-        getRootNode().setCenter(vb);
+        showCustomSlideStep(vb);
     }
 
     /**
@@ -84,6 +84,6 @@ public final class ResourcesView extends AbstractTemplateView<ResourcesModel, Bo
     @Override
     public void doReload() {
         // Nothing to do yet
-        
+
     }
 }

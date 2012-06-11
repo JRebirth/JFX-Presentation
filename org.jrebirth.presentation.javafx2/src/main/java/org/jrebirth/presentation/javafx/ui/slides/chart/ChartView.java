@@ -23,7 +23,7 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.effect.ReflectionBuilder;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -43,7 +43,7 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  * @version $Revision: 72 $ $Author: sbordes $
  * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
-public final class ChartView extends AbstractTemplateView<ChartModel, BorderPane, ChartController> {
+public final class ChartView extends AbstractTemplateView<ChartModel, AnchorPane, ChartController> {
 
     /**
      * Default Constructor.
@@ -70,6 +70,7 @@ public final class ChartView extends AbstractTemplateView<ChartModel, BorderPane
      */
     @Override
     public void doStart() {
+        super.doStart();
     }
 
     /**
@@ -95,7 +96,7 @@ public final class ChartView extends AbstractTemplateView<ChartModel, BorderPane
         pc.setLabelLineLength(30);
         pc.setStartAngle(180);
 
-        getRootNode().setCenter(pc);
+        showCustomSlideStep(pc);
 
         final List<PieChart.Data> dataList = new ArrayList<>();
         dataList.add(new PieChart.Data("Win7", 44.67));
@@ -184,7 +185,7 @@ public final class ChartView extends AbstractTemplateView<ChartModel, BorderPane
 
         final AreaChart chart = new AreaChart(xAxis, yAxis, areaChartData);
 
-        getRootNode().setCenter(chart);
+        showCustomSlideStep(chart);
 
     }
 
@@ -223,7 +224,7 @@ public final class ChartView extends AbstractTemplateView<ChartModel, BorderPane
         bc.getData().add(series2);
         bc.getData().add(series3);
 
-        getRootNode().setCenter(bc);
+        showCustomSlideStep(bc);
     }
 
     /**
@@ -255,7 +256,7 @@ public final class ChartView extends AbstractTemplateView<ChartModel, BorderPane
         bc.getData().addAll(series1, series2);
 
         bc.setEffect(ReflectionBuilder.create().topOpacity(0.8).bottomOpacity(0).build());
-        getRootNode().setCenter(bc);
+        showCustomSlideStep(bc);
     }
 
     /**
@@ -283,7 +284,7 @@ public final class ChartView extends AbstractTemplateView<ChartModel, BorderPane
                         ))
                 );
         final LineChart chart = new LineChart(xAxis, yAxis, lineChartData);
-        getRootNode().setCenter(chart);
+        showCustomSlideStep(chart);
     }
 
     /**
@@ -309,7 +310,7 @@ public final class ChartView extends AbstractTemplateView<ChartModel, BorderPane
                         ))
                 );
         final ScatterChart chart = new ScatterChart(xAxis, yAxis, data);
-        getRootNode().setCenter(chart);
+        showCustomSlideStep(chart);
 
     }
 
@@ -394,7 +395,7 @@ public final class ChartView extends AbstractTemplateView<ChartModel, BorderPane
             bc.getData().add(series);
         }
 
-        getRootNode().setCenter(bc);
+        showCustomSlideStep(bc);
 
     }
 

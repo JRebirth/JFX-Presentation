@@ -16,7 +16,6 @@
 		<!-- TEST ZONE -->
 		<!-- TEST ZONE -->
 		
-		
 		<!-- END TEST ZONE -->
 		<!-- END TEST ZONE -->
 		<!-- END TEST ZONE -->
@@ -42,15 +41,13 @@
 				<item>Développeur</item>
 				<item level="1"></item>
 				<item>Technologies</item>
-				<item level="1">Swing</item>
-				<item level="1">JEE</item>
-				<item level="1">Eclipse RCP</item>
-				<item level="1">Flash-Flex (AS3)</item>
-				<item level="1">Silverlight (C#)</item>
+				<item level="1">Swing, JEE, Eclipse RCP, Flash-Flex (AS3), Silverlight (C#)</item>
+				<item></item>
 				<item>@s8bordes</item>
 				<item level="1">seb@jrebirth.org</item>
 				<item link="true">www.jrebirth.org</item>
 				<item link="true">blog.webeo.fr</item>
+				<item></item>
 				<item>Artwork by</item>
 				<item level="1">xoxi@xoxi.fr</item>
 			</content>
@@ -90,15 +87,15 @@
 			<title>Vraiment ??</title>
 		</slide>
 
-		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel">
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" style="raw">
 			<title>JavaFX != JAVA</title>
 		</slide>
 
-		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel">
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" style="raw">
 			<title>JavaFX 2\n IS \n JAVA</title>
 		</slide>
 
-		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel">
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" style="raw">
 			<title>En 2012\nJavaFX 2\n=\nJavaFX</title>
 		</slide>
 
@@ -107,7 +104,7 @@
 			<title>Pour les curieux</title>
 			<content>
 				<item>Pour installer l'application</item>
-				<item level="1">javaws -import http://www.jrebirth.org/breizhcamp/Prez.jnlp</item>
+				<item level="1">javaws -import http://www.jrebirth.org/breizhcamp/Breizhcamp.jnlp</item>
 				<item></item>
 				<item>Pour lancer l'application en ligne</item>
 				<item level="1" link="true">www.jrebirth.org/breizhcamp.html</item>
@@ -123,7 +120,7 @@
 			<content>
 				<title>Qui Fait Quoi</title>
 				<!-- L'offre -->
-				<item>Communauté</item>
+				<item>Communauté JS</item>
 				<item level="1">JQuery, prototype ...</item>
 				<item>Apple</item>
 				<item level="1">iOS et Safari</item>
@@ -212,7 +209,14 @@
 
 		<!-- HELLO -->
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.hello.HelloModel">
-			<title>Hello Toulouse</title>
+			<title>Hello Rennes</title>
+
+			<content>
+				<item image="images/hello/DemoCode.png" />
+			</content>
+			<content name="Application">
+				<item image="images/hello/DemoApp.png" />
+			</content>
 		</slide>
 
 		<!-- ************************************************************************* -->
@@ -271,6 +275,10 @@
 				 ]]>
 				</item>
 			</content>
+		</slide>
+
+		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.tree.TreeModel">
+			<title>Interface graphique</title>
 		</slide>
 
 		<!-- Stage et Scene -->
@@ -378,21 +386,23 @@
 			</content>
 
 			<content name="BorderConstraint">
-				<item>Utilisation de méthodes statiques</item>
+				<title>Border Constraints</title>
+				<item>Utilisation de 2 méthodes statiques</item>
 				<item level="1">BorderPane.setMargin(Node child, Insets value)</item>
 				<item level="1">BorderPane.setAlignment(Node child, Pos value)</item>
 			</content>
 
 			<content name="BoxConstraint">
-				<title>HBox, VBox</title>
-				<item level="1">HBox et VBox</item>
+				<title>Box Constraints</title>
+				<item>Méthodes au choix</item>
 				<item level="1">setMargin(Node child, Insets value)</item>
 				<item level="1">setVgrow(Node child, Priority value) [VHBox only]</item>
 				<item level="1">setHgrow(Node child, Priority value) [HBox only]</item>
 			</content>
 
 			<content name="StackConstraint">
-				<item>2 Méthodes statiques</item>
+				<title>Stack Constraints</title>
+				<item>encore 2 méthodes statiques</item>
 				<item level="1">static void setAlignment(Node child, Pos value)</item>
 				<item level="1">static void setMargin(Node child, Insets value)</item>
 				<item>Attention faux ami</item>
@@ -400,11 +410,14 @@
 			</content>
 
 			<content name="TileConstraint">
-				<item>setAlignment(Node node, Pos value)</item>
-				<item>setMargin(Node node, Insets value)</item>
+				<title>Tile Constraints</title>
+				<item>toujours 2 méthodes statiques</item>
+				<item level="1">setAlignment(Node node, Pos value)</item>
+				<item level="1">setMargin(Node node, Insets value)</item>
 			</content>
 
 			<content name="GridConstaint">
+				<title>Grid Constraints</title>
 				<item>Layout le plus customisable</item>
 				<item>&gt;10 méthodes statiques</item>
 				<item level="1">int columnIndex</item>
@@ -449,7 +462,7 @@
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.chart.ChartModel">
 			<title>Charts</title>
 			<content>
-				<item image="images/uml/chart.png" scale="0.6" />
+				<item image="images/uml/chart.png" />
 				<item>Titre + Légende + couleurs via CSS</item>
 				<item>Animations</item>
 				<item>Valeurs + Node</item>
@@ -515,13 +528,16 @@
 			<title>FXML</title>
 			<content>
 				<item>Ecriture des vues en XML</item>
+				<item level="1">Utilise les Java Builders</item>
+				<item level="1">Séparation Développeur/Graphiste</item>
+
 				<item>fx:controller</item>
-				<item>onAction="#handleSomething"</item>
-				<item>Annotations @FXML et fx:id</item>
-				<item> &lt;fx:script&gt; => Javascript</item>
-				<item>Séparation Développeur/Graphiste</item>
-				<item>FXMLLoader + getController()</item>
-				<item>SceneBuilder prochainement disponible</item>
+				<item level="1">onAction="#handleSomething"</item>
+				<item level="1">Annotations @FXML et fx:id</item>
+				<item level="1">FXMLLoader + getController()</item>
+
+				<item>&lt;fx:script&gt; => Javascript</item>
+				<item>Editeur Wysiwyg : SceneBuilder</item>
 				<item>Conversion depuis FXG</item>
 			</content>
 			<content name="sampleFXML">
@@ -623,10 +639,10 @@
 				<item>Préfixe -fx-</item>
 				<item>Pas de positionnement et de gestion de layout</item>
 				<item>Quelques spécificités (derivation, var, corner)</item>
-				<item>9 Slice Scaling</item>
+				<item>9-Slice Scaling</item>
 				<item>Layering</item>
 				<item>Lié à un l'objet Scene</item>
-				<item>Compilable en binaires</item>
+				<item>Compilable en binaires (BCSS)</item>
 			</content>
 		</slide>
 		<!-- Largement inspiré de CSS 2.1 Background et border CSS3 -->
@@ -715,11 +731,11 @@
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.handler.HandlerModel">
 			<title>EventHandler et EventFilter</title>
 			<content>
-				<item>Phase de Capture</item>
-				<item level="1">Du Stage jusqu'à  l'élément déclencheur</item>
+				<item>Capturing Phase</item>
+				<item level="1">Du Stage jusqu'à l'élément déclencheur</item>
 				<item level="1">Interception avec addEventFilters()</item>
 
-				<item>Phase de Bubbling</item>
+				<item>Bubbling Phase</item>
 				<item level="1">De l'élément déclencheur jusqu'au Stage</item>
 				<item level="1">Interception avec addEventHandlers()</item>
 
@@ -920,6 +936,9 @@
 		]]>
 				</item>
 			</content>
+
+			<!-- <content name="Doclet"> <title>Doclet</title> <item>Doclet Customisé</item> <item level="1">gestion de la javadoc</item> <item image="images/splash/L'enrichissement.jpg" 
+				/> </content> -->
 		</slide>
 
 		<!-- ************************************************************************* -->
@@ -1072,6 +1091,41 @@
 				]]>
 				</item>
 			</content>
+			<content name="RotateTransition">
+				<title>RotateTransition</title>
+				<item html="true">
+				<![CDATA[
+				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<title></title>
+  <style type="text/css">
+    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
+  </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head><body>
+<div align="left" class="java">
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#808080">1</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">RotateTransitionBuilder.create</font><font color="#000000">()</font><br />
+<font color="#808080">2</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.node</font><font color="#000000">(</font><font color="#000000">demoRectangle</font><font color="#000000">)</font><br />
+<font color="#808080">3</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.autoReverse</font><font color="#000000">(</font><font color="#7f0055"><b>true</b></font><font color="#000000">)</font><br />
+<font color="#808080">4</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.fromAngle</font><font color="#000000">(</font><font color="#990000">0</font><font color="#000000">)</font><br />
+<font color="#808080">5</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.toAngle</font><font color="#000000">(</font><font color="#990000">540</font><font color="#000000">)</font><br />
+<font color="#808080">6</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.cycleCount</font><font color="#000000">(</font><font color="#000000">Animation.INDEFINITE</font><font color="#000000">)</font><br />
+<font color="#808080">7</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.interpolator</font><font color="#000000">(</font><font color="#000000">Interpolator.EASE_IN</font><font color="#000000">)</font><br />
+<font color="#808080">8</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.duration</font><font color="#000000">(</font><font color="#000000">Duration.seconds</font><font color="#000000">(</font><font color="#990000">1</font><font color="#000000">))</font><br />
+<font color="#808080">9</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.build</font><font color="#000000">()</font><font color="#000000">.play</font><font color="#000000">()</font><font color="#000000">;</font></code>
+   </td>
+   </tr>
+</table>
+</div>
+</body></html>
+				]]>
+				</item>
+			</content>
 			<content name="PauseTransition">
 				<title>PauseTransition</title>
 				<item html="true">
@@ -1105,41 +1159,6 @@
     
    </td>
   <!-- end source code -->
-   </tr>
-</table>
-</div>
-</body></html>
-				]]>
-				</item>
-			</content>
-			<content name="RotateTransition">
-				<title>RotateTransition</title>
-				<item html="true">
-				<![CDATA[
-				<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html><head>
-<title></title>
-  <style type="text/css">
-    <!--code { font-family: Courier New, Courier; font-size: 10pt; margin: 0px; }-->
-  </style>
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-</head><body>
-<div align="left" class="java">
-<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
-   <tr>
-  <!-- start source code -->
-   <td nowrap="nowrap" valign="top" align="left">
-    <code>
-<font color="#808080">1</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">RotateTransitionBuilder.create</font><font color="#000000">()</font><br />
-<font color="#808080">2</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.node</font><font color="#000000">(</font><font color="#000000">demoRectangle</font><font color="#000000">)</font><br />
-<font color="#808080">3</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.autoReverse</font><font color="#000000">(</font><font color="#7f0055"><b>true</b></font><font color="#000000">)</font><br />
-<font color="#808080">4</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.fromAngle</font><font color="#000000">(</font><font color="#990000">0</font><font color="#000000">)</font><br />
-<font color="#808080">5</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.toAngle</font><font color="#000000">(</font><font color="#990000">540</font><font color="#000000">)</font><br />
-<font color="#808080">6</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.cycleCount</font><font color="#000000">(</font><font color="#000000">Animation.INDEFINITE</font><font color="#000000">)</font><br />
-<font color="#808080">7</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.interpolator</font><font color="#000000">(</font><font color="#000000">Interpolator.EASE_IN</font><font color="#000000">)</font><br />
-<font color="#808080">8</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.duration</font><font color="#000000">(</font><font color="#000000">Duration.seconds</font><font color="#000000">(</font><font color="#990000">1</font><font color="#000000">))</font><br />
-<font color="#808080">9</font>&nbsp;<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.build</font><font color="#000000">()</font><font color="#000000">.play</font><font color="#000000">()</font><font color="#000000">;</font></code>
-   </td>
    </tr>
 </table>
 </div>
@@ -1266,6 +1285,7 @@
 				<item level="1">KeyValue</item>
 				<item level="1">onFinished</item>
 				<item>AnimationTimer</item>
+				<item>interpolate</item>
 			</content>
 		</slide>
 
@@ -1328,9 +1348,12 @@
 				<item level="1">Platform.runLater => fxPanel.setScene(scene);</item>
 				<item level="1">SwingUtilities.invokeLater</item>
 
-				<item>SWT (EclipseRCP) - FXCanvas</item>
+				<item>SWT - FXCanvas</item>
 				<item level="1">FXCanvas canvas = new FXCanvas(shell, SWT.NONE);   </item>
 				<item level="1">canvas.setScene(scene);</item>
+
+				<item>EclipseRCP</item>
+				<item level="1">Attention OSGi => efxclipse</item>
 
 				<item>Javascript</item>
 				<item level="1">Communication bi-directionnelle</item>
@@ -1376,7 +1399,7 @@
 		<slide>
 			<title>Déploiement</title>
 			<content>
-				<item>Ligne de commande [javafxpackager]</item>
+				<item>Ligne de commande [javafxpackager.exe]</item>
 				<item>Tâche Ant</item>
 				<item>Manuellement (via IDE)</item>
 				<item level="1">NetBeans</item>
@@ -1392,7 +1415,8 @@
 			<content>
 				<item>Destiné à l'origine à Swing</item>
 				<item>Capable de diffuser tout types de binaires</item>
-				<item>Gestion de cache</item>
+				<item>Gestion de cache et de mise jour</item>
+				<item>Mode Online et Offline</item>
 				<item>Restrictions de sécurité</item>
 				<item>Signature des jars</item>
 			</content>
@@ -1468,7 +1492,7 @@
 				<title>Cache Viewer</title>
 				<item>javaws -viewer</item>
 				<item>Configuration et gestion du cache</item>
-				<item>&lt;update check="always" policy="prompt-update"&gt;</item>
+				<item level="1">&lt;update check="always" policy="prompt-update"&gt;</item>
 				<item image="images/deploy/javaws-viewer.png"></item>
 
 			</content>
@@ -1494,17 +1518,18 @@
 			<title>Communication</title>
 			<content>
 				<item>Full Java</item>
+				<item level="1">Choix de la sérialisation</item>
 
-				<item>Plus simple que :</item>
+				<item>Bien plus simple que :</item>
 				<item level="1">JSON, XML</item>
-				<item level="1">BlazeDS</item>
-				<item level="1">Wcf Services</item>
+				<item level="1">BlazeDS (Flex)</item>
+				<item level="1">Wcf Services (Silverlight)</item>
 
 				<item>par exemple :</item>
 				<item level="1">Spring Http Invokers</item>
-				<item level="1">Web Services</item>
-				<item level="1">Restlet :D</item>
+				<item level="1">JAX-RS (Restlet, Jersey ...)</item>
 				<item level="1">JMS</item>
+				<item level="1">Web Services</item>
 				<item level="1">...</item>
 			</content>
 		</slide>
@@ -1537,6 +1562,14 @@
 				<item level="1">par Microsoft</item>
 			</content>
 
+			<content name="Jacp">
+				<title>JacpFX</title>
+				<item>Java Asynchronous Client Platform</item>
+				<item image="images/pattern/JACP.png" />
+				<item level="1">avait une version Swing</item>
+				<item link="true">http://code.google.com/p/jacp/</item>
+			</content>
+
 			<content name="JRebirth">
 				<title>JRebirth WCS-MVC</title>
 				<item>Wave Command Service - Model View Controller</item>
@@ -1567,10 +1600,12 @@
 			<title>Polyglote ?</title>
 			<content>
 				<item>Java seul (getter and setter)</item>
-				<item>Java Builder [ XXXBuilder.create().yyy(value).build(); ]</item>
+				<item>Java Builder</item>
+				<item level="1">[ XXXBuilder.create().yyy(value).build(); ]</item>
+				<item></item>
 				<item>GroovyFx</item>
 				<item>ScalaFx</item>
-				<item>Visage</item>
+				<item>Visage (moribond)</item>
 				<item>fxgraph (efxclipse)</item>
 			</content>
 		</slide>
@@ -1583,7 +1618,6 @@
 				<item level="1">Version stable pour Mac et Linux</item>
 				<item level="1">Android et iOS ?</item>
 
-				<item>JavaFX Scene Builder</item>
 				<item>Data Services</item>
 				<item>3D Graphics</item>
 				<item>Fonctions SmartPhone et Tablette</item>
@@ -1599,8 +1633,11 @@
 			<title>Autres Composants</title>
 			<content>
 				<item>JFxtras (migration depuis 1.3)</item>
-				<item>DataFX</item>
 				<item>MigLayout</item>
+				<item>DataFX</item>
+				<item>FXForm2</item>
+				<item>JFX Flow</item>
+				<item>JacpFx</item>
 				<item>JRebirth</item>
 			</content>
 		</slide>
@@ -1612,35 +1649,25 @@
 		<!-- ************************************************************************* -->
 
 		<!-- Wake Up ! -->
-	<!-- 	<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Tile60k">
+
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel"><!-- animation="Tile60k" -->
 			<content>
-				< ! - - <title>RETEX à chaud !</title> - - >
-				<item image="images/splash/Retex.jpg" />
+				<!-- <title>RETEX à chaud !</title> -->
+				<item image="images/splash/Bilan.jpg" />
 			</content>
 		</slide>
 
--->
 		<!-- Les Plus Full Java Thread graphique unique mais gestion Multi-Thread Rapidité Accélération matérielle et support software API complête Les Moins Support SE 
 			(que Windows pour le moment) Packaging Pas de cache de jars (signés ou non) -->
-<!-- 
-		<slide>
-			<title>RETEX</title>
-			<content>
-				<title>Dog Fooding</title>
-				<item>+ de 15000 lignes de Java</item>
-				<item>Fichier XML de presque 2000 lignes glurp!</item>
-				<item>Chronophage</item>
-				<item>Parfait pour apprendre ...</item>
-				<item>...Real Life Problems</item>
-			</content>
-		</slide>
+		<!-- <slide> <title>RETEX</title> <content> <title>Dog Fooding</title> <item>+ de 15000 lignes de Java</item> <item>Fichier XML de presque 2000 lignes glurp!</item> 
+			<item>Chronophage</item> <item>Parfait pour apprendre ...</item> <item>...Real Life Problems</item> </content> </slide> -->
 
 		<slide>
-			<title>RETEX</title>
+			<title>Les -</title>
 			<content>
-				<title>Les -</title>
+				<!-- <title>Les -</title> -->
 				<item>Pas encore mobile (bientôt ...)</item>
-				<item>Pas assez de composants personalisés</item>
+				<item>Pas assez de composants personnalisés</item>
 				<item>API 3D un peu légère</item>
 				<item>IDE pas encore assez complet</item>
 				<item>Communauté [re]-naissante</item>
@@ -1648,9 +1675,9 @@
 		</slide>
 
 		<slide>
-			<title>RETEX</title>
+			<title>Les +</title>
 			<content>
-				<title>Les +</title>
+				<!-- <title>Les +</title> -->
 				<item>Meilleure API pour faire une RIA</item>
 				<item>Richesse de Java</item>
 				<item level="1">Librairies</item>
@@ -1661,10 +1688,8 @@
 				<item>What Else ?</item>
 			</content>
 		</slide>
-		
-		-->
 
-		<slide>
+		<slide hideAnimation="FadeOut">
 			<title>Pour aller plus loin</title>
 			<content>
 				<item>Ressources</item>
@@ -1673,7 +1698,7 @@
 				<item level="1">forums.oracle.com/forums/forum.jspa?forumID=1385</item>
 
 				<item>Blogs</item>
-				<item level="1">www.fxperience.com</item>
+				<item level="1">www.fxexperience.com</item>
 				<item level="1">blog.netopyr.com</item>
 				<item level="1">javafxpert.com</item>
 				<item level="1">amyfowlersblog.blogspot.com</item>
@@ -1683,14 +1708,23 @@
 		</slide>
 
 		<!-- THX -->
-		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel">
-			<title>Merci\nde votre attention</title>
+		<!-- <slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" hideAnimation="MoveToRight"> <title>Merci\nde votre attention</title> </slide> -->
+
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" hideAnimation="MoveToRight" showAnimation="FadeIn">
+			<content>
+				<item image="images/splash/Merci.png" />
+			</content>
 		</slide>
 
 		<!-- Des Questions -->
-		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel">
-			<title>Avez-vous des\nquestions ?</title>
+		<!-- <slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel"> <title>Avez-vous des\nquestions ?</title> </slide> -->
+
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" showAnimation="MoveFromLeft">
+			<content>
+				<item image="images/splash/Q_and_R.png" />
+			</content>
 		</slide>
+
 
 	</slides>
 

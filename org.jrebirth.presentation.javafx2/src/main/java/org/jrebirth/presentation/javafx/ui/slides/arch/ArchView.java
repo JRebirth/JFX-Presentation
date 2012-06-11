@@ -3,7 +3,7 @@ package org.jrebirth.presentation.javafx.ui.slides.arch;
 import javafx.animation.Interpolator;
 import javafx.animation.ScaleTransitionBuilder;
 import javafx.scene.Node;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 import org.jrebirth.core.exception.CoreException;
@@ -21,7 +21,7 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  * @version $Revision: 72 $ $Author: sbordes $
  * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
-public final class ArchView extends AbstractTemplateView<ArchModel, BorderPane, ArchController> {
+public final class ArchView extends AbstractTemplateView<ArchModel, AnchorPane, ArchController> {
 
     /** The Archi FXML Controller */
     private FXMLComponent archComponent;

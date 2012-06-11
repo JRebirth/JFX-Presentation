@@ -64,7 +64,7 @@ public final class Presentation extends AbstractApplication<StackPane> {
     protected void customizeScene(final Scene scene) {
 
         scene.getStylesheets().add("style/template.css");
-        // scene.getStylesheets().add("style/candle.css");
+        scene.getStylesheets().add("style/candle.css");
 
         // Manage F11 button to switch full screen
         scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {

@@ -1,7 +1,7 @@
 package org.jrebirth.presentation.javafx.ui.slides.why;
 
 import javafx.scene.Node;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 
 import org.jrebirth.core.exception.CoreException;
 import org.jrebirth.presentation.ui.template.AbstractTemplateView;
@@ -15,7 +15,7 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  * @version $Revision: 72 $ $Author: sbordes $
  * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
-public final class WhyUseView extends AbstractTemplateView<WhyUseModel, BorderPane, WhyUseController> {
+public final class WhyUseView extends AbstractTemplateView<WhyUseModel, AnchorPane, WhyUseController> {
 
     /**
      * Default Constructor.
@@ -42,7 +42,7 @@ public final class WhyUseView extends AbstractTemplateView<WhyUseModel, BorderPa
     @Override
     public void doReload() {
         // Nothing to do yet
-        
+
     }
 
 }

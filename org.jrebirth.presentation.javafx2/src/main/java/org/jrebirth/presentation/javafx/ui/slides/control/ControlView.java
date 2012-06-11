@@ -36,6 +36,7 @@ import javafx.scene.control.ToolBarBuilder;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.FlowPaneBuilder;
@@ -58,7 +59,7 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  * @version $Revision: 72 $ $Author: sbordes $
  * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
-public final class ControlView extends AbstractTemplateView<ControlModel, BorderPane, ControlController> {
+public final class ControlView extends AbstractTemplateView<ControlModel, AnchorPane, ControlController> {
 
     /**
      * Default Constructor.
@@ -93,7 +94,8 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
         cb.setScaleX(4.0);
         cb.setScaleY(4.0);
 
-        getRootNode().setCenter(cb);
+        // getRootNode().setCenter(cb);
+        showCustomSlideStep(cb);
 
         BorderPane.setAlignment(cb, Pos.CENTER);
         BorderPane.setMargin(cb, new Insets(40));
@@ -108,7 +110,8 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
 
         final HTMLEditor editor = new HTMLEditor();
 
-        getRootNode().setCenter(editor);
+        // getRootNode().setCenter(editor);
+        showCustomSlideStep(editor);
     }
 
     /**
@@ -122,7 +125,9 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
         l.setScaleX(4.0);
         l.setScaleY(4.0);
 
-        getRootNode().setCenter(l);
+        // getRootNode().setCenter(l);
+        showCustomSlideStep(l);
+
         l.autosize();
 
         BorderPane.setAlignment(l, Pos.CENTER);
@@ -140,7 +145,8 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
         s.setScaleX(1.0);
         s.setScaleY(1.0);
 
-        getRootNode().setCenter(s);
+        // getRootNode().setCenter(s);
+        showCustomSlideStep(s);
         s.autosize();
 
         BorderPane.setAlignment(s, Pos.CENTER);
@@ -157,7 +163,8 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
         s.setScaleX(4.0);
         s.setScaleY(4.0);
 
-        getRootNode().setCenter(s);
+        // getRootNode().setCenter(s);
+        showCustomSlideStep(s);
 
         BorderPane.setAlignment(s, Pos.CENTER);
         BorderPane.setMargin(s, new Insets(40));
@@ -187,7 +194,9 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
                 ProgressIndicatorBuilder.create().prefWidth(50).prefHeight(50).progress(1).build()
                 );
 
-        getRootNode().setCenter(vb);
+        // getRootNode().setCenter(vb);
+        showCustomSlideStep(vb);
+
         BorderPane.setAlignment(vb, Pos.CENTER);
         BorderPane.setMargin(vb, new Insets(40));
     }
@@ -201,7 +210,9 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
 
         final Separator s = SeparatorBuilder.create().minHeight(20).maxWidth(700).halignment(HPos.CENTER).build();
 
-        getRootNode().setCenter(s);
+        // getRootNode().setCenter(s);
+        showCustomSlideStep(s);
+
         BorderPane.setAlignment(s, Pos.CENTER);
         BorderPane.setMargin(s, new Insets(40));
     }
@@ -241,7 +252,8 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
                                 ).build()
                 ).build();
 
-        getRootNode().setCenter(menubar);
+        // getRootNode().setCenter(menubar);
+        showCustomSlideStep(menubar);
 
         BorderPane.setAlignment(menubar, Pos.TOP_CENTER);
         BorderPane.setMargin(menubar, new Insets(100));
@@ -263,7 +275,8 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
                 )
                 .build();
 
-        getRootNode().setCenter(toolbar);
+        // getRootNode().setCenter(toolbar);
+        showCustomSlideStep(toolbar);
 
         BorderPane.setAlignment(toolbar, Pos.TOP_CENTER);
         BorderPane.setMargin(toolbar, new Insets(100));
@@ -293,7 +306,8 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
                 .hgap(30)
                 .build();
 
-        getRootNode().setCenter(fp);
+        // getRootNode().setCenter(fp);
+        showCustomSlideStep(fp);
 
         BorderPane.setAlignment(fp, Pos.CENTER);
         BorderPane.setMargin(fp, new Insets(40));
@@ -308,7 +322,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
         final ObservableList<String> list = FXCollections.observableArrayList();
 
         final BufferedReader in = new BufferedReader(new InputStreamReader(Thread.currentThread().getContextClassLoader()
-                .getResourceAsStream("org/jrebirth/presentation/ui/slides/control/sdkTree.txt")));
+                .getResourceAsStream("org/jrebirth/presentation/javafx/ui/slides/control/sdkTree.txt")));
         String line;
         try {
             while ((line = in.readLine()) != null) {
@@ -340,7 +354,9 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
         tableView.setItems(populateTable());
         tableView.getColumns().addAll(pathColumn, extColumn);
 
-        getRootNode().setCenter(tableView);
+        // getRootNode().setCenter(tableView);
+        showCustomSlideStep(tableView);
+
         BorderPane.setAlignment(tableView, Pos.CENTER);
         BorderPane.setMargin(tableView, new Insets(40));
     }
@@ -354,12 +370,12 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
         final ObservableList<Pair<String, String>> list = FXCollections.observableArrayList();
 
         final BufferedReader in = new BufferedReader(new InputStreamReader(Thread.currentThread().getContextClassLoader()
-                .getResourceAsStream("org/jrebirth/presentation/ui/slides/control/sdkTree.txt")));
+                .getResourceAsStream("org/jrebirth/presentation/javafx/ui/slides/control/sdkTree.txt")));
         String line;
         try {
             while ((line = in.readLine()) != null) {
                 if (line.contains(".")) {
-                    list.add(new Pair(line.substring(0, line.lastIndexOf(".")), line.substring(line.lastIndexOf(".") + 1, line.length() - 1)));
+                    list.add(new Pair(line.substring(0, line.lastIndexOf(".")), line.substring(line.lastIndexOf(".") + 1, line.length())));
                 } else {
                     list.add(new Pair(line, ""));
                 }
@@ -390,7 +406,9 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
         treeRoot.setExpanded(true);
         treeView.setRoot(treeRoot);
 
-        getRootNode().setCenter(treeView);
+        // getRootNode().setCenter(treeView);
+        showCustomSlideStep(treeView);
+
         BorderPane.setAlignment(treeView, Pos.CENTER);
         BorderPane.setMargin(treeView, new Insets(40));
     }
@@ -403,7 +421,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
      */
     private void populateTree(final TreeItem<String> treeRoot) throws IOException {
         final BufferedReader in = new BufferedReader(new InputStreamReader(Thread.currentThread().getContextClassLoader()
-                .getResourceAsStream("org/jrebirth/presentation/ui/slides/control/sdkTree.txt")));
+                .getResourceAsStream("org/jrebirth/presentation/javafx/ui/slides/control/sdkTree.txt")));
 
         final Map<String, TreeItem<String>> map = new HashMap<>();
         String line;
@@ -429,6 +447,6 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Border
     @Override
     public void doReload() {
         // Nothing to do yet
-        
+
     }
 }

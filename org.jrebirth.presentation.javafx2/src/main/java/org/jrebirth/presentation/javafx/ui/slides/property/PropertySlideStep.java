@@ -24,6 +24,7 @@ public enum PropertySlideStep implements SlideStep {
     Binding,
 
     /** . */
-    Doclet;
+    // Doclet
+    ;
 
 }

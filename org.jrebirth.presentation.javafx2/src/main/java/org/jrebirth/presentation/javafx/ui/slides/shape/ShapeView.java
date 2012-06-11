@@ -1,21 +1,28 @@
 package org.jrebirth.presentation.javafx.ui.slides.shape;
 
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.FlowPaneBuilder;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcTo;
 import javafx.scene.shape.ArcType;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.CircleBuilder;
 import javafx.scene.shape.CubicCurve;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.HLineTo;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.LineBuilder;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
@@ -44,7 +51,7 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  * @version $Revision: 72 $ $Author: sbordes $
  * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
-public final class ShapeView extends AbstractTemplateView<ShapeModel, BorderPane, ShapeController> {
+public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane, ShapeController> {
 
     /**
      * Default Constructor.
@@ -135,10 +142,11 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, BorderPane
 
         final FlowPane fp = FlowPaneBuilder.create().children(roundArc, chordArc, openArc, roundArc2, chordArc2, openArc2).build();
 
-        getRootNode().setCenter(fp);
+        // getRootNode().setCenter(fp);
+        showCustomSlideStep(fp);
 
-        BorderPane.setAlignment(fp, Pos.CENTER);
-        BorderPane.setMargin(fp, new Insets(40));
+        StackPane.setAlignment(fp, Pos.CENTER);
+        StackPane.setMargin(fp, new Insets(40));
     }
 
     /**
@@ -175,10 +183,11 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, BorderPane
 
         final FlowPane fp = FlowPaneBuilder.create().children(plainCircle, strokeCircle, fullCircle).build();
 
-        getRootNode().setCenter(fp);
+        // getRootNode().setCenter(fp);
+        showCustomSlideStep(fp);
 
-        BorderPane.setAlignment(fp, Pos.CENTER);
-        BorderPane.setMargin(fp, new Insets(40));
+        StackPane.setAlignment(fp, Pos.CENTER);
+        StackPane.setMargin(fp, new Insets(40));
     }
 
     /**
@@ -200,10 +209,11 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, BorderPane
 
         sp.getChildren().addAll(line);
 
-        getRootNode().setCenter(sp);
+        // getRootNode().setCenter(sp);
+        showCustomSlideStep(sp);
 
-        BorderPane.setAlignment(sp, Pos.CENTER);
-        BorderPane.setMargin(sp, new Insets(40));
+        StackPane.setAlignment(sp, Pos.CENTER);
+        StackPane.setMargin(sp, new Insets(40));
     }
 
     /**
@@ -213,26 +223,80 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, BorderPane
 
         getSubTitle().setText("CubicCurve");
 
-        final StackPane sp = new StackPane();
+        final Pane sp = new Pane();
+
+        // control point
+        final Circle c1 = CircleBuilder.create()
+                .radius(10)
+                .layoutX(300.0)
+                .layoutY(0.0)
+                .fill(Color.LIGHTGRAY)
+                .cursor(Cursor.HAND)
+                .build();
+
+        final NodeDragHandler dh1 = new NodeDragHandler();
+        c1.setOnMousePressed(dh1);
+        c1.setOnMouseDragged(dh1);
+
+        // control point
+        final Circle c2 = CircleBuilder.create()
+                .radius(10)
+                .layoutX(400.0)
+                .layoutY(500.0)
+                .fill(Color.LIGHTGRAY)
+                .cursor(Cursor.HAND)
+                .build();
+
+        final NodeDragHandler dh2 = new NodeDragHandler();
+        c2.setOnMousePressed(dh2);
+        c2.setOnMouseDragged(dh2);
 
         final CubicCurve cubic = new CubicCurve();
         cubic.setFill(JfxColors.GRADIENT_2.get());
         cubic.setStroke(JfxColors.GRADIENT_3.get());
-        cubic.setStartX(0.0f);
-        cubic.setStartY(50.0f);
-        cubic.setControlX1(50.0f);
+        cubic.setStartX(200.0f);
+        cubic.setStartY(200.0f);
+        cubic.setControlX1(300.0f);
         cubic.setControlY1(0.0f);
-        cubic.setControlX2(150.0f);
-        cubic.setControlY2(200.0f);
-        cubic.setEndX(400.0f);
-        cubic.setEndY(100.0f);
+        cubic.setControlX2(400.0f);
+        cubic.setControlY2(500.0f);
+        cubic.setEndX(600.0f);
+        cubic.setEndY(300.0f);
 
-        sp.getChildren().addAll(cubic);
+        final Line line1 = LineBuilder.create().stroke(Color.LIGHTGREY).strokeDashArray(10.0, 5.0)
+                .startX(c1.getLayoutX()).startY(c1.getLayoutY())
+                .endX(cubic.getStartX()).endY(cubic.getStartY())
+                .build();
 
-        getRootNode().setCenter(sp);
+        final Line line2 = LineBuilder.create().stroke(Color.LIGHTGREY).strokeDashArray(10.0, 5.0)
+                .startX(c2.getLayoutX()).startY(c2.getLayoutY())
+                .endX(cubic.getEndX()).endY(cubic.getEndY())
+                .build();
 
-        BorderPane.setAlignment(sp, Pos.CENTER);
-        BorderPane.setMargin(sp, new Insets(40));
+        line1.startXProperty().bind(c1.layoutXProperty());
+        line1.startYProperty().bind(c1.layoutYProperty());
+        line1.endXProperty().bind(cubic.startXProperty());
+        line1.endYProperty().bind(cubic.startYProperty());
+
+        line2.startXProperty().bind(c2.layoutXProperty());
+        line2.startYProperty().bind(c2.layoutYProperty());
+        line2.endXProperty().bind(cubic.endXProperty());
+        line2.endYProperty().bind(cubic.endYProperty());
+
+        //
+        cubic.controlX1Property().bind(c1.layoutXProperty());
+        cubic.controlY1Property().bind(c1.layoutYProperty());
+
+        cubic.controlX2Property().bind(c2.layoutXProperty());
+        cubic.controlY2Property().bind(c2.layoutYProperty());
+
+        sp.getChildren().addAll(line1, line2, cubic, c1, c2);
+
+        // getRootNode().setCenter(sp);
+        showCustomSlideStep(sp);
+
+        StackPane.setAlignment(sp, Pos.CENTER);
+        StackPane.setMargin(sp, new Insets(40));
     }
 
     /**
@@ -254,10 +318,11 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, BorderPane
 
         sp.getChildren().addAll(ellipse);
 
-        getRootNode().setCenter(sp);
+        // getRootNode().setCenter(sp);
+        showCustomSlideStep(sp);
 
-        BorderPane.setAlignment(sp, Pos.CENTER);
-        BorderPane.setMargin(sp, new Insets(40));
+        StackPane.setAlignment(sp, Pos.CENTER);
+        StackPane.setMargin(sp, new Insets(40));
 
     }
 
@@ -304,10 +369,11 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, BorderPane
 
         sp.getChildren().addAll(path);
 
-        getRootNode().setCenter(sp);
+        // getRootNode().setCenter(sp);
+        showCustomSlideStep(sp);
 
-        BorderPane.setAlignment(sp, Pos.CENTER);
-        BorderPane.setMargin(sp, new Insets(40));
+        StackPane.setAlignment(sp, Pos.CENTER);
+        StackPane.setMargin(sp, new Insets(40));
     }
 
     /**
@@ -330,10 +396,11 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, BorderPane
 
         sp.getChildren().addAll(polygon);
 
-        getRootNode().setCenter(sp);
+        // getRootNode().setCenter(sp);
+        showCustomSlideStep(sp);
 
-        BorderPane.setAlignment(sp, Pos.CENTER);
-        BorderPane.setMargin(sp, new Insets(40));
+        StackPane.setAlignment(sp, Pos.CENTER);
+        StackPane.setMargin(sp, new Insets(40));
     }
 
     /**
@@ -355,10 +422,11 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, BorderPane
 
         sp.getChildren().addAll(polyline);
 
-        getRootNode().setCenter(sp);
+        // getRootNode().setCenter(sp);
+        showCustomSlideStep(sp);
 
-        BorderPane.setAlignment(sp, Pos.CENTER);
-        BorderPane.setMargin(sp, new Insets(40));
+        StackPane.setAlignment(sp, Pos.CENTER);
+        StackPane.setMargin(sp, new Insets(40));
     }
 
     /**
@@ -368,24 +436,111 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, BorderPane
 
         getSubTitle().setText("QuadCurve");
 
-        final StackPane sp = new StackPane();
+        final Pane sp = new Pane();
+
+        // X AND Y position of mouse
+
+        // control point
+        final Circle c = CircleBuilder.create()
+                .radius(10)
+                .layoutX(300.0)
+                .layoutY(100.0)
+                .fill(Color.LIGHTGRAY)
+                .cursor(Cursor.HAND)
+                .build();
+
+        final NodeDragHandler dh = new NodeDragHandler();
+        c.setOnMousePressed(dh);
+        c.setOnMouseDragged(dh);
 
         final QuadCurve quad = new QuadCurve();
         quad.setFill(JfxColors.GRADIENT_2.get());
         quad.setStroke(JfxColors.GRADIENT_3.get());
-        quad.setStartX(0.0f);
-        quad.setStartY(50.0f);
-        quad.setEndX(200.0f);
-        quad.setEndY(200.0f);
-        quad.setControlX(50.0f);
-        quad.setControlY(0.0f);
+        quad.setStartX(200.0f);
+        quad.setStartY(200.0f);
+        quad.setEndX(600.0f);
+        quad.setEndY(300.0f);
 
-        sp.getChildren().addAll(quad);
+        quad.setControlX(300.0f);
+        quad.setControlY(100.0f);
 
-        getRootNode().setCenter(sp);
+        final Line line1 = LineBuilder.create().stroke(Color.LIGHTGREY).strokeDashArray(10.0, 5.0)
+                .startX(c.getLayoutX()).startY(c.getLayoutY())
+                .endX(quad.getStartX()).endY(quad.getStartY())
+                .build();
+        final Line line2 = LineBuilder.create().stroke(Color.LIGHTGREY).strokeDashArray(10.0, 5.0)
+                .startX(c.getLayoutX()).startY(c.getLayoutY())
+                .endX(quad.getEndX()).endY(quad.getEndY())
+                .build();
 
-        BorderPane.setAlignment(sp, Pos.CENTER);
-        BorderPane.setMargin(sp, new Insets(40));
+        c.layoutXProperty().bindBidirectional(line1.startXProperty());
+        c.layoutYProperty().bindBidirectional(line1.startYProperty());
+        quad.startXProperty().bindBidirectional(line1.endXProperty());
+        quad.startYProperty().bindBidirectional(line1.endYProperty());
+
+        c.layoutXProperty().bindBidirectional(line2.startXProperty());
+        c.layoutYProperty().bindBidirectional(line2.startYProperty());
+        quad.endXProperty().bindBidirectional(line2.endXProperty());
+        quad.endYProperty().bindBidirectional(line2.endYProperty());
+
+        c.layoutYProperty().bindBidirectional(quad.controlYProperty());
+        c.layoutXProperty().bindBidirectional(quad.controlXProperty());
+
+        sp.getChildren().addAll(line1, line2, quad, c);
+
+        // getRootNode().setCenter(sp);
+        showCustomSlideStep(sp);
+
+        StackPane.setAlignment(sp, Pos.CENTER);
+        StackPane.setMargin(sp, new Insets(40));
+    }
+
+    private class NodeDragHandler implements EventHandler<MouseEvent> {
+
+        double cX = 0.0;
+        double cY = 0.0;
+
+        double mousex = 0;
+        double mousey = 0;
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void handle(final MouseEvent me) {
+
+            final Node node = (Node) me.getSource();
+
+            if (me.getEventType() == MouseEvent.MOUSE_PRESSED) {
+
+                // record the current mouse X and Y position on Node
+                this.mousex = me.getSceneX();
+                this.mousey = me.getSceneY();
+                // get the x and y position measure from Left-Top
+                this.cX = node.getLayoutX();
+                this.cY = node.getLayoutY();
+
+                me.consume();
+
+            } else if (me.getEventType() == MouseEvent.MOUSE_DRAGGED) {
+
+                // Get the exact moved X and Y
+                this.cX += me.getSceneX() - this.mousex;
+                this.cY += me.getSceneY() - this.mousey;
+
+                // set the positon of Node after calculation
+                node.setLayoutX(this.cX);
+                node.setLayoutY(this.cY);
+
+                // again set current Mouse x AND y position
+                this.mousex = me.getSceneX();
+                this.mousey = me.getSceneY();
+
+                // me.consume();
+
+            }
+
+        }
     }
 
     /**
@@ -408,10 +563,11 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, BorderPane
 
         sp.getChildren().addAll(r);
 
-        getRootNode().setCenter(sp);
+        // getRootNode().setCenter(sp);
+        showCustomSlideStep(sp);
 
-        BorderPane.setAlignment(sp, Pos.CENTER);
-        BorderPane.setMargin(sp, new Insets(40));
+        StackPane.setAlignment(sp, Pos.CENTER);
+        StackPane.setMargin(sp, new Insets(40));
     }
 
     /**
@@ -431,10 +587,11 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, BorderPane
         svg.setScaleX(4.0);
         svg.setScaleY(4.0);
 
-        getRootNode().setCenter(svg);
+        // getRootNode().setCenter(svg);
+        showCustomSlideStep(svg);
 
-        BorderPane.setAlignment(sp, Pos.CENTER);
-        BorderPane.setMargin(sp, new Insets(40));
+        StackPane.setAlignment(sp, Pos.CENTER);
+        StackPane.setMargin(sp, new Insets(40));
     }
 
     /**
@@ -464,10 +621,11 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, BorderPane
 
         tp.getChildren().addAll(t1, t2, t3);
 
-        getRootNode().setCenter(tp);
+        // getRootNode().setCenter(tp);
+        showCustomSlideStep(tp);
 
-        BorderPane.setAlignment(tp, Pos.CENTER);
-        BorderPane.setMargin(tp, new Insets(40));
+        StackPane.setAlignment(tp, Pos.CENTER);
+        StackPane.setMargin(tp, new Insets(40));
 
     }
 
@@ -477,6 +635,6 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, BorderPane
     @Override
     public void doReload() {
         // Nothing to do yet
-        
+
     }
 }

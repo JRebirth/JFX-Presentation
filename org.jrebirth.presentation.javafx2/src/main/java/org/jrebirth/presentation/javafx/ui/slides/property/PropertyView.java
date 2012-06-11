@@ -11,7 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.LabelBuilder;
 import javafx.scene.control.Slider;
 import javafx.scene.control.SliderBuilder;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.FlowPaneBuilder;
 import javafx.scene.layout.StackPane;
@@ -35,7 +35,7 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  * @version $Revision: 72 $ $Author: sbordes $
  * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
-public final class PropertyView extends AbstractTemplateView<PropertyModel, BorderPane, PropertyController> {
+public final class PropertyView extends AbstractTemplateView<PropertyModel, AnchorPane, PropertyController> {
 
     /**
      * Default Constructor.
@@ -89,7 +89,7 @@ public final class PropertyView extends AbstractTemplateView<PropertyModel, Bord
             }
         });
 
-        getRootNode().setCenter(vb);
+        showCustomSlideStep(vb);
     }
 
     /**
@@ -98,6 +98,6 @@ public final class PropertyView extends AbstractTemplateView<PropertyModel, Bord
     @Override
     public void doReload() {
         // Nothing to do yet
-        
+
     }
 }

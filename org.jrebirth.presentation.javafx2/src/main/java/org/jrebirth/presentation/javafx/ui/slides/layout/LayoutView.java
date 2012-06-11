@@ -1,5 +1,7 @@
 package org.jrebirth.presentation.javafx.ui.slides.layout;
 
+import java.util.Random;
+
 import javafx.animation.FadeTransition;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -25,6 +27,7 @@ import javafx.scene.layout.ColumnConstraintsBuilder;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.HBoxBuilder;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
@@ -32,7 +35,6 @@ import javafx.scene.layout.RowConstraintsBuilder;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.StackPaneBuilder;
 import javafx.scene.layout.TilePane;
-import javafx.scene.layout.TilePaneBuilder;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.paint.Color;
@@ -51,28 +53,28 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  * @version $Revision: 72 $ $Author: sbordes $
  * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
-public final class LayoutView extends AbstractTemplateView<LayoutModel, BorderPane, LayoutController> {
+public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPane, LayoutController> {
 
     /**
      * The <code>BG_5</code> field is used to TODO
      */
-    private static final String BG_5 = "-fx-background-color:#29354f";
+    private static final String BG_5 = "-fx-background-color:#FBE43D";
     /**
      * The <code>BG_4</code> field is used to TODO
      */
-    private static final String BG_4 = "-fx-background-color:#bfa731";
+    private static final String BG_4 = "-fx-background-color:#EA661D";
     /**
      * The <code>BG_3</code> field is used to TODO
      */
-    private static final String BG_3 = "-fx-background-color:#f44b14";
+    private static final String BG_3 = "-fx-background-color:#E53B20";
     /**
      * The <code>BG_2</code> field is used to TODO
      */
-    private static final String BG_2 = "-fx-background-color:#e58b5d";
+    private static final String BG_2 = "-fx-background-color:#C13C8B";
     /**
      * The <code>BG_1</code> field is used to TODO
      */
-    private static final String BG_1 = "-fx-background-color:#3365b2";
+    private static final String BG_1 = "-fx-background-color:#1C9A9A";
     /** The intro name transition. */
     private FadeTransition fadeTransition;
     private InnerShadow boxEffect;
@@ -167,7 +169,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, BorderPa
 
         p.getChildren().add(stackPane(700, 300, Pos.TOP_LEFT, label("1").build(), BG_1).padding(new Insets(20.0)).layoutX(100).layoutY(100).build());
         p.getChildren().add(stackPane(200, 500, Pos.TOP_RIGHT, label("2").build(), BG_2).padding(new Insets(20.0)).layoutX(500).layoutY(50).build());
-        p.getChildren().add(stackPane(300, 100, Pos.CENTER, label("3").build(), "-fx-background-color:#29354F").layoutX(300).layoutY(250).build());
+        p.getChildren().add(stackPane(300, 100, Pos.CENTER, label("3").build(), "-fx-background-color:#65AF23").layoutX(300).layoutY(250).build());
         p.getChildren().add(stackPane(600, 50, Pos.CENTER, label("4").build(), BG_3).layoutX(150).layoutY(450).build());
 
         // BorderPane.setAlignment(p, Pos.CENTER);
@@ -282,11 +284,11 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, BorderPa
         final VBox vb = new VBox();
         vb.setFocusTraversable(true);
 
-        vb.getChildren().add(stackPane(200, 100, Pos.CENTER, label("1").build(), BG_1).build());
+        vb.getChildren().add(stackPane(200, 120, Pos.CENTER, label("1").build(), BG_1).build());
         vb.getChildren().add(stackPane(200, 100, Pos.CENTER, label("2").build(), BG_2).build());
-        vb.getChildren().add(stackPane(200, 100, Pos.CENTER, label("3").build(), BG_3).build());
-        vb.getChildren().add(stackPane(200, 100, Pos.CENTER, label("4").build(), BG_4).build());
-        vb.getChildren().add(stackPane(200, 100, Pos.CENTER, label("5").build(), BG_5).build());
+        vb.getChildren().add(stackPane(200, 150, Pos.CENTER, label("3").build(), BG_3).build());
+        vb.getChildren().add(stackPane(200, 80, Pos.CENTER, label("4").build(), BG_4).build());
+        vb.getChildren().add(stackPane(200, 110, Pos.CENTER, label("5").build(), BG_5).build());
 
         BorderPane.setAlignment(vb, Pos.CENTER);
         BorderPane.setMargin(vb, new Insets(40));
@@ -302,27 +304,33 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, BorderPa
 
         getSubTitle().setText("FlowPane");
 
+        final Random r = new Random();
+
         final FlowPane flow1 = new FlowPane(Orientation.VERTICAL);
-        flow1.setMaxSize(400, 200);
+        flow1.setMinSize(400, 300);
+        flow1.setMaxSize(400, 300);
+        flow1.setPrefSize(400, 300);
         flow1.setColumnHalignment(HPos.RIGHT); // align labels on left
         flow1.setPrefWrapLength(400); // preferred height = 200
-        for (int i = 0; i < 5; i++) {
-            flow1.getChildren().add(stackPane(100, 50, Pos.CENTER, label("Pane " + i).build(), BG_2).build());
+        for (int i = 0; i < 10; i++) {
+            flow1.getChildren().add(stackPane(100 + r.nextInt() % 60, 50 + r.nextInt() % 30, Pos.CENTER, label("Pane " + i).build(), BG_2).build());
         }
         flow1.setStyle(BG_5);
 
         final FlowPane flow2 = new FlowPane(Orientation.HORIZONTAL);
-        flow2.setMaxSize(200, 400);
+        flow2.setMinSize(400, 300);
+        flow2.setMaxSize(400, 300);
+        flow2.setPrefSize(400, 300);
         flow2.setRowValignment(VPos.BOTTOM); // align labels on left
         flow2.setPrefWrapLength(400); // preferred height = 200
-        for (int i = 0; i < 5; i++) {
-            flow2.getChildren().add(stackPane(100, 50, Pos.CENTER, label("Pane " + i).build(), BG_3).build());
+        for (int i = 0; i < 10; i++) {
+            flow2.getChildren().add(stackPane(100 + r.nextInt() % 60, 50 + r.nextInt() % 30, Pos.CENTER, label("Pane " + i).build(), BG_3).build());
         }
         flow2.setStyle(BG_4);
 
-        final Label label1 = LabelBuilder.create().text("Vertical [400x200]").build();
+        final Label label1 = LabelBuilder.create().text("Vertical [400x300]").build();
         final VBox v1 = VBoxBuilder.create().children(label1, flow1).build();
-        final Label label2 = LabelBuilder.create().text("Horizontal [200x400]").build();
+        final Label label2 = LabelBuilder.create().text("Horizontal [400x300]").build();
         final VBox v2 = VBoxBuilder.create().children(label2, flow2).build();
 
         // StackPane.setAlignment(v1, Pos.CENTER_LEFT);
@@ -339,13 +347,16 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, BorderPa
         // .children(v1, v2)
         // .build());
 
-        showCustomSlideStep(TilePaneBuilder.create()
-                .orientation(Orientation.HORIZONTAL)
+        final HBox hb = HBoxBuilder.create()
                 .alignment(Pos.CENTER)
-                .prefWidth(600)
-                .prefHeight(600)
+                .spacing(40)
+                .prefWidth(900)
+                .prefHeight(640)
                 .children(v1, v2)
-                .build());
+                .build();
+
+        StackPane.setAlignment(hb, Pos.CENTER);
+        showCustomSlideStep(hb);
     }
 
     /**
@@ -407,10 +418,10 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, BorderPa
         tile.setPrefTileWidth(80);
         tile.setPrefTileHeight(80);
         for (int i = 0; i < 17; i++) {
-            tile.getChildren().add(stackPane(100, 100, Pos.CENTER, label("Pane" + i).build(), BG_1).build());
+            tile.getChildren().add(stackPane(100, 100, Pos.CENTER, label("Pane" + i).build(), BG_3).build());
         }
 
-        tile.setStyle(BG_2);
+        tile.setStyle(BG_4);
         // StackPane sp = StackPaneBuilder.create().maxWidth(600).style(BG_2).maxHeight(450).children(tile).build();
 
         // BorderPane.setAlignment(tile, Pos.CENTER);

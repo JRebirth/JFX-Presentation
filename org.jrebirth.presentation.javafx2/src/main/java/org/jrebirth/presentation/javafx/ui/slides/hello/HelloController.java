@@ -1,10 +1,6 @@
 package org.jrebirth.presentation.javafx.ui.slides.hello;
 
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
-
 import org.jrebirth.core.exception.CoreException;
-import org.jrebirth.core.ui.adapter.DefaultMouseAdapter;
 import org.jrebirth.presentation.ui.template.AbstractTemplateController;
 
 /**
@@ -48,31 +44,31 @@ public final class HelloController extends AbstractTemplateController<HelloModel
         // getView().getCodeImageView().setOnMouseClicked(getMouseHandler());
     }
 
-    /**
-     * 
-     * The class <strong>ClickAdapter</strong>.
-     * 
-     * @author Sébastien Bordes
-     * 
-     * @version $Revision$ $Author$
-     * @since $Date$
-     */
-    private class ClickAdapter extends DefaultMouseAdapter<HelloController> {
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public void mouseClicked(final MouseEvent mouseEvent) {
-
-            ((Pane) getView().getRootNode().getCenter()).getChildren().clear();
-            ((Pane) getView().getRootNode().getCenter()).getChildren().addAll(getView().getAppImageView(), getView().getCodeImageView());
-
-            getView().getAppCarousselTransition().play();
-            getView().getCodeCarousselTransition().play();
-
-        }
-
-    }
+    // /**
+    // *
+    // * The class <strong>ClickAdapter</strong>.
+    // *
+    // * @author Sébastien Bordes
+    // *
+    // * @version $Revision$ $Author$
+    // * @since $Date$
+    // */
+    // private class ClickAdapter extends DefaultMouseAdapter<HelloController> {
+    //
+    // /**
+    // * {@inheritDoc}
+    // */
+    // @Override
+    // public void mouseClicked(final MouseEvent mouseEvent) {
+    //
+    // ((Pane) getView().getRootNode().getCenter()).getChildren().clear();
+    // ((Pane) getView().getRootNode().getCenter()).getChildren().addAll(getView().getAppImageView(), getView().getCodeImageView());
+    //
+    // getView().getAppCarousselTransition().play();
+    // getView().getCodeCarousselTransition().play();
+    //
+    // }
+    //
+    // }
 
 }

@@ -9,6 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.LabelBuilder;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 import org.jrebirth.core.exception.CoreException;
@@ -53,6 +54,7 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
                 // .styleClass("label", "introTitle")
                 // .font(PrezFonts.TYPEWRITER.get())
                 // .textFill(Color.BLACK) // web("#7F0055")
+                .textFill(Color.WHITE)
                 .alignment(Pos.CENTER_LEFT)
                 .minWidth(800)
                 .minHeight(500)

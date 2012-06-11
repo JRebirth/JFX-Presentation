@@ -55,7 +55,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.ImageViewBuilder;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.FlowPaneBuilder;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.HBoxBuilder;
@@ -77,14 +79,14 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  * @version $Revision: 72 $ $Author: sbordes $
  * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
-public final class EffectView extends AbstractTemplateView<EffectModel, BorderPane, EffectController> {
+public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPane, EffectController> {
 
     /**
      * The <code>CUSTOM_CAR</code> field is used to TODO
      */
     private static final String CUSTOM_CAR = "images/bg/Custom_Car.jpg";
 
-    private static final String ORANGE = "images/bg/Orange_dans_assiette.jpg";
+    private static final String ORANGE = "images/bg/fabric_texture_car.jpg";
 
     private static final NumberFormat DECIMAL = new DecimalFormat("0.0");
 
@@ -119,8 +121,10 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
                 .effect(fx)
                 .image(loadImage(image))
                 .build();
-        BorderPane.setMargin(iv, new Insets(10));
-        getRootNode().setCenter(iv);
+        // BorderPane.setMargin(iv, new Insets(10));
+
+        StackPane.setAlignment(iv, Pos.CENTER_LEFT);
+        showCustomSlideStep(iv);
     }
 
     /**
@@ -157,7 +161,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
                 .build();
 
         BorderPane.setMargin(sp, new Insets(10));
-        getRootNode().setCenter(sp);
+        showCustomSlideStep(sp);
     }
 
     /**
@@ -166,9 +170,16 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
      * @param buildSlider
      */
     private void displaySliders(final Node... node) {
-        getRootNode().setRight(FlowPaneBuilder.create().orientation(Orientation.VERTICAL).alignment(Pos.CENTER).children(node).build());
-        BorderPane.setMargin(getRootNode().getRight(), new Insets(10));
-        BorderPane.setAlignment(getRootNode().getRight(), Pos.CENTER);
+
+        final FlowPane fp = FlowPaneBuilder.create().orientation(Orientation.VERTICAL).alignment(Pos.CENTER).children(node).build();
+
+        // getRootNode().setRight();
+        getSlideContent().getChildren().add(fp);
+
+        StackPane.setAlignment(fp, Pos.CENTER_RIGHT);
+
+        // BorderPane.setMargin(getRootNode().getRight(), new Insets(10));
+        // BorderPane.setAlignment(getRootNode().getRight(), Pos.CENTER);
 
         // getRootNode().getRight().setStyle("-fx-border-color:#000000;-fx-border-width:2px;");
     }
@@ -284,7 +295,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
 
         displayImage(CUSTOM_CAR, fx);
         displaySliders(buildSlider("Fraction", fx.fractionProperty(), 0, 1.0));
-        BorderPane.setAlignment(getRootNode().getCenter(), Pos.TOP_CENTER);
+        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.TOP_CENTER);
 
     }
 
@@ -299,7 +310,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
         displayComparedImage(CUSTOM_CAR, st);
         displaySliders(buildSlider("Tone Level", st.levelProperty(), 0, 1.0));
 
-        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -313,7 +324,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
         displayComparedImage(CUSTOM_CAR, b);
         displaySliders(buildSlider("Threshold", b.thresholdProperty(), 0, 1.0));
 
-        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -336,7 +347,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
                 buildSlider("Width", fx.widthProperty(), 0, 255.0),
                 buildSlider("Offset X", fx.offsetXProperty(), 0, 255.0),
                 buildSlider("Offset Y", fx.offsetYProperty(), 0, 255.0));
-        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
 
     }
 
@@ -359,7 +370,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
                 buildSlider("Width", fx.widthProperty(), 0, 255.0),
                 buildSlider("Offset X", fx.offsetXProperty(), 0, 255.0),
                 buildSlider("Offset Y", fx.offsetYProperty(), 0, 255.0));
-        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -380,7 +391,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
                 buildSlider("Width", fx.widthProperty(), 0, 255),
                 buildSlider("Height", fx.heightProperty(), 0, 255));
 
-        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -398,7 +409,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
         displaySliders(
                 buildSlider("Radius", fx.radiusProperty(), 0, 63.0),
                 buildSlider("Angle", fx.angleProperty(), 0, 360));
-        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -413,7 +424,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
         displayComparedImage(CUSTOM_CAR, fx);
         displaySliders(buildSlider("Radius", fx.radiusProperty(), 0, 63.0));
 
-        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -433,7 +444,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
                 buildSlider("Height", fx.heightProperty(), 0, 255.0),
                 buildSlider("Radius", fx.radiusProperty(), 0, 127.0));
 
-        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -449,7 +460,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
         displayComparedImage(CUSTOM_CAR, fx);
         displaySliders(buildSlider("Level", fx.levelProperty(), 0, 1.0));
 
-        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -474,7 +485,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
                 buildSlider("Specular Exponent", fx.specularExponentProperty(), 0, 10.0),
                 buildSlider("Light Azimuth", light.azimuthProperty(), 0, 100.0),
                 buildSlider("Light Elevation", light.elevationProperty(), 0, 100.0));
-        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -507,7 +518,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
 
                 buildSlider("LLX", fx.llxProperty(), 0, 600.0),
                 buildSlider("LLY", fx.llyProperty(), 0, 600.0));
-        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
 
     }
 
@@ -525,7 +536,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
 
         displayImage(ORANGE, fx);
         displaySliders(buildSlider("Opacity", fx.opacityProperty(), 0, 1.0));
-        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -549,7 +560,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
                 buildSlider("Contrast", fx.contrastProperty(), -1.0, 1.0)
 
         );
-        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
 
     }
 
@@ -578,7 +589,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
 
         displayImage(CUSTOM_CAR, dm);
         displaySliders();
-        BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
 
     }
 
@@ -588,7 +599,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, BorderPa
     @Override
     public void doReload() {
         // Nothing to do yet
-        
+
     }
 
 }

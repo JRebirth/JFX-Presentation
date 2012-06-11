@@ -10,6 +10,7 @@ import javafx.scene.control.ButtonBuilder;
 import javafx.scene.control.LabelBuilder;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextAreaBuilder;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.BorderPaneBuilder;
 import javafx.scene.layout.PaneBuilder;
@@ -31,7 +32,7 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  * @version $Revision: 72 $ $Author: sbordes $
  * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
-public final class HandlerView extends AbstractTemplateView<HandlerModel, BorderPane, HandlerController> {
+public final class HandlerView extends AbstractTemplateView<HandlerModel, AnchorPane, HandlerController> {
 
     /** The stage used for demo. */
     private Stage stage;
@@ -166,7 +167,7 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Border
     public void showText() {
         this.stage.close();
 
-        getRootNode().setCenter(buildDefaultContent(getModel().getDefaultContent()));
+        showCustomSlideStep(buildDefaultContent(getModel().getDefaultContent()));
     }
 
     /**
@@ -185,7 +186,7 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Border
     @Override
     public void doReload() {
         // Nothing to do yet
-        
+
     }
 
 }

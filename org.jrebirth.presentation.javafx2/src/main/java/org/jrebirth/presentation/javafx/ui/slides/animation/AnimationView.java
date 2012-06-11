@@ -13,7 +13,7 @@ import javafx.animation.StrokeTransitionBuilder;
 import javafx.animation.TranslateTransitionBuilder;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
@@ -34,7 +34,7 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  * @version $Revision: 72 $ $Author: sbordes $
  * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
-public final class AnimationView extends AbstractTemplateView<AnimationModel, BorderPane, AnimationController> {
+public final class AnimationView extends AbstractTemplateView<AnimationModel, AnchorPane, AnimationController> {
 
     private Rectangle demoRectangle;
 
@@ -75,7 +75,7 @@ public final class AnimationView extends AbstractTemplateView<AnimationModel, Bo
         vb.getChildren().add(0, this.demoRectangle);
         StackPane.setAlignment(this.demoRectangle, Pos.TOP_CENTER);
 
-        getRootNode().setCenter(vb);
+        showCustomSlideStep(vb);
     }
 
     /**

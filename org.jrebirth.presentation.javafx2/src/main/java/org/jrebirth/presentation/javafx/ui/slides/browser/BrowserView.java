@@ -2,7 +2,7 @@ package org.jrebirth.presentation.javafx.ui.slides.browser;
 
 import javafx.scene.Node;
 import javafx.scene.effect.ReflectionBuilder;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
@@ -21,7 +21,7 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  * @version $Revision: 72 $ $Author: sbordes $
  * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
-public final class BrowserView extends AbstractTemplateView<BrowserModel, BorderPane, BrowserController> {
+public final class BrowserView extends AbstractTemplateView<BrowserModel, AnchorPane, BrowserController> {
 
     /** The browser node. */
     private WebView browser;
@@ -59,6 +59,7 @@ public final class BrowserView extends AbstractTemplateView<BrowserModel, Border
      */
     @Override
     public void doStart() {
+        super.doStart();
     }
 
     /**
@@ -80,7 +81,7 @@ public final class BrowserView extends AbstractTemplateView<BrowserModel, Border
         this.browser.getEngine().load(Thread.currentThread().getContextClassLoader().getResource("balls/balls.htm").toString());
 
         vb.getChildren().add(this.browser);
-        getRootNode().setCenter(vb);
+        showCustomSlideStep(vb);
     }
 
     /**
@@ -93,7 +94,7 @@ public final class BrowserView extends AbstractTemplateView<BrowserModel, Border
         this.browser.getEngine().load(Thread.currentThread().getContextClassLoader().getResource("balls/canvas-grad.htm").toString());
 
         vb.getChildren().add(this.browser);
-        getRootNode().setCenter(vb);
+        showCustomSlideStep(vb);
     }
 
     /**
