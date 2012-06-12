@@ -17,6 +17,10 @@ public enum PropertySlideStep implements SlideStep {
     JavaBean,
     /** . */
     JavaProperty,
+
+    /** . */
+    Wordle,
+
     /** . */
     XXXProperty,
 

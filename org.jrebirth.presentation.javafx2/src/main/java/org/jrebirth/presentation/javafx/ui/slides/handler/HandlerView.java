@@ -175,9 +175,12 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Anchor
      */
     public void showHandlerStage() {
 
+        showEmptySlide();
+
         this.stage.centerOnScreen();
         this.stage.show();
         this.stage.toFront();
+
     }
 
     /**

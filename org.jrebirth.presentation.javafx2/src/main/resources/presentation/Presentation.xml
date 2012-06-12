@@ -12,19 +12,10 @@
 
 	<slides>
 
-		<!-- TEST ZONE -->
-		<!-- TEST ZONE -->
-		<!-- TEST ZONE -->
-		
-		<!-- END TEST ZONE -->
-		<!-- END TEST ZONE -->
-		<!-- END TEST ZONE -->
-
 		<!-- Conference Place -->
 		<slide style="place" modelClass="org.jrebirth.presentation.javafx.ui.slides.place.PlaceModel" showAnimation="SlidingTopBottomProgressive" hideAnimation="FadeOut">
 		</slide>
-
-
+		
 		<!-- Presentation Title -->
 		<slide style="intro" modelClass="org.jrebirth.presentation.javafx.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="MoveToLeft">
 			<title>La Revolution\n\tJavaFX 2</title>
@@ -757,8 +748,10 @@
 				<item>Utilisation</item>
 				<item level="1">addEventHandler(MouseEvent.MOUSE_CLICKED, </item>
 				<item level="1"> new EventHandler&lt;MouseEvent&gt;(...) )</item>
+				<item level="1"></item>
 				<item level="1">setOnMouseClicked(new EventHandler&lt;MouseEvent&gt;(...) )</item>
-				<item>Mais 1 seul EventHandler par classe [anonyme|interne]</item>
+				<item level="1"></item>
+				<item level="1">Mais 1 seul EventHandler par classe [anonyme|interne]</item>
 				<item level="1">JRebirth => MouseHandler + MouseAdapter</item>
 			</content>
 
@@ -884,6 +877,11 @@
 
 			</content>
 
+			<content name="Wordle">
+				<title>Extensible</title>
+				<item image="images/bg/Properties.png" />
+			</content>
+			
 			<content name="XXXProperty">
 				<title>JavaFX Properties</title>
 				<item>Les Types Primitifs</item>

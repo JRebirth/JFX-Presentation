@@ -89,12 +89,12 @@ VBox.content {
  
 .link0 {
 	
-	-fx-font : 1.3em "Neuton Cursive";
+	-fx-font : 1.5em "Neuton Cursive";
 	-fx-fill : #004442;
 }
 .link1 {
 	
-	-fx-font : 1.2em "Neuton Cursive";
+	-fx-font : 1.4em "Neuton Cursive";
 	-fx-fill : #004442;
 }
 
@@ -147,8 +147,8 @@ VBox.me{
 	-fx-background-position: center center;
 	-fx-background-repeat : no-repeat;
 }
-/*
-.raw {
+
+BorderPane.raw Text {
 	-fx-fill : #FFFFFF;
-}*/
+}
 

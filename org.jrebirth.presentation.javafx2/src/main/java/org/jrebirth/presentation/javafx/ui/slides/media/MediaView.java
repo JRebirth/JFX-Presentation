@@ -76,6 +76,7 @@ public final class MediaView extends AbstractTemplateView<MediaModel, AnchorPane
      */
     public void showMoveOut() {
 
+        showEmptySlide();
         ParallelTransitionBuilder.create()
                 .interpolator(Interpolator.EASE_BOTH)
                 .node(getSlideContent()) // getRootNode().getCenter()
