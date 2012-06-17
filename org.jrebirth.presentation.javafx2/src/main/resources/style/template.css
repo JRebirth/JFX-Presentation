@@ -112,9 +112,9 @@ VBox.content {
  * Me Slide
  */
 VBox.me{
-	-fx-background-position: 700px 20px, 300px 40px, 300px 300px;	
-	-fx-background-repeat: no-repeat, no-repeat, no-repeat;
-	-fx-background-image : url("../images/me/seb.jpg"), url("../images/me/SudIngenierie_clear.png"), url("../images/me/JRebirth_128x128.png");
+	-fx-background-position: 700px 20px, 300px 40px, 300px 300px, 300px 200px;	
+	-fx-background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+	-fx-background-image : url("../images/me/seb.jpg"), url("../images/me/SudIngenierie_clear.png"), url("../images/me/JRebirth_128x128.png"), url("../images/me/toulousejug_mini.png");
 }
 
 /**************************************/

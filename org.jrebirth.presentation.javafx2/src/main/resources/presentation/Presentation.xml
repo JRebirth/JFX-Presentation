@@ -169,7 +169,7 @@
 			<font color="#000000">()</font> <font color="#000000">;</font> </code> </td> </tr> </table> </div> </body> </html> ]]> </item> -->
 
 		<!-- Installation -->
-		<slide>
+		<slide  showAnimation="FadeIn" hideAnimation="FadeOut">
 			<title>Comment on l'installe ?</title>
 			<content>
 				<item>SDK fourni avec le JDK (à partir de la 7u2)</item>
@@ -190,7 +190,7 @@
 		</slide>
 
 		<!-- Architecture -->
-		<slide>
+		<slide showAnimation="FadeIn" hideAnimation="FadeOut">
 			<title>Java FX 2.0 Architecture</title>
 			<content>
 				<item image="images/bg/Architecture_JavaFX_2.png" />
@@ -199,7 +199,7 @@
 
 
 		<!-- HELLO -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.hello.HelloModel">
+		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.hello.HelloModel"  showAnimation="FadeIn" hideAnimation="FadeOut">
 			<title>Hello Rennes</title>
 
 			<content>
