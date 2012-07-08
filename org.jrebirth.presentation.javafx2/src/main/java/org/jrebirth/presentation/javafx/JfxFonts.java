@@ -2,9 +2,9 @@ package org.jrebirth.presentation.javafx;
 
 import javafx.scene.text.Font;
 
-import org.jrebirth.core.resource.ResourceFactories;
+import org.jrebirth.core.resource.ResourceBuilders;
+import org.jrebirth.core.resource.font.FontBuilder;
 import org.jrebirth.core.resource.font.FontEnum;
-import org.jrebirth.core.resource.font.FontFactory;
 import org.jrebirth.core.resource.font.FontParams;
 import org.jrebirth.core.resource.font.RealFont;
 import org.jrebirth.presentation.FontsLoader;
@@ -28,7 +28,7 @@ public enum JfxFonts implements FontEnum {
 
     /** The typewriter font. */
     TYPEWRITER(new RealFont(FontsLoader.Report_1942, 72)),
-    
+
     /** The typewriter font. */
     TYPEWRITER2(new RealFont(FontsLoader.OliJo, 72)),
 
@@ -56,8 +56,8 @@ public enum JfxFonts implements FontEnum {
      * {@inheritDoc}
      */
     @Override
-    public FontFactory factory() {
-        return (FontFactory) ResourceFactories.FONT_FACTORY.use();
+    public FontBuilder factory() {
+        return (FontBuilder) ResourceBuilders.FONT_BUILDER.use();
     }
 
 }
