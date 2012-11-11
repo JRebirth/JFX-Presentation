@@ -53,7 +53,7 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
                 // .text(getModel().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"))
                 // .styleClass("label", "introTitle")
                 // .font(PrezFonts.TYPEWRITER.get())
-                // .textFill(Color.BLACK) // web("#7F0055")
+                // .textFill(Color.BLACK) // web("7F0055")
                 .textFill(Color.WHITE)
                 .alignment(Pos.CENTER_LEFT)
                 .minWidth(800)

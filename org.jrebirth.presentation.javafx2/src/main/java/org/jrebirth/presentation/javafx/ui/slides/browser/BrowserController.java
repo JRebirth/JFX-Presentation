@@ -58,9 +58,6 @@ public final class BrowserController extends AbstractTemplateController<BrowserM
      * The class <strong>BrowserMouseAdapter</strong>.
      * 
      * @author Sébastien Bordes
-     * 
-     * @version $Revision$ $Author$
-     * @since $Date$
      */
     private class BrowserMouseAdapter extends DefaultMouseAdapter<BrowserController> {
 

@@ -3,12 +3,9 @@ package org.jrebirth.presentation.javafx;
 import org.jrebirth.core.resource.font.FontName;
 
 /**
- * The class <strong>FontsLoader</strong>.
+ * The class <strong>JfxFontsLoader</strong>.
  * 
  * @author Sébastien Bordes
- * 
- * @version $Revision$ $Author$
- * @since $Date$
  */
 public enum JfxFontsLoader implements FontName {
 

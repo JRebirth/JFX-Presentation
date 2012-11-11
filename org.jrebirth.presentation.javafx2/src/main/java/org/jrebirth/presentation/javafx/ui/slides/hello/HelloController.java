@@ -49,9 +49,6 @@ public final class HelloController extends AbstractTemplateController<HelloModel
     // * The class <strong>ClickAdapter</strong>.
     // *
     // * @author Sébastien Bordes
-    // *
-    // * @version $Revision$ $Author$
-    // * @since $Date$
     // */
     // private class ClickAdapter extends DefaultMouseAdapter<HelloController> {
     //

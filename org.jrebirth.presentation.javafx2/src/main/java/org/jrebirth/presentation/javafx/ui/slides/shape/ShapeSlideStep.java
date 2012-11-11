@@ -6,9 +6,6 @@ import org.jrebirth.presentation.ui.base.SlideStep;
  * The class <strong>ShapeSlideStep</strong>.
  * 
  * @author Sébastien Bordes
- * 
- * @version $Revision$ $Author$
- * @since $Date$
  */
 public enum ShapeSlideStep implements SlideStep {
 

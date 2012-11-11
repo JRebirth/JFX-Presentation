@@ -12,9 +12,6 @@ import org.jrebirth.core.ui.fxml.AbstractFXMLController;
  * The class <strong>ArchNodeController</strong>.
  * 
  * @author Sébastien Bordes
- * 
- * @version $Revision$ $Author$
- * @since $Date$
  */
 public class ArchNodeController extends AbstractFXMLController {
 

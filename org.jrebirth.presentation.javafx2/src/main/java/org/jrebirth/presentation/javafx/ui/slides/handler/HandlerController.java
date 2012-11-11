@@ -68,9 +68,6 @@ public final class HandlerController extends AbstractTemplateController<HandlerM
      * The class <strong>HandlerMouseAdapter</strong>.
      * 
      * @author Sébastien Bordes
-     * 
-     * @version $Revision$ $Author$
-     * @since $Date$
      */
     private class HandlerMouseAdapter implements EventHandler<MouseEvent> {
 
@@ -109,9 +106,6 @@ public final class HandlerController extends AbstractTemplateController<HandlerM
      * The class <strong>FilterMouseAdapter</strong>.
      * 
      * @author Sébastien Bordes
-     * 
-     * @version $Revision$ $Author$
-     * @since $Date$
      */
     private class FilterMouseAdapter implements EventHandler<MouseEvent> {
 
