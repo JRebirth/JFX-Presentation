@@ -92,12 +92,4 @@ public final class PropertyView extends AbstractTemplateView<PropertyModel, Anch
         showCustomSlideStep(vb);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void doReload() {
-        // Nothing to do yet
-
-    }
 }

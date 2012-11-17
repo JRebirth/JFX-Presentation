@@ -183,13 +183,4 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Anchor
 
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void doReload() {
-        // Nothing to do yet
-
-    }
-
 }

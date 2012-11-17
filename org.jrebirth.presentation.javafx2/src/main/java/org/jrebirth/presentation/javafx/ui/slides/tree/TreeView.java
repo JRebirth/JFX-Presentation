@@ -172,13 +172,4 @@ public final class TreeView extends AbstractTemplateView<TreeModel, AnchorPane, 
         return this.sp;
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void doReload() {
-        // Nothing to do yet
-
-    }
-
 }

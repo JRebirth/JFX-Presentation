@@ -36,13 +36,4 @@ public final class PatternView extends AbstractTemplateView<PatternModel, Anchor
         return buildDefaultContent(getModel().getDefaultContent());
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void doReload() {
-        // Nothing to do yet
-
-    }
-
 }

@@ -50,15 +50,6 @@ public final class HelloView extends AbstractTemplateView<HelloModel, AnchorPane
         return buildDefaultContent(getModel().getDefaultContent());
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void doReload() {
-        // Nothing to do yet
-
-    }
-
     // /**
     // * {@inheritDoc}
     // */
@@ -284,14 +275,5 @@ public final class HelloView extends AbstractTemplateView<HelloModel, AnchorPane
     //
     // // getAppCarousselTransition().play();
     // getCodeCarousselTransition().play();
-    // }
-    //
-    // /**
-    // * {@inheritDoc}
-    // */
-    // @Override
-    // public void doReload() {
-    // // Nothing to do yet
-    //
     // }
 }

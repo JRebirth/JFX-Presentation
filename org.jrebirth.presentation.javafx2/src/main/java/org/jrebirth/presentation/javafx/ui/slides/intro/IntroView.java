@@ -97,7 +97,7 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
      */
     @Override
     public void doReload() {
-        this.typeWriter.play();
+        // Nothing to do yet
 
     }
 

@@ -109,13 +109,4 @@ public final class BrowserView extends AbstractTemplateView<BrowserModel, Anchor
         this.browser.setCache(true);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void doReload() {
-        // Nothing to do yet
-
-    }
-
 }

@@ -626,13 +626,4 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
 
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void doReload() {
-        // Nothing to do yet
-
-    }
-
 }

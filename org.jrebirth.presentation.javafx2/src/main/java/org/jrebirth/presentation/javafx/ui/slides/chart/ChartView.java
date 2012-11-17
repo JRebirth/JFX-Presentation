@@ -399,13 +399,4 @@ public final class ChartView extends AbstractTemplateView<ChartModel, AnchorPane
 
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void doReload() {
-        // Nothing to do yet
-
-    }
-
 }

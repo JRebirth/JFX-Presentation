@@ -629,12 +629,4 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
 
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void doReload() {
-        // Nothing to do yet
-
-    }
 }

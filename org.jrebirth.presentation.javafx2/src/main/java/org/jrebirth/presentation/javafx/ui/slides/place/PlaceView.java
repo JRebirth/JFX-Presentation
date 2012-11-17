@@ -124,6 +124,5 @@ public final class PlaceView extends AbstractSlideView<PlaceModel, Pane, PlaceCo
     @Override
     public void doReload() {
         this.bubbleAnimation.playFromStart();
-
     }
 }

@@ -441,12 +441,4 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
         }
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void doReload() {
-        // Nothing to do yet
-
-    }
 }

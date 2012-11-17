@@ -50,15 +50,6 @@ public final class NodeView extends AbstractTemplateView<NodeModel, AnchorPane, 
     }
 
     /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void doReload() {
-        // Nothing to do yet
-
-    }
-
-    /**
      * TODO To complete.
      */
     public void showBounds1() {

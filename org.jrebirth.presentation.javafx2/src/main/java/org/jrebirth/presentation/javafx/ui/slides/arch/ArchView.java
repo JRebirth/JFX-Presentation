@@ -154,13 +154,4 @@ public final class ArchView extends AbstractTemplateView<ArchModel, AnchorPane, 
         // getArchiController().showNodes(false);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void doReload() {
-        // Nothing to do yet
-
-    }
-
 }

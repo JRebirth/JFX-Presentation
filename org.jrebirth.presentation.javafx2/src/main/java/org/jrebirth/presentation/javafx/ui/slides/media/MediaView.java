@@ -111,12 +111,4 @@ public final class MediaView extends AbstractTemplateView<MediaModel, AnchorPane
 
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void doReload() {
-        // Nothing to do yet
-
-    }
 }

@@ -105,15 +105,6 @@ public final class StageView extends AbstractTemplateView<StageModel, AnchorPane
     }
 
     /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void doReload() {
-        // Nothing to do yet
-
-    }
-
-    /**
      * TODO To complete.
      */
     public void showStages() {

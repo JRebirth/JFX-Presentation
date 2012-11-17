@@ -10,7 +10,7 @@
 		<speaker firstName="Sébastien" lastName="Bordes" email="contact@jrebirth.org" job="JRebirth" />
 	</speakers>
 
-	<slides>
+	<slides defaultModelClass="org.jrebirth.presentation.ui.classic.ClassicModel">
 
 		<!-- Conference Place -->
 		<slide style="place" modelClass="org.jrebirth.presentation.javafx.ui.slides.place.PlaceModel" showAnimation="SlidingTopBottomProgressive" hideAnimation="FadeOut">
