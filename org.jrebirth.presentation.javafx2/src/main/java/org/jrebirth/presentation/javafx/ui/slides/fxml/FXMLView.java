@@ -11,9 +11,6 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  * The class <strong>JWSView</strong>.
  * 
  * @author Sébastien Bordes
- * 
- * @version $Revision: 72 $ $Author: sbordes $
- * @since $Date: 2011-10-17 22:26:35 +0200 (Mon, 17 Oct 2011) $
  */
 public final class FXMLView extends AbstractTemplateView<FXMLModel, AnchorPane, FXMLController> {
 

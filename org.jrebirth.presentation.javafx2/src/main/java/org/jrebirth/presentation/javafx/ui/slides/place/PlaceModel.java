@@ -7,9 +7,6 @@ import org.jrebirth.presentation.ui.base.SlideStep;
  * The class <strong>BrowserModel</strong>.
  * 
  * @author Sébastien Bordes
- * 
- * @version $Revision: 55 $ $Author: sbordes $
- * @since $Date: 2011-10-14 19:23:59 +0200 (Fri, 14 Oct 2011) $
  */
 public final class PlaceModel extends AbstractSlideModel<PlaceModel, PlaceView, SlideStep> {
 
