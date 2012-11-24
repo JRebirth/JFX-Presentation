@@ -73,4 +73,12 @@ public final class AudioView extends AbstractSlideView<AudioModel, BorderPane, A
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doHide() {
+        // Nothing to do yet
+    }
+
 }

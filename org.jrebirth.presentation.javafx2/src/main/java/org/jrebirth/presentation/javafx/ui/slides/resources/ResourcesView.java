@@ -78,4 +78,12 @@ public final class ResourcesView extends AbstractTemplateView<ResourcesModel, An
         showCustomSlideStep(vb);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doHide() {
+        // Nothing to do yet
+    }
+
 }

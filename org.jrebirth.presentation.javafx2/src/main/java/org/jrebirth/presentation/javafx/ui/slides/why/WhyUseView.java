@@ -36,4 +36,12 @@ public final class WhyUseView extends AbstractTemplateView<WhyUseModel, AnchorPa
         return buildDefaultContent(getModel().getDefaultContent());
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doHide() {
+        // Nothing to do yet
+    }
+
 }

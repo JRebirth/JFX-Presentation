@@ -183,4 +183,12 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Anchor
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doHide() {
+        // Nothing to do yet
+    }
+
 }

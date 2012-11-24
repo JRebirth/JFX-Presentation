@@ -111,4 +111,12 @@ public final class MediaView extends AbstractTemplateView<MediaModel, AnchorPane
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doHide() {
+        // Nothing to do yet
+    }
+
 }

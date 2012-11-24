@@ -122,4 +122,13 @@ public final class StageView extends AbstractTemplateView<StageModel, AnchorPane
             stage.close();
         }
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doHide() {
+        // Nothing to do yet
+    }
+
 }

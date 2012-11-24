@@ -36,4 +36,12 @@ public final class FXMLView extends AbstractTemplateView<FXMLModel, AnchorPane, 
         return buildDefaultContent(getModel().getDefaultContent());
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doHide() {
+        // Nothing to do yet
+    }
+
 }

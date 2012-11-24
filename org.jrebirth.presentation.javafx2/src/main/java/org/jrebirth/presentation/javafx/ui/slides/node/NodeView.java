@@ -182,4 +182,12 @@ public final class NodeView extends AbstractTemplateView<NodeModel, AnchorPane, 
         return r;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doHide() {
+        // Nothing to do yet
+    }
+
 }

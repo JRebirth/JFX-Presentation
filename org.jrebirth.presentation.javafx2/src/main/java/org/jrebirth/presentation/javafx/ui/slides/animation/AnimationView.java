@@ -215,4 +215,12 @@ public final class AnimationView extends AbstractTemplateView<AnimationModel, An
                 .build().play();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doHide() {
+        // Nothing to do yet
+    }
+
 }

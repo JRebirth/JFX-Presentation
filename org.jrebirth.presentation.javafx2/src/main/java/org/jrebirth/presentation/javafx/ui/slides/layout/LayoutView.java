@@ -549,4 +549,12 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doHide() {
+        // Nothing to do yet
+    }
+
 }

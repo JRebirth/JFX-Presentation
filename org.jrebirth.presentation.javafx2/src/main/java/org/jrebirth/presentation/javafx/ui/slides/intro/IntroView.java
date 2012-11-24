@@ -101,4 +101,12 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doHide() {
+        // Nothing to do yet
+    }
+
 }

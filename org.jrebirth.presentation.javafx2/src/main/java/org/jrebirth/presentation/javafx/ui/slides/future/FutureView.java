@@ -54,4 +54,12 @@ public final class FutureView extends AbstractTemplateView<FutureModel, AnchorPa
         showCustomSlideStep(appImageView);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doHide() {
+        // Nothing to do yet
+    }
+
 }

@@ -109,4 +109,12 @@ public final class BrowserView extends AbstractTemplateView<BrowserModel, Anchor
         this.browser.setCache(true);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doHide() {
+        // Nothing to do yet
+    }
+
 }
