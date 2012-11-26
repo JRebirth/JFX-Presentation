@@ -1,3 +1,20 @@
+/**
+ * Get more info at : www.jrebirth.org .
+ * Copyright JRebirth.org © 2011-2013
+ * Contact : sebastien.bordes@jrebirth.org
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.jrebirth.presentation.javafx.ui.slides.handler;
 
 import javafx.geometry.Insets;
@@ -21,6 +38,7 @@ import javafx.stage.StageStyle;
 import org.jrebirth.core.exception.CoreException;
 import org.jrebirth.presentation.ui.template.AbstractTemplateView;
 
+// TODO: Auto-generated Javadoc
 /**
  * 
  * The class <strong>HandlerView</strong>.
@@ -109,6 +127,8 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Anchor
     }
 
     /**
+     * Gets the stage.
+     * 
      * @return Returns the stage.
      */
     Stage getStage() {
@@ -116,6 +136,8 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Anchor
     }
 
     /**
+     * Gets the scene.
+     * 
      * @return Returns the scene.
      */
     Scene getScene() {
@@ -123,6 +145,8 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Anchor
     }
 
     /**
+     * Gets the border pane.
+     * 
      * @return Returns the borderPane.
      */
     BorderPane getBorderPane() {
@@ -130,6 +154,8 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Anchor
     }
 
     /**
+     * Gets the button.
+     * 
      * @return Returns the button.
      */
     Node getButton() {
@@ -137,6 +163,8 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Anchor
     }
 
     /**
+     * Gets the center.
+     * 
      * @return Returns the center.
      */
     TextArea getCenter() {
@@ -144,6 +172,8 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Anchor
     }
 
     /**
+     * Gets the top.
+     * 
      * @return Returns the top.
      */
     Node getTop() {
@@ -185,6 +215,14 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Anchor
      */
     @Override
     public void doHide() {
+        // Nothing to do yet
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doStart() {
         // Nothing to do yet
     }
 

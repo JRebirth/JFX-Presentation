@@ -1,3 +1,20 @@
+/**
+ * Get more info at : www.jrebirth.org .
+ * Copyright JRebirth.org © 2011-2013
+ * Contact : sebastien.bordes@jrebirth.org
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.jrebirth.presentation.javafx.ui.slides.effect;
 
 import java.text.DecimalFormat;
@@ -69,6 +86,7 @@ import org.jrebirth.core.exception.CoreException;
 import org.jrebirth.presentation.javafx.JfxColors;
 import org.jrebirth.presentation.ui.template.AbstractTemplateView;
 
+// TODO: Auto-generated Javadoc
 /**
  * 
  * The class <strong>PatternView</strong>.
@@ -77,13 +95,13 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  */
 public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPane, EffectController> {
 
-    /**
-     * The <code>CUSTOM_CAR</code> field is used to TODO
-     */
+    /** The <code>CUSTOM_CAR</code> field is used to TODO. */
     private static final String CUSTOM_CAR = "images/bg/Custom_Car.jpg";
 
+    /** The Constant ORANGE. */
     private static final String ORANGE = "images/bg/fabric_texture_car.jpg";
 
+    /** The Constant DECIMAL. */
     private static final NumberFormat DECIMAL = new DecimalFormat("0.0");
 
     /**
@@ -109,8 +127,8 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     /**
      * TODO To complete.
      * 
-     * @param displayImage
-     * @param displaySliders
+     * @param image the image
+     * @param sliders the sliders
      */
     private void showEffectSubSlide(final Node image, final FlowPane sliders) {
 
@@ -122,8 +140,9 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     /**
      * TODO To complete.
      * 
-     * @param string
-     * @param fx
+     * @param image the image
+     * @param fx the fx
+     * @return the image view
      */
     private ImageView displayImage(final String image, final Effect fx) {
         final ImageView iv = ImageViewBuilder.create()
@@ -140,6 +159,10 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
 
     /**
      * TODO To complete.
+     * 
+     * @param image the image
+     * @param fx the fx
+     * @return the stack pane
      */
     protected StackPane displayComparedImage(final String image, final Effect fx) {
         final Image img = loadImage(image);
@@ -180,7 +203,8 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     /**
      * TODO To complete.
      * 
-     * @param buildSlider
+     * @param node the node
+     * @return the flow pane
      */
     private FlowPane displaySliders(final Node... node) {
 
@@ -205,10 +229,11 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     /**
      * TODO To complete.
      * 
-     * @param string
-     * @param levelProperty
-     * @param i
-     * @param d
+     * @param name the name
+     * @param property the property
+     * @param min the min
+     * @param max the max
+     * @return the h box
      */
     private HBox buildIntegerSlider(final String name, final IntegerProperty property, final int min, final int max) {
 
@@ -252,10 +277,11 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     /**
      * TODO To complete.
      * 
-     * @param string
-     * @param levelProperty
-     * @param i
-     * @param d
+     * @param name the name
+     * @param property the property
+     * @param min the min
+     * @param max the max
+     * @return the h box
      */
     private HBox buildSlider(final String name, final DoubleProperty property, final double min, final double max) {
 
@@ -628,6 +654,14 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
      */
     @Override
     public void doHide() {
+        // Nothing to do yet
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void doStart() {
         // Nothing to do yet
     }
 

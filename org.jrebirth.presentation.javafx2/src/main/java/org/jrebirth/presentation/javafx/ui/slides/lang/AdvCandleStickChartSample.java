@@ -1,3 +1,20 @@
+/**
+ * Get more info at : www.jrebirth.org .
+ * Copyright JRebirth.org © 2011-2013
+ * Contact : sebastien.bordes@jrebirth.org
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.jrebirth.presentation.javafx.ui.slides.lang;
 
 /**
@@ -13,6 +30,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+// TODO: Auto-generated Javadoc
 /**
  * A custom candlestick chart.
  * 
@@ -24,6 +42,7 @@ import javafx.stage.Stage;
 public class AdvCandleStickChartSample extends Application {
 
     // DAY, OPEN, CLOSE, HIGH, LOW, AVERAGE
+    /** The data. */
     private static double[][] data = new double[][] {
 
             // { 1, 25, 20, 32, 16, 20 },
@@ -108,6 +127,11 @@ public class AdvCandleStickChartSample extends Application {
             { 24, 4.00, 4.00, 22.61, 92.78, 126.82, 249.63, 249.63 }
     };
 
+    /**
+     * Inits the.
+     * 
+     * @param primaryStage the primary stage
+     */
     private void init(final Stage primaryStage) {
         final BorderPane root = new BorderPane();
         primaryStage.setScene(new Scene(root));
@@ -118,6 +142,11 @@ public class AdvCandleStickChartSample extends Application {
         root.setCenter(createChart());
     }
 
+    /**
+     * Creates the chart.
+     * 
+     * @return the candle stick chart
+     */
     protected CandleStickChart createChart() {
         final NumberAxis xAxis = new NumberAxis(0, 25, 1);
         xAxis.setMinorTickCount(0);
@@ -146,12 +175,20 @@ public class AdvCandleStickChartSample extends Application {
         return bc;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void start(final Stage primaryStage) throws Exception {
         init(primaryStage);
         primaryStage.show();
     }
 
+    /**
+     * The main method.
+     * 
+     * @param args the arguments
+     */
     public static void main(final String[] args) {
         launch(args);
     }

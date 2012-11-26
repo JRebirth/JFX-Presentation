@@ -1,3 +1,20 @@
+/**
+ * Get more info at : www.jrebirth.org .
+ * Copyright JRebirth.org © 2011-2013
+ * Contact : sebastien.bordes@jrebirth.org
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.jrebirth.presentation.javafx.ui.slides.layout;
 
 import java.util.Random;
@@ -42,6 +59,7 @@ import javafx.scene.paint.Color;
 import org.jrebirth.core.exception.CoreException;
 import org.jrebirth.presentation.ui.template.AbstractTemplateView;
 
+// TODO: Auto-generated Javadoc
 /**
  * 
  * The class <strong>LayoutView</strong>.
@@ -52,31 +70,32 @@ import org.jrebirth.presentation.ui.template.AbstractTemplateView;
  */
 public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPane, LayoutController> {
 
-    /**
-     * The <code>BG_5</code> field is used to TODO
-     */
+    /** The <code>BG_5</code> field is used to TODO. */
     private static final String BG_5 = "-fx-background-color:#FBE43D";
-    /**
-     * The <code>BG_4</code> field is used to TODO
-     */
+    
+    /** The <code>BG_4</code> field is used to TODO. */
     private static final String BG_4 = "-fx-background-color:#EA661D";
-    /**
-     * The <code>BG_3</code> field is used to TODO
-     */
+    
+    /** The <code>BG_3</code> field is used to TODO. */
     private static final String BG_3 = "-fx-background-color:#E53B20";
-    /**
-     * The <code>BG_2</code> field is used to TODO
-     */
+    
+    /** The <code>BG_2</code> field is used to TODO. */
     private static final String BG_2 = "-fx-background-color:#C13C8B";
-    /**
-     * The <code>BG_1</code> field is used to TODO
-     */
+    
+    /** The <code>BG_1</code> field is used to TODO. */
     private static final String BG_1 = "-fx-background-color:#1C9A9A";
     /** The intro name transition. */
     private FadeTransition fadeTransition;
+    
+    /** The box effect. */
     private InnerShadow boxEffect;
 
-    /** The Layout name. */
+    /**
+     * The Layout name.
+     * 
+     * @param model the model
+     * @throws CoreException the core exception
+     */
     // private Label layoutName;
 
     /**
@@ -116,11 +135,12 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
      */
     @Override
     public void doStart() {
-        super.doStart();
-        // getFadeTransition().playFromStart();
+        // Nothing to do yet
     }
 
     /**
+     * Gets the fade transition.
+     * 
      * @return Returns the fadeTransition.
      */
     FadeTransition getFadeTransition() {
@@ -130,7 +150,12 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
     /**
      * TODO To complete.
      * 
-     * @return
+     * @param width the width
+     * @param height the height
+     * @param p the p
+     * @param n the n
+     * @param style the style
+     * @return the stack pane builder
      */
     protected StackPaneBuilder<?> stackPane(final double width, final double height, final Pos p, final Node n, final String style) {
         return StackPaneBuilder.create().prefWidth(width).prefHeight(height).alignment(p).children(n).style(style).effect(this.boxEffect);
@@ -139,8 +164,8 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
     /**
      * TODO To complete.
      * 
-     * @param string
-     * @return
+     * @param text the text
+     * @return the label builder
      */
     private LabelBuilder<?> label(final String text) {
         return LabelBuilder.create().text(text).scaleX(2.0).scaleY(2.0).textFill(Color.WHITE);

@@ -1,3 +1,20 @@
+/**
+ * Get more info at : www.jrebirth.org .
+ * Copyright JRebirth.org © 2011-2013
+ * Contact : sebastien.bordes@jrebirth.org
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.jrebirth.presentation.javafx.ui.slides.lang;
 
 import java.util.ArrayList;
@@ -17,6 +34,7 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.util.Duration;
 
+// TODO: Auto-generated Javadoc
 /**
  * A candlestick chart is a style of bar-chart used primarily to describe price movements of a security, derivative, or currency over time.
  * 
@@ -24,6 +42,7 @@ import javafx.util.Duration;
  */
 public class CandleStickChart extends XYChart<Number, Number> {
 
+    /** The labels. */
     private static String[] labels = new String[] {
 
             "Fortran Intel",
@@ -79,7 +98,9 @@ public class CandleStickChart extends XYChart<Number, Number> {
     }
 
     // -------------- METHODS ------------------------------------------------------------------------------------------
-    /** Called to update and layout the content for the plot */
+    /**
+     * Called to update and layout the content for the plot.
+     */
     @Override
     protected void layoutPlotChildren() {
         // we have nothing to layout if no data is present
@@ -135,10 +156,16 @@ public class CandleStickChart extends XYChart<Number, Number> {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void dataItemChanged(final Data<Number, Number> item) {
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void dataItemAdded(final Series<Number, Number> series, final int itemIndex, final Data<Number, Number> item) {
         final Node candle = createCandle(getData().indexOf(series), item, itemIndex);
@@ -158,6 +185,9 @@ public class CandleStickChart extends XYChart<Number, Number> {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void dataItemRemoved(final Data<Number, Number> item, final Series<Number, Number> series) {
         final Node candle = item.getNode();
@@ -178,6 +208,9 @@ public class CandleStickChart extends XYChart<Number, Number> {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void seriesAdded(final Series<Number, Number> series, final int seriesIndex) {
         // handle any data already in series
@@ -202,6 +235,9 @@ public class CandleStickChart extends XYChart<Number, Number> {
         getPlotChildren().add(seriesPath);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void seriesRemoved(final Series<Number, Number> series) {
         // remove all candle nodes
@@ -226,7 +262,7 @@ public class CandleStickChart extends XYChart<Number, Number> {
     }
 
     /**
-     * Create a new Candle node to represent a single data item
+     * Create a new Candle node to represent a single data item.
      * 
      * @param seriesIndex The index of the series the data item is in
      * @param item The data item to create node for
