@@ -35,7 +35,6 @@ import org.jrebirth.core.ui.Model;
 import org.jrebirth.core.wave.Wave;
 import org.jrebirth.presentation.ui.stack.StackModel;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class <strong>Presentation</strong>.
  * 
@@ -112,11 +111,6 @@ public final class Presentation extends AbstractApplication<StackPane> {
                 }
             }
         });
-
-        // Preload font for CSS
-        JfxFonts.SPLASH.get();
-        JfxFonts.TYPEWRITER.get();
-        JfxFonts.TYPEWRITER2.get();
 
     }
 

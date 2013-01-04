@@ -43,16 +43,16 @@ public enum JfxColors implements ColorEnum {
 
     /** The drop shadow. */
     DROP_SHADOW(new WebColor("000000", 0.8)),
-    
+
     /** The inner shadow. */
     INNER_SHADOW(new WebColor("FFFFFF", 0.3)),
 
     /** The GRADIEN t_1. */
     GRADIENT_1(new WebColor("1AA2AC", 1.0)),
-    
+
     /** The GRADIEN t_2. */
     GRADIENT_2(new WebColor("F04F24", 1.0)),
-    
+
     /** The GRADIEN t_3. */
     GRADIENT_3(new WebColor("FFF200", 1.0)),
 
@@ -81,6 +81,6 @@ public enum JfxColors implements ColorEnum {
      */
     @Override
     public ColorBuilder factory() {
-        return (ColorBuilder) ResourceBuilders.COLOR_BUILDER.use();
+        return ResourceBuilders.COLOR_BUILDER;
     }
 }

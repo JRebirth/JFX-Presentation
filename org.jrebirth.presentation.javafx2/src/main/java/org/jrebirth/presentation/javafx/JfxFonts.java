@@ -75,7 +75,7 @@ public enum JfxFonts implements FontEnum {
      */
     @Override
     public FontBuilder factory() {
-        return (FontBuilder) ResourceBuilders.FONT_BUILDER.use();
+        return ResourceBuilders.FONT_BUILDER;
     }
 
 }

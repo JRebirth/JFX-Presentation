@@ -25,13 +25,12 @@ import javafx.scene.Group;
 
 import org.jrebirth.core.ui.fxml.AbstractFXMLController;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class <strong>ArchNodeController</strong>.
  * 
  * @author Sébastien Bordes
  */
-public class ArchNodeController extends AbstractFXMLController {
+public class ArchNodeController extends AbstractFXMLController<ArchModel, ArchView> {
 
     /** The nodes. */
     @FXML

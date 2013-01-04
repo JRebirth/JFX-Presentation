@@ -25,9 +25,9 @@ import javafx.util.Duration;
 
 import org.jrebirth.core.exception.CoreException;
 import org.jrebirth.core.ui.fxml.FXMLComponent;
+import org.jrebirth.core.ui.fxml.FXMLUtils;
 import org.jrebirth.presentation.ui.template.AbstractTemplateView;
 
-// TODO: Auto-generated Javadoc
 /**
  * 
  * The class <strong>HandlerView</strong>.
@@ -94,7 +94,7 @@ public final class ArchView extends AbstractTemplateView<ArchModel, AnchorPane, 
     @Override
     protected Node getContentPanel() {
 
-        this.archComponent = loadFXML("org/jrebirth/presentation/ui/slides/arch/ArchNode.fxml");
+        this.archComponent = FXMLUtils.loadFXML(getModel(), "org/jrebirth/presentation/ui/slides/arch/ArchNode.fxml");
 
         this.archComponent.getNode().setScaleX(4);
         this.archComponent.getNode().setScaleY(4);
