@@ -30,7 +30,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import org.jrebirth.core.application.AbstractApplication;
-import org.jrebirth.core.resource.font.FontEnum;
+import org.jrebirth.core.resource.font.FontItem;
 import org.jrebirth.core.ui.Model;
 import org.jrebirth.core.wave.Wave;
 import org.jrebirth.presentation.ui.stack.StackModel;
@@ -118,8 +118,8 @@ public final class Presentation extends AbstractApplication<StackPane> {
      * {@inheritDoc}
      */
     @Override
-    public List<FontEnum> getFontToPreload() {
-        return Arrays.asList(new FontEnum[] {
+    public List<FontItem> getFontToPreload() {
+        return Arrays.asList(new FontItem[] {
                 JfxFonts.SPLASH,
                 JfxFonts.TYPEWRITER,
                 JfxFonts.TYPEWRITER2

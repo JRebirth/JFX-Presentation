@@ -21,7 +21,7 @@ import javafx.scene.paint.Color;
 
 import org.jrebirth.core.resource.ResourceBuilders;
 import org.jrebirth.core.resource.color.ColorBuilder;
-import org.jrebirth.core.resource.color.ColorEnum;
+import org.jrebirth.core.resource.color.ColorItem;
 import org.jrebirth.core.resource.color.ColorParams;
 import org.jrebirth.core.resource.color.RGB255Color;
 import org.jrebirth.core.resource.color.WebColor;
@@ -33,7 +33,7 @@ import org.jrebirth.core.resource.color.WebColor;
  * @author Sébastien Bordes
  * 
  */
-public enum JfxColors implements ColorEnum {
+public enum JfxColors implements ColorItem {
 
     /** The slide title. */
     SLIDE_TITLE(new WebColor("0088D3", 1.0)),
@@ -65,7 +65,7 @@ public enum JfxColors implements ColorEnum {
      * @param colorParams the primitive values for the color
      */
     private JfxColors(final ColorParams colorParams) {
-        factory().storeParams(this, colorParams);
+        builder().storeParams(this, colorParams);
     }
 
     /**
@@ -73,14 +73,14 @@ public enum JfxColors implements ColorEnum {
      */
     @Override
     public Color get() {
-        return factory().get(this);
+        return builder().get(this);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public ColorBuilder factory() {
+    public ColorBuilder builder() {
         return ResourceBuilders.COLOR_BUILDER;
     }
 }

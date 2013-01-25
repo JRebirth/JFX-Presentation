@@ -21,7 +21,7 @@ import javafx.scene.text.Font;
 
 import org.jrebirth.core.resource.ResourceBuilders;
 import org.jrebirth.core.resource.font.FontBuilder;
-import org.jrebirth.core.resource.font.FontEnum;
+import org.jrebirth.core.resource.font.FontItem;
 import org.jrebirth.core.resource.font.FontParams;
 import org.jrebirth.core.resource.font.RealFont;
 import org.jrebirth.presentation.FontsLoader;
@@ -33,7 +33,7 @@ import org.jrebirth.presentation.FontsLoader;
  * @author Sébastien Bordes
  * 
  */
-public enum JfxFonts implements FontEnum {
+public enum JfxFonts implements FontItem {
 
     /** The splash font. */
     PAGE(new RealFont(FontsLoader.DINk, 24)),
@@ -59,7 +59,7 @@ public enum JfxFonts implements FontEnum {
      * @param fontParams the font size
      */
     JfxFonts(final FontParams fontParams) {
-        factory().storeParams(this, fontParams);
+        builder().storeParams(this, fontParams);
     }
 
     /**
@@ -67,14 +67,14 @@ public enum JfxFonts implements FontEnum {
      */
     @Override
     public Font get() {
-        return factory().get(this);
+        return builder().get(this);
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public FontBuilder factory() {
+    public FontBuilder builder() {
         return ResourceBuilders.FONT_BUILDER;
     }
 

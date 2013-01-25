@@ -19,7 +19,6 @@ package org.jrebirth.presentation.javafx;
 
 import org.jrebirth.core.resource.font.FontName;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class <strong>JfxFontsLoader</strong>.
  * 
@@ -47,13 +46,5 @@ public enum JfxFontsLoader implements FontName {
 
     /** The Boris black bloxx. */
     BorisBlackBloxx;
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String get() {
-        return name();
-    }
 
 }
