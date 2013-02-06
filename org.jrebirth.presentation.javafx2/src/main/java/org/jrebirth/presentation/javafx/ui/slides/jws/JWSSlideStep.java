@@ -29,10 +29,10 @@ public enum JWSSlideStep implements SlideStep {
 
     /** The Text. */
     Text,
-    
+
     /** The Jnlp. */
     Jnlp,
-    
+
     /** The Viewer. */
     Viewer;
 

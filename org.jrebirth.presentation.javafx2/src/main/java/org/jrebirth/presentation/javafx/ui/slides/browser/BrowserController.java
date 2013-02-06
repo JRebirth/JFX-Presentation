@@ -54,7 +54,7 @@ public final class BrowserController extends AbstractTemplateController<BrowserM
         super.customInitializeEventAdapters();
 
         // Use the inner class
-        buildMouseHandler(new BrowserMouseAdapter());
+        addAdapter(new BrowserMouseAdapter());
     }
 
     /**
@@ -65,7 +65,7 @@ public final class BrowserController extends AbstractTemplateController<BrowserM
         super.customInitializeEventHandlers();
 
         // Listen mouse event on the root node
-        getView().getBrowser().setOnMouseClicked(getMouseHandler());
+        getView().getBrowser().setOnMouseClicked(getHandler(MouseEvent.MOUSE_CLICKED));
     }
 
     /**

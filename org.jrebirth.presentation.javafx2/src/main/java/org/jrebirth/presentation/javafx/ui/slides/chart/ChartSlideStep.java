@@ -41,7 +41,7 @@ public enum ChartSlideStep implements SlideStep {
     LineChart,
     /** The Scatter Chart sample. */
     ScatterChart,
-    
+
     /** The Candle. */
     Candle;
 

@@ -72,21 +72,21 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
 
     /** The <code>BG_5</code> field is used to TODO. */
     private static final String BG_5 = "-fx-background-color:#FBE43D";
-    
+
     /** The <code>BG_4</code> field is used to TODO. */
     private static final String BG_4 = "-fx-background-color:#EA661D";
-    
+
     /** The <code>BG_3</code> field is used to TODO. */
     private static final String BG_3 = "-fx-background-color:#E53B20";
-    
+
     /** The <code>BG_2</code> field is used to TODO. */
     private static final String BG_2 = "-fx-background-color:#C13C8B";
-    
+
     /** The <code>BG_1</code> field is used to TODO. */
     private static final String BG_1 = "-fx-background-color:#1C9A9A";
     /** The intro name transition. */
     private FadeTransition fadeTransition;
-    
+
     /** The box effect. */
     private InnerShadow boxEffect;
 

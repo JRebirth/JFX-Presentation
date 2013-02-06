@@ -33,31 +33,31 @@ public enum LayoutSlideStep implements SlideStep {
     Pane,
     /** The BorderPane step. */
     BorderPane,
-    
+
     /** The Border constraint. */
     BorderConstraint,
     /** The HBox step. */
     HBox,
     /** The VBox step. */
     VBox,
-    
+
     /** The Box constraint. */
     BoxConstraint,
     /** The StackPane step. */
     StackPane,
-    
+
     /** The Stack constraint. */
     StackConstraint,
     /** The FlowPane step. */
     FlowPane,
     /** The TilePane step. */
     TilePane,
-    
+
     /** The Tile constraint. */
     TileConstraint,
     /** The GridPane step. */
     GridPane,
-    
+
     /** The Grid constaint. */
     GridConstaint,
     /** The AnchorPane step. */

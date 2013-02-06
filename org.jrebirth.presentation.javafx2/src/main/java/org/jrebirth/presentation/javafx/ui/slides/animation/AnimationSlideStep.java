@@ -29,31 +29,31 @@ public enum AnimationSlideStep implements SlideStep {
 
     /** The Text. */
     Text,
-    
+
     /** The Fill transition. */
     FillTransition,
-    
+
     /** The Stroke transition. */
     StrokeTransition,
-    
+
     /** The Fade transition. */
     FadeTransition,
-    
+
     /** The Rotate transition. */
     RotateTransition,
-    
+
     /** The Pause transition. */
     PauseTransition,
-    
+
     /** The Scale transition. */
     ScaleTransition,
-    
+
     /** The Translate transition. */
     TranslateTransition,
-    
+
     /** The Path transition. */
     PathTransition,
-    
+
     /** The Timeline. */
     Timeline;
 

@@ -29,13 +29,13 @@ public enum NodeSlideStep implements SlideStep {
 
     /** The Text. */
     Text,
-    
+
     /** The Stateful. */
     Stateful,
-    
+
     /** The Bounds1. */
     Bounds1,
-    
+
     /** The Extra. */
     Extra;
 }

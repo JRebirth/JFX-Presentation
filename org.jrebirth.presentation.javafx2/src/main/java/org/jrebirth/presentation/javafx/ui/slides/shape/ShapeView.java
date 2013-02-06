@@ -517,13 +517,13 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
 
         /** The c x. */
         double cX = 0.0;
-        
+
         /** The c y. */
         double cY = 0.0;
 
         /** The mousex. */
         double mousex = 0;
-        
+
         /** The mousey. */
         double mousey = 0;
 

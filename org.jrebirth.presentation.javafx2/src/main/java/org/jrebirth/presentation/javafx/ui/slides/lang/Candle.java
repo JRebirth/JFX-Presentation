@@ -31,22 +31,22 @@ public class Candle extends Group {
 
     /** The high low line. */
     private final Line highLowLine = new Line();
-    
+
     /** The bar. */
     private final Region bar = new Region();
-    
+
     /** The series style class. */
     private String seriesStyleClass;
-    
+
     /** The data style class. */
     private String dataStyleClass;
-    
+
     /** The open above close. */
     private boolean openAboveClose = true;
 
     /** The label. */
     private final Text label = new Text();
-    
+
     /** The tooltip. */
     private final Tooltip tooltip = new Tooltip();
 

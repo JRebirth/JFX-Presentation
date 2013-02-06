@@ -29,16 +29,16 @@ public enum PatternSlideStep implements SlideStep {
 
     /** The Text. */
     Text,
-    
+
     /** The Pure mvc. */
     PureMVC,
-    
+
     /** The mvvm. */
     MVVM,
-    
+
     /** The Jacp. */
     Jacp,
-    
+
     /** The J rebirth. */
     JRebirth;
 

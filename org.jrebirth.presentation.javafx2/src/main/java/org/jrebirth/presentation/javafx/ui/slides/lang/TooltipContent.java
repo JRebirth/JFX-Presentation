@@ -25,16 +25,16 @@ import javafx.scene.layout.GridPane;
  * The Class TooltipContent.
  */
 public class TooltipContent extends GridPane {
-    
+
     /** The open value. */
     private final Label openValue = new Label();
-    
+
     /** The close value. */
     private final Label closeValue = new Label();
-    
+
     /** The high value. */
     private final Label highValue = new Label();
-    
+
     /** The low value. */
     private final Label lowValue = new Label();
 

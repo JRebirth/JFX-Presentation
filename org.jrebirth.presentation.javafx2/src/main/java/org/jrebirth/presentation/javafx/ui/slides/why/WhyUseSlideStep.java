@@ -29,13 +29,13 @@ public enum WhyUseSlideStep implements SlideStep {
 
     /** The Text. */
     Text,
-    
+
     /** The Multithread. */
     Multithread,
-    
+
     /** The Cross platform. */
     CrossPlatform,
-    
+
     /** The Open source. */
     OpenSource;
 

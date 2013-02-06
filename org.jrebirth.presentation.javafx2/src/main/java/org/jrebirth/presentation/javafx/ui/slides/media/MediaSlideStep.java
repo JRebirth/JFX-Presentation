@@ -29,13 +29,13 @@ public enum MediaSlideStep implements SlideStep {
 
     /** The Text. */
     Text,
-    
+
     /** The Video. */
     Video,
-    
+
     /** The Move out. */
     MoveOut,
-    
+
     /** The Audio. */
     Audio;
 

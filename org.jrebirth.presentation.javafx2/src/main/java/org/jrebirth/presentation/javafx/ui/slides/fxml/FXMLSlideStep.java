@@ -29,10 +29,10 @@ public enum FXMLSlideStep implements SlideStep {
 
     /** The Text. */
     Text,
-    
+
     /** The sample fxml. */
     sampleFXML,
-    
+
     /** The sample controller. */
     sampleController;
 

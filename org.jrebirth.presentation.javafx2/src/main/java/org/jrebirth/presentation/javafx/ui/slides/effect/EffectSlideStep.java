@@ -29,35 +29,35 @@ public enum EffectSlideStep implements SlideStep {
 
     /** The Text. */
     Text,
-    
+
     /** The Reflection. */
     Reflection,
-    
+
     /** The Sepia tone. */
     SepiaTone,
 
     /** The Drop shadow. */
     DropShadow,
-    
+
     /** The Inner shadow. */
     InnerShadow,
     // Shadow,
 
     /** The Bloom. */
     Bloom,
-    
+
     /** The Glow. */
     Glow,
-    
+
     /** The Lighting. */
     Lighting,
 
     /** The Box blur. */
     BoxBlur,
-    
+
     /** The Motion blur. */
     MotionBlur,
-    
+
     /** The Gaussian blur. */
     GaussianBlur,
 
@@ -66,10 +66,10 @@ public enum EffectSlideStep implements SlideStep {
 
     /** The Blend. */
     Blend,
-    
+
     /** The Color adjust. */
     ColorAdjust,
-    
+
     /** The Displacement map. */
     DisplacementMap;
 

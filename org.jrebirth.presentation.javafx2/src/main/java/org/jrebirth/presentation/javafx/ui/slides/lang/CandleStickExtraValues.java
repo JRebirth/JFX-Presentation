@@ -20,16 +20,16 @@ package org.jrebirth.presentation.javafx.ui.slides.lang;
 // TODO: Auto-generated Javadoc
 /** Data extra values for storing close, high and low. */
 public class CandleStickExtraValues {
-    
+
     /** The close. */
     private final double close;
-    
+
     /** The high. */
     private final double high;
-    
+
     /** The low. */
     private final double low;
-    
+
     /** The average. */
     private final double average;
 
