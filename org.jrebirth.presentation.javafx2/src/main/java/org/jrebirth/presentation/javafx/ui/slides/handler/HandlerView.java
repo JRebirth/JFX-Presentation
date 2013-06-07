@@ -82,8 +82,8 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Anchor
      * {@inheritDoc}
      */
     @Override
-    protected void customInitializeComponents() {
-        super.customInitializeComponents();
+    protected void initView() {
+        super.initView();
         this.top = LabelBuilder.create()
                 .text("Top Label")
                 .style("-fx-background-color: #CCCCCC;-fx-font-size:1.4em;-fx-label-padding:20px")
@@ -214,7 +214,7 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Anchor
      * {@inheritDoc}
      */
     @Override
-    public void doHide() {
+    public void hide() {
         // Nothing to do yet
     }
 
@@ -222,7 +222,7 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Anchor
      * {@inheritDoc}
      */
     @Override
-    public void doStart() {
+    public void start() {
         // Nothing to do yet
     }
 

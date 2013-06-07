@@ -111,7 +111,7 @@ public final class PropertyView extends AbstractTemplateView<PropertyModel, Anch
      * {@inheritDoc}
      */
     @Override
-    public void doHide() {
+    public void hide() {
         // Nothing to do yet
     }
 
@@ -119,7 +119,7 @@ public final class PropertyView extends AbstractTemplateView<PropertyModel, Anch
      * {@inheritDoc}
      */
     @Override
-    public void doStart() {
+    public void start() {
         // Nothing to do yet
     }
 

@@ -44,15 +44,15 @@ public final class TreeController extends AbstractTemplateController<TreeModel, 
      * {@inheritDoc}
      */
     @Override
-    protected void customInitializeEventAdapters() throws CoreException {
-        super.customInitializeEventAdapters();
+    protected void initEventAdapters() throws CoreException {
+        super.initEventAdapters();
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    protected void customInitializeEventHandlers() throws CoreException {
-        super.customInitializeEventHandlers();
+    protected void initEventHandlers() throws CoreException {
+        super.initEventHandlers();
     }
 }

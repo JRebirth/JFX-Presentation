@@ -43,8 +43,8 @@ public final class HelloController extends AbstractTemplateController<HelloModel
      * {@inheritDoc}
      */
     @Override
-    protected void customInitializeEventAdapters() throws CoreException {
-        super.customInitializeEventAdapters();
+    protected void initEventAdapters() throws CoreException {
+        super.initEventAdapters();
 
         // Use the inner class
         // buildMouseHandler(new ClickAdapter());
@@ -54,9 +54,9 @@ public final class HelloController extends AbstractTemplateController<HelloModel
      * {@inheritDoc}
      */
     @Override
-    protected void customInitializeEventHandlers() throws CoreException {
+    protected void initEventHandlers() throws CoreException {
 
-        super.customInitializeEventHandlers();
+        super.initEventHandlers();
 
         // Listen mouse event on the source code node
         // getView().getCodeImageView().setOnMouseClicked(getMouseHandler());

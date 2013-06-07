@@ -56,7 +56,7 @@ public final class ArchView extends AbstractTemplateView<ArchModel, AnchorPane, 
      * {@inheritDoc}
      */
     @Override
-    public void doStart() {
+    public void start() {
         ScaleTransitionBuilder.create()
                 .node(getArchiPane())
                 .duration(Duration.millis(600))
@@ -177,7 +177,7 @@ public final class ArchView extends AbstractTemplateView<ArchModel, AnchorPane, 
      * {@inheritDoc}
      */
     @Override
-    public void doHide() {
+    public void hide() {
         // Nothing to do yet
     }
 

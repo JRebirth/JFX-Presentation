@@ -50,8 +50,8 @@ public final class BrowserController extends AbstractTemplateController<BrowserM
      * {@inheritDoc}
      */
     @Override
-    protected void customInitializeEventAdapters() throws CoreException {
-        super.customInitializeEventAdapters();
+    protected void initEventAdapters() throws CoreException {
+        super.initEventAdapters();
 
         // Use the inner class
         addAdapter(new BrowserMouseAdapter());
@@ -61,8 +61,8 @@ public final class BrowserController extends AbstractTemplateController<BrowserM
      * {@inheritDoc}
      */
     @Override
-    protected void customInitializeEventHandlers() throws CoreException {
-        super.customInitializeEventHandlers();
+    protected void initEventHandlers() throws CoreException {
+        super.initEventHandlers();
 
         // Listen mouse event on the root node
         getView().getBrowser().setOnMouseClicked(getHandler(MouseEvent.MOUSE_CLICKED));

@@ -56,8 +56,8 @@ public final class BrowserView extends AbstractTemplateView<BrowserModel, Anchor
      * {@inheritDoc}
      */
     @Override
-    protected void customInitializeComponents() {
-        super.customInitializeComponents();
+    protected void initView() {
+        super.initView();
 
         this.browser = new WebView();
     }
@@ -75,7 +75,7 @@ public final class BrowserView extends AbstractTemplateView<BrowserModel, Anchor
      * {@inheritDoc}
      */
     @Override
-    public void doStart() {
+    public void start() {
         // Nothing to do yet
     }
 
@@ -130,7 +130,7 @@ public final class BrowserView extends AbstractTemplateView<BrowserModel, Anchor
      * {@inheritDoc}
      */
     @Override
-    public void doHide() {
+    public void hide() {
         // Nothing to do yet
     }
 

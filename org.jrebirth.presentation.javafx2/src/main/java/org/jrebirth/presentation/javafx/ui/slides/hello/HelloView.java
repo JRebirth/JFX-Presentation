@@ -115,7 +115,7 @@ public final class HelloView extends AbstractTemplateView<HelloModel, AnchorPane
     // * {@inheritDoc}
     // */
     // @Override
-    // public void doStart() {
+    // public void start() {
     // super.doStart();
     // // getAppImageView().toBack();
     // // getCodeImageView().toFront();
@@ -252,8 +252,8 @@ public final class HelloView extends AbstractTemplateView<HelloModel, AnchorPane
     // * {@inheritDoc}
     // */
     // @Override
-    // protected void customInitializeComponents() {
-    // super.customInitializeComponents();
+    // protected void initView() {
+    // super.initView();
     //
     // // this.codeImageView.requestFocus();
     // }
@@ -298,7 +298,7 @@ public final class HelloView extends AbstractTemplateView<HelloModel, AnchorPane
      * {@inheritDoc}
      */
     @Override
-    public void doHide() {
+    public void hide() {
         // Nothing to do yet
     }
 
@@ -306,7 +306,7 @@ public final class HelloView extends AbstractTemplateView<HelloModel, AnchorPane
      * {@inheritDoc}
      */
     @Override
-    public void doStart() {
+    public void start() {
         // Nothing to do yet
     }
 

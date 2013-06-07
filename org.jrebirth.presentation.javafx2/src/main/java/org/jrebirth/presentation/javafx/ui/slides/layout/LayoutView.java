@@ -113,9 +113,9 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
      * {@inheritDoc}
      */
     @Override
-    protected void customInitializeComponents() {
+    protected void initView() {
         // Nothing to do yet
-        super.customInitializeComponents();
+        super.initView();
 
         this.boxEffect = InnerShadowBuilder.create().blurType(BlurType.THREE_PASS_BOX).radius(8.0).offsetX(2).offsetY(2).color(Color.WHITE).build();
 
@@ -134,7 +134,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
      * {@inheritDoc}
      */
     @Override
-    public void doStart() {
+    public void start() {
         // Nothing to do yet
     }
 
@@ -575,7 +575,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
      * {@inheritDoc}
      */
     @Override
-    public void doHide() {
+    public void hide() {
         // Nothing to do yet
     }
 

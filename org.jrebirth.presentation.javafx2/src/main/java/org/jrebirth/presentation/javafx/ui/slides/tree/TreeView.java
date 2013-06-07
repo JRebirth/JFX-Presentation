@@ -84,8 +84,8 @@ public final class TreeView extends AbstractTemplateView<TreeModel, AnchorPane, 
      * {@inheritDoc}
      */
     @Override
-    protected void customInitializeComponents() {
-        super.customInitializeComponents();
+    protected void initView() {
+        super.initView();
 
         this.woodNode = ImageViewBuilder.create()
                 .image(loadImage("images/tree/think_node.jpg")).scaleX(0.9).scaleY(0.9)
@@ -198,7 +198,7 @@ public final class TreeView extends AbstractTemplateView<TreeModel, AnchorPane, 
      * {@inheritDoc}
      */
     @Override
-    public void doHide() {
+    public void hide() {
         // Nothing to do yet
     }
 
@@ -206,7 +206,7 @@ public final class TreeView extends AbstractTemplateView<TreeModel, AnchorPane, 
      * {@inheritDoc}
      */
     @Override
-    public void doStart() {
+    public void start() {
         // Nothing to do yet
     }
 

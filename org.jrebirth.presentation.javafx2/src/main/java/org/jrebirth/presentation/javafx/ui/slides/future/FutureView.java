@@ -73,7 +73,7 @@ public final class FutureView extends AbstractTemplateView<FutureModel, AnchorPa
      * {@inheritDoc}
      */
     @Override
-    public void doHide() {
+    public void hide() {
         // Nothing to do yet
     }
 
@@ -81,7 +81,7 @@ public final class FutureView extends AbstractTemplateView<FutureModel, AnchorPa
      * {@inheritDoc}
      */
     @Override
-    public void doStart() {
+    public void start() {
         // Nothing to do yet
     }
 

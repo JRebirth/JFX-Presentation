@@ -64,7 +64,7 @@ public final class PlaceView extends AbstractSlideView<PlaceModel, Pane, PlaceCo
      * {@inheritDoc}
      */
     @Override
-    protected void customInitializeComponents() {
+    protected void initView() {
 
         final ImageView toulouse = ImageViewBuilder.create()
                 .image(loadImage("images/intro/breizhcamp.jpg"))
@@ -131,7 +131,7 @@ public final class PlaceView extends AbstractSlideView<PlaceModel, Pane, PlaceCo
      * {@inheritDoc}
      */
     @Override
-    public void doStart() {
+    public void start() {
         this.bubbleAnimation.play(); // final TO CHECK
     }
 
@@ -139,7 +139,7 @@ public final class PlaceView extends AbstractSlideView<PlaceModel, Pane, PlaceCo
      * {@inheritDoc}
      */
     @Override
-    public void doReload() {
+    public void reload() {
         this.bubbleAnimation.playFromStart();
     }
 
@@ -147,7 +147,7 @@ public final class PlaceView extends AbstractSlideView<PlaceModel, Pane, PlaceCo
      * {@inheritDoc}
      */
     @Override
-    public void doHide() {
+    public void hide() {
         // Nothing to do yet
     }
 

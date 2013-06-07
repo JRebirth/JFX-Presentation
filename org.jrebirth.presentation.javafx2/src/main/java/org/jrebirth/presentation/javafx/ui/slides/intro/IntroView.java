@@ -64,7 +64,7 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
      * {@inheritDoc}
      */
     @Override
-    protected void customInitializeComponents() {
+    protected void initView() {
 
         this.label = LabelBuilder
                 .create()
@@ -106,7 +106,7 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
      * {@inheritDoc}
      */
     @Override
-    public void doStart() {
+    public void start() {
         this.typeWriter.play();
     }
 
@@ -114,7 +114,7 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
      * {@inheritDoc}
      */
     @Override
-    public void doReload() {
+    public void reload() {
         // Nothing to do yet
 
     }
@@ -123,7 +123,7 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
      * {@inheritDoc}
      */
     @Override
-    public void doHide() {
+    public void hide() {
         // Nothing to do yet
     }
 

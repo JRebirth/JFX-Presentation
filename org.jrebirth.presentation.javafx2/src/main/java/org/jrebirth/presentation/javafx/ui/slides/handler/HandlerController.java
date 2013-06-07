@@ -47,17 +47,17 @@ public final class HandlerController extends AbstractTemplateController<HandlerM
      * {@inheritDoc}
      */
     @Override
-    protected void customInitializeEventAdapters() throws CoreException {
-        super.customInitializeEventAdapters();
+    protected void initEventAdapters() throws CoreException {
+        super.initEventAdapters();
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    protected void customInitializeEventHandlers() throws CoreException {
+    protected void initEventHandlers() throws CoreException {
 
-        super.customInitializeEventHandlers();
+        super.initEventHandlers();
 
         final FilterMouseAdapter filter = new FilterMouseAdapter();
         final HandlerMouseAdapter handler = new HandlerMouseAdapter();
