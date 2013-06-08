@@ -653,20 +653,4 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
 
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void hide() {
-        // Nothing to do yet
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void start() {
-        // Nothing to do yet
-    }
-
 }

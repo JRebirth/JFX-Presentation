@@ -131,14 +131,6 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
     }
 
     /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void start() {
-        // Nothing to do yet
-    }
-
-    /**
      * Gets the fade transition.
      * 
      * @return Returns the fadeTransition.
@@ -569,14 +561,6 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
 
         showCustomSlideStep(tp);
 
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void hide() {
-        // Nothing to do yet
     }
 
 }

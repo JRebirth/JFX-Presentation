@@ -143,12 +143,4 @@ public final class PlaceView extends AbstractSlideView<PlaceModel, Pane, PlaceCo
         this.bubbleAnimation.playFromStart();
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void hide() {
-        // Nothing to do yet
-    }
-
 }

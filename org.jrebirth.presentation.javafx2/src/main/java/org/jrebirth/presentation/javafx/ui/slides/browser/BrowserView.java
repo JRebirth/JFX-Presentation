@@ -75,14 +75,6 @@ public final class BrowserView extends AbstractTemplateView<BrowserModel, Anchor
      * {@inheritDoc}
      */
     @Override
-    public void start() {
-        // Nothing to do yet
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     protected Node getContentPanel() {
         return new Pane();
     }
@@ -124,14 +116,6 @@ public final class BrowserView extends AbstractTemplateView<BrowserModel, Anchor
         this.browser.setEffect(ReflectionBuilder.create().build());
         this.browser.getEngine().reload();
         this.browser.setCache(true);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void hide() {
-        // Nothing to do yet
     }
 
 }

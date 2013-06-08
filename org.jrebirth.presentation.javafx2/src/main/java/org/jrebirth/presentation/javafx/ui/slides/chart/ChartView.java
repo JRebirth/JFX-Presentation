@@ -84,14 +84,6 @@ public final class ChartView extends AbstractTemplateView<ChartModel, AnchorPane
      * {@inheritDoc}
      */
     @Override
-    public void start() {
-        // Nothing to do yet
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     protected Node getContentPanel() {
         return new Pane();
     }
@@ -412,14 +404,6 @@ public final class ChartView extends AbstractTemplateView<ChartModel, AnchorPane
 
         showCustomSlideStep(bc);
 
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void hide() {
-        // Nothing to do yet
     }
 
 }

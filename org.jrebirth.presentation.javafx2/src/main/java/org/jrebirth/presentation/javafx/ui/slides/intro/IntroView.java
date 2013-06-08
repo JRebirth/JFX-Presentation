@@ -107,7 +107,7 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
      */
     @Override
     public void start() {
-        this.typeWriter.play();
+        reload();
     }
 
     /**
@@ -115,16 +115,7 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
      */
     @Override
     public void reload() {
-        // Nothing to do yet
-
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void hide() {
-        // Nothing to do yet
+        this.typeWriter.play();
     }
 
 }

@@ -294,20 +294,5 @@ public final class HelloView extends AbstractTemplateView<HelloModel, AnchorPane
     // // getAppCarousselTransition().play();
     // getCodeCarousselTransition().play();
     // }
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void hide() {
-        // Nothing to do yet
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void start() {
-        // Nothing to do yet
-    }
 
 }
