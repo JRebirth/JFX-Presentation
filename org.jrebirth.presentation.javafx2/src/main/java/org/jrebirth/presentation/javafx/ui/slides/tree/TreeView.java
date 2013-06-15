@@ -40,7 +40,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 import org.jrebirth.core.exception.CoreException;
-import org.jrebirth.presentation.PrezFonts;
+import org.jrebirth.presentation.resource.PrezFonts;
 import org.jrebirth.presentation.ui.template.AbstractTemplateView;
 
 // TODO: Auto-generated Javadoc

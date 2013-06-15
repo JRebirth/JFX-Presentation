@@ -24,7 +24,7 @@ import org.jrebirth.core.resource.font.FontBuilder;
 import org.jrebirth.core.resource.font.FontItem;
 import org.jrebirth.core.resource.font.FontParams;
 import org.jrebirth.core.resource.font.RealFont;
-import org.jrebirth.presentation.FontsLoader;
+import org.jrebirth.presentation.resource.PrezFontNames;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -36,22 +36,22 @@ import org.jrebirth.presentation.FontsLoader;
 public enum JfxFonts implements FontItem {
 
     /** The splash font. */
-    PAGE(new RealFont(FontsLoader.DINk, 24)),
+    PAGE(new RealFont(PrezFontNames.DINk, 24)),
 
     /** The slide title font. */
-    SLIDE_TITLE(new RealFont(FontsLoader.Harabara, 30)),
+    SLIDE_TITLE(new RealFont(PrezFontNames.Harabara, 30)),
 
     /** The slide subtitle font. */
-    SLIDE_SUBTITLE(new RealFont(FontsLoader.Harabara, 20)),
+    SLIDE_SUBTITLE(new RealFont(PrezFontNames.Harabara, 20)),
 
     /** The typewriter font. */
-    TYPEWRITER(new RealFont(FontsLoader.Report_1942, 72)),
+    TYPEWRITER(new RealFont(PrezFontNames.Report_1942, 72)),
 
     /** The typewriter font. */
-    TYPEWRITER2(new RealFont(FontsLoader.OliJo, 72)),
+    TYPEWRITER2(new RealFont(PrezFontNames.OliJo, 72)),
 
     /** The splash font. */
-    SPLASH(new RealFont(FontsLoader.BorisBlackBloxx, 30));
+    SPLASH(new RealFont(PrezFontNames.BorisBlackBloxx, 30));
 
     /**
      * Default Constructor.
