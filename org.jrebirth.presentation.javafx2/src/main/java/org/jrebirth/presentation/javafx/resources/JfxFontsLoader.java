@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jrebirth.presentation.javafx;
+package org.jrebirth.presentation.javafx.resources;
 
 import org.jrebirth.core.resource.font.FontName;
 

@@ -54,10 +54,9 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 import org.jrebirth.core.exception.CoreException;
-import org.jrebirth.presentation.javafx.JfxColors;
+import org.jrebirth.presentation.javafx.resources.JfxColors;
 import org.jrebirth.presentation.ui.template.AbstractTemplateView;
 
-// TODO: Auto-generated Javadoc
 /**
  * 
  * The class <strong>ShapeView</strong>.

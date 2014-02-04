@@ -35,8 +35,8 @@ import javafx.stage.StageBuilder;
 import javafx.stage.StageStyle;
 
 import org.jrebirth.core.exception.CoreException;
-import org.jrebirth.presentation.javafx.JfxColors;
-import org.jrebirth.presentation.javafx.JfxFonts;
+import org.jrebirth.presentation.javafx.resources.JfxColors;
+import org.jrebirth.presentation.javafx.resources.JfxFonts;
 import org.jrebirth.presentation.ui.template.AbstractTemplateView;
 
 // TODO: Auto-generated Javadoc

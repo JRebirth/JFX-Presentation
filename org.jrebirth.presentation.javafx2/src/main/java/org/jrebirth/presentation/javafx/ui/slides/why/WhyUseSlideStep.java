@@ -19,7 +19,6 @@ package org.jrebirth.presentation.javafx.ui.slides.why;
 
 import org.jrebirth.presentation.ui.base.SlideStep;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class <strong>WhyUseSlideStep</strong>.
  * 
@@ -28,7 +27,7 @@ import org.jrebirth.presentation.ui.base.SlideStep;
 public enum WhyUseSlideStep implements SlideStep {
 
     /** The Text. */
-    Text,
+    Who,
 
     /** The Multithread. */
     Multithread,

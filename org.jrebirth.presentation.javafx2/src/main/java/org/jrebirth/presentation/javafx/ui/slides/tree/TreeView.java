@@ -40,10 +40,10 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 import org.jrebirth.core.exception.CoreException;
-import org.jrebirth.presentation.resource.PrezFonts;
+import org.jrebirth.presentation.javafx.resources.JFXImages;
+import org.jrebirth.presentation.resources.PrezFonts;
 import org.jrebirth.presentation.ui.template.AbstractTemplateView;
 
-// TODO: Auto-generated Javadoc
 /**
  * 
  * The class <strong>TreeView</strong>.
@@ -88,11 +88,11 @@ public final class TreeView extends AbstractTemplateView<TreeModel, AnchorPane, 
         super.initView();
 
         this.woodNode = ImageViewBuilder.create()
-                .image(loadImage("images/tree/think_node.jpg")).scaleX(0.9).scaleY(0.9)
+                .image(JFXImages.NODE.get()).scaleX(0.9).scaleY(0.9)
                 .build();
 
         this.tree = ImageViewBuilder.create()
-                .image(loadImage("images/tree/think_tree.jpg"))
+                .image(JFXImages.TREE.get())
                 .opacity(0.0)
                 .build();
 

@@ -38,10 +38,9 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.CircleBuilder;
 
 import org.jrebirth.core.exception.CoreException;
-import org.jrebirth.presentation.javafx.JfxColors;
+import org.jrebirth.presentation.javafx.resources.JfxColors;
 import org.jrebirth.presentation.ui.template.AbstractTemplateView;
 
-// TODO: Auto-generated Javadoc
 /**
  * 
  * The class <strong>PropertyView</strong>.

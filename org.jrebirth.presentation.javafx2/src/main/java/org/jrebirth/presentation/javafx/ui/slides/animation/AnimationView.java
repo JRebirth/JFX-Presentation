@@ -39,7 +39,7 @@ import javafx.scene.shape.SVGPathBuilder;
 import javafx.util.Duration;
 
 import org.jrebirth.core.exception.CoreException;
-import org.jrebirth.presentation.javafx.JfxColors;
+import org.jrebirth.presentation.javafx.resources.JfxColors;
 import org.jrebirth.presentation.ui.template.AbstractTemplateView;
 
 // TODO: Auto-generated Javadoc

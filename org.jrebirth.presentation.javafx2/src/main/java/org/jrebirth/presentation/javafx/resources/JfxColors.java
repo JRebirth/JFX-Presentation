@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jrebirth.presentation.javafx;
+package org.jrebirth.presentation.javafx.resources;
 
 import javafx.scene.paint.Color;
 
@@ -26,7 +26,6 @@ import org.jrebirth.core.resource.color.ColorParams;
 import org.jrebirth.core.resource.color.RGB255Color;
 import org.jrebirth.core.resource.color.WebColor;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class <strong>PrezColors</strong>.
  * 

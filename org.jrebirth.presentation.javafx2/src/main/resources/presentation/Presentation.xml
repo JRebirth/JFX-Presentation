@@ -108,7 +108,7 @@
 		<!-- Les RIAs -->
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.why.WhyUseModel">
 			<title>Pourquoi choisir JavaFX 2 ?</title>
-			<content>
+			<content name="Who">
 				<title>Qui Fait Quoi</title>
 				<!-- L'offre -->
 				<item>Communauté JS</item>
@@ -193,7 +193,7 @@
 		<slide showAnimation="FadeIn" hideAnimation="FadeOut">
 			<title>Java FX 2.0 Architecture</title>
 			<content>
-				<item image="images/bg/Architecture_JavaFX_2.png" />
+				<item image="bg/Architecture_JavaFX_2.png" />
 			</content>
 		</slide>
 
@@ -202,11 +202,11 @@
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.hello.HelloModel"  showAnimation="FadeIn" hideAnimation="FadeOut">
 			<title>Hello Rennes</title>
 
-			<content>
-				<item image="images/hello/DemoCode.png" />
+			<content name="Code">
+				<item image="hello/DemoCode.png" />
 			</content>
 			<content name="Application">
-				<item image="images/hello/DemoApp.png" />
+				<item image="hello/DemoApp.png" />
 			</content>
 		</slide>
 
@@ -219,7 +219,7 @@
 		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel">
 			<content>
 				<!-- <title>API par l'exemple</title> -->
-				<item image="images/splash/Api.jpg" />
+				<item image="splash/Api.jpg" />
 			</content>
 		</slide>
 
@@ -275,8 +275,8 @@
 		<!-- Stage et Scene -->
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.stage.StageModel">
 			<title>Stage et Scene</title>
-			<content>
-
+			
+			<content name="Text">
 				<item>Screen</item>
 				<item level="1">Permet la gestion du multi-écran</item>
 
@@ -297,9 +297,9 @@
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.node.NodeModel" style="nodeContent">
 			<title>Node</title>
 
-			<content>
+			<content name="Text">
 				<item>Tout élément visuel est un Node</item>
-				<item image="images/uml/node.png" />
+				<item image="uml/node.png" />
 				<item>Parent (Branches)</item>
 				<item>Shape (Feuilles)</item>
 				<item>ImageView</item>
@@ -337,7 +337,7 @@
 		<slide style="parentContent">
 			<title>Parent</title>
 			<content>
-				<item image="images/uml/parent.png" />
+				<item image="uml/parent.png" />
 				<item>Group</item>
 				<item level="1">Pas de redimensionnement, Effet groupé</item>
 
@@ -363,17 +363,17 @@
 		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel">
 			<content>
 				<!-- <title>Les éléments graphiques</title> -->
-				<item image="images/splash/Les_éléments_graphiques.jpg" />
+				<item image="splash/Les_éléments_graphiques.jpg" />
 			</content>
 		</slide>
 
 		<!-- Layout -->
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.layout.LayoutModel" style="paneContent">
 			<title>Layout</title>
-			<content>
-				<item image="images/uml/pane.png" />
+			<content name="Text">
+				<item image="uml/pane.png" />
 				<item>getChildren().add(Node... node)</item>
-				<item image="images/uml/control_pane.png" />
+				<item image="uml/control_pane.png" />
 			</content>
 
 			<content name="BorderConstraint">
@@ -427,8 +427,8 @@
 		<!-- Shapes -->
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.shape.ShapeModel" style="shapeContent">
 			<title>Shape</title>
-			<content>
-				<item image="images/uml/shape.png" />
+			<content name="Text">
+				<item image="uml/shape.png" />
 				<item>Pas de redimensionnement</item>
 				<item>Entourable (Stroke)</item>
 				<item>Remplissable (Fill)</item>
@@ -439,8 +439,8 @@
 		<!-- Controls -->
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.control.ControlModel" style="controlContent">
 			<title>Control</title>
-			<content>
-				<item image="images/uml/control.png" />
+			<content name="Text">
+				<item image="uml/control.png" />
 				<item>Skinnable</item>
 				<item level="1">Tous les Controls le sont</item>
 				<item>Skin</item>
@@ -452,8 +452,8 @@
 		<!-- Charts -->
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.chart.ChartModel">
 			<title>Charts</title>
-			<content>
-				<item image="images/uml/chart.png" />
+			<content name="Chart">
+				<item image="uml/chart.png" />
 				<item>Titre + Légende + couleurs via CSS</item>
 				<item>Animations</item>
 				<item>Valeurs + Node</item>
@@ -466,7 +466,7 @@
 		<!-- MEDIA -->
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.media.MediaModel">
 			<title>Media</title>
-			<content>
+			<content name="Text">
 				<item>Gestion de sons (mp3, wav, AIFF, AAC)</item>
 				<item>Gestion de vidéos (FLV [VP6], H.264/AVC)</item>
 				<item link="true">blogs.oracle.com/javafx/entry/mpeg_4_multimedia_support_in</item>
@@ -474,7 +474,7 @@
 				<item>Analyseur de bandes</item>
 			</content>
 			<content name="Audio">
-				<item image="images/demo/fxexperience_audio_demo.png" />
+				<item image="demo/fxexperience_audio_demo.png" />
 				<item level="1">by Jasper Pott</item>
 				<item link="true" level="1">http://fxexperience.com/2012/01/fun-javafx-2-0-audio-player/</item>
 			</content>
@@ -483,7 +483,7 @@
 		<!-- BROWSER -->
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.browser.BrowserModel">
 			<title>WebView et WebEngine</title>
-			<content>
+			<content name="Text">
 				<item>Manipulable comme un Node ordinaire</item>
 				<item>Moteur performant (WebKit pour l'instant)</item>
 				<item>Sera compatible HTML5 (WebSocket ...)</item>
@@ -509,7 +509,7 @@
 		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel">
 			<content>
 				<!-- <title>Le Design</title> -->
-				<item image="images/splash/Le_Design.jpg" />
+				<item image="splash/Le_Design.jpg" />
 			</content>
 		</slide>
 
@@ -517,7 +517,7 @@
 		<!-- FXML -->
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.fxml.FXMLModel">
 			<title>FXML</title>
-			<content>
+			<content name="Text">
 				<item>Ecriture des vues en XML</item>
 				<item level="1">Utilise les Java Builders</item>
 				<item level="1">Séparation Développeur/Graphiste</item>
@@ -642,7 +642,7 @@
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.resources.ResourcesModel">
 			<title>Les Ressources</title>
 
-			<content>
+			<content name="Text">
 				<title></title>
 				<item>Polices</item>
 				<item level="1">Préchargement requis pour les CSS</item>
@@ -680,7 +680,7 @@
 		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Tile">
 			<content>
 				<!-- <title>La Mécanique</title> -->
-				<item image="images/splash/La_Mécanique.jpg" />
+				<item image="splash/La_Mécanique.jpg" />
 			</content>
 		</slide>
 
@@ -709,7 +709,7 @@
 		<slide>
 			<title>Les Tâches</title>
 			<content>
-				<item image="images/uml/worker.png" />
+				<item image="uml/worker.png" />
 				<item>Gestion des autres threads</item>
 				<item level="1">Interface Worker</item>
 				<item level="1">WorkStatus</item>
@@ -721,7 +721,7 @@
 		<!-- Handler -->
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.handler.HandlerModel">
 			<title>EventHandler et EventFilter</title>
-			<content>
+			<content name="Text">
 				<item>Capturing Phase</item>
 				<item level="1">Du Stage jusqu'à l'élément déclencheur</item>
 				<item level="1">Interception avec addEventFilters()</item>
@@ -760,7 +760,7 @@
 		<!-- Properties -->
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.property.PropertyModel">
 			<title>Observable et Binding</title>
-			<content>
+			<content name="Text">
 				<title>Collection</title>
 				<item>Ecoute des modifications d’une collection</item>
 				<item level="1">ObservableList</item>
@@ -879,7 +879,7 @@
 
 			<content name="Wordle">
 				<title>Extensible</title>
-				<item image="images/bg/Properties.png" />
+				<item image="bg/Properties.png" />
 			</content>
 			
 			<content name="XXXProperty">
@@ -935,7 +935,7 @@
 				</item>
 			</content>
 
-			<!-- <content name="Doclet"> <title>Doclet</title> <item>Doclet Customisé</item> <item level="1">gestion de la javadoc</item> <item image="images/splash/L'enrichissement.jpg" 
+			<!-- <content name="Doclet"> <title>Doclet</title> <item>Doclet Customisé</item> <item level="1">gestion de la javadoc</item> <item image="splash/L'enrichissement.jpg" 
 				/> </content> -->
 		</slide>
 
@@ -948,7 +948,7 @@
 		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Fade">
 			<content>
 				<!-- <title>L'enrichissement</title> -->
-				<item image="images/splash/L'enrichissement.jpg" />
+				<item image="splash/L'enrichissement.jpg" />
 			</content>
 		</slide>
 
@@ -976,7 +976,7 @@
 		<!-- Transition -->
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.animation.AnimationModel">
 			<title>Animations</title>
-			<content>
+			<content name="Text">
 				<item>Groupées</item>
 				<item level="1">ParallelTransition</item>
 				<item level="1">SequentialTransition</item>
@@ -1290,7 +1290,7 @@
 		<!-- Effets -->
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.effect.EffectModel">
 			<title>Effets</title>
-			<content>
+			<content name="Text">
 				<item>node.setEffect(effect)</item>
 				<item>Les effets sont chaînables</item>
 				<item level="1">effect.setInput(effect)</item>
@@ -1332,7 +1332,7 @@
 		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Fade">
 			<content>
 				<!-- <title>Intégration et Déploiement</title> -->
-				<item image="images/splash/Integration_et_deploiement.jpg" />
+				<item image="splash/Integration_et_deploiement.jpg" />
 			</content>
 		</slide>
 
@@ -1410,7 +1410,7 @@
 		<!-- Java Webstart -->
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.jws.JWSModel">
 			<title>Java Webstart</title>
-			<content>
+			<content name="Text">
 				<item>Destiné à l'origine à Swing</item>
 				<item>Capable de diffuser tout types de binaires</item>
 				<item>Gestion de cache et de mise jour</item>
@@ -1491,7 +1491,7 @@
 				<item>javaws -viewer</item>
 				<item>Configuration et gestion du cache</item>
 				<item level="1">&lt;update check="always" policy="prompt-update"&gt;</item>
-				<item image="images/deploy/javaws-viewer.png"></item>
+				<item image="deploy/javaws-viewer.png"></item>
 
 			</content>
 
@@ -1507,7 +1507,7 @@
 		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Tile">
 			<content>
 				<!-- <title>Architecture Logicielle\n quelques pistes de \n rélexion</title> -->
-				<item image="images/splash/Architecture_Logicielle.jpg" />
+				<item image="splash/Architecture_Logicielle.jpg" />
 			</content>
 		</slide>
 
@@ -1535,7 +1535,7 @@
 		<!-- Les Design Pattern -->
 		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.pattern.PatternModel">
 			<title>Design pattern</title>
-			<content>
+			<content name="Text">
 				<title>Custom</title>
 
 				<item>Avec injections de dépendances</item>
@@ -1548,14 +1548,14 @@
 			<content name="PureMVC">
 				<title>PureMVC</title>
 				<item>Model View Controller + Facades</item>
-				<item image="images/pattern/puremvc.png" />
+				<item image="pattern/puremvc.png" />
 				<item link="true">puremvc.org/</item>
 			</content>
 
 			<content name="MVVM">
 				<title>MVVM</title>
 				<item>Model View ViewModel</item>
-				<item image="images/pattern/mvvm.png" />
+				<item image="pattern/mvvm.png" />
 				<item>+ *.xaml.cs => Controller :(</item>
 				<item level="1">par Microsoft</item>
 			</content>
@@ -1563,7 +1563,7 @@
 			<content name="Jacp">
 				<title>JacpFX</title>
 				<item>Java Asynchronous Client Platform</item>
-				<item image="images/pattern/JACP.png" />
+				<item image="pattern/JACP.png" />
 				<item level="1">avait une version Swing</item>
 				<item link="true">http://code.google.com/p/jacp/</item>
 			</content>
@@ -1571,7 +1571,7 @@
 			<content name="JRebirth">
 				<title>JRebirth WCS-MVC</title>
 				<item>Wave Command Service - Model View Controller</item>
-				<item image="images/pattern/JRebirth.png" />
+				<item image="pattern/JRebirth.png" />
 				<item level="1">utilisé pour cette démo</item>
 				<item link="true">www.jrebirth.org</item>
 			</content>
@@ -1589,7 +1589,7 @@
 		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel">
 			<content>
 				<!-- <title>Les Extras</title> -->
-				<item image="images/splash/Un_petit_extra.jpg" />
+				<item image="splash/Un_petit_extra.jpg" />
 			</content>
 		</slide>
 
@@ -1651,7 +1651,7 @@
 		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel"><!-- animation="Tile60k" -->
 			<content>
 				<!-- <title>RETEX à chaud !</title> -->
-				<item image="images/splash/Bilan.jpg" />
+				<item image="splash/Bilan.jpg" />
 			</content>
 		</slide>
 
@@ -1710,7 +1710,7 @@
 
 		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" hideAnimation="MoveToRight" showAnimation="FadeIn">
 			<content>
-				<item image="images/splash/Merci.png" />
+				<item image="splash/Merci.png" />
 			</content>
 		</slide>
 
@@ -1719,7 +1719,7 @@
 
 		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" showAnimation="MoveFromLeft">
 			<content>
-				<item image="images/splash/Q_and_R.png" />
+				<item image="splash/Q_and_R.png" />
 			</content>
 		</slide>
 

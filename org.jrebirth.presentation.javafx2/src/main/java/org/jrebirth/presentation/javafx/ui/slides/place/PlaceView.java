@@ -30,9 +30,9 @@ import javafx.scene.shape.CircleBuilder;
 import javafx.util.Duration;
 
 import org.jrebirth.core.exception.CoreException;
+import org.jrebirth.presentation.javafx.resources.JFXImages;
 import org.jrebirth.presentation.ui.base.AbstractSlideView;
 
-// TODO: Auto-generated Javadoc
 /**
  * 
  * The class <strong>IntroView</strong>.
@@ -67,7 +67,7 @@ public final class PlaceView extends AbstractSlideView<PlaceModel, Pane, PlaceCo
     protected void initView() {
 
         final ImageView toulouse = ImageViewBuilder.create()
-                .image(loadImage("images/intro/breizhcamp.jpg"))
+                .image(JFXImages.BZH.get())
                 // .fitHeight(Double.MAX_VALUE)
                 // .fitWidth(Double.MAX_VALUE)
                 .build();

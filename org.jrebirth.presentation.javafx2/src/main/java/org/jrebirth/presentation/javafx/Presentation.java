@@ -18,10 +18,8 @@
 package org.jrebirth.presentation.javafx;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
-import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
@@ -29,10 +27,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-import org.jrebirth.core.application.AbstractApplication;
+import org.jrebirth.core.application.DefaultApplication;
 import org.jrebirth.core.resource.font.FontItem;
 import org.jrebirth.core.ui.Model;
-import org.jrebirth.core.wave.Wave;
+import org.jrebirth.presentation.javafx.resources.JfxFonts;
 import org.jrebirth.presentation.ui.stack.StackModel;
 
 /**
@@ -43,7 +41,7 @@ import org.jrebirth.presentation.ui.stack.StackModel;
  * @author Sébastien Bordes
  * 
  */
-public final class Presentation extends AbstractApplication<StackPane> {
+public final class Presentation extends DefaultApplication<StackPane> {
 
     /**
      * Application launcher.
@@ -51,7 +49,8 @@ public final class Presentation extends AbstractApplication<StackPane> {
      * @param args the command line arguments
      */
     public static void main(final String... args) {
-        Application.launch(Presentation.class, args);
+
+        preloadAndLaunch(args);
     }
 
     /**
@@ -126,19 +125,4 @@ public final class Presentation extends AbstractApplication<StackPane> {
         });
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public List<Wave> getPreBootWaveList() {
-        return Collections.emptyList();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public List<Wave> getPostBootWaveList() {
-        return Collections.emptyList();
-    }
 }

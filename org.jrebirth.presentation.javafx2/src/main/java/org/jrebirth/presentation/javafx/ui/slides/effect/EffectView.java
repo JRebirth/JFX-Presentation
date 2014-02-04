@@ -83,23 +83,16 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 import org.jrebirth.core.exception.CoreException;
-import org.jrebirth.presentation.javafx.JfxColors;
+import org.jrebirth.presentation.javafx.resources.JFXImages;
+import org.jrebirth.presentation.javafx.resources.JfxColors;
 import org.jrebirth.presentation.ui.template.AbstractTemplateView;
 
-// TODO: Auto-generated Javadoc
 /**
- * 
  * The class <strong>PatternView</strong>.
  * 
  * @author Sébastien Bordes
  */
 public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPane, EffectController> {
-
-    /** The <code>CUSTOM_CAR</code> field is used to TODO. */
-    private static final String CUSTOM_CAR = "images/bg/Custom_Car.jpg";
-
-    /** The Constant ORANGE. */
-    private static final String ORANGE = "images/bg/fabric_texture_car.jpg";
 
     /** The Constant DECIMAL. */
     private static final NumberFormat DECIMAL = new DecimalFormat("0.0");
@@ -144,10 +137,10 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
      * @param fx the fx
      * @return the image view
      */
-    private ImageView displayImage(final String image, final Effect fx) {
+    private ImageView displayImage(final Image image, final Effect fx) {
         final ImageView iv = ImageViewBuilder.create()
                 .effect(fx)
-                .image(loadImage(image))
+                .image(image)
                 .build();
 
         return iv;
@@ -164,8 +157,9 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
      * @param fx the fx
      * @return the stack pane
      */
-    protected StackPane displayComparedImage(final String image, final Effect fx) {
-        final Image img = loadImage(image);
+    protected StackPane displayComparedImage(final Image image, final Effect fx) {
+
+        final Image img = image;
 
         final ImageView iv1 = ImageViewBuilder.create()
                 .image(img)
@@ -337,7 +331,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                 .bottomOpacity(0)
                 .build();
 
-        showEffectSubSlide(displayImage(CUSTOM_CAR, fx), displaySliders(buildSlider("Fraction", fx.fractionProperty(), 0, 1.0)));
+        showEffectSubSlide(displayImage(JFXImages.CUSTOM_CAR.get(), fx), displaySliders(buildSlider("Fraction", fx.fractionProperty(), 0, 1.0)));
 
         // BorderPane.setAlignment(getRootNode().getCenter(), Pos.TOP_CENTER);
 
@@ -351,7 +345,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
 
         final SepiaTone st = SepiaToneBuilder.create().level(1.0).build();
 
-        showEffectSubSlide(displayComparedImage(CUSTOM_CAR, st), displaySliders(buildSlider("Tone Level", st.levelProperty(), 0, 1.0)));
+        showEffectSubSlide(displayComparedImage(JFXImages.CUSTOM_CAR.get(), st), displaySliders(buildSlider("Tone Level", st.levelProperty(), 0, 1.0)));
 
         // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
     }
@@ -365,7 +359,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
         final Bloom b = BloomBuilder.create().threshold(0.5).build();
 
         showEffectSubSlide(
-                displayComparedImage(CUSTOM_CAR, b),
+                displayComparedImage(JFXImages.CUSTOM_CAR.get(), b),
                 displaySliders(buildSlider("Threshold", b.thresholdProperty(), 0, 1.0)));
 
         // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
@@ -385,7 +379,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                 .build();
 
         showEffectSubSlide(
-                displayImage(CUSTOM_CAR, fx),
+                displayImage(JFXImages.CUSTOM_CAR.get(), fx),
                 displaySliders(
                         buildSlider("Radius", fx.radiusProperty(), 0, 127.0),
                         buildSlider("Height", fx.heightProperty(), 0, 255.0),
@@ -408,7 +402,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                 .build();
 
         showEffectSubSlide(
-                displayImage(CUSTOM_CAR, fx),
+                displayImage(JFXImages.CUSTOM_CAR.get(), fx),
                 displaySliders(
                         buildSlider("Choke", fx.chokeProperty(), 0, 1.0),
                         buildSlider("Radius", fx.radiusProperty(), 0, 127.0),
@@ -432,7 +426,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                 .build();
 
         showEffectSubSlide(
-                displayImage(CUSTOM_CAR, fx),
+                displayImage(JFXImages.CUSTOM_CAR.get(), fx),
                 displaySliders(
                         buildIntegerSlider("Iteration", fx.iterationsProperty(), 0, 3),
                         buildSlider("Width", fx.widthProperty(), 0, 255),
@@ -453,7 +447,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                 .build();
 
         showEffectSubSlide(
-                displayComparedImage(CUSTOM_CAR, fx),
+                displayComparedImage(JFXImages.CUSTOM_CAR.get(), fx),
                 displaySliders(
                         buildSlider("Radius", fx.radiusProperty(), 0, 63.0),
                         buildSlider("Angle", fx.angleProperty(), 0, 360)));
@@ -470,7 +464,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                 .build();
 
         showEffectSubSlide(
-                displayComparedImage(CUSTOM_CAR, fx),
+                displayComparedImage(JFXImages.CUSTOM_CAR.get(), fx),
                 displaySliders(buildSlider("Radius", fx.radiusProperty(), 0, 63.0)));
 
         // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
@@ -488,7 +482,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                 .build();
 
         showEffectSubSlide(
-                displayComparedImage(CUSTOM_CAR, fx),
+                displayComparedImage(JFXImages.CUSTOM_CAR.get(), fx),
                 displaySliders(
                         buildSlider("Width", fx.widthProperty(), 0, 255.0),
                         buildSlider("Height", fx.heightProperty(), 0, 255.0),
@@ -508,7 +502,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                 .build();
 
         showEffectSubSlide(
-                displayComparedImage(CUSTOM_CAR, fx),
+                displayComparedImage(JFXImages.CUSTOM_CAR.get(), fx),
                 displaySliders(buildSlider("Level", fx.levelProperty(), 0, 1.0)));
 
         // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
@@ -530,7 +524,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                 .build();
 
         showEffectSubSlide(
-                displayImage(CUSTOM_CAR, fx),
+                displayImage(JFXImages.CUSTOM_CAR.get(), fx),
                 displaySliders(
                         buildSlider("Diffuse Constant", fx.diffuseConstantProperty(), 0, 2.0),
                         buildSlider("Specular Constant", fx.specularConstantProperty(), 0, 2.0),
@@ -558,7 +552,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                 .build();
 
         showEffectSubSlide(
-                displayImage(CUSTOM_CAR, fx),
+                displayImage(JFXImages.CUSTOM_CAR.get(), fx),
                 displaySliders(
                         buildSlider("ULX", fx.ulxProperty(), 0, 600.0),
                         buildSlider("ULY", fx.ulyProperty(), 0, 600.0),
@@ -583,12 +577,12 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
 
         final Blend fx = BlendBuilder.create()
                 .opacity(0.5)
-                .bottomInput(ImageInputBuilder.create().source(loadImage(CUSTOM_CAR)).build())
+                .bottomInput(ImageInputBuilder.create().source(JFXImages.CUSTOM_CAR.get()).build())
                 .mode(BlendMode.EXCLUSION)
                 .build();
 
         showEffectSubSlide(
-                displayImage(ORANGE, fx),
+                displayImage(JFXImages.ORANGE.get(), fx),
                 displaySliders(buildSlider("Opacity", fx.opacityProperty(), 0, 1.0)));
         // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
     }
@@ -607,7 +601,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                 .build();
 
         showEffectSubSlide(
-                displayImage(CUSTOM_CAR, fx),
+                displayImage(JFXImages.CUSTOM_CAR.get(), fx),
                 displaySliders(
                         buildSlider("Hue", fx.hueProperty(), -1.0, 1.0),
                         buildSlider("Saturation", fx.saturationProperty(), -1.0, 1.0),
@@ -643,7 +637,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
         dm.setMapData(map);
 
         showEffectSubSlide(
-                displayImage(CUSTOM_CAR, dm),
+                displayImage(JFXImages.CUSTOM_CAR.get(), dm),
                 displaySliders());
         // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
 

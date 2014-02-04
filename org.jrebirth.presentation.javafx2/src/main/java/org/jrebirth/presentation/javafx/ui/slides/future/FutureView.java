@@ -24,9 +24,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.PaneBuilder;
 
 import org.jrebirth.core.exception.CoreException;
+import org.jrebirth.presentation.javafx.resources.JFXImages;
 import org.jrebirth.presentation.ui.template.AbstractTemplateView;
 
-// TODO: Auto-generated Javadoc
 /**
  * 
  * The class <strong>IntroView</strong>.
@@ -63,7 +63,7 @@ public final class FutureView extends AbstractTemplateView<FutureModel, AnchorPa
 
         // this.layoutName.setText("Pane");
 
-        final Image app = loadImage("images/future/timeline.gif");
+        final Image app = JFXImages.TIMELINE.get();
         final ImageView appImageView = new ImageView(app);
 
         showCustomSlideStep(appImageView);

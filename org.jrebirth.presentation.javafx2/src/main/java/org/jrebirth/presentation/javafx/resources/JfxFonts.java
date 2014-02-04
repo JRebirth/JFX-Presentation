@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jrebirth.presentation.javafx;
+package org.jrebirth.presentation.javafx.resources;
 
 import javafx.scene.text.Font;
 
@@ -24,9 +24,8 @@ import org.jrebirth.core.resource.font.FontBuilder;
 import org.jrebirth.core.resource.font.FontItem;
 import org.jrebirth.core.resource.font.FontParams;
 import org.jrebirth.core.resource.font.RealFont;
-import org.jrebirth.presentation.resource.PrezFontNames;
+import org.jrebirth.presentation.resources.PrezFontNames;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class <strong>PrezFonts</strong>.
  * 

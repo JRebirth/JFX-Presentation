@@ -19,7 +19,6 @@ package org.jrebirth.presentation.javafx.ui.slides.node;
 
 import org.jrebirth.presentation.ui.base.SlideStep;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class <strong>NodeSlideStep</strong>.
  * 
