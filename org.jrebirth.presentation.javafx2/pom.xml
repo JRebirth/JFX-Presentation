@@ -19,7 +19,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<deployUrl>http://apps.jrebirth.org</deployUrl>
-		<deployPath>${project.artifactId}/${project.version}</deployPath>
+		<deployPath>breizhcamp/${project.version}</deployPath>
 
 		<jnlpFilename>Breizhcamp.jnlp</jnlpFilename>
 		<preloaderClass>org.jrebirth.preloader.JRebirthPreloader</preloaderClass>
