@@ -1,12 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-
 	<modelVersion>4.0.0</modelVersion>
 
+	<parent>
+		<groupId>org.jrebirth</groupId>
+		<artifactId>ria</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	
 	<groupId>org.jrebirth.presentation</groupId>
 	<artifactId>javafx2</artifactId>
-
 	<version>1.1.0-SNAPSHOT</version>
+	
 	<name>JavaFX 2.0 Presentation</name>
 	<url>http://www.jrebirth.org</url>
 	<description>Interactive Presentation of JavaFX2 capabilities</description>
@@ -14,18 +18,6 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<keystore>${project.basedir}/jfx-presentation.jks</keystore>
-		
-		<storepass>defaultpass</storepass>
-		<storetype>JKS</storetype>
-		
-		<keyalias>seb@jrebirth</keyalias>
-		<keypass>defaultpass</keypass>
-		
-		<deletekeystore>false</deletekeystore>
-		<genkeystore>false</genkeystore>
-
-		<permissions>all-permissions</permissions> <!-- sandbox -->
 		<deployUrl>http://apps.jrebirth.org</deployUrl>
 		<deployPath>${project.artifactId}/${project.version}</deployPath>
 
@@ -35,21 +27,10 @@
 
 		<appletWidth>1024</appletWidth>
 		<appletHeight>768</appletHeight>
-
-		<updateCheck>background</updateCheck>
-		<updatePolicy>prompt-update</updatePolicy>
+		
+		<ciJob>JFX-Presentation-master</ciJob>
 
 	</properties>
-
-	<issueManagement>
-		<system>YouTrack</system>
-		<url>http://bugs.jrebirth.org</url>
-	</issueManagement>
-
-	<ciManagement>
-		<system>Jenkins</system>
-		<url>http://ci.jrebirth.org/job/JFX-Presentation-Trunk/</url>
-	</ciManagement>
 
 	<scm>
 		<connection>scm:git:git://github.com/JRebirth/JFX-Presentation.git</connection>
@@ -73,144 +54,10 @@
 
 	<build>
 
-		<resources>
-			<resource>
-				<filtering>false</filtering>
-				<directory>${basedir}/src/main/java</directory>
-				<includes>
-					<include>**/*.fxml</include>
-					<include>**/*.txt</include>
-				</includes>
-			</resource>
-			<resource>
-				<filtering>true</filtering>
-				<directory>${basedir}/src/main/resources</directory>
-				<includes>
-					<include>**/*.*</include>
-				</includes>
-				<excludes>
-					<exclude>**/*.ttf</exclude>
-					<exclude>**/*.flv</exclude>
-				</excludes>
-			</resource>
-			<resource>
-				<filtering>false</filtering>
-				<directory>${basedir}/src/main/resources</directory>
-				<includes>
-					<include>**/*.ttf</include>
-					<include>**/*.flv</include>
-				</includes>
-			</resource>
-		</resources>
-
 		<plugins>
-
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.4</version>
-
-				<!-- <configuration> <archive> <manifestEntries> <JavaFX-Version>2.0</JavaFX-Version> <Main-Class>org.jrebirth.presentation.Presentation</Main-Class> <implementation-vendor>seb</implementation-vendor> 
-					<implementation-title>Prez</implementation-title> <implementation-version>1.0</implementation-version> <JavaFX-Application-Class>org.jrebirth.presentation.javafx.Presentation</JavaFX-Application-Class> 
-					<JavaFX-Class-Path>presentation-0.4.0-SNAPSHOT.jar jaxb-api-2.2.1.jar stax-api-1.0-2.jar activation-1.1.jar jaxb-impl-2.2.1.jar core-0.4.0-SNAPSHOT.jar</JavaFX-Class-Path> implementation-vendor: I implementation-title: 
-					Jrebirth demo implementation-version: 1.0 JavaFX-Application-Class: org.jrebirth.demo.JRebirthDemo Created-By: Maven Packager Main-Class: com/javafx/main/Main </manifestEntries> <manifest> <addDefaultImplementationEntries>true</addDefaultImplementationEntries> 
-					<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries> <addClasspath>true</addClasspath> </manifest> </archive> <keystore>jrebirth.jks</keystore> <alias>jrebirth</alias> <storepass>gojava</storepass> 
-					<signedjar>${project.build.directory}/signed/${project.build.finalName}.jar</signedjar> <verify>true</verify> </configuration> -->
-			</plugin>
-
-			<plugin>
-
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>webstart-maven-plugin</artifactId>
-				<version>1.0-beta-6</version>
-
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>jnlp</goal>
-						</goals>
-					</execution>
-				</executions>
-
-				<configuration>
-
-					<filenameMapping>full</filenameMapping>
-
-					<updateManifestEntries>
-						<Application-Name>${project.name}</Application-Name>
-						<Trusted-Library>true</Trusted-Library>
-						<Permissions>${permissions}</Permissions>
-						<Codebase>${deployUrl}/${deployPath}</Codebase>
-						<Trusted-Only>true</Trusted-Only>
-					</updateManifestEntries>
-
-
-					<jnlpFiles>${jrebirth.jnlp.filename}</jnlpFiles>
-					<excludeTransitive>false</excludeTransitive>
-					<libPath>lib</libPath>
-
-					<!-- <resourcesDirectory>${project.basedir}/src/main/jnlp/resources</resourcesDirectory> -->
-					<codebase>${deployUrl}/${deployPath}</codebase>
-
-					<jnlp>
-
-						<!-- <inputTemplateResourcePath>${project.basedir}</inputTemplateResourcePath> <inputTemplate>src/main/jnlp/template.vm</inputTemplate> -->
-						<outputFile>${jnlpFilename}</outputFile>
-						<mainClass>${appClass}</mainClass>
-						<offlineAllowed>true</offlineAllowed>
-						<allPermissions>true</allPermissions>
-
-					</jnlp>
-
-					<sign>
-						<keystore>${keystore}</keystore>
-						<!-- MUST BE PROVIDED BY COMMAND LINE ARGUMENTS -Dstorepass=xxx -Dkeypass=xxx -->
-						<keypass>${keypass}</keypass>
-						<storepass>${storepass}</storepass>
-						<storetype>${storetype}</storetype>
-						
-						<!--  <alias>id unizeto technologies s.a. de open source developer, bordes sébastien</alias>-->
-						<alias>seb@jrebirth</alias>
-						<!-- ${keyalias} -->
-						<!-- <validity>360</validity>
-						<dnameCn>JRebirth Self-signed Certificate</dnameCn>
-						<dnameOu>JRebirth OSS</dnameOu>
-						<dnameO>JRebirth</dnameO>
-						<dnameL>Toulouse</dnameL>
-						<dnameSt>Haute-Garonne</dnameSt>
-						<dnameC>FR</dnameC>
-						<verify>true</verify> -->
-						
-						<keystoreConfig>
-							<delete>${deletekeystore}</delete>
-							<gen>${genkeystore}</gen>
-						</keystoreConfig>
-						
-					</sign>
-
-					<pack200>
-						<enabled>true</enabled>
-					</pack200>
-					<gzip>true</gzip>
-
-					<outputJarVersions>false</outputJarVersions>
-
-					<install>false</install>
-					<verbose>true</verbose>
-				</configuration>
-
 			</plugin>
 		</plugins>
 
@@ -248,28 +95,5 @@
 		</dependency>
 
 	</dependencies>
-
-
-	<distributionManagement>
-
-		<repository>
-			<id>JRebirth-Release</id>
-			<name>JRebirth Releases Repository</name>
-			<url>http://repo.jrebirth.org/jrebirth-release-local</url>
-		</repository>
-
-		<snapshotRepository>
-			<id>JRebirth-Snapshot</id>
-			<name>JRebirth Snasphots Repository</name>
-			<url>http://repo.jrebirth.org/jrebirth-snapshot-local</url>
-		</snapshotRepository>
-
-		<site>
-			<id>JRebirth_Sites</id>
-			<name>JRebirth Sites</name>
-			<url>ftp://jrebirth.org/sites/${project.groupId}.${project.artifactId}-${project.version}</url>
-		</site>
-
-	</distributionManagement>
 
 </project>
