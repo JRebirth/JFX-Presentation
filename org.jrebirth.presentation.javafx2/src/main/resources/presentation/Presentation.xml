@@ -10,18 +10,18 @@
 		<speaker firstName="Sébastien" lastName="Bordes" email="contact@jrebirth.org" job="JRebirth" />
 	</speakers>
 
-	<slides defaultModelClass="org.jrebirth.presentation.ui.classic.ClassicModel">
+	<slides defaultModelClass="org.jrebirth.af.presentation.ui.classic.ClassicModel">
 
 		<!-- Conference Place -->
-		<slide style="place" modelClass="org.jrebirth.presentation.javafx.ui.slides.place.PlaceModel" showAnimation="SlidingTopBottomProgressive" hideAnimation="FadeOut">
+		<slide style="place" modelClass="org.jrebirth.af.presentation.javafx.ui.slides.place.PlaceModel" showAnimation="SlidingTopBottomProgressive" hideAnimation="FadeOut">
 		</slide>
 		
 		<!-- Presentation Title -->
-		<slide style="intro" modelClass="org.jrebirth.presentation.javafx.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="MoveToLeft">
+		<slide style="intro" modelClass="org.jrebirth.af.presentation.javafx.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="MoveToLeft">
 			<title>La Revolution\n\tJavaFX 2</title>
 		</slide>
 
-		<slide style="introbis" modelClass="org.jrebirth.presentation.javafx.ui.slides.intro.IntroModel" showAnimation="MoveFromRight" hideAnimation="MoveToLeft">
+		<slide style="introbis" modelClass="org.jrebirth.af.presentation.javafx.ui.slides.intro.IntroModel" showAnimation="MoveFromRight" hideAnimation="MoveToLeft">
 			<title>Prez.create()\n\t .title("How to")\n\t .build()\n\t .start();</title>
 		</slide>
 
@@ -69,24 +69,24 @@
 		<!-- ************************************************************************* -->
 
 		<!-- HOOK -->
-		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" style="doyousee">
+		<slide modelClass="org.jrebirth.af.presentation.ui.splash.SplashModel" style="doyousee">
 			<title>Avez-vous \ndéjà vu\n une application\n JavaFX 2 ?</title>
 		</slide>
 
 		<!-- HOOK -->
-		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" style="dogfooding">
+		<slide modelClass="org.jrebirth.af.presentation.ui.splash.SplashModel" style="dogfooding">
 			<title>Vraiment ??</title>
 		</slide>
 
-		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" style="raw">
+		<slide modelClass="org.jrebirth.af.presentation.ui.splash.SplashModel" style="raw">
 			<title>JavaFX != JAVA</title>
 		</slide>
 
-		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" style="raw">
+		<slide modelClass="org.jrebirth.af.presentation.ui.splash.SplashModel" style="raw">
 			<title>JavaFX 2\n IS \n JAVA</title>
 		</slide>
 
-		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" style="raw">
+		<slide modelClass="org.jrebirth.af.presentation.ui.splash.SplashModel" style="raw">
 			<title>En 2012\nJavaFX 2\n=\nJavaFX</title>
 		</slide>
 
@@ -106,7 +106,7 @@
 		</slide>
 
 		<!-- Les RIAs -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.why.WhyUseModel">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.why.WhyUseModel">
 			<title>Pourquoi choisir JavaFX 2 ?</title>
 			<content name="Who">
 				<title>Qui Fait Quoi</title>
@@ -199,7 +199,7 @@
 
 
 		<!-- HELLO -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.hello.HelloModel"  showAnimation="FadeIn" hideAnimation="FadeOut">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.hello.HelloModel"  showAnimation="FadeIn" hideAnimation="FadeOut">
 			<title>Hello Rennes</title>
 
 			<content name="Code">
@@ -216,7 +216,7 @@
 		<!-- ************************************************************************* -->
 		<!-- ************************************************************************* -->
 		<!-- HOOK -->
-		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel">
+		<slide modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel">
 			<content>
 				<!-- <title>API par l'exemple</title> -->
 				<item image="splash/Api.jpg" />
@@ -268,12 +268,12 @@
 			</content>
 		</slide>
 
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.tree.TreeModel">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.tree.TreeModel">
 			<title>Interface graphique</title>
 		</slide>
 
 		<!-- Stage et Scene -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.stage.StageModel">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.stage.StageModel">
 			<title>Stage et Scene</title>
 			
 			<content name="Text">
@@ -294,7 +294,7 @@
 		</slide>
 
 		<!-- Node -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.node.NodeModel" style="nodeContent">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.node.NodeModel" style="nodeContent">
 			<title>Node</title>
 
 			<content name="Text">
@@ -360,7 +360,7 @@
 		<!-- ************************************************************************* -->
 
 		<!-- HOOK LES ELEMENTS GRAPHIQUES -->
-		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel">
+		<slide modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel">
 			<content>
 				<!-- <title>Les éléments graphiques</title> -->
 				<item image="splash/Les_éléments_graphiques.jpg" />
@@ -368,7 +368,7 @@
 		</slide>
 
 		<!-- Layout -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.layout.LayoutModel" style="paneContent">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.layout.LayoutModel" style="paneContent">
 			<title>Layout</title>
 			<content name="Text">
 				<item image="uml/pane.png" />
@@ -425,7 +425,7 @@
 		</slide>
 
 		<!-- Shapes -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.shape.ShapeModel" style="shapeContent">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.shape.ShapeModel" style="shapeContent">
 			<title>Shape</title>
 			<content name="Text">
 				<item image="uml/shape.png" />
@@ -437,7 +437,7 @@
 		</slide>
 
 		<!-- Controls -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.control.ControlModel" style="controlContent">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.control.ControlModel" style="controlContent">
 			<title>Control</title>
 			<content name="Text">
 				<item image="uml/control.png" />
@@ -450,7 +450,7 @@
 		</slide>
 
 		<!-- Charts -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.chart.ChartModel">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.chart.ChartModel">
 			<title>Charts</title>
 			<content name="Chart">
 				<item image="uml/chart.png" />
@@ -464,7 +464,7 @@
 		</slide>
 
 		<!-- MEDIA -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.media.MediaModel">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.media.MediaModel">
 			<title>Media</title>
 			<content name="Text">
 				<item>Gestion de sons (mp3, wav, AIFF, AAC)</item>
@@ -481,7 +481,7 @@
 		</slide>
 
 		<!-- BROWSER -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.browser.BrowserModel">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.browser.BrowserModel">
 			<title>WebView et WebEngine</title>
 			<content name="Text">
 				<item>Manipulable comme un Node ordinaire</item>
@@ -506,7 +506,7 @@
 		<!-- ************************************************************************* -->
 
 		<!-- HOOK -->
-		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel">
+		<slide modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel">
 			<content>
 				<!-- <title>Le Design</title> -->
 				<item image="splash/Le_Design.jpg" />
@@ -515,7 +515,7 @@
 
 
 		<!-- FXML -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.fxml.FXMLModel">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.fxml.FXMLModel">
 			<title>FXML</title>
 			<content name="Text">
 				<item>Ecriture des vues en XML</item>
@@ -639,7 +639,7 @@
 		<!-- Largement inspiré de CSS 2.1 Background et border CSS3 -->
 
 		<!-- Les Ressources -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.resources.ResourcesModel">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.resources.ResourcesModel">
 			<title>Les Ressources</title>
 
 			<content name="Text">
@@ -677,7 +677,7 @@
 		<!-- ************************************************************************* -->
 
 		<!-- HOOK -->
-		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Tile">
+		<slide modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" animation="Tile">
 			<content>
 				<!-- <title>La Mécanique</title> -->
 				<item image="splash/La_Mécanique.jpg" />
@@ -719,7 +719,7 @@
 		</slide>
 
 		<!-- Handler -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.handler.HandlerModel">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.handler.HandlerModel">
 			<title>EventHandler et EventFilter</title>
 			<content name="Text">
 				<item>Capturing Phase</item>
@@ -758,7 +758,7 @@
 		</slide>
 
 		<!-- Properties -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.property.PropertyModel">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.property.PropertyModel">
 			<title>Observable et Binding</title>
 			<content name="Text">
 				<title>Collection</title>
@@ -945,7 +945,7 @@
 		<!-- ************************************************************************* -->
 		<!-- ************************************************************************* -->
 		<!-- HOOK -->
-		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Fade">
+		<slide modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" animation="Fade">
 			<content>
 				<!-- <title>L'enrichissement</title> -->
 				<item image="splash/L'enrichissement.jpg" />
@@ -974,7 +974,7 @@
 		</slide>
 
 		<!-- Transition -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.animation.AnimationModel">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.animation.AnimationModel">
 			<title>Animations</title>
 			<content name="Text">
 				<item>Groupées</item>
@@ -1288,7 +1288,7 @@
 		</slide>
 
 		<!-- Effets -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.effect.EffectModel">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.effect.EffectModel">
 			<title>Effets</title>
 			<content name="Text">
 				<item>node.setEffect(effect)</item>
@@ -1329,7 +1329,7 @@
 		<!-- ************************************************************************* -->
 
 		<!-- HOOK -->
-		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Fade">
+		<slide modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" animation="Fade">
 			<content>
 				<!-- <title>Intégration et Déploiement</title> -->
 				<item image="splash/Integration_et_deploiement.jpg" />
@@ -1408,7 +1408,7 @@
 		</slide>
 
 		<!-- Java Webstart -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.jws.JWSModel">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.jws.JWSModel">
 			<title>Java Webstart</title>
 			<content name="Text">
 				<item>Destiné à l'origine à Swing</item>
@@ -1473,7 +1473,7 @@
 <font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;/resources&gt;</font><br />
 <font color="#ffffff">&nbsp;&nbsp;</font><br />
 <font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;applet-desc&nbsp;&nbsp;width=</font><font color="#2a00ff">&#34;1024&#34;&nbsp;</font><font color="#000000">height=</font><font color="#2a00ff">&#34;768&#34;&nbsp;</font><font color="#000000">main-</font><font color="#7f0055"><b>class</b></font><font color="#000000">=</font><font color="#2a00ff">&#34;com.javafx.main.NoJavaFXFallback&#34;&nbsp;&nbsp;</font><font color="#000000">name=</font><font color="#2a00ff">&#34;JavaFX&nbsp;2.0&nbsp;Presentation&#34;&nbsp;</font><font color="#000000">/&gt;</font><br />
-<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;jfx:javafx-desc&nbsp;&nbsp;width=</font><font color="#2a00ff">&#34;1024&#34;&nbsp;</font><font color="#000000">height=</font><font color="#2a00ff">&#34;768&#34;&nbsp;</font><font color="#000000">main-</font><font color="#7f0055"><b>class</b></font><font color="#000000">=</font><font color="#2a00ff">&#34;org.jrebirth.presentation.Presentation&#34;&nbsp;&nbsp;</font><font color="#000000">name=</font><font color="#2a00ff">&#34;JavaFX&nbsp;2.0&nbsp;Presentation&#34;&nbsp;</font><font color="#000000">/&gt;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;jfx:javafx-desc&nbsp;&nbsp;width=</font><font color="#2a00ff">&#34;1024&#34;&nbsp;</font><font color="#000000">height=</font><font color="#2a00ff">&#34;768&#34;&nbsp;</font><font color="#000000">main-</font><font color="#7f0055"><b>class</b></font><font color="#000000">=</font><font color="#2a00ff">&#34;org.jrebirth.af.presentation.Presentation&#34;&nbsp;&nbsp;</font><font color="#000000">name=</font><font color="#2a00ff">&#34;JavaFX&nbsp;2.0&nbsp;Presentation&#34;&nbsp;</font><font color="#000000">/&gt;</font><br />
 <font color="#ffffff">&nbsp;&nbsp;</font><br />
 <font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">&lt;update&nbsp;check=</font><font color="#2a00ff">&#34;timeout&#34;</font>&nbsp;policy=</font><font color="#2a00ff">&#34;prompt-update&#34;</font><font color="#000000">/&gt;</font><br />
 <font color="#000000">&lt;/jnlp&gt;</font></code>
@@ -1504,7 +1504,7 @@
 		<!-- ************************************************************************* -->
 
 		<!-- HOOK Architecture Logicielle -->
-		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" animation="Tile">
+		<slide modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" animation="Tile">
 			<content>
 				<!-- <title>Architecture Logicielle\n quelques pistes de \n rélexion</title> -->
 				<item image="splash/Architecture_Logicielle.jpg" />
@@ -1533,7 +1533,7 @@
 		</slide>
 
 		<!-- Les Design Pattern -->
-		<slide modelClass="org.jrebirth.presentation.javafx.ui.slides.pattern.PatternModel">
+		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.pattern.PatternModel">
 			<title>Design pattern</title>
 			<content name="Text">
 				<title>Custom</title>
@@ -1586,7 +1586,7 @@
 		<!-- ************************************************************************* -->
 
 		<!-- HOOK -->
-		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel">
+		<slide modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel">
 			<content>
 				<!-- <title>Les Extras</title> -->
 				<item image="splash/Un_petit_extra.jpg" />
@@ -1648,7 +1648,7 @@
 
 		<!-- Wake Up ! -->
 
-		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel"><!-- animation="Tile60k" -->
+		<slide modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel"><!-- animation="Tile60k" -->
 			<content>
 				<!-- <title>RETEX à chaud !</title> -->
 				<item image="splash/Bilan.jpg" />
@@ -1706,18 +1706,18 @@
 		</slide>
 
 		<!-- THX -->
-		<!-- <slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" hideAnimation="MoveToRight"> <title>Merci\nde votre attention</title> </slide> -->
+		<!-- <slide modelClass="org.jrebirth.af.presentation.ui.splash.SplashModel" hideAnimation="MoveToRight"> <title>Merci\nde votre attention</title> </slide> -->
 
-		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" hideAnimation="MoveToRight" showAnimation="FadeIn">
+		<slide modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" hideAnimation="MoveToRight" showAnimation="FadeIn">
 			<content>
 				<item image="splash/Merci.png" />
 			</content>
 		</slide>
 
 		<!-- Des Questions -->
-		<!-- <slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel"> <title>Avez-vous des\nquestions ?</title> </slide> -->
+		<!-- <slide modelClass="org.jrebirth.af.presentation.ui.splash.SplashModel"> <title>Avez-vous des\nquestions ?</title> </slide> -->
 
-		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" showAnimation="MoveFromLeft">
+		<slide modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="MoveFromLeft">
 			<content>
 				<item image="splash/Q_and_R.png" />
 			</content>
