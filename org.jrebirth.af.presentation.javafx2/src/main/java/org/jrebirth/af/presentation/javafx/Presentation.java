@@ -31,7 +31,7 @@ import org.jrebirth.af.core.application.DefaultApplication;
 import org.jrebirth.af.core.resource.font.FontItem;
 import org.jrebirth.af.core.ui.Model;
 import org.jrebirth.af.presentation.javafx.resources.JfxFonts;
-import org.jrebirth.af.presentation.ui.stack.StackModel;
+import org.jrebirth.af.presentation.ui.stack.SlideStackModel;
 
 /**
  * The class <strong>Presentation</strong>.
@@ -58,7 +58,7 @@ public final class Presentation extends DefaultApplication<StackPane> {
      */
     @Override
     public Class<? extends Model> getFirstModelClass() {
-        return StackModel.class;
+        return SlideStackModel.class;
     }
 
     /**
