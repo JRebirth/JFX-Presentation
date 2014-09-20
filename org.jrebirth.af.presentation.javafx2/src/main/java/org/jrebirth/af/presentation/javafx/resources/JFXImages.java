@@ -19,7 +19,7 @@ package org.jrebirth.af.presentation.javafx.resources;
 
 import org.jrebirth.af.core.resource.image.ImageExtension;
 import org.jrebirth.af.core.resource.image.ImageItem;
-import org.jrebirth.af.core.resource.image.LocalImage;
+import org.jrebirth.af.core.resource.image.RelImage;
 
 import static org.jrebirth.af.core.resource.Resources.create;
 
@@ -29,21 +29,21 @@ import static org.jrebirth.af.core.resource.Resources.create;
 public interface JFXImages {
 
     /** . */
-    ImageItem CUSTOM_CAR = create(new LocalImage("bg", "Custom_Car", ImageExtension.JPG));
+    ImageItem CUSTOM_CAR = create(new RelImage("bg", "Custom_Car", ImageExtension.JPG));
 
     /** . */
-    ImageItem ORANGE = create(new LocalImage("bg", "fabric_texture_car", ImageExtension.JPG));
+    ImageItem ORANGE = create(new RelImage("bg", "fabric_texture_car", ImageExtension.JPG));
 
     /** . */
-    ImageItem TIMELINE = create(new LocalImage("future", "timeline", ImageExtension.GIF));
+    ImageItem TIMELINE = create(new RelImage("future", "timeline", ImageExtension.GIF));
 
     /** . */
-    ImageItem BZH = create(new LocalImage("intro", "breizhcamp", ImageExtension.JPG));
+    ImageItem BZH = create(new RelImage("intro", "breizhcamp", ImageExtension.JPG));
 
     /** . */
-    ImageItem NODE = create(new LocalImage("tree", "think_node", ImageExtension.JPG));
+    ImageItem NODE = create(new RelImage("tree", "think_node", ImageExtension.JPG));
 
     /** . */
-    ImageItem TREE = create(new LocalImage("tree", "think_tree", ImageExtension.JPG));
+    ImageItem TREE = create(new RelImage("tree", "think_tree", ImageExtension.JPG));
 
 }
