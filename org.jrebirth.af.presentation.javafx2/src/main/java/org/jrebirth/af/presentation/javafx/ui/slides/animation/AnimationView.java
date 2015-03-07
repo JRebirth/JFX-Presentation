@@ -38,7 +38,7 @@ import javafx.scene.shape.RectangleBuilder;
 import javafx.scene.shape.SVGPathBuilder;
 import javafx.util.Duration;
 
-import org.jrebirth.af.core.exception.CoreException;
+import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.javafx.resources.JfxColors;
 import org.jrebirth.af.presentation.ui.template.AbstractTemplateView;
 

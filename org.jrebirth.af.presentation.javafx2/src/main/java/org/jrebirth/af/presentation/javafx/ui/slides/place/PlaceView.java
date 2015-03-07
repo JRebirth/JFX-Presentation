@@ -29,7 +29,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.CircleBuilder;
 import javafx.util.Duration;
 
-import org.jrebirth.af.core.exception.CoreException;
+import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.javafx.resources.JFXImages;
 import org.jrebirth.af.presentation.ui.base.AbstractSlideView;
 
@@ -67,10 +67,10 @@ public final class PlaceView extends AbstractSlideView<PlaceModel, Pane, PlaceCo
     protected void initView() {
 
         final ImageView toulouse = ImageViewBuilder.create()
-                .image(JFXImages.BZH.get())
-                // .fitHeight(Double.MAX_VALUE)
-                // .fitWidth(Double.MAX_VALUE)
-                .build();
+                                                   .image(JFXImages.BZH.get())
+                                                   // .fitHeight(Double.MAX_VALUE)
+                                                   // .fitWidth(Double.MAX_VALUE)
+                                                   .build();
 
         getRootNode().getChildren().add(toulouse);
 
@@ -93,14 +93,14 @@ public final class PlaceView extends AbstractSlideView<PlaceModel, Pane, PlaceCo
 
         this.bubbleAnimation = ParallelTransitionBuilder.create().children(
 
-                getFadeTransitionBuilder().node(yellowCircle).build(),
-                getFadeTransitionBuilder().node(greenCircle).build(),
-                getFadeTransitionBuilder().node(pinkCircle).build(),
-                getFadeTransitionBuilder().node(blueCircle).build(),
-                getFadeTransitionBuilder().node(lightOrangeCircle).build(),
-                getFadeTransitionBuilder().node(darkOrangeCircle).build()
+                                                                           getFadeTransitionBuilder().node(yellowCircle).build(),
+                                                                           getFadeTransitionBuilder().node(greenCircle).build(),
+                                                                           getFadeTransitionBuilder().node(pinkCircle).build(),
+                                                                           getFadeTransitionBuilder().node(blueCircle).build(),
+                                                                           getFadeTransitionBuilder().node(lightOrangeCircle).build(),
+                                                                           getFadeTransitionBuilder().node(darkOrangeCircle).build()
 
-                ).build();
+                                                        ).build();
     }
 
     /**
@@ -119,12 +119,12 @@ public final class PlaceView extends AbstractSlideView<PlaceModel, Pane, PlaceCo
      */
     private FadeTransitionBuilder getFadeTransitionBuilder() {
         return FadeTransitionBuilder.create()
-                .fromValue(0)
-                .toValue(1.0)
-                // .cycleCount(Animation.INDEFINITE)
-                .autoReverse(true)
-                .duration(Duration.millis(this.r.nextInt() % 2000 + 1000))
-                .delay(Duration.millis(this.r.nextInt() % 400 + 400));
+                                    .fromValue(0)
+                                    .toValue(1.0)
+                                    // .cycleCount(Animation.INDEFINITE)
+                                    .autoReverse(true)
+                                    .duration(Duration.millis(this.r.nextInt(Integer.MAX_VALUE) % 2000 + 1000))
+                                    .delay(Duration.millis(this.r.nextInt(Integer.MAX_VALUE) % 400 + 400));
     }
 
     /**

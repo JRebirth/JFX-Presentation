@@ -19,10 +19,10 @@ package org.jrebirth.af.presentation.javafx.resources;
 
 import javafx.scene.text.Font;
 
+import org.jrebirth.af.api.resource.font.FontItem;
+import org.jrebirth.af.api.resource.font.FontParams;
 import org.jrebirth.af.core.resource.ResourceBuilders;
 import org.jrebirth.af.core.resource.font.FontBuilder;
-import org.jrebirth.af.core.resource.font.FontItem;
-import org.jrebirth.af.core.resource.font.FontParams;
 import org.jrebirth.af.core.resource.font.RealFont;
 import org.jrebirth.af.presentation.resources.PrezFontNames;
 

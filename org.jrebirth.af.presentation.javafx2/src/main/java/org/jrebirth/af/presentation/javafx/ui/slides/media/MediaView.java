@@ -30,7 +30,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
-import org.jrebirth.af.core.exception.CoreException;
+import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.ui.template.AbstractTemplateView;
 
 // TODO: Auto-generated Javadoc

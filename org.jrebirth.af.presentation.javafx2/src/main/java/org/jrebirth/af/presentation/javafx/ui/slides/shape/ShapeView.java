@@ -53,7 +53,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
-import org.jrebirth.af.core.exception.CoreException;
+import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.javafx.resources.JfxColors;
 import org.jrebirth.af.presentation.ui.template.AbstractTemplateView;
 

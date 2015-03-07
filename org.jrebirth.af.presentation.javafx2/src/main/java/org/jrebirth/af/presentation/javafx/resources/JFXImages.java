@@ -17,11 +17,11 @@
  */
 package org.jrebirth.af.presentation.javafx.resources;
 
-import org.jrebirth.af.core.resource.image.ImageExtension;
-import org.jrebirth.af.core.resource.image.ImageItem;
-import org.jrebirth.af.core.resource.image.RelImage;
-
 import static org.jrebirth.af.core.resource.Resources.create;
+
+import org.jrebirth.af.api.resource.image.ImageExtension;
+import org.jrebirth.af.api.resource.image.ImageItem;
+import org.jrebirth.af.core.resource.image.RelImage;
 
 /**
  * The JFXImages interface providing all application images.

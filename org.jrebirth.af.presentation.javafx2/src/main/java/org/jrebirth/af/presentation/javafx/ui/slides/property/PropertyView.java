@@ -37,7 +37,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.CircleBuilder;
 
-import org.jrebirth.af.core.exception.CoreException;
+import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.javafx.resources.JfxColors;
 import org.jrebirth.af.presentation.ui.template.AbstractTemplateView;
 

@@ -20,7 +20,7 @@ package org.jrebirth.af.presentation.javafx.ui.slides.browser;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
-import org.jrebirth.af.core.exception.CoreException;
+import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.core.ui.adapter.DefaultMouseAdapter;
 import org.jrebirth.af.presentation.command.ShowNextSlideCommand;
 import org.jrebirth.af.presentation.command.ShowPreviousSlideCommand;

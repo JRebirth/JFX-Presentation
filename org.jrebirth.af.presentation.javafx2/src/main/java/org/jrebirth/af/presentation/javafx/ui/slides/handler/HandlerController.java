@@ -21,7 +21,7 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 
-import org.jrebirth.af.core.exception.CoreException;
+import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.ui.template.AbstractTemplateController;
 
 // TODO: Auto-generated Javadoc

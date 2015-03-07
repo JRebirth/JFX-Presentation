@@ -19,13 +19,20 @@ package org.jrebirth.af.presentation.javafx.ui.slides.browser;
 
 import org.jrebirth.af.presentation.ui.template.AbstractTemplateModel;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class <strong>BrowserModel</strong>.
  * 
  * @author Sébastien Bordes
  */
 public final class BrowserModel extends AbstractTemplateModel<BrowserModel, BrowserView, BrowserSlideStep> {
+
+    /**
+     * Default Constructor.
+     */
+    public BrowserModel() {
+        super();
+        this.createViewIntoJAT = true;
+    }
 
     /**
      * {@inheritDoc}

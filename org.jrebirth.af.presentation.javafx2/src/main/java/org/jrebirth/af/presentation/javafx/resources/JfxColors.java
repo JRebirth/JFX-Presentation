@@ -17,14 +17,7 @@
  */
 package org.jrebirth.af.presentation.javafx.resources;
 
-import javafx.scene.paint.Color;
-
-import org.jrebirth.af.core.resource.ResourceBuilders;
-import org.jrebirth.af.core.resource.color.ColorBuilder;
-import org.jrebirth.af.core.resource.color.ColorItem;
-import org.jrebirth.af.core.resource.color.ColorParams;
-import org.jrebirth.af.core.resource.color.RGB255Color;
-import org.jrebirth.af.core.resource.color.WebColor;
+import org.jrebirth.af.core.resource.color.ColorEnum;
 
 /**
  * The class <strong>PrezColors</strong>.
@@ -32,54 +25,32 @@ import org.jrebirth.af.core.resource.color.WebColor;
  * @author Sébastien Bordes
  * 
  */
-public enum JfxColors implements ColorItem {
+public enum JfxColors implements ColorEnum {
+
+    // @formatter:off
 
     /** The slide title. */
-    SLIDE_TITLE(new WebColor("0088D3", 1.0)),
+    SLIDE_TITLE {{ web("0088D3", 1.0); }},
 
     /** The shape blue. */
-    SHAPE_BLUE(new WebColor("3495CE", 1.0)),
+    SHAPE_BLUE {{ web("3495CE", 1.0); }},
 
     /** The drop shadow. */
-    DROP_SHADOW(new WebColor("000000", 0.8)),
+    DROP_SHADOW {{ web("000000", 0.8); }},
 
     /** The inner shadow. */
-    INNER_SHADOW(new WebColor("FFFFFF", 0.3)),
+    INNER_SHADOW {{ web("FFFFFF", 0.3); }},
 
     /** The GRADIEN t_1. */
-    GRADIENT_1(new WebColor("1AA2AC", 1.0)),
+    GRADIENT_1 {{ web("1AA2AC", 1.0); }},
 
     /** The GRADIEN t_2. */
-    GRADIENT_2(new WebColor("F04F24", 1.0)),
+    GRADIENT_2 {{ web("F04F24", 1.0); }},
 
     /** The GRADIEN t_3. */
-    GRADIENT_3(new WebColor("FFF200", 1.0)),
+    GRADIENT_3 {{ web("FFF200", 1.0); }},
 
     /** The splash text. */
-    SPLASH_TEXT(new RGB255Color(60, 60, 70));
+    SPLASH_TEXT {{ rgb255(60, 60, 70); }};
 
-    /**
-     * Private Constructor.
-     * 
-     * @param colorParams the primitive values for the color
-     */
-    private JfxColors(final ColorParams colorParams) {
-        builder().storeParams(this, colorParams);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Color get() {
-        return builder().get(this);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public ColorBuilder builder() {
-        return ResourceBuilders.COLOR_BUILDER;
-    }
 }

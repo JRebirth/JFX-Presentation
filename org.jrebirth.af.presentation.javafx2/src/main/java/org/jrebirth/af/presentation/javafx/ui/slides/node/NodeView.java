@@ -36,7 +36,7 @@ import javafx.scene.transform.Rotate;
 import javafx.scene.transform.RotateBuilder;
 import javafx.scene.transform.TranslateBuilder;
 
-import org.jrebirth.af.core.exception.CoreException;
+import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.ui.template.AbstractTemplateView;
 
 // TODO: Auto-generated Javadoc

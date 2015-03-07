@@ -62,7 +62,7 @@ import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.web.HTMLEditor;
 import javafx.util.Pair;
 
-import org.jrebirth.af.core.exception.CoreException;
+import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.ui.template.AbstractTemplateView;
 
 // TODO: Auto-generated Javadoc

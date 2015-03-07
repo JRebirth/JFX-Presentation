@@ -28,7 +28,7 @@ import javafx.scene.paint.RadialGradientBuilder;
 import javafx.scene.paint.StopBuilder;
 import javafx.scene.shape.RectangleBuilder;
 
-import org.jrebirth.af.core.exception.CoreException;
+import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.javafx.resources.JfxColors;
 import org.jrebirth.af.presentation.ui.template.AbstractTemplateView;
 

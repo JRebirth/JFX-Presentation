@@ -39,7 +39,7 @@ import javafx.scene.layout.StackPaneBuilder;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
-import org.jrebirth.af.core.exception.CoreException;
+import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.javafx.resources.JFXImages;
 import org.jrebirth.af.presentation.resources.PrezFonts;
 import org.jrebirth.af.presentation.ui.template.AbstractTemplateView;

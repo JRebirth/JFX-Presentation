@@ -82,7 +82,7 @@ import javafx.scene.layout.StackPaneBuilder;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-import org.jrebirth.af.core.exception.CoreException;
+import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.javafx.resources.JFXImages;
 import org.jrebirth.af.presentation.javafx.resources.JfxColors;
 import org.jrebirth.af.presentation.ui.template.AbstractTemplateView;

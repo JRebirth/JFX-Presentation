@@ -34,7 +34,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageBuilder;
 import javafx.stage.StageStyle;
 
-import org.jrebirth.af.core.exception.CoreException;
+import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.javafx.resources.JfxColors;
 import org.jrebirth.af.presentation.javafx.resources.JfxFonts;
 import org.jrebirth.af.presentation.ui.template.AbstractTemplateView;

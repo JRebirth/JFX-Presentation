@@ -44,7 +44,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
-import org.jrebirth.af.core.exception.CoreException;
+import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.javafx.ui.slides.lang.CandleStickChart;
 import org.jrebirth.af.presentation.javafx.ui.slides.lang.CandleStickExtraValues;
 import org.jrebirth.af.presentation.ui.template.AbstractTemplateView;

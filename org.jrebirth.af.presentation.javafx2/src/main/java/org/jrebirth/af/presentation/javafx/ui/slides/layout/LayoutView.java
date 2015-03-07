@@ -56,7 +56,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.paint.Color;
 
-import org.jrebirth.af.core.exception.CoreException;
+import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.ui.template.AbstractTemplateView;
 
 // TODO: Auto-generated Javadoc

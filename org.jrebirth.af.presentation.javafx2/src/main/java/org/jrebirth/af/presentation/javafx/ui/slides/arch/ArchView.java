@@ -23,8 +23,8 @@ import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
-import org.jrebirth.af.core.exception.CoreException;
-import org.jrebirth.af.core.ui.fxml.FXMLComponent;
+import org.jrebirth.af.api.exception.CoreException;
+import org.jrebirth.af.api.ui.fxml.FXMLComponent;
 import org.jrebirth.af.core.ui.fxml.FXMLUtils;
 import org.jrebirth.af.presentation.ui.template.AbstractTemplateView;
 
