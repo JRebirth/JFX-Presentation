@@ -63,19 +63,19 @@ public final class HandlerController extends AbstractTemplateController<HandlerM
         final HandlerMouseAdapter handler = new HandlerMouseAdapter();
 
         // Listen mouse event on the root node
-        getView().getStage().addEventFilter(MouseEvent.MOUSE_CLICKED, filter);
-        getView().getScene().addEventFilter(MouseEvent.MOUSE_CLICKED, filter);
-        getView().getBorderPane().addEventFilter(MouseEvent.MOUSE_CLICKED, filter);
-        getView().getTop().addEventFilter(MouseEvent.MOUSE_CLICKED, filter);
-        getView().getCenter().addEventFilter(MouseEvent.MOUSE_CLICKED, filter);
-        getView().getButton().addEventFilter(MouseEvent.MOUSE_CLICKED, filter);
+        view().getStage().addEventFilter(MouseEvent.MOUSE_CLICKED, filter);
+        view().scene().addEventFilter(MouseEvent.MOUSE_CLICKED, filter);
+        view().getBorderPane().addEventFilter(MouseEvent.MOUSE_CLICKED, filter);
+        view().getTop().addEventFilter(MouseEvent.MOUSE_CLICKED, filter);
+        view().getCenter().addEventFilter(MouseEvent.MOUSE_CLICKED, filter);
+        view().getButton().addEventFilter(MouseEvent.MOUSE_CLICKED, filter);
 
-        getView().getStage().addEventHandler(MouseEvent.MOUSE_CLICKED, handler);
-        getView().getScene().addEventHandler(MouseEvent.MOUSE_CLICKED, handler);
-        getView().getBorderPane().addEventHandler(MouseEvent.MOUSE_CLICKED, handler);
-        getView().getTop().addEventHandler(MouseEvent.MOUSE_CLICKED, handler);
-        getView().getCenter().addEventHandler(MouseEvent.MOUSE_CLICKED, handler);
-        getView().getButton().addEventHandler(MouseEvent.MOUSE_CLICKED, handler);
+        view().getStage().addEventHandler(MouseEvent.MOUSE_CLICKED, handler);
+        view().scene().addEventHandler(MouseEvent.MOUSE_CLICKED, handler);
+        view().getBorderPane().addEventHandler(MouseEvent.MOUSE_CLICKED, handler);
+        view().getTop().addEventHandler(MouseEvent.MOUSE_CLICKED, handler);
+        view().getCenter().addEventHandler(MouseEvent.MOUSE_CLICKED, handler);
+        view().getButton().addEventHandler(MouseEvent.MOUSE_CLICKED, handler);
 
     }
 
@@ -91,28 +91,28 @@ public final class HandlerController extends AbstractTemplateController<HandlerM
          */
         @Override
         public void handle(final MouseEvent mouseEvent) {
-            final String console = getView().getCenter().getText();
+            final String console = view().getCenter().getText();
 
             if (mouseEvent.getButton() == MouseButton.PRIMARY) {
 
-                getView().getCenter().setText(
+                view().getCenter().setText(
                         console + "\n Bubble (handler) : " + mouseEvent.getSource().getClass().getSimpleName() + " (from " + mouseEvent.getTarget().getClass().getSimpleName() + ")");
 
-                if (mouseEvent.getSource().equals(getView().getButton())) {
-                    getView().getCenter().clear();
+                if (mouseEvent.getSource().equals(view().getButton())) {
+                    view().getCenter().clear();
                 }
 
             } else if (mouseEvent.getButton() == MouseButton.SECONDARY) {
 
-                getView().getCenter().setText(
+                view().getCenter().setText(
                         console + "\n Bubble (handler) : " + mouseEvent.getSource().getClass().getSimpleName() + " (from " + mouseEvent.getTarget().getClass().getSimpleName() + ")");
-                if (mouseEvent.getSource().equals(getView().getBorderPane())) {
+                if (mouseEvent.getSource().equals(view().getBorderPane())) {
                     mouseEvent.consume();
-                    getView().getCenter().setText(console + "\n Consumed by border pane handler");
+                    view().getCenter().setText(console + "\n Consumed by border pane handler");
                 }
 
             } else if (mouseEvent.getButton() == MouseButton.MIDDLE) {
-                getView().getStage().close();
+                view().getStage().close();
             }
         }
     }
@@ -129,15 +129,15 @@ public final class HandlerController extends AbstractTemplateController<HandlerM
          */
         @Override
         public void handle(final MouseEvent mouseEvent) {
-            final String console = getView().getCenter().getText();
+            final String console = view().getCenter().getText();
 
             if (mouseEvent.getButton() == MouseButton.PRIMARY) {
 
-                getView().getCenter().setText(
+                view().getCenter().setText(
                         console + "\n Capture (filter) : " + mouseEvent.getSource().getClass().getSimpleName() + " (from " + mouseEvent.getTarget().getClass().getSimpleName() + ")");
 
             } else if (mouseEvent.getButton() == MouseButton.SECONDARY) {
-                getView().getCenter().setText(
+                view().getCenter().setText(
                         console + "\n Capture (filter) : " + mouseEvent.getSource().getClass().getSimpleName() + " (from " + mouseEvent.getTarget().getClass().getSimpleName() + ")");
             }
 

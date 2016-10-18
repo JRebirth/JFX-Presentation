@@ -119,7 +119,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
 
         this.boxEffect = InnerShadowBuilder.create().blurType(BlurType.THREE_PASS_BOX).radius(8.0).offsetX(2).offsetY(2).color(Color.WHITE).build();
 
-        getRootNode().setMaxSize(1000, 750);
+        node().setMaxSize(1000, 750);
     }
 
     /**
@@ -127,7 +127,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
      */
     @Override
     protected Node getContentPanel() {
-        return buildDefaultContent(getModel().getDefaultContent());
+        return buildDefaultContent(model().getDefaultContent());
     }
 
     /**
@@ -167,7 +167,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
      * Show the slide text.
      */
     public void showText() {
-        // getRootNode().setCenter(getContentPanel());
+        // node().setCenter(getContentPanel());
     }
 
     /**
@@ -189,7 +189,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         // BorderPane.setAlignment(p, Pos.CENTER);
         // BorderPane.setMargin(p, new Insets(40));
 
-        // getRootNode().setCenter(p);
+        // node().setCenter(p);
         showCustomSlideStep(p);
     }
 
@@ -215,7 +215,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         BorderPane.setAlignment(bp, Pos.CENTER);
         BorderPane.setMargin(bp, new Insets(40));
 
-        // getRootNode().setCenter(bp);
+        // node().setCenter(bp);
 
         showCustomSlideStep(bp);
     }
@@ -255,7 +255,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         BorderPane.setAlignment(sp, Pos.CENTER);
         BorderPane.setMargin(sp, new Insets(40));
 
-        // getRootNode().setCenter(sp);
+        // node().setCenter(sp);
         showCustomSlideStep(sp);
     }
 
@@ -284,7 +284,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         BorderPane.setAlignment(hb, Pos.CENTER);
         BorderPane.setMargin(hb, new Insets(40));
 
-        // getRootNode().setCenter(hb);
+        // node().setCenter(hb);
         showCustomSlideStep(hb);
     }
 
@@ -307,7 +307,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         BorderPane.setAlignment(vb, Pos.CENTER);
         BorderPane.setMargin(vb, new Insets(40));
 
-        // getRootNode().setCenter(vb);
+        // node().setCenter(vb);
         showCustomSlideStep(vb);
     }
 
@@ -327,7 +327,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         flow1.setColumnHalignment(HPos.RIGHT); // align labels on left
         flow1.setPrefWrapLength(400); // preferred height = 200
         for (int i = 0; i < 10; i++) {
-            flow1.getChildren().add(stackPane(100 + r.nextInt() % 60, 50 + r.nextInt() % 30, Pos.CENTER, label("Pane " + i).build(), BG_2).build());
+            flow1.getChildren().add(stackPane(100 + r.nextInt(Integer.MAX_VALUE) % 60, 50 + r.nextInt(Integer.MAX_VALUE) % 30, Pos.CENTER, label("Pane " + i).build(), BG_2).build());
         }
         flow1.setStyle(BG_5);
 
@@ -338,7 +338,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         flow2.setRowValignment(VPos.BOTTOM); // align labels on left
         flow2.setPrefWrapLength(400); // preferred height = 200
         for (int i = 0; i < 10; i++) {
-            flow2.getChildren().add(stackPane(100 + r.nextInt() % 60, 50 + r.nextInt() % 30, Pos.CENTER, label("Pane " + i).build(), BG_3).build());
+            flow2.getChildren().add(stackPane(100 + r.nextInt(Integer.MAX_VALUE) % 60, 50 + r.nextInt(Integer.MAX_VALUE) % 30, Pos.CENTER, label("Pane " + i).build(), BG_3).build());
         }
         flow2.setStyle(BG_4);
 
@@ -353,7 +353,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         // StackPane.setAlignment(v2, Pos.CENTER_RIGHT);
         // StackPane.setMargin(v2, new Insets(40));
 
-        // getRootNode().setCenter(TilePaneBuilder.create()
+        // node().setCenter(TilePaneBuilder.create()
         // .orientation(Orientation.HORIZONTAL)
         // .alignment(Pos.CENTER)
         // .prefWidth(600)
@@ -362,12 +362,12 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         // .build());
 
         final HBox hb = HBoxBuilder.create()
-                .alignment(Pos.CENTER)
-                .spacing(40)
-                .prefWidth(900)
-                .prefHeight(640)
-                .children(v1, v2)
-                .build();
+                                   .alignment(Pos.CENTER)
+                                   .spacing(40)
+                                   .prefWidth(900)
+                                   .prefHeight(640)
+                                   .children(v1, v2)
+                                   .build();
 
         StackPane.setAlignment(hb, Pos.CENTER);
         showCustomSlideStep(hb);
@@ -384,14 +384,14 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         gridpane.setMaxSize(800, 600);
 
         gridpane.getColumnConstraints().addAll(
-                ColumnConstraintsBuilder.create().percentWidth(50).build(),
-                ColumnConstraintsBuilder.create().percentWidth(50).build()
+                                               ColumnConstraintsBuilder.create().percentWidth(50).build(),
+                                               ColumnConstraintsBuilder.create().percentWidth(50).build()
                 );
 
         gridpane.getRowConstraints().addAll(
-                RowConstraintsBuilder.create().minHeight(150).build(),
-                RowConstraintsBuilder.create().minHeight(100).build(),
-                RowConstraintsBuilder.create().minHeight(200).build()
+                                            RowConstraintsBuilder.create().minHeight(150).build(),
+                                            RowConstraintsBuilder.create().minHeight(100).build(),
+                                            RowConstraintsBuilder.create().minHeight(200).build()
                 );
 
         final StackPane sp1 = stackPane(150, 200, Pos.CENTER, label("First").build(), BG_1).build();
@@ -413,7 +413,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         BorderPane.setAlignment(gridpane, Pos.CENTER);
         BorderPane.setMargin(gridpane, new Insets(40));
 
-        // getRootNode().setCenter(gridpane);
+        // node().setCenter(gridpane);
         showCustomSlideStep(gridpane);
     }
 
@@ -441,7 +441,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         // BorderPane.setAlignment(tile, Pos.CENTER);
         // BorderPane.setMargin(tile, new Insets(40));
 
-        // getRootNode().setCenter(tile);
+        // node().setCenter(tile);
 
         showCustomSlideStep(tile);
     }
@@ -469,7 +469,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
 
         BorderPane.setAlignment(anchorpane, Pos.CENTER);
         BorderPane.setMargin(anchorpane, new Insets(40));
-        // getRootNode().setCenter(anchorpane);
+        // node().setCenter(anchorpane);
 
         showCustomSlideStep(anchorpane);
     }
@@ -490,7 +490,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         BorderPane.setAlignment(accordion, Pos.CENTER);
         BorderPane.setMargin(accordion, new Insets(40));
 
-        // getRootNode().setCenter(accordion);
+        // node().setCenter(accordion);
 
         showCustomSlideStep(accordion);
     }
@@ -507,7 +507,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         s1.setContent(stackPane(1920, 1080, Pos.CENTER, label("A panel").build(), BG_3).build());
 
         BorderPane.setMargin(s1, new Insets(40));
-        // getRootNode().setCenter(s1);
+        // node().setCenter(s1);
 
         showCustomSlideStep(s1);
     }
@@ -520,21 +520,21 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         getSubTitle().setText("SplitPane");
 
         final SplitPane spH = SplitPaneBuilder.create().orientation(Orientation.VERTICAL).items(
-                stackPane(Double.MAX_VALUE, Double.MAX_VALUE, Pos.CENTER, label("Third").build(), BG_3).build(),
-                stackPane(Double.MAX_VALUE, Double.MAX_VALUE, Pos.CENTER, label("Fourth").build(), BG_4).build()
-                ).build();
+                                                                                                stackPane(Double.MAX_VALUE, Double.MAX_VALUE, Pos.CENTER, label("Third").build(), BG_3).build(),
+                                                                                                stackPane(Double.MAX_VALUE, Double.MAX_VALUE, Pos.CENTER, label("Fourth").build(), BG_4).build()
+                                              ).build();
 
         final SplitPane sp = SplitPaneBuilder.create()
-                .dividerPositions(new double[] { 0.3, 0.6, 0.9 })
-                .items(
-                        stackPane(Double.MAX_VALUE, Double.MAX_VALUE, Pos.CENTER, label("First").build(), BG_1).build(),
-                        spH,
-                        stackPane(Double.MAX_VALUE, Double.MAX_VALUE, Pos.CENTER, label("Second").build(), BG_2).build()
-                ).build();
+                                             .dividerPositions(new double[] { 0.3, 0.6, 0.9 })
+                                             .items(
+                                                    stackPane(Double.MAX_VALUE, Double.MAX_VALUE, Pos.CENTER, label("First").build(), BG_1).build(),
+                                                    spH,
+                                                    stackPane(Double.MAX_VALUE, Double.MAX_VALUE, Pos.CENTER, label("Second").build(), BG_2).build()
+                                             ).build();
         // sp.setDividerPositions(0.3f, 0.6f, 0.9f);
 
         BorderPane.setMargin(sp, new Insets(40));
-        // getRootNode().setCenter(sp);
+        // node().setCenter(sp);
 
         showCustomSlideStep(sp);
     }
@@ -557,7 +557,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         BorderPane.setAlignment(tp, Pos.CENTER);
         BorderPane.setMargin(tp, new Insets(40));
 
-        // getRootNode().setCenter(tp);
+        // node().setCenter(tp);
 
         showCustomSlideStep(tp);
 

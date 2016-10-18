@@ -45,28 +45,28 @@ public final class ArchModel extends AbstractTemplateModel<ArchModel, ArchView, 
             case Background:
                 break;
             case JVM:
-                getView().showJvm();
+                view().showJvm();
                 break;
             case JavaFXApi:
-                getView().showJavaFXApi();
+                view().showJavaFXApi();
                 break;
             case QuantumTookit:
-                getView().showQuantumTookit();
+                view().showQuantumTookit();
                 break;
             case Prism:
-                getView().showPrism();
+                view().showPrism();
                 break;
             case HardwareAcceleration:
-                getView().showHardwareAcceleration();
+                view().showHardwareAcceleration();
                 break;
             case GlassWindowingToolkit:
-                getView().showGlassWindowingToolit();
+                view().showGlassWindowingToolit();
                 break;
             case MediaEngine:
-                getView().showMediaEngine();
+                view().showMediaEngine();
                 break;
             case WebEngine:
-                getView().showWebEngine();
+                view().showWebEngine();
                 break;
             default:
         }

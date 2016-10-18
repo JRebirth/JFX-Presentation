@@ -157,13 +157,11 @@ public class AdvCandleStickChartSample extends Application {
         xAxis.setLabel("Langages");
         yAxis.setLabel("Temps Processeur");
         // add starting data
-        final XYChart.Series<Number, Number> series = new XYChart.Series<Number, Number>();
-        for (int i = 0; i < data.length; i++) {
-            final double[] day = data[i];
+        final XYChart.Series<Number, Number> series = new XYChart.Series<>();
+        for (final double[] day : data) {
             series.getData().add(
-                    // new XYChart.Data<Number, Number>(day[0], day[1], new CandleStickExtraValues(day[2], day[3], day[4], day[5]))
-                    new XYChart.Data<Number, Number>(day[0], day[3], new CandleStickExtraValues(day[5], day[6], day[2], day[4]))
-                    );
+                                 // new XYChart.Data<Number, Number>(day[0], day[1], new CandleStickExtraValues(day[2], day[3], day[4], day[5]))
+                                 new XYChart.Data<Number, Number>(day[0], day[3], new CandleStickExtraValues(day[5], day[6], day[2], day[4])));
         }
         ObservableList<XYChart.Series<Number, Number>> data = bc.getData();
         if (data == null) {

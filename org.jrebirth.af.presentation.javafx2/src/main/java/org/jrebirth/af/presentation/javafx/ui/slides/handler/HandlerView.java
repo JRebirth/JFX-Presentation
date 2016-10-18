@@ -140,7 +140,7 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Anchor
      * 
      * @return Returns the scene.
      */
-    Scene getScene() {
+    Scene scene() {
         return this.scene;
     }
 
@@ -194,7 +194,7 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Anchor
     public void showText() {
         this.stage.close();
 
-        showCustomSlideStep(buildDefaultContent(getModel().getDefaultContent()));
+        showCustomSlideStep(buildDefaultContent(model().getDefaultContent()));
     }
 
     /**

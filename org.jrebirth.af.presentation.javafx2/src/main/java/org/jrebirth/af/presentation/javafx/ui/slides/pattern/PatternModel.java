@@ -40,7 +40,7 @@ public final class PatternModel extends AbstractTemplateModel<PatternModel, Patt
      */
     @Override
     public void showSlideStep(final PatternSlideStep slideStep) {
-        getView().showSlideStep(slideStep);
+        view().showSlideStep(slideStep);
     }
 
 }

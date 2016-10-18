@@ -48,7 +48,7 @@ public final class WhyUseView extends AbstractTemplateView<WhyUseModel, AnchorPa
      */
     @Override
     protected Node getContentPanel() {
-        return buildDefaultContent(getModel().getDefaultContent());
+        return buildDefaultContent(model().getDefaultContent());
     }
 
 }

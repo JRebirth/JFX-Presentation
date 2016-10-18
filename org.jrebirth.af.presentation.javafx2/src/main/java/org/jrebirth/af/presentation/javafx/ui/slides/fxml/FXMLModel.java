@@ -40,7 +40,7 @@ public final class FXMLModel extends AbstractTemplateModel<FXMLModel, FXMLView, 
      */
     @Override
     public void showSlideStep(final FXMLSlideStep slideStep) {
-        getView().showSlideStep(slideStep);
+        view().showSlideStep(slideStep);
     }
 
 }

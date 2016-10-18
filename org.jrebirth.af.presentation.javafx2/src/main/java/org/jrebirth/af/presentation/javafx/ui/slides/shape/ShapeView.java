@@ -83,7 +83,7 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
      */
     @Override
     protected Node getContentPanel() {
-        return buildDefaultContent(getModel().getDefaultContent());
+        return buildDefaultContent(model().getDefaultContent());
     }
 
     /**
@@ -156,7 +156,7 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
 
         final FlowPane fp = FlowPaneBuilder.create().children(roundArc, chordArc, openArc, roundArc2, chordArc2, openArc2).build();
 
-        // getRootNode().setCenter(fp);
+        // node().setCenter(fp);
         showCustomSlideStep(fp);
 
         StackPane.setAlignment(fp, Pos.CENTER);
@@ -197,7 +197,7 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
 
         final FlowPane fp = FlowPaneBuilder.create().children(plainCircle, strokeCircle, fullCircle).build();
 
-        // getRootNode().setCenter(fp);
+        // node().setCenter(fp);
         showCustomSlideStep(fp);
 
         StackPane.setAlignment(fp, Pos.CENTER);
@@ -223,7 +223,7 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
 
         sp.getChildren().addAll(line);
 
-        // getRootNode().setCenter(sp);
+        // node().setCenter(sp);
         showCustomSlideStep(sp);
 
         StackPane.setAlignment(sp, Pos.CENTER);
@@ -306,7 +306,7 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
 
         sp.getChildren().addAll(line1, line2, cubic, c1, c2);
 
-        // getRootNode().setCenter(sp);
+        // node().setCenter(sp);
         showCustomSlideStep(sp);
 
         StackPane.setAlignment(sp, Pos.CENTER);
@@ -332,7 +332,7 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
 
         sp.getChildren().addAll(ellipse);
 
-        // getRootNode().setCenter(sp);
+        // node().setCenter(sp);
         showCustomSlideStep(sp);
 
         StackPane.setAlignment(sp, Pos.CENTER);
@@ -383,7 +383,7 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
 
         sp.getChildren().addAll(path);
 
-        // getRootNode().setCenter(sp);
+        // node().setCenter(sp);
         showCustomSlideStep(sp);
 
         StackPane.setAlignment(sp, Pos.CENTER);
@@ -410,7 +410,7 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
 
         sp.getChildren().addAll(polygon);
 
-        // getRootNode().setCenter(sp);
+        // node().setCenter(sp);
         showCustomSlideStep(sp);
 
         StackPane.setAlignment(sp, Pos.CENTER);
@@ -436,7 +436,7 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
 
         sp.getChildren().addAll(polyline);
 
-        // getRootNode().setCenter(sp);
+        // node().setCenter(sp);
         showCustomSlideStep(sp);
 
         StackPane.setAlignment(sp, Pos.CENTER);
@@ -502,7 +502,7 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
 
         sp.getChildren().addAll(line1, line2, quad, c);
 
-        // getRootNode().setCenter(sp);
+        // node().setCenter(sp);
         showCustomSlideStep(sp);
 
         StackPane.setAlignment(sp, Pos.CENTER);
@@ -586,7 +586,7 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
 
         sp.getChildren().addAll(r);
 
-        // getRootNode().setCenter(sp);
+        // node().setCenter(sp);
         showCustomSlideStep(sp);
 
         StackPane.setAlignment(sp, Pos.CENTER);
@@ -610,7 +610,7 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
         svg.setScaleX(4.0);
         svg.setScaleY(4.0);
 
-        // getRootNode().setCenter(svg);
+        // node().setCenter(svg);
         showCustomSlideStep(svg);
 
         StackPane.setAlignment(sp, Pos.CENTER);
@@ -644,7 +644,7 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
 
         tp.getChildren().addAll(t1, t2, t3);
 
-        // getRootNode().setCenter(tp);
+        // node().setCenter(tp);
         showCustomSlideStep(tp);
 
         StackPane.setAlignment(tp, Pos.CENTER);

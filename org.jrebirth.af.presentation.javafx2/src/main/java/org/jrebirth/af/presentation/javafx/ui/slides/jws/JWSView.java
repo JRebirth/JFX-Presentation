@@ -48,7 +48,7 @@ public final class JWSView extends AbstractTemplateView<JWSModel, AnchorPane, JW
      */
     @Override
     protected Node getContentPanel() {
-        return buildDefaultContent(getModel().getDefaultContent());
+        return buildDefaultContent(model().getDefaultContent());
     }
 
 }

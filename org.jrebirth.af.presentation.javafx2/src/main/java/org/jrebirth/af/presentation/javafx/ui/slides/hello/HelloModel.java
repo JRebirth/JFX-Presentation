@@ -40,13 +40,13 @@ public final class HelloModel extends AbstractTemplateModel<HelloModel, HelloVie
      */
     @Override
     public void showSlideStep(final HelloSlideStep slideStep) {
-        getView().showSlideStep(slideStep);
+        view().showSlideStep(slideStep);
         // switch (slideStep) {
         // case Code:
-        // getView().showCode();
+        // view().showCode();
         // break;
         // case Application:
-        // getView().showApplication();
+        // view().showApplication();
         // break;
         //
         // }

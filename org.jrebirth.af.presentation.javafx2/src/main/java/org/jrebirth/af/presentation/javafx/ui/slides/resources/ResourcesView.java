@@ -58,14 +58,14 @@ public final class ResourcesView extends AbstractTemplateView<ResourcesModel, An
      */
     @Override
     protected Node getContentPanel() {
-        return buildDefaultContent(getModel().getDefaultContent());
+        return buildDefaultContent(model().getDefaultContent());
     }
 
     /**
      * TODO To complete.
      */
     public void showColor() {
-        final VBox vb = buildDefaultContent(getModel().getContent(ResourcesSlideStep.Color));
+        final VBox vb = buildDefaultContent(model().getContent(ResourcesSlideStep.Color));
 
         final RadialGradient rg = RadialGradientBuilder.create()
                 .centerX(0.5)

@@ -84,7 +84,7 @@ public final class BrowserView extends AbstractTemplateView<BrowserModel, Anchor
      */
     public void showBrowser() {
 
-        final VBox vb = buildDefaultContent(getModel().getContent(BrowserSlideStep.Browser));
+        final VBox vb = buildDefaultContent(model().getContent(BrowserSlideStep.Browser));
 
         // load the web page
         this.browser.getEngine().load(Thread.currentThread().getContextClassLoader().getResource("balls/balls.htm").toString());
@@ -97,7 +97,7 @@ public final class BrowserView extends AbstractTemplateView<BrowserModel, Anchor
      * Show a gradient effect.
      */
     public void showGradient() {
-        final VBox vb = buildDefaultContent(getModel().getContent(BrowserSlideStep.Gradient));
+        final VBox vb = buildDefaultContent(model().getContent(BrowserSlideStep.Gradient));
 
         // load the gradient page
         this.browser.getEngine().load(Thread.currentThread().getContextClassLoader().getResource("balls/canvas-grad.htm").toString());

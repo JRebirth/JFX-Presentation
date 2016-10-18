@@ -44,19 +44,19 @@ public final class TreeModel extends AbstractTemplateModel<TreeModel, TreeView, 
         switch (slideStep) {
 
             case WoodNode:
-                getView().showWoodNode();
+                view().showWoodNode();
                 break;
             case ThinkNode:
-                getView().showThinkNode();
+                view().showThinkNode();
                 break;
             case Tree:
-                getView().showTree();
+                view().showTree();
                 break;
             case ThinkTree:
-                getView().showThinkTree();
+                view().showThinkTree();
                 break;
             default:
-                getView().showSlideStep(slideStep);
+                view().showSlideStep(slideStep);
         }
     }
 }

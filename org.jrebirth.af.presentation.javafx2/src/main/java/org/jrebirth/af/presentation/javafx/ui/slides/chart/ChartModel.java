@@ -43,28 +43,28 @@ public final class ChartModel extends AbstractTemplateModel<ChartModel, ChartVie
 
         switch (slideStep) {
             case Chart:
-                getView().showSlideStep(slideStep);
+                view().showSlideStep(slideStep);
                 break;
             case PieChart:
-                getView().showPie();
+                view().showPie();
                 break;
             case AreaChart:
-                getView().showArea();
+                view().showArea();
                 break;
             case BarChart:
-                getView().showBar();
+                view().showBar();
                 break;
             case BubbleChart:
-                getView().showBubble();
+                view().showBubble();
                 break;
             case LineChart:
-                getView().showLine();
+                view().showLine();
                 break;
             case ScatterChart:
-                getView().showScatter();
+                view().showScatter();
                 break;
             case Candle:
-                getView().showCandle();
+                view().showCandle();
                 break;
         }
 

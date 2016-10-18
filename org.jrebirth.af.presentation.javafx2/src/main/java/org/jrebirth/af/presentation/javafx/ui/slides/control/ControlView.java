@@ -92,7 +92,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
      */
     @Override
     protected Node getContentPanel() {
-        return buildDefaultContent(getModel().getDefaultContent());
+        return buildDefaultContent(model().getDefaultContent());
     }
 
     /**
@@ -109,7 +109,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
         cb.setScaleX(4.0);
         cb.setScaleY(4.0);
 
-        // getRootNode().setCenter(cb);
+        // node().setCenter(cb);
         showCustomSlideStep(cb);
 
         BorderPane.setAlignment(cb, Pos.CENTER);
@@ -125,7 +125,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
 
         final HTMLEditor editor = new HTMLEditor();
 
-        // getRootNode().setCenter(editor);
+        // node().setCenter(editor);
         showCustomSlideStep(editor);
     }
 
@@ -140,7 +140,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
         l.setScaleX(4.0);
         l.setScaleY(4.0);
 
-        // getRootNode().setCenter(l);
+        // node().setCenter(l);
         showCustomSlideStep(l);
 
         l.autosize();
@@ -160,7 +160,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
         s.setScaleX(1.0);
         s.setScaleY(1.0);
 
-        // getRootNode().setCenter(s);
+        // node().setCenter(s);
         showCustomSlideStep(s);
         s.autosize();
 
@@ -178,7 +178,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
         s.setScaleX(4.0);
         s.setScaleY(4.0);
 
-        // getRootNode().setCenter(s);
+        // node().setCenter(s);
         showCustomSlideStep(s);
 
         BorderPane.setAlignment(s, Pos.CENTER);
@@ -209,7 +209,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
                 ProgressIndicatorBuilder.create().prefWidth(50).prefHeight(50).progress(1).build()
                 );
 
-        // getRootNode().setCenter(vb);
+        // node().setCenter(vb);
         showCustomSlideStep(vb);
 
         BorderPane.setAlignment(vb, Pos.CENTER);
@@ -225,7 +225,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
 
         final Separator s = SeparatorBuilder.create().minHeight(20).maxWidth(700).halignment(HPos.CENTER).build();
 
-        // getRootNode().setCenter(s);
+        // node().setCenter(s);
         showCustomSlideStep(s);
 
         BorderPane.setAlignment(s, Pos.CENTER);
@@ -267,7 +267,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
                                 ).build()
                 ).build();
 
-        // getRootNode().setCenter(menubar);
+        // node().setCenter(menubar);
         showCustomSlideStep(menubar);
 
         BorderPane.setAlignment(menubar, Pos.TOP_CENTER);
@@ -290,7 +290,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
                 )
                 .build();
 
-        // getRootNode().setCenter(toolbar);
+        // node().setCenter(toolbar);
         showCustomSlideStep(toolbar);
 
         BorderPane.setAlignment(toolbar, Pos.TOP_CENTER);
@@ -321,7 +321,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
                 .hgap(30)
                 .build();
 
-        // getRootNode().setCenter(fp);
+        // node().setCenter(fp);
         showCustomSlideStep(fp);
 
         BorderPane.setAlignment(fp, Pos.CENTER);
@@ -369,7 +369,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
         tableView.setItems(populateTable());
         tableView.getColumns().addAll(pathColumn, extColumn);
 
-        // getRootNode().setCenter(tableView);
+        // node().setCenter(tableView);
         showCustomSlideStep(tableView);
 
         BorderPane.setAlignment(tableView, Pos.CENTER);
@@ -421,7 +421,7 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
         treeRoot.setExpanded(true);
         treeView.setRoot(treeRoot);
 
-        // getRootNode().setCenter(treeView);
+        // node().setCenter(treeView);
         showCustomSlideStep(treeView);
 
         BorderPane.setAlignment(treeView, Pos.CENTER);

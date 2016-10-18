@@ -76,7 +76,7 @@ public final class ArchView extends AbstractTemplateView<ArchModel, AnchorPane, 
      * @return Returns the archiPane.
      */
     Node getArchiPane() {
-        return this.archComponent.getNode();
+        return this.archComponent.node();
     }
 
     /**
@@ -85,7 +85,7 @@ public final class ArchView extends AbstractTemplateView<ArchModel, AnchorPane, 
      * @return Returns the archiPane.
      */
     ArchNodeController getArchiController() {
-        return (ArchNodeController) this.archComponent.getController();
+        return (ArchNodeController) this.archComponent.controller();
     }
 
     /**
@@ -94,13 +94,13 @@ public final class ArchView extends AbstractTemplateView<ArchModel, AnchorPane, 
     @Override
     protected Node getContentPanel() {
 
-        this.archComponent = FXMLUtils.loadFXML(getModel(), "org/jrebirth/presentation/ui/slides/arch/ArchNode.fxml");
+        this.archComponent = FXMLUtils.loadFXML(model(), "org/jrebirth/presentation/ui/slides/arch/ArchNode.fxml");
 
-        this.archComponent.getNode().setScaleX(4);
-        this.archComponent.getNode().setScaleY(4);
-        this.archComponent.getNode().setScaleZ(4);
+        this.archComponent.node().setScaleX(4);
+        this.archComponent.node().setScaleY(4);
+        this.archComponent.node().setScaleZ(4);
 
-        return this.archComponent.getNode();
+        return this.archComponent.node();
     }
 
     /**

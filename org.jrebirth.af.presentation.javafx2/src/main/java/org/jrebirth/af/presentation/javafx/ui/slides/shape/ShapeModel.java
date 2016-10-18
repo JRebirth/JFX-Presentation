@@ -42,43 +42,43 @@ public final class ShapeModel extends AbstractTemplateModel<ShapeModel, ShapeVie
     public void showSlideStep(final ShapeSlideStep slideStep) {
         switch (slideStep) {
             case Arc:
-                getView().showArc();
+                view().showArc();
                 break;
             case Circle:
-                getView().showCircle();
+                view().showCircle();
                 break;
             case CubicCurve:
-                getView().showCubicCurve();
+                view().showCubicCurve();
                 break;
             case Ellipse:
-                getView().showEllipse();
+                view().showEllipse();
                 break;
             case Line:
-                getView().showLine();
+                view().showLine();
                 break;
             case Path:
-                getView().showPath();
+                view().showPath();
                 break;
             case Polygon:
-                getView().showPolygon();
+                view().showPolygon();
                 break;
             case Polyline:
-                getView().showPolyline();
+                view().showPolyline();
                 break;
             case QuadCurve:
-                getView().showQuadCurve();
+                view().showQuadCurve();
                 break;
             case Rectangle:
-                getView().showRectangle();
+                view().showRectangle();
                 break;
             case SVGPath:
-                getView().showSVGPath();
+                view().showSVGPath();
                 break;
             case Text:
-                getView().showText();
+                view().showText();
                 break;
             default:
-                getView().showSlideStep(slideStep);
+                view().showSlideStep(slideStep);
         }
     }
 

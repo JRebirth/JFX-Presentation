@@ -58,7 +58,7 @@ public final class Presentation extends DefaultApplication<StackPane> {
      * {@inheritDoc}
      */
     @Override
-    public Class<? extends Model> getFirstModelClass() {
+    public Class<? extends Model> firstModelClass() {
         return SlideStackModel.class;
     }
 
@@ -66,7 +66,7 @@ public final class Presentation extends DefaultApplication<StackPane> {
      * {@inheritDoc}
      */
     @Override
-    protected String getApplicationTitle() {
+    protected String applicationTitle() {
         return "JavaFX 2.1 - Presentation";
     }
 
@@ -96,16 +96,16 @@ public final class Presentation extends DefaultApplication<StackPane> {
             public void handle(final KeyEvent event) {
                 if (event.isControlDown()) {
                     if (event.getCode() == KeyCode.ADD || event.getCode() == KeyCode.PLUS) {
-                        getScene().getRoot().setScaleX(getScene().getRoot().getScaleX() + 0.05);
-                        getScene().getRoot().setScaleY(getScene().getRoot().getScaleY() + 0.05);
+                        scene().getRoot().setScaleX(scene().getRoot().getScaleX() + 0.05);
+                        scene().getRoot().setScaleY(scene().getRoot().getScaleY() + 0.05);
                         event.consume();
                     } else if (event.getCode() == KeyCode.SUBTRACT || event.getCode() == KeyCode.MINUS) {
-                        getScene().getRoot().setScaleX(getScene().getRoot().getScaleX() - 0.05);
-                        getScene().getRoot().setScaleY(getScene().getRoot().getScaleY() - 0.05);
+                        scene().getRoot().setScaleX(scene().getRoot().getScaleX() - 0.05);
+                        scene().getRoot().setScaleY(scene().getRoot().getScaleY() - 0.05);
                         event.consume();
                     } else if (event.getCode() == KeyCode.DIGIT0 || event.getCode() == KeyCode.NUMPAD0) {
-                        getScene().getRoot().setScaleX(1.0);
-                        getScene().getRoot().setScaleY(1.0);
+                        scene().getRoot().setScaleX(1.0);
+                        scene().getRoot().setScaleY(1.0);
                         event.consume();
                     }
                 }

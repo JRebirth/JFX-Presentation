@@ -42,43 +42,43 @@ public final class ControlModel extends AbstractTemplateModel<ControlModel, Cont
     public void showSlideStep(final ControlSlideStep slideStep) {
         switch (slideStep) {
             case ChoiceBox:
-                getView().showChoiceBox();
+                view().showChoiceBox();
                 break;
             case HTMLEditor:
-                getView().showHtmlEditor();
+                view().showHtmlEditor();
                 break;
             // case Labeled:
-            // getView().showLabeled();
+            // view().showLabeled();
             // break;
             case ListView:
-                getView().showListView();
+                view().showListView();
                 break;
             case MenuBar:
-                getView().showMenuBar();
+                view().showMenuBar();
                 break;
             case ProgressIndicator:
-                getView().showProgressIndicator();
+                view().showProgressIndicator();
                 break;
             // case Separator:
-            // getView().showSeparator();
+            // view().showSeparator();
             // break;
             case Slider:
-                getView().showSlider();
+                view().showSlider();
                 break;
             case TableView:
-                getView().showTableView();
+                view().showTableView();
                 break;
             // case TextInputControl:
-            // getView().showTextInputControl();
+            // view().showTextInputControl();
             // break;
             case ToolBar:
-                getView().showToolBar();
+                view().showToolBar();
                 break;
             case TreeView:
-                getView().showTreeView();
+                view().showTreeView();
                 break;
             default:
-                getView().showSlideStep(slideStep);
+                view().showSlideStep(slideStep);
         }
     }
 

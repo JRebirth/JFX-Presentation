@@ -44,25 +44,25 @@ public final class StageModel extends AbstractTemplateModel<StageModel, StageVie
         switch (slideStep) {
 
             case Text:
-                getView().showSlideStep(slideStep);
+                view().showSlideStep(slideStep);
                 break;
             case Show:
-                getView().showStages();
+                view().showStages();
                 break;
             case Release:
-                getView().releaseStages();
+                view().releaseStages();
                 break;
             // case Decorated:
-            // getView().showStage(StageStyle.DECORATED, "StageStyle.DECORATED");
+            // view().showStage(StageStyle.DECORATED, "StageStyle.DECORATED");
             // break;
             // case Transparent:
-            // getView().showStage(StageStyle.TRANSPARENT, "StageStyle.TRANSPARENT");
+            // view().showStage(StageStyle.TRANSPARENT, "StageStyle.TRANSPARENT");
             // break;
             // case Undecorated:
-            // getView().showStage(StageStyle.UNDECORATED, "StageStyle.UNDECORATED");
+            // view().showStage(StageStyle.UNDECORATED, "StageStyle.UNDECORATED");
             // break;
             // case Utility:
-            // getView().showStage(StageStyle.UTILITY, "StageStyle.UTILITY");
+            // view().showStage(StageStyle.UTILITY, "StageStyle.UTILITY");
             // break;
             default:
         }

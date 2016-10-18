@@ -67,26 +67,26 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
     protected void initView() {
 
         this.label = LabelBuilder
-                .create()
-                // .text(getModel().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"))
-                // .styleClass("label", "introTitle")
-                // .font(PrezFonts.TYPEWRITER.get())
-                // .textFill(Color.BLACK) // web("7F0055")
-                .textFill(Color.WHITE)
-                .alignment(Pos.CENTER_LEFT)
-                .minWidth(800)
-                .minHeight(500)
-                .build();
+                                 .create()
+                                 // .text(model().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"))
+                                 // .styleClass("label", "introTitle")
+                                 // .font(PrezFonts.TYPEWRITER.get())
+                                 // .textFill(Color.BLACK) // web("7F0055")
+                                 .textFill(Color.WHITE)
+                                 .alignment(Pos.CENTER_LEFT)
+                                 .minWidth(800)
+                                 .minHeight(500)
+                                 .build();
 
         this.label.getStyleClass().add("introTitle");
 
-        // label.scaleXProperty().bind(Bindings.divide(getModel().getLocalFacade().getGlobalFacade().getApplication().getStage().widthProperty(), 1024));
-        // label.scaleYProperty().bind(Bindings.divide(getModel().getLocalFacade().getGlobalFacade().getApplication().getStage().heightProperty(), 768));
+        // label.scaleXProperty().bind(Bindings.divide(model().getLocalFacade().getGlobalFacade().getApplication().getStage().widthProperty(), 1024));
+        // label.scaleYProperty().bind(Bindings.divide(model().getLocalFacade().getGlobalFacade().getApplication().getStage().heightProperty(), 768));
 
-        getRootNode().getStyleClass().clear();
-        getRootNode().getStyleClass().add(getModel().getSlide().getStyle());
+        node().getStyleClass().clear();
+        node().getStyleClass().add(model().getSlide().getStyle());
 
-        getRootNode().getChildren().add(this.label);
+        node().getChildren().add(this.label);
         StackPane.setAlignment(this.label, Pos.CENTER);
 
         this.typeWriter = new Timeline();
@@ -94,9 +94,9 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
         String content = "";
         Duration d = Duration.ZERO;
         final Random r = new Random();
-        for (final char c : getModel().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t").toCharArray()) {
+        for (final char c : model().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t").toCharArray()) {
 
-            d = d.add(Duration.millis(r.nextInt() % 90 + 130));
+            d = d.add(Duration.millis(r.nextInt(Integer.MAX_VALUE) % 90 + 130));
             this.typeWriter.getKeyFrames().add(new KeyFrame(d, new KeyValue(this.label.textProperty(), new String(content + c))));
             content += c;
         }

@@ -96,7 +96,7 @@ public final class TreeView extends AbstractTemplateView<TreeModel, AnchorPane, 
                 .opacity(0.0)
                 .build();
 
-        // getRootNode().setCenter(this.sp);
+        // node().setCenter(this.sp);
     }
 
     /**

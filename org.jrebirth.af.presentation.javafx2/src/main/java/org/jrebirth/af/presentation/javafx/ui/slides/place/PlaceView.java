@@ -72,9 +72,9 @@ public final class PlaceView extends AbstractSlideView<PlaceModel, Pane, PlaceCo
                                                    // .fitWidth(Double.MAX_VALUE)
                                                    .build();
 
-        getRootNode().getChildren().add(toulouse);
+        node().getChildren().add(toulouse);
 
-        getRootNode().getStyleClass().add(getModel().getSlide().getStyle());
+        node().getStyleClass().add(model().getSlide().getStyle());
 
         // bulle jaune (52x52px) x:909 y:358 #FBE43D
         final Circle yellowCircle = getCircleBuilder().radius(26).layoutX(935).layoutY(384).style("-fx-fill:#FBE43D").build();
@@ -89,7 +89,7 @@ public final class PlaceView extends AbstractSlideView<PlaceModel, Pane, PlaceCo
         // bulle orange fonce (50x50px) x:848 y: 36 #E53B20
         final Circle darkOrangeCircle = getCircleBuilder().radius(25).layoutX(873).layoutY(61).style("-fx-fill:#E53B20").build();
 
-        getRootNode().getChildren().addAll(yellowCircle, greenCircle, pinkCircle, blueCircle, lightOrangeCircle, darkOrangeCircle);
+        node().getChildren().addAll(yellowCircle, greenCircle, pinkCircle, blueCircle, lightOrangeCircle, darkOrangeCircle);
 
         this.bubbleAnimation = ParallelTransitionBuilder.create().children(
 

@@ -43,13 +43,13 @@ public final class MediaModel extends AbstractTemplateModel<MediaModel, MediaVie
         switch (slideStep) {
             case Text:
             case Audio:
-                getView().showSlideStep(slideStep);
+                view().showSlideStep(slideStep);
                 break;
             case Video:
-                getView().showVideo();
+                view().showVideo();
                 break;
             case MoveOut:
-                getView().showMoveOut();
+                view().showMoveOut();
                 break;
             default:
 

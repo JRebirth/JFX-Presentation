@@ -48,7 +48,7 @@ public final class PatternView extends AbstractTemplateView<PatternModel, Anchor
      */
     @Override
     protected Node getContentPanel() {
-        return buildDefaultContent(getModel().getDefaultContent());
+        return buildDefaultContent(model().getDefaultContent());
     }
 
 }

@@ -59,7 +59,7 @@ public final class HelloController extends AbstractTemplateController<HelloModel
         super.initEventHandlers();
 
         // Listen mouse event on the source code node
-        // getView().getCodeImageView().setOnMouseClicked(getMouseHandler());
+        // view().getCodeImageView().setOnMouseClicked(getMouseHandler());
     }
 
     // /**
@@ -76,11 +76,11 @@ public final class HelloController extends AbstractTemplateController<HelloModel
     // @Override
     // public void mouseClicked(final MouseEvent mouseEvent) {
     //
-    // ((Pane) getView().getRootNode().getCenter()).getChildren().clear();
-    // ((Pane) getView().getRootNode().getCenter()).getChildren().addAll(getView().getAppImageView(), getView().getCodeImageView());
+    // ((Pane) view().node().getCenter()).getChildren().clear();
+    // ((Pane) view().node().getCenter()).getChildren().addAll(view().getAppImageView(), view().getCodeImageView());
     //
-    // getView().getAppCarousselTransition().play();
-    // getView().getCodeCarousselTransition().play();
+    // view().getAppCarousselTransition().play();
+    // view().getCodeCarousselTransition().play();
     //
     // }
     //

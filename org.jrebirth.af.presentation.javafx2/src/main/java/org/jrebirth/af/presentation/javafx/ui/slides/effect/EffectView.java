@@ -114,7 +114,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     @Override
     protected Node getContentPanel() {
 
-        return buildDefaultContent(getModel().getDefaultContent());
+        return buildDefaultContent(model().getDefaultContent());
     }
 
     /**
@@ -209,15 +209,15 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                 .build();
 
         return fp;
-        // getRootNode().setRight();
+        // node().setRight();
         // getSlideContent().getChildren().add(fp);
 
         // StackPane.setAlignment(fp, Pos.CENTER_RIGHT);
 
-        // BorderPane.setMargin(getRootNode().getRight(), new Insets(10));
-        // BorderPane.setAlignment(getRootNode().getRight(), Pos.CENTER);
+        // BorderPane.setMargin(node().getRight(), new Insets(10));
+        // BorderPane.setAlignment(node().getRight(), Pos.CENTER);
 
-        // getRootNode().getRight().setStyle("-fx-border-color:#000000;-fx-border-width:2px;");
+        // node().getRight().setStyle("-fx-border-color:#000000;-fx-border-width:2px;");
     }
 
     /**
@@ -333,7 +333,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
 
         showEffectSubSlide(displayImage(JFXImages.CUSTOM_CAR.get(), fx), displaySliders(buildSlider("Fraction", fx.fractionProperty(), 0, 1.0)));
 
-        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.TOP_CENTER);
+        // BorderPane.setAlignment(node().getCenter(), Pos.TOP_CENTER);
 
     }
 
@@ -347,7 +347,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
 
         showEffectSubSlide(displayComparedImage(JFXImages.CUSTOM_CAR.get(), st), displaySliders(buildSlider("Tone Level", st.levelProperty(), 0, 1.0)));
 
-        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(node().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -362,7 +362,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                 displayComparedImage(JFXImages.CUSTOM_CAR.get(), b),
                 displaySliders(buildSlider("Threshold", b.thresholdProperty(), 0, 1.0)));
 
-        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(node().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -386,7 +386,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                         buildSlider("Width", fx.widthProperty(), 0, 255.0),
                         buildSlider("Offset X", fx.offsetXProperty(), 0, 255.0),
                         buildSlider("Offset Y", fx.offsetYProperty(), 0, 255.0)));
-        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(node().getCenter(), Pos.CENTER);
 
     }
 
@@ -410,7 +410,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                         buildSlider("Width", fx.widthProperty(), 0, 255.0),
                         buildSlider("Offset X", fx.offsetXProperty(), 0, 255.0),
                         buildSlider("Offset Y", fx.offsetYProperty(), 0, 255.0)));
-        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(node().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -432,7 +432,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                         buildSlider("Width", fx.widthProperty(), 0, 255),
                         buildSlider("Height", fx.heightProperty(), 0, 255)));
 
-        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(node().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -451,7 +451,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                 displaySliders(
                         buildSlider("Radius", fx.radiusProperty(), 0, 63.0),
                         buildSlider("Angle", fx.angleProperty(), 0, 360)));
-        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(node().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -467,7 +467,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                 displayComparedImage(JFXImages.CUSTOM_CAR.get(), fx),
                 displaySliders(buildSlider("Radius", fx.radiusProperty(), 0, 63.0)));
 
-        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(node().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -488,7 +488,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                         buildSlider("Height", fx.heightProperty(), 0, 255.0),
                         buildSlider("Radius", fx.radiusProperty(), 0, 127.0)));
 
-        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(node().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -505,7 +505,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                 displayComparedImage(JFXImages.CUSTOM_CAR.get(), fx),
                 displaySliders(buildSlider("Level", fx.levelProperty(), 0, 1.0)));
 
-        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(node().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -531,7 +531,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                         buildSlider("Specular Exponent", fx.specularExponentProperty(), 0, 10.0),
                         buildSlider("Light Azimuth", light.azimuthProperty(), 0, 100.0),
                         buildSlider("Light Elevation", light.elevationProperty(), 0, 100.0)));
-        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(node().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -565,7 +565,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
 
                         buildSlider("LLX", fx.llxProperty(), 0, 600.0),
                         buildSlider("LLY", fx.llyProperty(), 0, 600.0)));
-        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(node().getCenter(), Pos.CENTER);
 
     }
 
@@ -584,7 +584,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
         showEffectSubSlide(
                 displayImage(JFXImages.ORANGE.get(), fx),
                 displaySliders(buildSlider("Opacity", fx.opacityProperty(), 0, 1.0)));
-        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(node().getCenter(), Pos.CENTER);
     }
 
     /**
@@ -609,7 +609,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
                         buildSlider("Contrast", fx.contrastProperty(), -1.0, 1.0)
 
                 ));
-        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(node().getCenter(), Pos.CENTER);
 
     }
 
@@ -639,7 +639,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
         showEffectSubSlide(
                 displayImage(JFXImages.CUSTOM_CAR.get(), dm),
                 displaySliders());
-        // BorderPane.setAlignment(getRootNode().getCenter(), Pos.CENTER);
+        // BorderPane.setAlignment(node().getCenter(), Pos.CENTER);
 
     }
 

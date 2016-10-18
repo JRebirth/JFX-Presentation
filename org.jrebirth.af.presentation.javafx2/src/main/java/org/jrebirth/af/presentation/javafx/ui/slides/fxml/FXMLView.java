@@ -48,7 +48,7 @@ public final class FXMLView extends AbstractTemplateView<FXMLModel, AnchorPane, 
      */
     @Override
     protected Node getContentPanel() {
-        return buildDefaultContent(getModel().getDefaultContent());
+        return buildDefaultContent(model().getDefaultContent());
     }
 
 }

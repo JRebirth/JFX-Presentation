@@ -40,7 +40,7 @@ public final class WhyUseModel extends AbstractTemplateModel<WhyUseModel, WhyUse
      */
     @Override
     public void showSlideStep(final WhyUseSlideStep slideStep) {
-        getView().showSlideStep(slideStep);
+        view().showSlideStep(slideStep);
     }
 
 }

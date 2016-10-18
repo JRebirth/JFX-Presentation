@@ -44,53 +44,53 @@ public final class EffectModel extends AbstractTemplateModel<EffectModel, Effect
         switch (slideStep) {
 
             case Reflection:
-                getView().showReflection();
+                view().showReflection();
                 break;
             case SepiaTone:
-                getView().showSepiaTone();
+                view().showSepiaTone();
                 break;
             case DropShadow:
-                getView().showDropShadow();
+                view().showDropShadow();
                 break;
             case InnerShadow:
-                getView().showInnerShadow();
+                view().showInnerShadow();
                 break;
             // case Shadow:
-            // getView().showShadow();
+            // view().showShadow();
             // break;
             case Bloom:
-                getView().showBloom();
+                view().showBloom();
                 break;
             case Glow:
-                getView().showGlow();
+                view().showGlow();
                 break;
             case Lighting:
-                getView().showLighting();
+                view().showLighting();
                 break;
             case BoxBlur:
-                getView().showBoxBlur();
+                view().showBoxBlur();
                 break;
             case MotionBlur:
-                getView().showMotionBlur();
+                view().showMotionBlur();
                 break;
             case GaussianBlur:
-                getView().showGaussianBlur();
+                view().showGaussianBlur();
                 break;
             case PerspectiveTransform:
-                getView().showPerspectiveTransform();
+                view().showPerspectiveTransform();
                 break;
             case Blend:
-                getView().showBlend();
+                view().showBlend();
                 break;
             case ColorAdjust:
-                getView().showColorAdjust();
+                view().showColorAdjust();
                 break;
             case DisplacementMap:
-                getView().showDisplacementMap();
+                view().showDisplacementMap();
                 break;
 
             default:
-                getView().showSlideStep(slideStep);
+                view().showSlideStep(slideStep);
         }
     }
 }

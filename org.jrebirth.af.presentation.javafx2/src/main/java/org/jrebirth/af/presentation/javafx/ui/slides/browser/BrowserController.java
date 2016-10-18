@@ -65,7 +65,7 @@ public final class BrowserController extends AbstractTemplateController<BrowserM
         super.initEventHandlers();
 
         // Listen mouse event on the root node
-        getView().getBrowser().setOnMouseClicked(getHandler(MouseEvent.MOUSE_CLICKED));
+        view().getBrowser().setOnMouseClicked(getHandler(MouseEvent.MOUSE_CLICKED));
     }
 
     /**
@@ -81,15 +81,15 @@ public final class BrowserController extends AbstractTemplateController<BrowserM
          */
         @Override
         public void mouseClicked(final MouseEvent mouseEvent) {
-            if (mouseEvent.getSource().equals(getView().getBrowser())) {
+            if (mouseEvent.getSource().equals(view().getBrowser())) {
                 mouseEvent.consume();
             } else {
                 if (mouseEvent.getButton() == MouseButton.PRIMARY) {
-                    getModel().callCommand(ShowNextSlideCommand.class);
+                    model().callCommand(ShowNextSlideCommand.class);
                 } else if (mouseEvent.getButton() == MouseButton.SECONDARY) {
-                    getModel().callCommand(ShowPreviousSlideCommand.class);
+                    model().callCommand(ShowPreviousSlideCommand.class);
                 } else if (mouseEvent.getButton() == MouseButton.MIDDLE) {
-                    getModel().callCommand(ShowSlideMenuCommand.class);
+                    model().callCommand(ShowSlideMenuCommand.class);
                 }
             }
         }

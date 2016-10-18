@@ -42,37 +42,37 @@ public final class AnimationModel extends AbstractTemplateModel<AnimationModel, 
     public void showSlideStep(final AnimationSlideStep slideStep) {
 
         if (slideStep != AnimationSlideStep.Text && slideStep != AnimationSlideStep.Timeline) {
-            getView().buildDemoRectangle(slideStep);
+            view().buildDemoRectangle(slideStep);
         }
 
         switch (slideStep) {
 
             case FadeTransition:
-                getView().showFade();
+                view().showFade();
                 break;
             case FillTransition:
-                getView().showFill();
+                view().showFill();
                 break;
             case PathTransition:
-                getView().showPath();
+                view().showPath();
                 break;
             case PauseTransition:
-                getView().showPause();
+                view().showPause();
                 break;
             case RotateTransition:
-                getView().showRotate();
+                view().showRotate();
                 break;
             case ScaleTransition:
-                getView().showScale();
+                view().showScale();
                 break;
             case StrokeTransition:
-                getView().showStroke();
+                view().showStroke();
                 break;
             case TranslateTransition:
-                getView().showTranslate();
+                view().showTranslate();
                 break;
             default:
-                getView().showSlideStep(slideStep);
+                view().showSlideStep(slideStep);
         }
     }
 

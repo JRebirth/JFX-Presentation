@@ -65,7 +65,7 @@ public final class HelloView extends AbstractTemplateView<HelloModel, AnchorPane
      */
     @Override
     protected Node getContentPanel() {
-        return buildDefaultContent(getModel().getDefaultContent());
+        return buildDefaultContent(model().getDefaultContent());
     }
 
     // /**

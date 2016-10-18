@@ -64,7 +64,7 @@ public final class NodeView extends AbstractTemplateView<NodeModel, AnchorPane, 
      */
     @Override
     protected Node getContentPanel() {
-        return buildDefaultContent(getModel().getDefaultContent());
+        return buildDefaultContent(model().getDefaultContent());
     }
 
     /**

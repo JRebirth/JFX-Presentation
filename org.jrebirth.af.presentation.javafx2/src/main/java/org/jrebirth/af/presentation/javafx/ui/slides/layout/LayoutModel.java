@@ -47,46 +47,46 @@ public final class LayoutModel extends AbstractTemplateModel<LayoutModel, Layout
             case TileConstraint:
             case GridConstaint:
             case StackConstraint:
-                getView().showSlideStep(slideStep);
+                view().showSlideStep(slideStep);
                 break;
             case Pane:
-                getView().showPane();
+                view().showPane();
                 break;
             case BorderPane:
-                getView().showBorderPane();
+                view().showBorderPane();
                 break;
             case HBox:
-                getView().showHBox();
+                view().showHBox();
                 break;
             case VBox:
-                getView().showVBox();
+                view().showVBox();
                 break;
             case StackPane:
-                getView().showStackPane();
+                view().showStackPane();
                 break;
             case FlowPane:
-                getView().showFlowPane();
+                view().showFlowPane();
                 break;
             case GridPane:
-                getView().showGridPane();
+                view().showGridPane();
                 break;
             case TilePane:
-                getView().showTilePane();
+                view().showTilePane();
                 break;
             case AnchorPane:
-                getView().showAnchorPane();
+                view().showAnchorPane();
                 break;
             case Accordion:
-                getView().showAccordion();
+                view().showAccordion();
                 break;
             case ScrollPane:
-                getView().showScrollPane();
+                view().showScrollPane();
                 break;
             case SplitPane:
-                getView().showSplitPane();
+                view().showSplitPane();
                 break;
             case TabPane:
-                getView().showTabPane();
+                view().showTabPane();
                 break;
             default:
         }

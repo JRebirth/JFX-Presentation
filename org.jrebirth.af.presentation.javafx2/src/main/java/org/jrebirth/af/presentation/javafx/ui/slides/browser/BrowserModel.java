@@ -50,16 +50,16 @@ public final class BrowserModel extends AbstractTemplateModel<BrowserModel, Brow
 
         switch (slideStep) {
             case Text:
-                getView().showSlideStep(slideStep);
+                view().showSlideStep(slideStep);
                 break;
             case Browser:
-                getView().showBrowser();
+                view().showBrowser();
                 break;
             case Gradient:
-                getView().showGradient();
+                view().showGradient();
                 break;
             case Perspective:
-                getView().showPerspective();
+                view().showPerspective();
                 break;
         }
 

@@ -40,7 +40,7 @@ public final class JWSModel extends AbstractTemplateModel<JWSModel, JWSView, JWS
      */
     @Override
     public void showSlideStep(final JWSSlideStep slideStep) {
-        getView().showSlideStep(slideStep);
+        view().showSlideStep(slideStep);
     }
 
 }

@@ -43,11 +43,11 @@ public final class ResourcesModel extends AbstractTemplateModel<ResourcesModel, 
 
         switch (slideStep) {
             case Color:
-                getView().showColor();
+                view().showColor();
                 break;
 
             default:
-                getView().showSlideStep(slideStep);
+                view().showSlideStep(slideStep);
 
         }
 

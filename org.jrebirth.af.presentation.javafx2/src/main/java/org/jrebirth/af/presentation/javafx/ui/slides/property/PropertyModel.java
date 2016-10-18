@@ -43,10 +43,10 @@ public final class PropertyModel extends AbstractTemplateModel<PropertyModel, Pr
         switch (slideStep) {
 
             case Binding:
-                getView().showBinding();
+                view().showBinding();
                 break;
             default:
-                getView().showSlideStep(slideStep);
+                view().showSlideStep(slideStep);
         }
     }
 

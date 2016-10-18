@@ -61,7 +61,7 @@ public final class MediaView extends AbstractTemplateView<MediaModel, AnchorPane
      */
     @Override
     protected Node getContentPanel() {
-        return buildDefaultContent(getModel().getDefaultContent());
+        return buildDefaultContent(model().getDefaultContent());
     }
 
     /**
@@ -74,7 +74,7 @@ public final class MediaView extends AbstractTemplateView<MediaModel, AnchorPane
         this.mediaPlayer.setCycleCount(-1);
 
         this.mediaPlayer.play();
-        // getRootNode().setCenter(mv);
+        // node().setCenter(mv);
 
         showCustomSlideStep(mv);
 
@@ -95,7 +95,7 @@ public final class MediaView extends AbstractTemplateView<MediaModel, AnchorPane
         showEmptySlide();
         ParallelTransitionBuilder.create()
                 .interpolator(Interpolator.EASE_BOTH)
-                .node(getSlideContent()) // getRootNode().getCenter()
+                .node(getSlideContent()) // node().getCenter()
                 .children(
                         RotateTransitionBuilder.create()
                                 .byAngle(7200)

@@ -294,10 +294,10 @@ public class CandleStickChart extends XYChart<Number, Number> {
         List<Number> xData = null;
         List<Number> yData = null;
         if (xa.isAutoRanging()) {
-            xData = new ArrayList<Number>();
+            xData = new ArrayList<>();
         }
         if (ya.isAutoRanging()) {
-            yData = new ArrayList<Number>();
+            yData = new ArrayList<>();
         }
         if (xData != null || yData != null) {
             for (final Series<Number, Number> series : getData()) {
