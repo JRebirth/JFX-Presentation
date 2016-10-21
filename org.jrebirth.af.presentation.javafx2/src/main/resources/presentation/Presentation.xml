@@ -12,17 +12,6 @@
 
 	<slides defaultModelClass="org.jrebirth.af.presentation.ui.classic.ClassicModel">
 
-		<slide modelClass="org.jrebirth.af.presentation.javafx.ui.slides.shape.ShapeModel" style="shapeContent">
-			<title>Shape</title>
-			<content name="Text">
-				<item image="uml/shape.png" />
-				<item>Pas de redimensionnement</item>
-				<item>Entourable (Stroke)</item>
-				<item>Remplissable (Fill)</item>
-				<item>union, intersect, subtract </item>
-			</content>
-		</slide>
-		
 		<!-- Conference Place -->
 		<slide style="place" modelClass="org.jrebirth.af.presentation.javafx.ui.slides.place.PlaceModel" showAnimation="SlidingTopBottomProgressive" hideAnimation="FadeOut">
 		</slide>
