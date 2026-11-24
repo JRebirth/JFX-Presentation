@@ -18,7 +18,7 @@
 package org.jrebirth.af.presentation.javafx.ui.slides.arch;
 
 import javafx.animation.Interpolator;
-import javafx.animation.ScaleTransitionBuilder;
+import javafx.animation.ScaleTransition;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
@@ -57,17 +57,15 @@ public final class ArchView extends AbstractTemplateView<ArchModel, AnchorPane, 
      */
     @Override
     public void start() {
-        ScaleTransitionBuilder.create()
-                .node(getArchiPane())
-                .duration(Duration.millis(600))
-                .interpolator(Interpolator.EASE_IN)
-                .fromX(4)
-                .fromY(4)
-                .fromZ(4)
-                .toX(2)
-                .toY(2)
-                .toZ(2)
-                .build().play();
+        final ScaleTransition st = new ScaleTransition(Duration.millis(600), getArchiPane());
+        st.setInterpolator(Interpolator.EASE_IN);
+        st.setFromX(4);
+        st.setFromY(4);
+        st.setFromZ(4);
+        st.setToX(2);
+        st.setToY(2);
+        st.setToZ(2);
+        st.play();
     }
 
     /**

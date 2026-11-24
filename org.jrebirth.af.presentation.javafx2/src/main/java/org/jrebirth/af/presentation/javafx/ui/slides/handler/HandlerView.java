@@ -21,18 +21,13 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.SceneBuilder;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBuilder;
-import javafx.scene.control.LabelBuilder;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextAreaBuilder;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.BorderPaneBuilder;
-import javafx.scene.layout.PaneBuilder;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javafx.stage.StageBuilder;
 import javafx.stage.StageStyle;
 
 import org.jrebirth.af.api.exception.CoreException;
@@ -84,25 +79,22 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Anchor
     @Override
     protected void initView() {
         super.initView();
-        this.top = LabelBuilder.create()
-                .text("Top Label")
-                .style("-fx-background-color: #CCCCCC;-fx-font-size:1.4em;-fx-label-padding:20px")
-                .build();
-        this.center = TextAreaBuilder.create()
-                .text("")
-                .minWidth(600)
-                .style("-fx-font-size:1.4em")
-                .build();
-        this.button = ButtonBuilder.create()
-                .text("Effacer")
-                .style("-fx-background-color: #CCCCCC;-fx-font-size:1.4em;-fx-label-padding:20px")
-                .build();
+        final Label topLabel = new Label("Top Label");
+        topLabel.setStyle("-fx-background-color: #CCCCCC;-fx-font-size:1.4em;-fx-label-padding:20px");
+        this.top = topLabel;
 
-        this.borderPane = BorderPaneBuilder.create()
-                .top(this.top)
-                .center(this.center)
-                .bottom(this.button)
-                .build();
+        this.center = new TextArea();
+        this.center.setText("");
+        this.center.setMinWidth(600);
+        this.center.setStyle("-fx-font-size:1.4em");
+
+        this.button = new Button("Effacer");
+        this.button.setStyle("-fx-background-color: #CCCCCC;-fx-font-size:1.4em;-fx-label-padding:20px");
+
+        this.borderPane = new BorderPane();
+        this.borderPane.setTop(this.top);
+        this.borderPane.setCenter(this.center);
+        this.borderPane.setBottom(this.button);
 
         BorderPane.setAlignment(this.top, Pos.CENTER);
         BorderPane.setAlignment(this.center, Pos.CENTER);
@@ -112,18 +104,15 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Anchor
         BorderPane.setMargin(this.center, new Insets(0));
         BorderPane.setMargin(this.button, new Insets(0));
 
-        this.scene = SceneBuilder.create()
-                .root(this.borderPane)
-                .build();
+        this.scene = new Scene(this.borderPane);
 
-        this.stage = StageBuilder.create()
-                .height(700)
-                .width(980)
-                .resizable(true)
-                .focused(true)
-                .title("Event Filtering and Handling Demo")
-                .style(StageStyle.DECORATED)
-                .scene(this.scene).build();
+        this.stage = new Stage();
+        this.stage.setHeight(700);
+        this.stage.setWidth(980);
+        this.stage.setResizable(true);
+        this.stage.setTitle("Event Filtering and Handling Demo");
+        this.stage.initStyle(StageStyle.DECORATED);
+        this.stage.setScene(this.scene);
     }
 
     /**
@@ -185,7 +174,7 @@ public final class HandlerView extends AbstractTemplateView<HandlerModel, Anchor
      */
     @Override
     protected Node getContentPanel() {
-        return PaneBuilder.create().build();
+        return new Pane();
     }
 
     /**

@@ -33,32 +33,26 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.LabelBuilder;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuBarBuilder;
-import javafx.scene.control.MenuBuilder;
-import javafx.scene.control.MenuItemBuilder;
-import javafx.scene.control.ProgressBarBuilder;
-import javafx.scene.control.ProgressIndicatorBuilder;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.Separator;
-import javafx.scene.control.SeparatorBuilder;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
-import javafx.scene.control.ToolBarBuilder;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.FlowPaneBuilder;
 import javafx.scene.layout.VBox;
-import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.web.HTMLEditor;
 import javafx.util.Pair;
 
@@ -192,22 +186,50 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
 
         getSubTitle().setText("Progress");
 
-        final VBox vb = VBoxBuilder.create().spacing(20).alignment(Pos.CENTER).build();
+        final VBox vb = new VBox();
+        vb.setSpacing(20);
+        vb.setAlignment(Pos.CENTER);
 
-        vb.getChildren().addAll(
-                ProgressBarBuilder.create().build(),
-                ProgressBarBuilder.create().prefWidth(300).prefHeight(30).build(),
-                ProgressBarBuilder.create().prefWidth(400).prefHeight(40).build(),
-                ProgressBarBuilder.create().progress(0.25).prefHeight(30).build(),
-                ProgressBarBuilder.create().progress(0.50).prefHeight(30).build(),
-                ProgressBarBuilder.create().progress(0.50).disable(true).prefHeight(30).build(),
-                ProgressBarBuilder.create().progress(1).prefHeight(30).build(),
+        final ProgressBar pb1 = new ProgressBar();
 
-                ProgressIndicatorBuilder.create().prefWidth(50).prefHeight(50).build(),
-                ProgressIndicatorBuilder.create().prefWidth(50).prefHeight(50).progress(0.25).build(),
-                ProgressIndicatorBuilder.create().prefWidth(50).prefHeight(50).progress(0.60).build(),
-                ProgressIndicatorBuilder.create().prefWidth(50).prefHeight(50).progress(1).build()
-                );
+        final ProgressBar pb2 = new ProgressBar();
+        pb2.setPrefWidth(300);
+        pb2.setPrefHeight(30);
+
+        final ProgressBar pb3 = new ProgressBar();
+        pb3.setPrefWidth(400);
+        pb3.setPrefHeight(40);
+
+        final ProgressBar pb4 = new ProgressBar(0.25);
+        pb4.setPrefHeight(30);
+
+        final ProgressBar pb5 = new ProgressBar(0.50);
+        pb5.setPrefHeight(30);
+
+        final ProgressBar pb6 = new ProgressBar(0.50);
+        pb6.setDisable(true);
+        pb6.setPrefHeight(30);
+
+        final ProgressBar pb7 = new ProgressBar(1);
+        pb7.setPrefHeight(30);
+
+        final ProgressIndicator pi1 = new ProgressIndicator();
+        pi1.setPrefWidth(50);
+        pi1.setPrefHeight(50);
+
+        final ProgressIndicator pi2 = new ProgressIndicator(0.25);
+        pi2.setPrefWidth(50);
+        pi2.setPrefHeight(50);
+
+        final ProgressIndicator pi3 = new ProgressIndicator(0.60);
+        pi3.setPrefWidth(50);
+        pi3.setPrefHeight(50);
+
+        final ProgressIndicator pi4 = new ProgressIndicator(1);
+        pi4.setPrefWidth(50);
+        pi4.setPrefHeight(50);
+
+        vb.getChildren().addAll(pb1, pb2, pb3, pb4, pb5, pb6, pb7, pi1, pi2, pi3, pi4);
 
         // node().setCenter(vb);
         showCustomSlideStep(vb);
@@ -223,7 +245,10 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
 
         getSubTitle().setText("Separator");
 
-        final Separator s = SeparatorBuilder.create().minHeight(20).maxWidth(700).halignment(HPos.CENTER).build();
+        final Separator s = new Separator();
+        s.setMinHeight(20);
+        s.setMaxWidth(700);
+        s.setHalignment(HPos.CENTER);
 
         // node().setCenter(s);
         showCustomSlideStep(s);
@@ -239,33 +264,32 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
 
         getSubTitle().setText("MenuBar");
 
-        final MenuBar menubar = MenuBarBuilder.create()
-                .menus(
-                        MenuBuilder.create().graphic(LabelBuilder.create().text("Menu 1").build())
-                                .items(
-                                        MenuItemBuilder.create().graphic(LabelBuilder.create().text("Menu 1.1").build()).build(),
-                                        MenuItemBuilder.create().graphic(LabelBuilder.create().text("Menu 1.2").build()).build(),
-                                        MenuItemBuilder.create().graphic(LabelBuilder.create().text("Menu 1.3").build()).build(),
-                                        MenuItemBuilder.create().graphic(LabelBuilder.create().text("Menu 1.4").build()).build(),
-                                        MenuItemBuilder.create().graphic(LabelBuilder.create().text("Menu 1.5").build()).build()
-                                ).build(),
-                        MenuBuilder.create().graphic(LabelBuilder.create().text("Menu 2").build())
-                                .items(
-                                        MenuItemBuilder.create().graphic(LabelBuilder.create().text("Menu 2.1").build()).build(),
-                                        MenuItemBuilder.create().graphic(LabelBuilder.create().text("Menu 2.2").build()).build(),
-                                        MenuItemBuilder.create().graphic(LabelBuilder.create().text("Menu 2.3").build()).build(),
-                                        MenuItemBuilder.create().graphic(LabelBuilder.create().text("Menu 2.4").build()).build(),
-                                        MenuItemBuilder.create().graphic(LabelBuilder.create().text("Menu 2.5").build()).build()
-                                ).build(),
-                        MenuBuilder.create().graphic(LabelBuilder.create().text("Menu 3").build())
-                                .items(
-                                        MenuItemBuilder.create().graphic(LabelBuilder.create().text("Menu 3.1").build()).build(),
-                                        MenuItemBuilder.create().graphic(LabelBuilder.create().text("Menu 3.2").build()).build(),
-                                        MenuItemBuilder.create().graphic(LabelBuilder.create().text("Menu 3.3").build()).build(),
-                                        MenuItemBuilder.create().graphic(LabelBuilder.create().text("Menu 3.4").build()).build(),
-                                        MenuItemBuilder.create().graphic(LabelBuilder.create().text("Menu 3.5").build()).build()
-                                ).build()
-                ).build();
+        final MenuItem mi11 = new MenuItem(); mi11.setGraphic(new Label("Menu 1.1"));
+        final MenuItem mi12 = new MenuItem(); mi12.setGraphic(new Label("Menu 1.2"));
+        final MenuItem mi13 = new MenuItem(); mi13.setGraphic(new Label("Menu 1.3"));
+        final MenuItem mi14 = new MenuItem(); mi14.setGraphic(new Label("Menu 1.4"));
+        final MenuItem mi15 = new MenuItem(); mi15.setGraphic(new Label("Menu 1.5"));
+        final Menu m1 = new Menu(); m1.setGraphic(new Label("Menu 1"));
+        m1.getItems().addAll(mi11, mi12, mi13, mi14, mi15);
+
+        final MenuItem mi21 = new MenuItem(); mi21.setGraphic(new Label("Menu 2.1"));
+        final MenuItem mi22 = new MenuItem(); mi22.setGraphic(new Label("Menu 2.2"));
+        final MenuItem mi23 = new MenuItem(); mi23.setGraphic(new Label("Menu 2.3"));
+        final MenuItem mi24 = new MenuItem(); mi24.setGraphic(new Label("Menu 2.4"));
+        final MenuItem mi25 = new MenuItem(); mi25.setGraphic(new Label("Menu 2.5"));
+        final Menu m2 = new Menu(); m2.setGraphic(new Label("Menu 2"));
+        m2.getItems().addAll(mi21, mi22, mi23, mi24, mi25);
+
+        final MenuItem mi31 = new MenuItem(); mi31.setGraphic(new Label("Menu 3.1"));
+        final MenuItem mi32 = new MenuItem(); mi32.setGraphic(new Label("Menu 3.2"));
+        final MenuItem mi33 = new MenuItem(); mi33.setGraphic(new Label("Menu 3.3"));
+        final MenuItem mi34 = new MenuItem(); mi34.setGraphic(new Label("Menu 3.4"));
+        final MenuItem mi35 = new MenuItem(); mi35.setGraphic(new Label("Menu 3.5"));
+        final Menu m3 = new Menu(); m3.setGraphic(new Label("Menu 3"));
+        m3.getItems().addAll(mi31, mi32, mi33, mi34, mi35);
+
+        final MenuBar menubar = new MenuBar();
+        menubar.getMenus().addAll(m1, m2, m3);
 
         // node().setCenter(menubar);
         showCustomSlideStep(menubar);
@@ -280,15 +304,12 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
     public void showToolBar() {
         getSubTitle().setText("ToolBar");
 
-        final ToolBar toolbar = ToolBarBuilder.create()
-                .items(
-                        new Button("Lorem"),
-                        new Button("Ipsum"),
-                        new Button("Dolor"),
-                        new Button("Sit"),
-                        new Button("Amet")
-                )
-                .build();
+        final ToolBar toolbar = new ToolBar(
+                new Button("Lorem"),
+                new Button("Ipsum"),
+                new Button("Dolor"),
+                new Button("Sit"),
+                new Button("Amet"));
 
         // node().setCenter(toolbar);
         showCustomSlideStep(toolbar);
@@ -316,10 +337,9 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
         verticalListView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         verticalListView.setPrefWidth(400);
 
-        final FlowPane fp = FlowPaneBuilder.create()
-                .children(horizontalListView, verticalListView)
-                .hgap(30)
-                .build();
+        final FlowPane fp = new FlowPane();
+        fp.getChildren().addAll(horizontalListView, verticalListView);
+        fp.setHgap(30);
 
         // node().setCenter(fp);
         showCustomSlideStep(fp);
@@ -336,8 +356,8 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
     private ObservableList<String> populateList() {
         final ObservableList<String> list = FXCollections.observableArrayList();
 
-        final BufferedReader in = new BufferedReader(new InputStreamReader(Thread.currentThread().getContextClassLoader()
-                .getResourceAsStream("org/jrebirth/presentation/javafx/ui/slides/control/sdkTree.txt")));
+        final BufferedReader in = new BufferedReader(new InputStreamReader(
+                ControlView.class.getResourceAsStream("sdkTree.txt")));
         String line;
         try {
             while ((line = in.readLine()) != null) {
@@ -384,8 +404,8 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
     private ObservableList<Pair<String, String>> populateTable() {
         final ObservableList<Pair<String, String>> list = FXCollections.observableArrayList();
 
-        final BufferedReader in = new BufferedReader(new InputStreamReader(Thread.currentThread().getContextClassLoader()
-                .getResourceAsStream("org/jrebirth/presentation/javafx/ui/slides/control/sdkTree.txt")));
+        final BufferedReader in = new BufferedReader(new InputStreamReader(
+                ControlView.class.getResourceAsStream("sdkTree.txt")));
         String line;
         try {
             while ((line = in.readLine()) != null) {
@@ -435,8 +455,8 @@ public final class ControlView extends AbstractTemplateView<ControlModel, Anchor
      * @throws IOException id an error occured while opening the sample file
      */
     private void populateTree(final TreeItem<String> treeRoot) throws IOException {
-        final BufferedReader in = new BufferedReader(new InputStreamReader(Thread.currentThread().getContextClassLoader()
-                .getResourceAsStream("org/jrebirth/presentation/javafx/ui/slides/control/sdkTree.txt")));
+        final BufferedReader in = new BufferedReader(new InputStreamReader(
+                ControlView.class.getResourceAsStream("sdkTree.txt")));
 
         final Map<String, TreeItem<String>> map = new HashMap<>();
         String line;

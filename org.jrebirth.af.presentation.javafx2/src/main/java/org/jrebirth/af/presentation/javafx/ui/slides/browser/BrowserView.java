@@ -18,7 +18,7 @@
 package org.jrebirth.af.presentation.javafx.ui.slides.browser;
 
 import javafx.scene.Node;
-import javafx.scene.effect.ReflectionBuilder;
+import javafx.scene.effect.Reflection;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -87,7 +87,7 @@ public final class BrowserView extends AbstractTemplateView<BrowserModel, Anchor
         final VBox vb = buildDefaultContent(model().getContent(BrowserSlideStep.Browser));
 
         // load the web page
-        this.browser.getEngine().load(Thread.currentThread().getContextClassLoader().getResource("balls/balls.htm").toString());
+        this.browser.getEngine().load(BrowserView.class.getResource("/org/jrebirth/af/presentation/javafx/balls/balls.htm").toString());
 
         vb.getChildren().add(this.browser);
         showCustomSlideStep(vb);
@@ -100,7 +100,7 @@ public final class BrowserView extends AbstractTemplateView<BrowserModel, Anchor
         final VBox vb = buildDefaultContent(model().getContent(BrowserSlideStep.Gradient));
 
         // load the gradient page
-        this.browser.getEngine().load(Thread.currentThread().getContextClassLoader().getResource("balls/canvas-grad.htm").toString());
+        this.browser.getEngine().load(BrowserView.class.getResource("/org/jrebirth/af/presentation/javafx/balls/canvas-grad.htm").toString());
 
         vb.getChildren().add(this.browser);
         showCustomSlideStep(vb);
@@ -113,7 +113,7 @@ public final class BrowserView extends AbstractTemplateView<BrowserModel, Anchor
         this.browser.setTranslateY(-80);
         this.browser.setScaleX(0.6);
         this.browser.setScaleY(0.6);
-        this.browser.setEffect(ReflectionBuilder.create().build());
+        this.browser.setEffect(new Reflection());
         this.browser.getEngine().reload();
         this.browser.setCache(true);
     }

@@ -23,18 +23,15 @@ import javafx.geometry.Bounds;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.CheckBoxBuilder;
-import javafx.scene.effect.ReflectionBuilder;
+import javafx.scene.effect.Reflection;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.RectangleBuilder;
 import javafx.scene.transform.Rotate;
-import javafx.scene.transform.RotateBuilder;
-import javafx.scene.transform.TranslateBuilder;
+import javafx.scene.transform.Translate;
 
 import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.ui.template.AbstractTemplateView;
@@ -73,14 +70,13 @@ public final class NodeView extends AbstractTemplateView<NodeModel, AnchorPane, 
     public void showBounds1() {
         final StackPane customStackPane = new StackPane();
 
-        final Rectangle rectangle = RectangleBuilder.create()
-                .width(500)
-                .height(300)
-                .fill(Color.ANTIQUEWHITE)
-                .stroke(Color.GOLDENROD)
-                .strokeWidth(4)
-                .strokeDashArray(10.0, 5.0, 2.0)
-                .build();
+        final Rectangle rectangle = new Rectangle();
+        rectangle.setWidth(500);
+        rectangle.setHeight(300);
+        rectangle.setFill(Color.ANTIQUEWHITE);
+        rectangle.setStroke(Color.GOLDENROD);
+        rectangle.setStrokeWidth(4);
+        rectangle.getStrokeDashArray().addAll(10.0, 5.0, 2.0);
 
         final Rectangle local = buildRectangle(rectangle.getBoundsInLocal(), Color.DODGERBLUE, 2.0, 10.0);
         final Rectangle parent = buildRectangle(rectangle.getBoundsInParent(), Color.DARKGRAY, 2.0, 15.0);
@@ -112,20 +108,25 @@ public final class NodeView extends AbstractTemplateView<NodeModel, AnchorPane, 
 
         final VBox vb = new VBox();
 
-        final CheckBox cb1 = CheckBoxBuilder.create().text("BoundsInLocal").build();
-        final CheckBox cb2 = CheckBoxBuilder.create().text("BoundsInParent").build();
-        final CheckBox cb3 = CheckBoxBuilder.create().text("LayoutBounds").build();
+        final CheckBox cb1 = new CheckBox("BoundsInLocal");
+        final CheckBox cb2 = new CheckBox("BoundsInParent");
+        final CheckBox cb3 = new CheckBox("LayoutBounds");
 
-        final CheckBox cb4 = CheckBoxBuilder.create().text("Effect").build();
-        final CheckBox cb5 = CheckBoxBuilder.create().text("Rotate").build();
-        final CheckBox cb6 = CheckBoxBuilder.create().text("Rotate and Translate").build();
+        final CheckBox cb4 = new CheckBox("Effect");
+        final CheckBox cb5 = new CheckBox("Rotate");
+        final CheckBox cb6 = new CheckBox("Rotate and Translate");
 
         cb4.selectedProperty().addListener(new ChangeListener<Boolean>() {
 
             @Override
             public void changed(final ObservableValue<? extends Boolean> arg0, final Boolean arg1, final Boolean update) {
                 if (update) {
-                    rectangle.setEffect(ReflectionBuilder.create().fraction(0.4).topOpacity(0.8).bottomOpacity(0.3).topOffset(10.0).build());
+                    final Reflection refl = new Reflection();
+                    refl.setFraction(0.4);
+                    refl.setTopOpacity(0.8);
+                    refl.setBottomOpacity(0.3);
+                    refl.setTopOffset(10.0);
+                    rectangle.setEffect(refl);
                 } else {
                     rectangle.setEffect(null);
                 }
@@ -138,7 +139,7 @@ public final class NodeView extends AbstractTemplateView<NodeModel, AnchorPane, 
             @Override
             public void changed(final ObservableValue<? extends Boolean> arg0, final Boolean arg1, final Boolean update) {
                 if (update) {
-                    final Rotate rotate = RotateBuilder.create().angle(30.0).build();
+                    final Rotate rotate = new Rotate(30.0);
                     rectangle.getTransforms().add(rotate);
                 } else {
                     rectangle.getTransforms().clear();
@@ -152,8 +153,8 @@ public final class NodeView extends AbstractTemplateView<NodeModel, AnchorPane, 
             @Override
             public void changed(final ObservableValue<? extends Boolean> arg0, final Boolean arg1, final Boolean update) {
                 if (update) {
-                    rectangle.getTransforms().add(RotateBuilder.create().angle(30.0).build());
-                    rectangle.getTransforms().add(TranslateBuilder.create().x(40).y(-147).build());
+                    rectangle.getTransforms().add(new Rotate(30.0));
+                    rectangle.getTransforms().add(new Translate(40, -147));
                 } else {
                     rectangle.getTransforms().clear();
                 }
@@ -187,16 +188,15 @@ public final class NodeView extends AbstractTemplateView<NodeModel, AnchorPane, 
      */
     private Rectangle buildRectangle(final Bounds bounds, final Color stroke, final Double... dash) {
 
-        final Rectangle r = RectangleBuilder.create()
-                .x(bounds.getMaxX())
-                .y(bounds.getMaxY())
-                .width(bounds.getWidth())
-                .height(bounds.getHeight())
-                .fill(null)
-                .stroke(stroke)
-                .strokeWidth(4.0)
-                .strokeDashArray(dash)
-                .build();
+        final Rectangle r = new Rectangle();
+        r.setX(bounds.getMaxX());
+        r.setY(bounds.getMaxY());
+        r.setWidth(bounds.getWidth());
+        r.setHeight(bounds.getHeight());
+        r.setFill(null);
+        r.setStroke(stroke);
+        r.setStrokeWidth(4.0);
+        r.getStrokeDashArray().addAll(dash);
 
         return r;
     }

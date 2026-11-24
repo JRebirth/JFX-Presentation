@@ -25,17 +25,12 @@ import javafx.beans.value.ObservableValue;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.control.LabelBuilder;
 import javafx.scene.control.Slider;
-import javafx.scene.control.SliderBuilder;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.FlowPaneBuilder;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.StackPaneBuilder;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.CircleBuilder;
 
 import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.javafx.resources.JfxColors;
@@ -78,14 +73,16 @@ public final class PropertyView extends AbstractTemplateView<PropertyModel, Anch
         final VBox vb = buildDefaultContent(model().getContent(PropertySlideStep.Binding));
 
         final NumberFormat nf = new DecimalFormat("0.0");
-        final Circle c = CircleBuilder.create().fill(JfxColors.SHAPE_BLUE.get()).radius(50).build();
-        final Slider s = SliderBuilder.create().min(0.1).max(5).value(1.0).majorTickUnit(1.0).maxWidth(200).build();
-        final Label l = LabelBuilder.create().text("1.0").build();
+        final Circle c = new Circle(50, JfxColors.SHAPE_BLUE.get());
 
-        final FlowPane fp = FlowPaneBuilder.create().children(s, l).build();
-        final StackPane sp = StackPaneBuilder.create()
-                .children(fp, c)
-                .build();
+        final Slider s = new Slider(0.1, 5, 1.0);
+        s.setMajorTickUnit(1.0);
+        s.setMaxWidth(200);
+
+        final Label l = new Label("1.0");
+
+        final FlowPane fp = new FlowPane(s, l);
+        final StackPane sp = new StackPane(fp, c);
 
         StackPane.setAlignment(fp, Pos.CENTER_LEFT);
         StackPane.setAlignment(c, Pos.CENTER);

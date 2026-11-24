@@ -32,6 +32,7 @@ import org.jrebirth.af.api.resource.font.FontItem;
 import org.jrebirth.af.api.ui.Model;
 import org.jrebirth.af.core.application.DefaultApplication;
 import org.jrebirth.af.presentation.javafx.resources.JfxFonts;
+import org.jrebirth.af.presentation.javafx.resources.JfxStyles;
 import org.jrebirth.af.presentation.ui.stack.SlideStackModel;
 
 /**
@@ -86,8 +87,8 @@ public final class Presentation extends DefaultApplication<StackPane> {
     @Override
     protected void customizeScene(final Scene scene) {
 
-        scene.getStylesheets().add("style/template.css");
-        scene.getStylesheets().add("style/candle.css");
+        addCSS(scene, JfxStyles.TEMPLATE);
+        addCSS(scene, JfxStyles.CANDLE);
 
         // Manage F11 button to switch full screen
         scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {

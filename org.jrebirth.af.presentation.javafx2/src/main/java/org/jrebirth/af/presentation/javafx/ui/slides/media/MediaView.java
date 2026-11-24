@@ -20,10 +20,10 @@ package org.jrebirth.af.presentation.javafx.ui.slides.media;
 import java.net.URL;
 
 import javafx.animation.Interpolator;
-import javafx.animation.ParallelTransitionBuilder;
-import javafx.animation.RotateTransitionBuilder;
-import javafx.animation.ScaleTransitionBuilder;
-import javafx.animation.SequentialTransitionBuilder;
+import javafx.animation.ParallelTransition;
+import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
+import javafx.animation.SequentialTransition;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
@@ -68,7 +68,8 @@ public final class MediaView extends AbstractTemplateView<MediaModel, AnchorPane
      * TODO To complete.
      */
     public void showVideo() {
-        final URL mediaURL = Thread.currentThread().getContextClassLoader().getResource("media/Strobo.flv");
+        // resources.base.path relocates media under the module package tree
+        final URL mediaURL = MediaView.class.getResource("/org/jrebirth/af/presentation/javafx/media/Strobo.flv");
         this.mediaPlayer = new MediaPlayer(new Media(mediaURL.toString()));
         final javafx.scene.media.MediaView mv = new javafx.scene.media.MediaView(this.mediaPlayer);
         this.mediaPlayer.setCycleCount(-1);
@@ -93,37 +94,30 @@ public final class MediaView extends AbstractTemplateView<MediaModel, AnchorPane
     public void showMoveOut() {
 
         showEmptySlide();
-        ParallelTransitionBuilder.create()
-                .interpolator(Interpolator.EASE_BOTH)
-                .node(getSlideContent()) // node().getCenter()
-                .children(
-                        RotateTransitionBuilder.create()
-                                .byAngle(7200)
-                                .cycleCount(1)
-                                .duration(Duration.seconds(4))
-                                .build(),
-                        SequentialTransitionBuilder.create()
-                                .children(
-                                        ScaleTransitionBuilder.create()
-                                                .cycleCount(1)
-                                                .fromX(1.0)
-                                                .fromY(1.0)
-                                                .toX(0.1)
-                                                .toY(0.1)
-                                                .duration(Duration.seconds(2))
-                                                .build(),
-                                        ScaleTransitionBuilder.create()
-                                                .cycleCount(1)
-                                                .fromX(0.1)
-                                                .fromY(0.1)
-                                                .toX(1.0)
-                                                .toY(1.0)
-                                                .duration(Duration.seconds(2))
-                                                .build()
-                                ).build()
 
-                )
-                .build().play();
+        final RotateTransition rotate = new RotateTransition(Duration.seconds(4));
+        rotate.setByAngle(7200);
+        rotate.setCycleCount(1);
+
+        final ScaleTransition scaleDown = new ScaleTransition(Duration.seconds(2));
+        scaleDown.setCycleCount(1);
+        scaleDown.setFromX(1.0);
+        scaleDown.setFromY(1.0);
+        scaleDown.setToX(0.1);
+        scaleDown.setToY(0.1);
+
+        final ScaleTransition scaleUp = new ScaleTransition(Duration.seconds(2));
+        scaleUp.setCycleCount(1);
+        scaleUp.setFromX(0.1);
+        scaleUp.setFromY(0.1);
+        scaleUp.setToX(1.0);
+        scaleUp.setToY(1.0);
+
+        final SequentialTransition seq = new SequentialTransition(scaleDown, scaleUp);
+
+        final ParallelTransition parallel = new ParallelTransition(getSlideContent(), rotate, seq); // node().getCenter()
+        parallel.setInterpolator(Interpolator.EASE_BOTH);
+        parallel.play();
 
     }
 

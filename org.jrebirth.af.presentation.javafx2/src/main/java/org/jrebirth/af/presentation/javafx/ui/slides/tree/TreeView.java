@@ -17,25 +17,21 @@
  */
 package org.jrebirth.af.presentation.javafx.ui.slides.tree;
 
-import javafx.animation.FadeTransitionBuilder;
+import javafx.animation.FadeTransition;
 import javafx.animation.Interpolator;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
-import javafx.animation.ParallelTransitionBuilder;
-import javafx.animation.ScaleTransitionBuilder;
-import javafx.animation.SequentialTransitionBuilder;
-import javafx.animation.TimelineBuilder;
+import javafx.animation.ParallelTransition;
+import javafx.animation.ScaleTransition;
+import javafx.animation.SequentialTransition;
+import javafx.animation.Timeline;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.control.LabelBuilder;
 import javafx.scene.effect.BoxBlur;
-import javafx.scene.effect.BoxBlurBuilder;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.ImageViewBuilder;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.StackPaneBuilder;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
@@ -87,28 +83,23 @@ public final class TreeView extends AbstractTemplateView<TreeModel, AnchorPane, 
     protected void initView() {
         super.initView();
 
-        this.woodNode = ImageViewBuilder.create()
-                .image(JFXImages.NODE.get()).scaleX(0.9).scaleY(0.9)
-                .build();
+        this.woodNode = new ImageView(JFXImages.NODE.get());
+        this.woodNode.setScaleX(0.9);
+        this.woodNode.setScaleY(0.9);
 
-        this.tree = ImageViewBuilder.create()
-                .image(JFXImages.TREE.get())
-                .opacity(0.0)
-                .build();
-
-        // node().setCenter(this.sp);
+        this.tree = new ImageView(JFXImages.TREE.get());
+        this.tree.setOpacity(0.0);
     }
 
     /**
      * TODO To complete.
      */
     public void showWoodNode() {
-        this.sp = StackPaneBuilder.create().build();
+        this.sp = new StackPane();
         showCustomSlideStep(this.sp);
 
         this.sp.getChildren().add(this.woodNode);
         StackPane.setAlignment(this.woodNode, Pos.CENTER);
-
     }
 
     /**
@@ -116,19 +107,20 @@ public final class TreeView extends AbstractTemplateView<TreeModel, AnchorPane, 
      */
     public void showThinkNode() {
 
-        this.thinkNode = LabelBuilder.create()
-                .text("composée de nœuds")
-                .font(PrezFonts.SPLASH.get())
-                .textFill(Color.WHITE)
-                .scaleX(500)
-                .scaleY(500)
-                .build();
+        this.thinkNode = new Label("composée de nœuds");
+        this.thinkNode.setFont(PrezFonts.SPLASH.get());
+        this.thinkNode.setTextFill(Color.WHITE);
+        this.thinkNode.setScaleX(500);
+        this.thinkNode.setScaleY(500);
 
         this.sp.getChildren().add(this.thinkNode);
         StackPane.setAlignment(this.thinkNode, Pos.CENTER);
 
-        ScaleTransitionBuilder.create().toX(2.5).toY(2.5).node(this.thinkNode).duration(Duration.millis(400)).interpolator(Interpolator.LINEAR).build().play();
-
+        final ScaleTransition st = new ScaleTransition(Duration.millis(400), this.thinkNode);
+        st.setToX(2.5);
+        st.setToY(2.5);
+        st.setInterpolator(Interpolator.LINEAR);
+        st.play();
     }
 
     /**
@@ -139,31 +131,40 @@ public final class TreeView extends AbstractTemplateView<TreeModel, AnchorPane, 
         this.tree.setScaleX(1000);
         this.tree.setScaleY(1000);
 
-        final BoxBlur fx = BoxBlurBuilder.create()
-                .width(1)
-                .height(1)
-                .iterations(3)
-                .build();
+        final BoxBlur fx = new BoxBlur();
+        fx.setWidth(1);
+        fx.setHeight(1);
+        fx.setIterations(3);
         this.tree.setEffect(fx);
 
         this.sp.getChildren().add(0, this.tree);
         StackPane.setAlignment(this.tree, Pos.CENTER);
 
-        SequentialTransitionBuilder.create().children(
+        final FadeTransition fadeThinkNode = new FadeTransition(Duration.seconds(1), this.thinkNode);
+        fadeThinkNode.setToValue(0);
 
-                FadeTransitionBuilder.create().node(this.thinkNode).duration(Duration.seconds(1)).toValue(0).build(),
+        final ScaleTransition scaleWoodNode = new ScaleTransition(Duration.seconds(2), this.woodNode);
+        scaleWoodNode.setToX(0.001);
+        scaleWoodNode.setToY(0.001);
+        scaleWoodNode.setInterpolator(Interpolator.LINEAR);
 
-                ParallelTransitionBuilder.create().children(
-                        ScaleTransitionBuilder.create().toX(0.001).toY(0.001).node(this.woodNode).duration(Duration.seconds(2)).interpolator(Interpolator.LINEAR).build(),
-                        TimelineBuilder.create().keyFrames(
-                                new KeyFrame(Duration.seconds(0), new KeyValue(fx.widthProperty(), 15.0), new KeyValue(fx.heightProperty(), 15.0)),
-                                new KeyFrame(Duration.seconds(1), new KeyValue(fx.widthProperty(), 1), new KeyValue(fx.heightProperty(), 1))
-                                ).build(),
-                        FadeTransitionBuilder.create().node(this.tree).fromValue(0.1).toValue(1.0).duration(Duration.millis(1300)).build(),
-                        ScaleTransitionBuilder.create().toX(1).toY(1).node(this.tree).duration(Duration.seconds(2)).build()).interpolator(Interpolator.LINEAR).build()
-                )
-                .build().play();
+        final Timeline blurTimeline = new Timeline(
+                new KeyFrame(Duration.seconds(0), new KeyValue(fx.widthProperty(), 15.0), new KeyValue(fx.heightProperty(), 15.0)),
+                new KeyFrame(Duration.seconds(1), new KeyValue(fx.widthProperty(), 1), new KeyValue(fx.heightProperty(), 1)));
 
+        final FadeTransition fadeTree = new FadeTransition(Duration.millis(1300), this.tree);
+        fadeTree.setFromValue(0.1);
+        fadeTree.setToValue(1.0);
+
+        final ScaleTransition scaleTree = new ScaleTransition(Duration.seconds(2), this.tree);
+        scaleTree.setToX(1);
+        scaleTree.setToY(1);
+
+        final ParallelTransition parallel = new ParallelTransition(scaleWoodNode, blurTimeline, fadeTree, scaleTree);
+        parallel.setInterpolator(Interpolator.LINEAR);
+
+        final SequentialTransition seq = new SequentialTransition(fadeThinkNode, parallel);
+        seq.play();
     }
 
     /**
@@ -171,18 +172,20 @@ public final class TreeView extends AbstractTemplateView<TreeModel, AnchorPane, 
      */
     public void showThinkTree() {
 
-        this.thinkTree = LabelBuilder.create()
-                .text("dans un arbre")
-                .font(PrezFonts.SPLASH.get())
-                .textFill(Color.WHITE)
-                .scaleX(500)
-                .scaleY(500)
-                .build();
+        this.thinkTree = new Label("dans un arbre");
+        this.thinkTree.setFont(PrezFonts.SPLASH.get());
+        this.thinkTree.setTextFill(Color.WHITE);
+        this.thinkTree.setScaleX(500);
+        this.thinkTree.setScaleY(500);
 
         this.sp.getChildren().add(this.thinkTree);
         StackPane.setAlignment(this.thinkTree, Pos.CENTER);
 
-        ScaleTransitionBuilder.create().toX(2.5).toY(2.5).node(this.thinkTree).duration(Duration.millis(400)).interpolator(Interpolator.LINEAR).build().play();
+        final ScaleTransition st = new ScaleTransition(Duration.millis(400), this.thinkTree);
+        st.setToX(2.5);
+        st.setToY(2.5);
+        st.setInterpolator(Interpolator.LINEAR);
+        st.play();
     }
 
     /**
@@ -190,7 +193,7 @@ public final class TreeView extends AbstractTemplateView<TreeModel, AnchorPane, 
      */
     @Override
     protected Node getContentPanel() {
-        this.sp = StackPaneBuilder.create().build();
+        this.sp = new StackPane();
         return this.sp;
     }
 

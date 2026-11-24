@@ -22,16 +22,12 @@ import java.util.List;
 
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.SceneBuilder;
 import javafx.scene.control.Label;
-import javafx.scene.control.LabelBuilder;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.PaneBuilder;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.StackPaneBuilder;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageBuilder;
 import javafx.stage.StageStyle;
 
 import org.jrebirth.af.api.exception.CoreException;
@@ -69,7 +65,7 @@ public final class StageView extends AbstractTemplateView<StageModel, AnchorPane
      */
     @Override
     protected Node getContentPanel() {
-        return PaneBuilder.create().build();
+        return new Pane();
     }
 
     /**
@@ -91,29 +87,24 @@ public final class StageView extends AbstractTemplateView<StageModel, AnchorPane
 
         Stage stage;
 
-        final Label stageTitle = LabelBuilder.create()
-                .text(title)
-                .textFill(JfxColors.SLIDE_TITLE.get())
-                .font(JfxFonts.SLIDE_TITLE.get())
-                .build();
+        final Label stageTitle = new Label(title);
+        stageTitle.setTextFill(JfxColors.SLIDE_TITLE.get());
+        stageTitle.setFont(JfxFonts.SLIDE_TITLE.get());
 
-        final StackPane sp = StackPaneBuilder.create().children(stageTitle).build();
+        final StackPane sp = new StackPane(stageTitle);
 
-        final Scene scene = SceneBuilder.create()
-                .root(sp)
-                .fill(Color.TRANSPARENT)
-                .build();
+        final Scene scene = new Scene(sp);
+        scene.setFill(Color.TRANSPARENT);
 
-        stage = StageBuilder.create()
-                .height(300)
-                .width(400)
-                .x(x)
-                .y(y)
-                .resizable(true)
-                .focused(true)
-                .title(title)
-                .style(stageStyle)
-                .scene(scene).build();
+        stage = new Stage();
+        stage.setHeight(300);
+        stage.setWidth(400);
+        stage.setX(x);
+        stage.setY(y);
+        stage.setResizable(true);
+        stage.setTitle(title);
+        stage.initStyle(stageStyle);
+        stage.setScene(scene);
 
         // this.stage.centerOnScreen();
         stage.show();

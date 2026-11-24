@@ -24,7 +24,6 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.control.LabelBuilder;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
@@ -66,17 +65,15 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
     @Override
     protected void initView() {
 
-        this.label = LabelBuilder
-                                 .create()
-                                 // .text(model().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"))
-                                 // .styleClass("label", "introTitle")
-                                 // .font(PrezFonts.TYPEWRITER.get())
-                                 // .textFill(Color.BLACK) // web("7F0055")
-                                 .textFill(Color.WHITE)
-                                 .alignment(Pos.CENTER_LEFT)
-                                 .minWidth(800)
-                                 .minHeight(500)
-                                 .build();
+        this.label = new Label();
+        // .text(model().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"))
+        // .styleClass("label", "introTitle")
+        // .font(PrezFonts.TYPEWRITER.get())
+        // .textFill(Color.BLACK) // web("7F0055")
+        this.label.setTextFill(Color.WHITE);
+        this.label.setAlignment(Pos.CENTER_LEFT);
+        this.label.setMinWidth(800);
+        this.label.setMinHeight(500);
 
         this.label.getStyleClass().add("introTitle");
 

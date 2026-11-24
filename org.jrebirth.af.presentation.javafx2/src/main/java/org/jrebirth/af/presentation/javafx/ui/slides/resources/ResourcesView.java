@@ -19,14 +19,13 @@ package org.jrebirth.af.presentation.javafx.ui.slides.resources;
 
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.FlowPaneBuilder;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.LinearGradient;
-import javafx.scene.paint.LinearGradientBuilder;
 import javafx.scene.paint.RadialGradient;
-import javafx.scene.paint.RadialGradientBuilder;
-import javafx.scene.paint.StopBuilder;
-import javafx.scene.shape.RectangleBuilder;
+import javafx.scene.paint.Stop;
+import javafx.scene.shape.Rectangle;
 
 import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.javafx.resources.JfxColors;
@@ -67,27 +66,24 @@ public final class ResourcesView extends AbstractTemplateView<ResourcesModel, An
     public void showColor() {
         final VBox vb = buildDefaultContent(model().getContent(ResourcesSlideStep.Color));
 
-        final RadialGradient rg = RadialGradientBuilder.create()
-                .centerX(0.5)
-                .centerY(0.5).radius(0.5)
-                .stops(
-                        StopBuilder.create().color(JfxColors.GRADIENT_2.get()).offset(0).build(),
-                        StopBuilder.create().color(JfxColors.GRADIENT_1.get()).offset(1).build()
-                )
-                .build();
+        final RadialGradient rg = new RadialGradient(
+                0, 0, 0.5, 0.5, 0.5, true, CycleMethod.NO_CYCLE,
+                new Stop(0, JfxColors.GRADIENT_2.get()),
+                new Stop(1, JfxColors.GRADIENT_1.get())
+        );
 
-        final LinearGradient lg = LinearGradientBuilder.create()
-                .stops(
-                        StopBuilder.create().color(JfxColors.GRADIENT_3.get()).offset(0).build(),
-                        StopBuilder.create().color(JfxColors.GRADIENT_1.get()).offset(1).build()
-                )
-                .build();
+        final LinearGradient lg = new LinearGradient(
+                0, 0, 1, 0, true, CycleMethod.NO_CYCLE,
+                new Stop(0, JfxColors.GRADIENT_3.get()),
+                new Stop(1, JfxColors.GRADIENT_1.get())
+        );
 
-        vb.getChildren().add(FlowPaneBuilder.create().children(
-                RectangleBuilder.create().width(400).height(150).fill(lg).build(),
-                RectangleBuilder.create().width(400).height(150).fill(rg).build()
-                )
-                .build());
+        final Rectangle rectLg = new Rectangle(400, 150);
+        rectLg.setFill(lg);
+        final Rectangle rectRg = new Rectangle(400, 150);
+        rectRg.setFill(rg);
+
+        vb.getChildren().add(new FlowPane(rectLg, rectRg));
 
         showCustomSlideStep(vb);
     }

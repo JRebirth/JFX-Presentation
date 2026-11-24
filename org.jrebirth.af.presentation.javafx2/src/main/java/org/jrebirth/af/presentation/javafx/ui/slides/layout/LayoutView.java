@@ -28,32 +28,26 @@ import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Label;
-import javafx.scene.control.LabelBuilder;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitPane;
-import javafx.scene.control.SplitPaneBuilder;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TitledPane;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.InnerShadow;
-import javafx.scene.effect.InnerShadowBuilder;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.ColumnConstraintsBuilder;
+import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.HBoxBuilder;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
-import javafx.scene.layout.RowConstraintsBuilder;
+import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.StackPaneBuilder;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
-import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.paint.Color;
 
 import org.jrebirth.af.api.exception.CoreException;
@@ -117,7 +111,12 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         // Nothing to do yet
         super.initView();
 
-        this.boxEffect = InnerShadowBuilder.create().blurType(BlurType.THREE_PASS_BOX).radius(8.0).offsetX(2).offsetY(2).color(Color.WHITE).build();
+        this.boxEffect = new InnerShadow();
+        this.boxEffect.setBlurType(BlurType.THREE_PASS_BOX);
+        this.boxEffect.setRadius(8.0);
+        this.boxEffect.setOffsetX(2);
+        this.boxEffect.setOffsetY(2);
+        this.boxEffect.setColor(Color.WHITE);
 
         node().setMaxSize(1000, 750);
     }
@@ -147,20 +146,44 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
      * @param p the p
      * @param n the n
      * @param style the style
-     * @return the stack pane builder
+     * @return the stack pane
      */
-    protected StackPaneBuilder<?> stackPane(final double width, final double height, final Pos p, final Node n, final String style) {
-        return StackPaneBuilder.create().prefWidth(width).prefHeight(height).alignment(p).children(n).style(style).effect(this.boxEffect);
+    protected StackPane stackPane(final double width, final double height, final Pos p, final Node n, final String style) {
+        final StackPane sp = new StackPane();
+        sp.setPrefWidth(width);
+        sp.setPrefHeight(height);
+        sp.setAlignment(p);
+        sp.getChildren().add(n);
+        sp.setStyle(style);
+        sp.setEffect(this.boxEffect);
+        return sp;
     }
 
     /**
      * TODO To complete.
      * 
      * @param text the text
-     * @return the label builder
+     * @return the label
      */
-    private LabelBuilder<?> label(final String text) {
-        return LabelBuilder.create().text(text).scaleX(2.0).scaleY(2.0).textFill(Color.WHITE);
+    private Label label(final String text) {
+        final Label l = new Label(text);
+        l.setScaleX(2.0);
+        l.setScaleY(2.0);
+        l.setTextFill(Color.WHITE);
+        return l;
+    }
+
+    /**
+     * TODO To complete.
+     * 
+     * @param text the text
+     * @param style the CSS style string
+     * @return the label
+     */
+    private Label label(final String text, final String style) {
+        final Label l = label(text);
+        l.setStyle(style);
+        return l;
     }
 
     /**
@@ -181,13 +204,27 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         p.setFocusTraversable(true);
         p.setMaxSize(800, 600);
 
-        p.getChildren().add(stackPane(700, 300, Pos.TOP_LEFT, label("1").build(), BG_1).padding(new Insets(20.0)).layoutX(100).layoutY(100).build());
-        p.getChildren().add(stackPane(200, 500, Pos.TOP_RIGHT, label("2").build(), BG_2).padding(new Insets(20.0)).layoutX(500).layoutY(50).build());
-        p.getChildren().add(stackPane(300, 100, Pos.CENTER, label("3").build(), "-fx-background-color:#65AF23").layoutX(300).layoutY(250).build());
-        p.getChildren().add(stackPane(600, 50, Pos.CENTER, label("4").build(), BG_3).layoutX(150).layoutY(450).build());
+        final StackPane sp1 = stackPane(700, 300, Pos.TOP_LEFT, label("1"), BG_1);
+        sp1.setPadding(new Insets(20.0));
+        sp1.setLayoutX(100);
+        sp1.setLayoutY(100);
+        p.getChildren().add(sp1);
 
-        // BorderPane.setAlignment(p, Pos.CENTER);
-        // BorderPane.setMargin(p, new Insets(40));
+        final StackPane sp2 = stackPane(200, 500, Pos.TOP_RIGHT, label("2"), BG_2);
+        sp2.setPadding(new Insets(20.0));
+        sp2.setLayoutX(500);
+        sp2.setLayoutY(50);
+        p.getChildren().add(sp2);
+
+        final StackPane sp3 = stackPane(300, 100, Pos.CENTER, label("3"), "-fx-background-color:#65AF23");
+        sp3.setLayoutX(300);
+        sp3.setLayoutY(250);
+        p.getChildren().add(sp3);
+
+        final StackPane sp4 = stackPane(600, 50, Pos.CENTER, label("4"), BG_3);
+        sp4.setLayoutX(150);
+        sp4.setLayoutY(450);
+        p.getChildren().add(sp4);
 
         // node().setCenter(p);
         showCustomSlideStep(p);
@@ -204,13 +241,13 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         bp.setFocusTraversable(true);
         bp.setMaxSize(800, 600);
 
-        bp.setTop(stackPane(800, 100, Pos.CENTER, label("Top").build(), BG_1).build());
-        bp.setLeft(stackPane(100, 400, Pos.CENTER, label("Left").build(), BG_2).build());
+        bp.setTop(stackPane(800, 100, Pos.CENTER, label("Top"), BG_1));
+        bp.setLeft(stackPane(100, 400, Pos.CENTER, label("Left"), BG_2));
 
-        bp.setCenter(stackPane(600, 400, Pos.CENTER, label("Center").build(), BG_3).build());
+        bp.setCenter(stackPane(600, 400, Pos.CENTER, label("Center"), BG_3));
 
-        bp.setRight(stackPane(100, 400, Pos.CENTER, label("Right").build(), BG_4).build());
-        bp.setBottom(stackPane(800, 100, Pos.CENTER, label("Bottom").build(), BG_5).build());
+        bp.setRight(stackPane(100, 400, Pos.CENTER, label("Right"), BG_4));
+        bp.setBottom(stackPane(800, 100, Pos.CENTER, label("Bottom"), BG_5));
 
         BorderPane.setAlignment(bp, Pos.CENTER);
         BorderPane.setMargin(bp, new Insets(40));
@@ -231,15 +268,15 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         sp.setFocusTraversable(true);
         sp.setMaxSize(800, 600);
 
-        sp.getChildren().add(label("TOP_LEFT").style(BG_1).build());
-        sp.getChildren().add(label("TOP_CENTER").style(BG_2).build());
-        sp.getChildren().add(label("TOP_RIGHT").style(BG_3).build());
-        sp.getChildren().add(label("CENTER_LEFT").style(BG_3).build());
-        sp.getChildren().add(label("CENTER").style(BG_1).build());
-        sp.getChildren().add(label("CENTER_RIGHT").style(BG_2).build());
-        sp.getChildren().add(label("BOTTOM_LEFT").style(BG_2).build());
-        sp.getChildren().add(label("BOTTOM_CENTER").style(BG_4).build());
-        sp.getChildren().add(label("BOTTOM_RIGHT").style(BG_5).build());
+        sp.getChildren().add(label("TOP_LEFT", BG_1));
+        sp.getChildren().add(label("TOP_CENTER", BG_2));
+        sp.getChildren().add(label("TOP_RIGHT", BG_3));
+        sp.getChildren().add(label("CENTER_LEFT", BG_3));
+        sp.getChildren().add(label("CENTER", BG_1));
+        sp.getChildren().add(label("CENTER_RIGHT", BG_2));
+        sp.getChildren().add(label("BOTTOM_LEFT", BG_2));
+        sp.getChildren().add(label("BOTTOM_CENTER", BG_4));
+        sp.getChildren().add(label("BOTTOM_RIGHT", BG_5));
 
         StackPane.setAlignment(sp.getChildren().get(0), Pos.TOP_LEFT);
         StackPane.setAlignment(sp.getChildren().get(1), Pos.TOP_CENTER);
@@ -271,13 +308,13 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
 
         hb.setMaxSize(800, 400);
 
-        hb.getChildren().add(stackPane(200, 200, Pos.CENTER, label("1").build(), BG_1).build());
-        final Node n = stackPane(400, 200, Pos.CENTER, label("2").build(), BG_2).build();
+        hb.getChildren().add(stackPane(200, 200, Pos.CENTER, label("1"), BG_1));
+        final Node n = stackPane(400, 200, Pos.CENTER, label("2"), BG_2);
         HBox.setHgrow(n, Priority.ALWAYS);
         hb.getChildren().add(n);
-        hb.getChildren().add(stackPane(150, 200, Pos.CENTER, label("3").build(), BG_3).build());
-        hb.getChildren().add(stackPane(200, 200, Pos.CENTER, label("4").build(), BG_4).build());
-        final Node n2 = stackPane(300, 200, Pos.CENTER, label("5").build(), BG_5).build();
+        hb.getChildren().add(stackPane(150, 200, Pos.CENTER, label("3"), BG_3));
+        hb.getChildren().add(stackPane(200, 200, Pos.CENTER, label("4"), BG_4));
+        final Node n2 = stackPane(300, 200, Pos.CENTER, label("5"), BG_5);
         HBox.setHgrow(n2, Priority.NEVER);
         hb.getChildren().add(n2);
 
@@ -298,11 +335,11 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         final VBox vb = new VBox();
         vb.setFocusTraversable(true);
 
-        vb.getChildren().add(stackPane(200, 120, Pos.CENTER, label("1").build(), BG_1).build());
-        vb.getChildren().add(stackPane(200, 100, Pos.CENTER, label("2").build(), BG_2).build());
-        vb.getChildren().add(stackPane(200, 150, Pos.CENTER, label("3").build(), BG_3).build());
-        vb.getChildren().add(stackPane(200, 80, Pos.CENTER, label("4").build(), BG_4).build());
-        vb.getChildren().add(stackPane(200, 110, Pos.CENTER, label("5").build(), BG_5).build());
+        vb.getChildren().add(stackPane(200, 120, Pos.CENTER, label("1"), BG_1));
+        vb.getChildren().add(stackPane(200, 100, Pos.CENTER, label("2"), BG_2));
+        vb.getChildren().add(stackPane(200, 150, Pos.CENTER, label("3"), BG_3));
+        vb.getChildren().add(stackPane(200, 80, Pos.CENTER, label("4"), BG_4));
+        vb.getChildren().add(stackPane(200, 110, Pos.CENTER, label("5"), BG_5));
 
         BorderPane.setAlignment(vb, Pos.CENTER);
         BorderPane.setMargin(vb, new Insets(40));
@@ -327,7 +364,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         flow1.setColumnHalignment(HPos.RIGHT); // align labels on left
         flow1.setPrefWrapLength(400); // preferred height = 200
         for (int i = 0; i < 10; i++) {
-            flow1.getChildren().add(stackPane(100 + r.nextInt(Integer.MAX_VALUE) % 60, 50 + r.nextInt(Integer.MAX_VALUE) % 30, Pos.CENTER, label("Pane " + i).build(), BG_2).build());
+            flow1.getChildren().add(stackPane(100 + r.nextInt(Integer.MAX_VALUE) % 60, 50 + r.nextInt(Integer.MAX_VALUE) % 30, Pos.CENTER, label("Pane " + i), BG_2));
         }
         flow1.setStyle(BG_5);
 
@@ -338,14 +375,14 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         flow2.setRowValignment(VPos.BOTTOM); // align labels on left
         flow2.setPrefWrapLength(400); // preferred height = 200
         for (int i = 0; i < 10; i++) {
-            flow2.getChildren().add(stackPane(100 + r.nextInt(Integer.MAX_VALUE) % 60, 50 + r.nextInt(Integer.MAX_VALUE) % 30, Pos.CENTER, label("Pane " + i).build(), BG_3).build());
+            flow2.getChildren().add(stackPane(100 + r.nextInt(Integer.MAX_VALUE) % 60, 50 + r.nextInt(Integer.MAX_VALUE) % 30, Pos.CENTER, label("Pane " + i), BG_3));
         }
         flow2.setStyle(BG_4);
 
-        final Label label1 = LabelBuilder.create().text("Vertical [400x300]").build();
-        final VBox v1 = VBoxBuilder.create().children(label1, flow1).build();
-        final Label label2 = LabelBuilder.create().text("Horizontal [400x300]").build();
-        final VBox v2 = VBoxBuilder.create().children(label2, flow2).build();
+        final Label label1 = new Label("Vertical [400x300]");
+        final VBox v1 = new VBox(label1, flow1);
+        final Label label2 = new Label("Horizontal [400x300]");
+        final VBox v2 = new VBox(label2, flow2);
 
         // StackPane.setAlignment(v1, Pos.CENTER_LEFT);
         // StackPane.setMargin(v1, new Insets(40));
@@ -353,21 +390,13 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         // StackPane.setAlignment(v2, Pos.CENTER_RIGHT);
         // StackPane.setMargin(v2, new Insets(40));
 
-        // node().setCenter(TilePaneBuilder.create()
-        // .orientation(Orientation.HORIZONTAL)
-        // .alignment(Pos.CENTER)
-        // .prefWidth(600)
-        // .prefHeight(600)
-        // .children(v1, v2)
-        // .build());
 
-        final HBox hb = HBoxBuilder.create()
-                                   .alignment(Pos.CENTER)
-                                   .spacing(40)
-                                   .prefWidth(900)
-                                   .prefHeight(640)
-                                   .children(v1, v2)
-                                   .build();
+        final HBox hb = new HBox();
+        hb.setAlignment(Pos.CENTER);
+        hb.setSpacing(40);
+        hb.setPrefWidth(900);
+        hb.setPrefHeight(640);
+        hb.getChildren().addAll(v1, v2);
 
         StackPane.setAlignment(hb, Pos.CENTER);
         showCustomSlideStep(hb);
@@ -383,22 +412,25 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         final GridPane gridpane = new GridPane();
         gridpane.setMaxSize(800, 600);
 
-        gridpane.getColumnConstraints().addAll(
-                                               ColumnConstraintsBuilder.create().percentWidth(50).build(),
-                                               ColumnConstraintsBuilder.create().percentWidth(50).build()
-                );
+        final ColumnConstraints cc1 = new ColumnConstraints();
+        cc1.setPercentWidth(50);
+        final ColumnConstraints cc2 = new ColumnConstraints();
+        cc2.setPercentWidth(50);
+        gridpane.getColumnConstraints().addAll(cc1, cc2);
 
-        gridpane.getRowConstraints().addAll(
-                                            RowConstraintsBuilder.create().minHeight(150).build(),
-                                            RowConstraintsBuilder.create().minHeight(100).build(),
-                                            RowConstraintsBuilder.create().minHeight(200).build()
-                );
+        final RowConstraints rc1 = new RowConstraints();
+        rc1.setMinHeight(150);
+        final RowConstraints rc2 = new RowConstraints();
+        rc2.setMinHeight(100);
+        final RowConstraints rc3 = new RowConstraints();
+        rc3.setMinHeight(200);
+        gridpane.getRowConstraints().addAll(rc1, rc2, rc3);
 
-        final StackPane sp1 = stackPane(150, 200, Pos.CENTER, label("First").build(), BG_1).build();
-        final StackPane sp2 = stackPane(200, 200, Pos.CENTER, label("Second").build(), BG_2).build();
-        final StackPane sp3 = stackPane(150, 100, Pos.CENTER, label("Third").build(), BG_3).build();
-        final StackPane sp4 = stackPane(200, 100, Pos.CENTER, label("Fourth").build(), BG_4).build();
-        final StackPane sp5 = stackPane(150, 300, Pos.CENTER, label("Fifth").build(), BG_5).build();
+        final StackPane sp1 = stackPane(150, 200, Pos.CENTER, label("First"), BG_1);
+        final StackPane sp2 = stackPane(200, 200, Pos.CENTER, label("Second"), BG_2);
+        final StackPane sp3 = stackPane(150, 100, Pos.CENTER, label("Third"), BG_3);
+        final StackPane sp4 = stackPane(200, 100, Pos.CENTER, label("Fourth"), BG_4);
+        final StackPane sp5 = stackPane(150, 300, Pos.CENTER, label("Fifth"), BG_5);
 
         GridPane.setConstraints(sp1, 0, 0);
         GridPane.setConstraints(sp2, 1, 0);
@@ -432,11 +464,10 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
         tile.setPrefTileWidth(80);
         tile.setPrefTileHeight(80);
         for (int i = 0; i < 17; i++) {
-            tile.getChildren().add(stackPane(100, 100, Pos.CENTER, label("Pane" + i).build(), BG_3).build());
+            tile.getChildren().add(stackPane(100, 100, Pos.CENTER, label("Pane" + i), BG_3));
         }
 
         tile.setStyle(BG_4);
-        // StackPane sp = StackPaneBuilder.create().maxWidth(600).style(BG_2).maxHeight(450).children(tile).build();
 
         // BorderPane.setAlignment(tile, Pos.CENTER);
         // BorderPane.setMargin(tile, new Insets(40));
@@ -455,15 +486,15 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
 
         final AnchorPane anchorpane = new AnchorPane();
 
-        final Node n1 = stackPane(400, 500, Pos.CENTER, label("Anchor 1 [bottom:10, left:10]").build(), BG_1).build();
+        final Node n1 = stackPane(400, 500, Pos.CENTER, label("Anchor 1 [bottom:10, left:10]"), BG_1);
         AnchorPane.setBottomAnchor(n1, 10.0);
         AnchorPane.setLeftAnchor(n1, 10.0);
 
-        final Node n2 = stackPane(300, 200, Pos.CENTER, label("Anchor 2 [top:30, right:10]").build(), BG_2).build();
+        final Node n2 = stackPane(300, 200, Pos.CENTER, label("Anchor 2 [top:30, right:10]"), BG_2);
         AnchorPane.setTopAnchor(n2, 30.0);
         AnchorPane.setRightAnchor(n2, 10.0);
 
-        final Node n3 = stackPane(500, 200, Pos.CENTER, label("No Anchor").build(), BG_3).build();
+        final Node n3 = stackPane(500, 200, Pos.CENTER, label("No Anchor"), BG_3);
 
         anchorpane.getChildren().addAll(n1, n2, n3);
 
@@ -483,9 +514,9 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
 
         final Accordion accordion = new Accordion();
 
-        accordion.getPanes().add(new TitledPane("First Row", stackPane(700, 400, Pos.CENTER, label("First").build(), BG_1).build()));
-        accordion.getPanes().add(new TitledPane("Second Row", stackPane(700, 400, Pos.CENTER, label("Second").build(), BG_2).build()));
-        accordion.getPanes().add(new TitledPane("Third Row", stackPane(700, 400, Pos.CENTER, label("Third").build(), BG_3).build()));
+        accordion.getPanes().add(new TitledPane("First Row", stackPane(700, 400, Pos.CENTER, label("First"), BG_1)));
+        accordion.getPanes().add(new TitledPane("Second Row", stackPane(700, 400, Pos.CENTER, label("Second"), BG_2)));
+        accordion.getPanes().add(new TitledPane("Third Row", stackPane(700, 400, Pos.CENTER, label("Third"), BG_3)));
 
         BorderPane.setAlignment(accordion, Pos.CENTER);
         BorderPane.setMargin(accordion, new Insets(40));
@@ -504,7 +535,7 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
 
         final ScrollPane s1 = new ScrollPane();
         s1.setPrefSize(120, 120);
-        s1.setContent(stackPane(1920, 1080, Pos.CENTER, label("A panel").build(), BG_3).build());
+        s1.setContent(stackPane(1920, 1080, Pos.CENTER, label("A panel"), BG_3));
 
         BorderPane.setMargin(s1, new Insets(40));
         // node().setCenter(s1);
@@ -519,19 +550,18 @@ public final class LayoutView extends AbstractTemplateView<LayoutModel, AnchorPa
 
         getSubTitle().setText("SplitPane");
 
-        final SplitPane spH = SplitPaneBuilder.create().orientation(Orientation.VERTICAL).items(
-                                                                                                stackPane(Double.MAX_VALUE, Double.MAX_VALUE, Pos.CENTER, label("Third").build(), BG_3).build(),
-                                                                                                stackPane(Double.MAX_VALUE, Double.MAX_VALUE, Pos.CENTER, label("Fourth").build(), BG_4).build()
-                                              ).build();
+        final SplitPane spH = new SplitPane();
+        spH.setOrientation(Orientation.VERTICAL);
+        spH.getItems().addAll(
+                stackPane(Double.MAX_VALUE, Double.MAX_VALUE, Pos.CENTER, label("Third"), BG_3),
+                stackPane(Double.MAX_VALUE, Double.MAX_VALUE, Pos.CENTER, label("Fourth"), BG_4));
 
-        final SplitPane sp = SplitPaneBuilder.create()
-                                             .dividerPositions(new double[] { 0.3, 0.6, 0.9 })
-                                             .items(
-                                                    stackPane(Double.MAX_VALUE, Double.MAX_VALUE, Pos.CENTER, label("First").build(), BG_1).build(),
-                                                    spH,
-                                                    stackPane(Double.MAX_VALUE, Double.MAX_VALUE, Pos.CENTER, label("Second").build(), BG_2).build()
-                                             ).build();
-        // sp.setDividerPositions(0.3f, 0.6f, 0.9f);
+        final SplitPane sp = new SplitPane();
+        sp.setDividerPositions(0.3, 0.6, 0.9);
+        sp.getItems().addAll(
+                stackPane(Double.MAX_VALUE, Double.MAX_VALUE, Pos.CENTER, label("First"), BG_1),
+                spH,
+                stackPane(Double.MAX_VALUE, Double.MAX_VALUE, Pos.CENTER, label("Second"), BG_2));
 
         BorderPane.setMargin(sp, new Insets(40));
         // node().setCenter(sp);

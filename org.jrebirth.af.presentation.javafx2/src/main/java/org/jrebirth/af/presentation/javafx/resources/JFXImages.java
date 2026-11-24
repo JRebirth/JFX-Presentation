@@ -29,21 +29,21 @@ import org.jrebirth.af.core.resource.image.RelImage;
 public interface JFXImages {
 
     /** . */
-    ImageItem CUSTOM_CAR = create(new RelImage("bg", "Custom_Car", ImageExtension.JPG));
+    ImageItem CUSTOM_CAR = create(new RelImage("bg", "Custom_Car", ImageExtension.JPG)).module(JFXImages.class.getModule());
 
     /** . */
-    ImageItem ORANGE = create(new RelImage("bg", "fabric_texture_car", ImageExtension.JPG));
+    ImageItem ORANGE = create(new RelImage("bg", "fabric_texture_car", ImageExtension.JPG)).module(JFXImages.class.getModule());
 
     /** . */
-    ImageItem TIMELINE = create(new RelImage("future", "timeline", ImageExtension.GIF));
+    ImageItem TIMELINE = create(new RelImage("future", "timeline", ImageExtension.GIF)).module(JFXImages.class.getModule());
 
     /** . */
-    ImageItem BZH = create(new RelImage("intro", "breizhcamp", ImageExtension.JPG));
+    ImageItem BZH = create(new RelImage("intro", "breizhcamp", ImageExtension.JPG)).module(JFXImages.class.getModule());
 
     /** . */
-    ImageItem NODE = create(new RelImage("tree", "think_node", ImageExtension.JPG));
+    ImageItem NODE = create(new RelImage("tree", "think_node", ImageExtension.JPG)).module(JFXImages.class.getModule());
 
     /** . */
-    ImageItem TREE = create(new RelImage("tree", "think_tree", ImageExtension.JPG));
+    ImageItem TREE = create(new RelImage("tree", "think_tree", ImageExtension.JPG)).module(JFXImages.class.getModule());
 
 }

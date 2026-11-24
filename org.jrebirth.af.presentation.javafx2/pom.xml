@@ -1,10 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+﻿<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
 		<groupId>org.jrebirth</groupId>
 		<artifactId>ria</artifactId>
-		<version>3.0.0</version>
+		<version>5.0.0-SNAPSHOT</version>
 	</parent>
 	
 	<groupId>org.jrebirth.af.presentation</groupId>
@@ -19,11 +19,19 @@
 	
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<jrebirth.version>8.5.0</jrebirth.version>
+		<jrebirth.version>12.0.1-SNAPSHOT</jrebirth.version>
+		<!-- Avoid JPMS split package with org.jrebirth.af.presentation (root presentation/). -->
+		<resources.base.path>org/jrebirth/af/presentation/javafx</resources.base.path>
 
+		<vendor>JRebirth</vendor>
+		<appName>JavaFX 2.0 Presentation</appName>
 		<archiveName>Breizhcamp</archiveName>
 		<exeIcon>src/main/resources/images/JRebirth.ico</exeIcon>
+		<mainModule>org.jrebirth.af.presentation.javafx</mainModule>
 		<appClass>org.jrebirth.af.presentation.javafx.Presentation</appClass>
+		<appVersion>${project.version}</appVersion>
+		<jpackage.app.version>${project.version}</jpackage.app.version>
+		<deployPath>javafx2/${project.version}</deployPath>
 						
 		<appletWidth>1024</appletWidth>
 		<appletHeight>768</appletHeight>
@@ -37,6 +45,58 @@
 		<developerConnection>scm:git:ssh://git@github.com/JRebirth/JFX-Presentation.git</developerConnection>
 		<url>https://github.com/JRebirth/JFX-Presentation</url>
 	</scm>
+
+	<build>
+		<!-- Resource packaging (resources.base.path + java/**/*.txt) inherited from RIA parent. -->
+		<plugins>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<nonFilteredFileExtensions>
+						<nonFilteredFileExtension>ttf</nonFilteredFileExtension>
+						<nonFilteredFileExtension>TTF</nonFilteredFileExtension>
+						<nonFilteredFileExtension>woff</nonFilteredFileExtension>
+						<nonFilteredFileExtension>woff2</nonFilteredFileExtension>
+						<nonFilteredFileExtension>flv</nonFilteredFileExtension>
+						<nonFilteredFileExtension>ico</nonFilteredFileExtension>
+						<nonFilteredFileExtension>png</nonFilteredFileExtension>
+						<nonFilteredFileExtension>jpg</nonFilteredFileExtension>
+						<nonFilteredFileExtension>gif</nonFilteredFileExtension>
+					</nonFilteredFileExtensions>
+				</configuration>
+			</plugin>
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>wagon-maven-plugin</artifactId>
+					<version>1.0</version>
+					<configuration>
+						<serverId>JRebirth_Sites</serverId>
+						<url>
+							scp://s143909802.onlinehome.fr/kunden/homepages/14/d143909784/htdocs/jrebirth/apps</url>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ftp</artifactId>
+				<version>2.2</version>
+			</extension>
+
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh</artifactId>
+				<version>2.10</version>
+			</extension>
+
+		</extensions>
+	</build>
 
 	<organization>
 		<name>JRebirth Open Group</name>
@@ -55,15 +115,9 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>javax.xml.bind</groupId>
-			<artifactId>jaxb-api</artifactId>
-			<version>2.2.12</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>javax.xml</groupId>
-			<artifactId>jaxb-impl</artifactId>
-			<version>2.1</version>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+			<version>4.0.5</version>
 		</dependency>
 
 		<dependency>
@@ -81,9 +135,13 @@
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>1.1.5</version>
+			<version>1.4.14</version>
 		</dependency>
 
 	</dependencies>
-
+	<profiles>
+	</profiles>
 </project>
+
+
+

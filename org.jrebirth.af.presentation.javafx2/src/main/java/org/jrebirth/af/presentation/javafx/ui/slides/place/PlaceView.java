@@ -19,14 +19,12 @@ package org.jrebirth.af.presentation.javafx.ui.slides.place;
 
 import java.util.Random;
 
-import javafx.animation.FadeTransitionBuilder;
+import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
-import javafx.animation.ParallelTransitionBuilder;
+import javafx.scene.Node;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.ImageViewBuilder;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.CircleBuilder;
 import javafx.util.Duration;
 
 import org.jrebirth.af.api.exception.CoreException;
@@ -66,65 +64,71 @@ public final class PlaceView extends AbstractSlideView<PlaceModel, Pane, PlaceCo
     @Override
     protected void initView() {
 
-        final ImageView toulouse = ImageViewBuilder.create()
-                                                   .image(JFXImages.BZH.get())
-                                                   // .fitHeight(Double.MAX_VALUE)
-                                                   // .fitWidth(Double.MAX_VALUE)
-                                                   .build();
+        final ImageView toulouse = new ImageView(JFXImages.BZH.get());
+        // .fitHeight(Double.MAX_VALUE)
+        // .fitWidth(Double.MAX_VALUE)
 
         node().getChildren().add(toulouse);
 
         node().getStyleClass().add(model().getSlide().getStyle());
 
         // bulle jaune (52x52px) x:909 y:358 #FBE43D
-        final Circle yellowCircle = getCircleBuilder().radius(26).layoutX(935).layoutY(384).style("-fx-fill:#FBE43D").build();
+        final Circle yellowCircle = createCircle(26, 935, 384, "-fx-fill:#FBE43D");
         // bulle verte (76x76px) x:752 y:251 #65AF23
-        final Circle greenCircle = getCircleBuilder().radius(38).layoutX(790).layoutY(289).style("-fx-fill:#65AF23").build();
+        final Circle greenCircle = createCircle(38, 790, 289, "-fx-fill:#65AF23");
         // bulle rose (52x52px) x:863 y:225 #C13C8B
-        final Circle pinkCircle = getCircleBuilder().radius(26).layoutX(889).layoutY(251).style("-fx-fill:#C13C8B").build();
+        final Circle pinkCircle = createCircle(26, 889, 251, "-fx-fill:#C13C8B");
         // bulle bleue (70x70px) x:777 y:125 #1C9A9A
-        final Circle blueCircle = getCircleBuilder().radius(35).layoutX(812).layoutY(160).style("-fx-fill:#1C9A9A").build();
+        final Circle blueCircle = createCircle(35, 812, 160, "-fx-fill:#1C9A9A");
         // bulle orange clair (70x70px) x:889 y:130 #EA661D
-        final Circle lightOrangeCircle = getCircleBuilder().radius(35).layoutX(924).layoutY(165).style("-fx-fill:#EA661D").build();
+        final Circle lightOrangeCircle = createCircle(35, 924, 165, "-fx-fill:#EA661D");
         // bulle orange fonce (50x50px) x:848 y: 36 #E53B20
-        final Circle darkOrangeCircle = getCircleBuilder().radius(25).layoutX(873).layoutY(61).style("-fx-fill:#E53B20").build();
+        final Circle darkOrangeCircle = createCircle(25, 873, 61, "-fx-fill:#E53B20");
 
         node().getChildren().addAll(yellowCircle, greenCircle, pinkCircle, blueCircle, lightOrangeCircle, darkOrangeCircle);
 
-        this.bubbleAnimation = ParallelTransitionBuilder.create().children(
-
-                                                                           getFadeTransitionBuilder().node(yellowCircle).build(),
-                                                                           getFadeTransitionBuilder().node(greenCircle).build(),
-                                                                           getFadeTransitionBuilder().node(pinkCircle).build(),
-                                                                           getFadeTransitionBuilder().node(blueCircle).build(),
-                                                                           getFadeTransitionBuilder().node(lightOrangeCircle).build(),
-                                                                           getFadeTransitionBuilder().node(darkOrangeCircle).build()
-
-                                                        ).build();
+        this.bubbleAnimation = new ParallelTransition(
+                createFadeTransition(yellowCircle),
+                createFadeTransition(greenCircle),
+                createFadeTransition(pinkCircle),
+                createFadeTransition(blueCircle),
+                createFadeTransition(lightOrangeCircle),
+                createFadeTransition(darkOrangeCircle)
+        );
     }
 
     /**
-     * TODO To complete.
-     * 
-     * @return the circle builder
+     * Creates a Circle with the given radius, position, and inline style.
+     *
+     * @param radius   the circle radius
+     * @param layoutX  the x position
+     * @param layoutY  the y position
+     * @param style    the inline CSS style
+     * @return the configured Circle
      */
-    private CircleBuilder<?> getCircleBuilder() {
-        return CircleBuilder.create();
+    private Circle createCircle(final double radius, final double layoutX, final double layoutY, final String style) {
+        final Circle c = new Circle(radius);
+        c.setLayoutX(layoutX);
+        c.setLayoutY(layoutY);
+        c.setStyle(style);
+        return c;
     }
 
     /**
-     * TODO To complete.
-     * 
-     * @return the fade transition builder
+     * Creates a FadeTransition with randomised duration and delay for the given node.
+     *
+     * @param node the node to animate
+     * @return the configured FadeTransition
      */
-    private FadeTransitionBuilder getFadeTransitionBuilder() {
-        return FadeTransitionBuilder.create()
-                                    .fromValue(0)
-                                    .toValue(1.0)
-                                    // .cycleCount(Animation.INDEFINITE)
-                                    .autoReverse(true)
-                                    .duration(Duration.millis(this.r.nextInt(Integer.MAX_VALUE) % 2000 + 1000))
-                                    .delay(Duration.millis(this.r.nextInt(Integer.MAX_VALUE) % 400 + 400));
+    private FadeTransition createFadeTransition(final Node node) {
+        final FadeTransition ft = new FadeTransition(
+                Duration.millis(this.r.nextInt(Integer.MAX_VALUE) % 2000 + 1000), node);
+        ft.setFromValue(0);
+        ft.setToValue(1.0);
+        // ft.setCycleCount(Animation.INDEFINITE)
+        ft.setAutoReverse(true);
+        ft.setDelay(Duration.millis(this.r.nextInt(Integer.MAX_VALUE) % 400 + 400));
+        return ft;
     }
 
     /**

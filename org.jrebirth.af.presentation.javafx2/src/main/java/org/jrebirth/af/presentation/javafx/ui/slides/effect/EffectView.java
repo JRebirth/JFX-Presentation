@@ -29,56 +29,36 @@ import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.control.LabelBuilder;
 import javafx.scene.control.Slider;
-import javafx.scene.control.SliderBuilder;
 import javafx.scene.effect.Blend;
-import javafx.scene.effect.BlendBuilder;
 import javafx.scene.effect.BlendMode;
 import javafx.scene.effect.Bloom;
-import javafx.scene.effect.BloomBuilder;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.BoxBlur;
-import javafx.scene.effect.BoxBlurBuilder;
 import javafx.scene.effect.ColorAdjust;
-import javafx.scene.effect.ColorAdjustBuilder;
 import javafx.scene.effect.DisplacementMap;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.DropShadowBuilder;
 import javafx.scene.effect.Effect;
 import javafx.scene.effect.FloatMap;
 import javafx.scene.effect.GaussianBlur;
-import javafx.scene.effect.GaussianBlurBuilder;
 import javafx.scene.effect.Glow;
-import javafx.scene.effect.GlowBuilder;
-import javafx.scene.effect.ImageInputBuilder;
+import javafx.scene.effect.ImageInput;
 import javafx.scene.effect.InnerShadow;
-import javafx.scene.effect.InnerShadowBuilder;
 import javafx.scene.effect.Light;
 import javafx.scene.effect.Lighting;
-import javafx.scene.effect.LightingBuilder;
 import javafx.scene.effect.MotionBlur;
-import javafx.scene.effect.MotionBlurBuilder;
 import javafx.scene.effect.PerspectiveTransform;
-import javafx.scene.effect.PerspectiveTransformBuilder;
 import javafx.scene.effect.Reflection;
-import javafx.scene.effect.ReflectionBuilder;
 import javafx.scene.effect.SepiaTone;
-import javafx.scene.effect.SepiaToneBuilder;
 import javafx.scene.effect.Shadow;
-import javafx.scene.effect.ShadowBuilder;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.image.ImageViewBuilder;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPaneBuilder;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.FlowPaneBuilder;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.HBoxBuilder;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.StackPaneBuilder;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
@@ -125,9 +105,10 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
      */
     private void showEffectSubSlide(final Node image, final FlowPane sliders) {
 
-        showCustomSlideStep(BorderPaneBuilder.create()
-                .center(image)
-                .right(sliders).build());
+        final BorderPane bp = new BorderPane();
+        bp.setCenter(image);
+        bp.setRight(sliders);
+        showCustomSlideStep(bp);
     }
 
     /**
@@ -138,10 +119,8 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
      * @return the image view
      */
     private ImageView displayImage(final Image image, final Effect fx) {
-        final ImageView iv = ImageViewBuilder.create()
-                .effect(fx)
-                .image(image)
-                .build();
+        final ImageView iv = new ImageView(image);
+        iv.setEffect(fx);
 
         return iv;
         // BorderPane.setMargin(iv, new Insets(10));
@@ -161,32 +140,21 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
 
         final Image img = image;
 
-        final ImageView iv1 = ImageViewBuilder.create()
-                .image(img)
-                .clip(new Rectangle(img.getWidth() / 2, 0, img.getWidth() / 2, img.getHeight()))
-                .build();
-        final ImageView iv2 = ImageViewBuilder.create()
-                .image(img)
-                .clip(new Rectangle(0, 0, img.getWidth() / 2, img.getHeight()))
-                .effect(fx)
-                .build();
+        final ImageView iv1 = new ImageView(img);
+        iv1.setClip(new Rectangle(img.getWidth() / 2, 0, img.getWidth() / 2, img.getHeight()));
 
-        // Line l = LineBuilder.create()
-        // .strokeWidth(4)
-        // .startX(img.getWidth() / 2)
-        // .startY(0)
-        // .endX(img.getWidth() / 2)
-        // .endY(img.getHeight())
-        // .build();
+        final ImageView iv2 = new ImageView(img);
+        iv2.setClip(new Rectangle(0, 0, img.getWidth() / 2, img.getHeight()));
+        iv2.setEffect(fx);
+
 
         // l.addEventHandler(arg0, arg1)Filter(MouseEvent.MOUSE_DRAGGED, new EventHandler() {
         //
         // });
-        final StackPane sp = StackPaneBuilder.create()
-                .prefWidth(img.getWidth())
-                .prefHeight(img.getHeight())
-                .children(iv1, /* l, */iv2)
-                .build();
+        final StackPane sp = new StackPane();
+        sp.setPrefWidth(img.getWidth());
+        sp.setPrefHeight(img.getHeight());
+        sp.getChildren().addAll(iv1, /* l, */iv2);
 
         // BorderPane.setMargin(sp, new Insets(10));
         // showCustomSlideStep(sp);
@@ -202,11 +170,9 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
      */
     private FlowPane displaySliders(final Node... node) {
 
-        final FlowPane fp = FlowPaneBuilder.create()
-                .orientation(Orientation.VERTICAL)
-                .alignment(Pos.CENTER)
-                .children(node)
-                .build();
+        final FlowPane fp = new FlowPane(Orientation.VERTICAL);
+        fp.setAlignment(Pos.CENTER);
+        fp.getChildren().addAll(node);
 
         return fp;
         // node().setRight();
@@ -231,15 +197,11 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
      */
     private HBox buildIntegerSlider(final String name, final IntegerProperty property, final int min, final int max) {
 
-        final Slider slider = SliderBuilder.create()
-                .min(min)
-                .max(max)
-                .maxWidth(80)
-                .value(property.intValue())
-                .blockIncrement(0.1)
-                .build();
+        final Slider slider = new Slider(min, max, property.intValue());
+        slider.setMaxWidth(80);
+        slider.setBlockIncrement(0.1);
 
-        final Label valueLabel = LabelBuilder.create().text(name).build();
+        final Label valueLabel = new Label(name);
 
         property.bind(slider.valueProperty());
 
@@ -259,13 +221,10 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
             }
         });
 
-        return HBoxBuilder.create()
-                .children(
-                        LabelBuilder.create().text(name).build(),
-                        slider,
-                        valueLabel
-                ).maxWidth(200)
-                .build();
+        final HBox hbox = new HBox();
+        hbox.getChildren().addAll(new Label(name), slider, valueLabel);
+        hbox.setMaxWidth(200);
+        return hbox;
     }
 
     /**
@@ -279,13 +238,9 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
      */
     private HBox buildSlider(final String name, final DoubleProperty property, final double min, final double max) {
 
-        final Slider slider = SliderBuilder.create()
-                .min(min)
-                .max(max)
-                .maxWidth(80)
-                .value(property.doubleValue())
-                .blockIncrement(0.1)
-                .build();
+        final Slider slider = new Slider(min, max, property.doubleValue());
+        slider.setMaxWidth(80);
+        slider.setBlockIncrement(0.1);
 
         slider.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
@@ -296,7 +251,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
 
         });
 
-        final Label valueLabel = LabelBuilder.create().text(name).build();
+        final Label valueLabel = new Label(name);
 
         slider.adjustValue(property.doubleValue());
         property.bind(slider.valueProperty());
@@ -309,13 +264,9 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
             }
         });
 
-        return HBoxBuilder.create()
-                .children(
-                        LabelBuilder.create().text(name).build(),
-                        slider,
-                        valueLabel
-                )
-                .build();
+        final HBox hbox = new HBox();
+        hbox.getChildren().addAll(new Label(name), slider, valueLabel);
+        return hbox;
     }
 
     /**
@@ -324,12 +275,11 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     public void showReflection() {
         getSubTitle().setText("Reflection");
 
-        final Reflection fx = ReflectionBuilder.create()
-                .fraction(0.5)
-                .topOffset(10)
-                .topOpacity(0.5)
-                .bottomOpacity(0)
-                .build();
+        final Reflection fx = new Reflection();
+        fx.setFraction(0.5);
+        fx.setTopOffset(10);
+        fx.setTopOpacity(0.5);
+        fx.setBottomOpacity(0);
 
         showEffectSubSlide(displayImage(JFXImages.CUSTOM_CAR.get(), fx), displaySliders(buildSlider("Fraction", fx.fractionProperty(), 0, 1.0)));
 
@@ -343,7 +293,8 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     public void showSepiaTone() {
         getSubTitle().setText("SepiaTone");
 
-        final SepiaTone st = SepiaToneBuilder.create().level(1.0).build();
+        final SepiaTone st = new SepiaTone();
+        st.setLevel(1.0);
 
         showEffectSubSlide(displayComparedImage(JFXImages.CUSTOM_CAR.get(), st), displaySliders(buildSlider("Tone Level", st.levelProperty(), 0, 1.0)));
 
@@ -356,7 +307,8 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     public void showBloom() {
         getSubTitle().setText("Bloom");
 
-        final Bloom b = BloomBuilder.create().threshold(0.5).build();
+        final Bloom b = new Bloom();
+        b.setThreshold(0.5);
 
         showEffectSubSlide(
                 displayComparedImage(JFXImages.CUSTOM_CAR.get(), b),
@@ -371,12 +323,11 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     public void showDropShadow() {
         getSubTitle().setText("Drop Shadow");
 
-        final DropShadow fx = DropShadowBuilder.create()
-                .blurType(BlurType.GAUSSIAN)
-                .color(JfxColors.DROP_SHADOW.get())
-                .offsetX(30)
-                .offsetY(30)
-                .build();
+        final DropShadow fx = new DropShadow();
+        fx.setBlurType(BlurType.GAUSSIAN);
+        fx.setColor(JfxColors.DROP_SHADOW.get());
+        fx.setOffsetX(30);
+        fx.setOffsetY(30);
 
         showEffectSubSlide(
                 displayImage(JFXImages.CUSTOM_CAR.get(), fx),
@@ -396,10 +347,9 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     public void showInnerShadow() {
         getSubTitle().setText("Inner Shadow");
 
-        final InnerShadow fx = InnerShadowBuilder.create()
-                .blurType(BlurType.GAUSSIAN)
-                .color(JfxColors.INNER_SHADOW.get())
-                .build();
+        final InnerShadow fx = new InnerShadow();
+        fx.setBlurType(BlurType.GAUSSIAN);
+        fx.setColor(JfxColors.INNER_SHADOW.get());
 
         showEffectSubSlide(
                 displayImage(JFXImages.CUSTOM_CAR.get(), fx),
@@ -419,11 +369,10 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     public void showBoxBlur() {
         getSubTitle().setText("Box Blur");
 
-        final BoxBlur fx = BoxBlurBuilder.create()
-                .width(15)
-                .height(15)
-                .iterations(3)
-                .build();
+        final BoxBlur fx = new BoxBlur();
+        fx.setWidth(15);
+        fx.setHeight(15);
+        fx.setIterations(3);
 
         showEffectSubSlide(
                 displayImage(JFXImages.CUSTOM_CAR.get(), fx),
@@ -441,10 +390,9 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     public void showMotionBlur() {
         getSubTitle().setText("Motion Blur");
 
-        final MotionBlur fx = MotionBlurBuilder.create()
-                .radius(8.0)
-                .angle(150)
-                .build();
+        final MotionBlur fx = new MotionBlur();
+        fx.setRadius(8.0);
+        fx.setAngle(150);
 
         showEffectSubSlide(
                 displayComparedImage(JFXImages.CUSTOM_CAR.get(), fx),
@@ -460,8 +408,7 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     public void showGaussianBlur() {
         getSubTitle().setText("Gaussian Blur");
 
-        final GaussianBlur fx = GaussianBlurBuilder.create()
-                .build();
+        final GaussianBlur fx = new GaussianBlur();
 
         showEffectSubSlide(
                 displayComparedImage(JFXImages.CUSTOM_CAR.get(), fx),
@@ -476,10 +423,9 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     public void showShadow() {
         getSubTitle().setText("Shadow");
 
-        final Shadow fx = ShadowBuilder.create()
-                .blurType(BlurType.GAUSSIAN)
-                .color(Color.WHITESMOKE)
-                .build();
+        final Shadow fx = new Shadow();
+        fx.setBlurType(BlurType.GAUSSIAN);
+        fx.setColor(Color.WHITESMOKE);
 
         showEffectSubSlide(
                 displayComparedImage(JFXImages.CUSTOM_CAR.get(), fx),
@@ -497,9 +443,8 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     public void showGlow() {
         getSubTitle().setText("Glow");
 
-        final Glow fx = GlowBuilder.create()
-                .level(0.7)
-                .build();
+        final Glow fx = new Glow();
+        fx.setLevel(0.7);
 
         showEffectSubSlide(
                 displayComparedImage(JFXImages.CUSTOM_CAR.get(), fx),
@@ -517,11 +462,10 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
         final Light.Distant light = new Light.Distant();
         light.setAzimuth(-135.0);
 
-        final Lighting fx = LightingBuilder.create()
-                .light(light)
-                .diffuseConstant(10.0)
-                .surfaceScale(20.0)
-                .build();
+        final Lighting fx = new Lighting();
+        fx.setLight(light);
+        fx.setDiffuseConstant(10.0);
+        fx.setSurfaceScale(20.0);
 
         showEffectSubSlide(
                 displayImage(JFXImages.CUSTOM_CAR.get(), fx),
@@ -540,16 +484,15 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     public void showPerspectiveTransform() {
         getSubTitle().setText("PerspectiveTransform");
 
-        final PerspectiveTransform fx = PerspectiveTransformBuilder.create()
-                .ulx(0.0)
-                .uly(0.0)
-                .urx(600.0)
-                .ury(0.0)
-                .lrx(600.0)
-                .lry(400.0)
-                .llx(0.0)
-                .lly(600.0)
-                .build();
+        final PerspectiveTransform fx = new PerspectiveTransform();
+        fx.setUlx(0.0);
+        fx.setUly(0.0);
+        fx.setUrx(600.0);
+        fx.setUry(0.0);
+        fx.setLrx(600.0);
+        fx.setLry(400.0);
+        fx.setLlx(0.0);
+        fx.setLly(600.0);
 
         showEffectSubSlide(
                 displayImage(JFXImages.CUSTOM_CAR.get(), fx),
@@ -575,11 +518,12 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     public void showBlend() {
         getSubTitle().setText("Blend");
 
-        final Blend fx = BlendBuilder.create()
-                .opacity(0.5)
-                .bottomInput(ImageInputBuilder.create().source(JFXImages.CUSTOM_CAR.get()).build())
-                .mode(BlendMode.EXCLUSION)
-                .build();
+        final ImageInput imgInput = new ImageInput(JFXImages.CUSTOM_CAR.get());
+
+        final Blend fx = new Blend();
+        fx.setOpacity(0.5);
+        fx.setBottomInput(imgInput);
+        fx.setMode(BlendMode.EXCLUSION);
 
         showEffectSubSlide(
                 displayImage(JFXImages.ORANGE.get(), fx),
@@ -593,12 +537,11 @@ public final class EffectView extends AbstractTemplateView<EffectModel, AnchorPa
     public void showColorAdjust() {
         getSubTitle().setText("ColorAdjust");
 
-        final ColorAdjust fx = ColorAdjustBuilder.create()
-                .hue(0.5)
-                .saturation(0.4)
-                .brightness(0.5)
-                .contrast(0.5)
-                .build();
+        final ColorAdjust fx = new ColorAdjust();
+        fx.setHue(0.5);
+        fx.setSaturation(0.4);
+        fx.setBrightness(0.5);
+        fx.setContrast(0.5);
 
         showEffectSubSlide(
                 displayImage(JFXImages.CUSTOM_CAR.get(), fx),

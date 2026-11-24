@@ -25,7 +25,6 @@ import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.FlowPaneBuilder;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.TilePane;
@@ -34,12 +33,10 @@ import javafx.scene.shape.Arc;
 import javafx.scene.shape.ArcTo;
 import javafx.scene.shape.ArcType;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.CircleBuilder;
 import javafx.scene.shape.CubicCurve;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.HLineTo;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.LineBuilder;
 import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
@@ -93,7 +90,6 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
 
         getSubTitle().setText("Arc");
 
-        // Arc arc = ArcBuilder.create().centerX(300).centerY(300).fill(Color.DARKGOLDENROD).build();
         final Arc roundArc = new Arc();
         roundArc.setCenterX(50.0f);
         roundArc.setCenterY(50.0f);
@@ -154,7 +150,8 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
         openArc2.setType(ArcType.OPEN);
         openArc2.setFill(JfxColors.GRADIENT_3.get());
 
-        final FlowPane fp = FlowPaneBuilder.create().children(roundArc, chordArc, openArc, roundArc2, chordArc2, openArc2).build();
+        final FlowPane fp = new FlowPane();
+        fp.getChildren().addAll(roundArc, chordArc, openArc, roundArc2, chordArc2, openArc2);
 
         // node().setCenter(fp);
         showCustomSlideStep(fp);
@@ -195,7 +192,8 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
         fullCircle.setFill(JfxColors.GRADIENT_1.get());
         // fullCircle.setBlendMode(BlendMode.LIGHTEN);
 
-        final FlowPane fp = FlowPaneBuilder.create().children(plainCircle, strokeCircle, fullCircle).build();
+        final FlowPane fp = new FlowPane();
+        fp.getChildren().addAll(plainCircle, strokeCircle, fullCircle);
 
         // node().setCenter(fp);
         showCustomSlideStep(fp);
@@ -240,26 +238,24 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
         final Pane sp = new Pane();
 
         // control point
-        final Circle c1 = CircleBuilder.create()
-                .radius(10)
-                .layoutX(300.0)
-                .layoutY(0.0)
-                .fill(Color.LIGHTGRAY)
-                .cursor(Cursor.HAND)
-                .build();
+        final Circle c1 = new Circle();
+        c1.setRadius(10);
+        c1.setLayoutX(300.0);
+        c1.setLayoutY(0.0);
+        c1.setFill(Color.LIGHTGRAY);
+        c1.setCursor(Cursor.HAND);
 
         final NodeDragHandler dh1 = new NodeDragHandler();
         c1.setOnMousePressed(dh1);
         c1.setOnMouseDragged(dh1);
 
         // control point
-        final Circle c2 = CircleBuilder.create()
-                .radius(10)
-                .layoutX(400.0)
-                .layoutY(500.0)
-                .fill(Color.LIGHTGRAY)
-                .cursor(Cursor.HAND)
-                .build();
+        final Circle c2 = new Circle();
+        c2.setRadius(10);
+        c2.setLayoutX(400.0);
+        c2.setLayoutY(500.0);
+        c2.setFill(Color.LIGHTGRAY);
+        c2.setCursor(Cursor.HAND);
 
         final NodeDragHandler dh2 = new NodeDragHandler();
         c2.setOnMousePressed(dh2);
@@ -277,15 +273,21 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
         cubic.setEndX(600.0f);
         cubic.setEndY(300.0f);
 
-        final Line line1 = LineBuilder.create().stroke(Color.LIGHTGREY).strokeDashArray(10.0, 5.0)
-                .startX(c1.getLayoutX()).startY(c1.getLayoutY())
-                .endX(cubic.getStartX()).endY(cubic.getStartY())
-                .build();
+        final Line line1 = new Line();
+        line1.setStroke(Color.LIGHTGREY);
+        line1.getStrokeDashArray().addAll(10.0, 5.0);
+        line1.setStartX(c1.getLayoutX());
+        line1.setStartY(c1.getLayoutY());
+        line1.setEndX(cubic.getStartX());
+        line1.setEndY(cubic.getStartY());
 
-        final Line line2 = LineBuilder.create().stroke(Color.LIGHTGREY).strokeDashArray(10.0, 5.0)
-                .startX(c2.getLayoutX()).startY(c2.getLayoutY())
-                .endX(cubic.getEndX()).endY(cubic.getEndY())
-                .build();
+        final Line line2 = new Line();
+        line2.setStroke(Color.LIGHTGREY);
+        line2.getStrokeDashArray().addAll(10.0, 5.0);
+        line2.setStartX(c2.getLayoutX());
+        line2.setStartY(c2.getLayoutY());
+        line2.setEndX(cubic.getEndX());
+        line2.setEndY(cubic.getEndY());
 
         line1.startXProperty().bind(c1.layoutXProperty());
         line1.startYProperty().bind(c1.layoutYProperty());
@@ -455,13 +457,12 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
         // X AND Y position of mouse
 
         // control point
-        final Circle c = CircleBuilder.create()
-                .radius(10)
-                .layoutX(300.0)
-                .layoutY(100.0)
-                .fill(Color.LIGHTGRAY)
-                .cursor(Cursor.HAND)
-                .build();
+        final Circle c = new Circle();
+        c.setRadius(10);
+        c.setLayoutX(300.0);
+        c.setLayoutY(100.0);
+        c.setFill(Color.LIGHTGRAY);
+        c.setCursor(Cursor.HAND);
 
         final NodeDragHandler dh = new NodeDragHandler();
         c.setOnMousePressed(dh);
@@ -478,14 +479,20 @@ public final class ShapeView extends AbstractTemplateView<ShapeModel, AnchorPane
         quad.setControlX(300.0f);
         quad.setControlY(100.0f);
 
-        final Line line1 = LineBuilder.create().stroke(Color.LIGHTGREY).strokeDashArray(10.0, 5.0)
-                .startX(c.getLayoutX()).startY(c.getLayoutY())
-                .endX(quad.getStartX()).endY(quad.getStartY())
-                .build();
-        final Line line2 = LineBuilder.create().stroke(Color.LIGHTGREY).strokeDashArray(10.0, 5.0)
-                .startX(c.getLayoutX()).startY(c.getLayoutY())
-                .endX(quad.getEndX()).endY(quad.getEndY())
-                .build();
+        final Line line1 = new Line();
+        line1.setStroke(Color.LIGHTGREY);
+        line1.getStrokeDashArray().addAll(10.0, 5.0);
+        line1.setStartX(c.getLayoutX());
+        line1.setStartY(c.getLayoutY());
+        line1.setEndX(quad.getStartX());
+        line1.setEndY(quad.getStartY());
+        final Line line2 = new Line();
+        line2.setStroke(Color.LIGHTGREY);
+        line2.getStrokeDashArray().addAll(10.0, 5.0);
+        line2.setStartX(c.getLayoutX());
+        line2.setStartY(c.getLayoutY());
+        line2.setEndX(quad.getEndX());
+        line2.setEndY(quad.getEndY());
 
         c.layoutXProperty().bindBidirectional(line1.startXProperty());
         c.layoutYProperty().bindBidirectional(line1.startYProperty());

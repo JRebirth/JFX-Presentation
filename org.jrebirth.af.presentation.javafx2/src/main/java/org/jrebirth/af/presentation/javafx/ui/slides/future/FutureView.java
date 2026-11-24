@@ -21,7 +21,7 @@ import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.PaneBuilder;
+import javafx.scene.layout.Pane;
 
 import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.javafx.resources.JFXImages;
@@ -53,7 +53,7 @@ public final class FutureView extends AbstractTemplateView<FutureModel, AnchorPa
      */
     @Override
     protected Node getContentPanel() {
-        return PaneBuilder.create().build();
+        return new Pane();
     }
 
     /**

@@ -18,24 +18,23 @@
 package org.jrebirth.af.presentation.javafx.ui.slides.animation;
 
 import javafx.animation.Animation;
-import javafx.animation.FadeTransitionBuilder;
-import javafx.animation.FillTransitionBuilder;
+import javafx.animation.FadeTransition;
+import javafx.animation.FillTransition;
 import javafx.animation.Interpolator;
-import javafx.animation.PathTransitionBuilder;
-import javafx.animation.PauseTransitionBuilder;
-import javafx.animation.RotateTransitionBuilder;
-import javafx.animation.ScaleTransitionBuilder;
-import javafx.animation.SequentialTransitionBuilder;
-import javafx.animation.StrokeTransitionBuilder;
-import javafx.animation.TranslateTransitionBuilder;
+import javafx.animation.PathTransition;
+import javafx.animation.PauseTransition;
+import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
+import javafx.animation.SequentialTransition;
+import javafx.animation.StrokeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.RectangleBuilder;
-import javafx.scene.shape.SVGPathBuilder;
+import javafx.scene.shape.SVGPath;
 import javafx.util.Duration;
 
 import org.jrebirth.af.api.exception.CoreException;
@@ -82,12 +81,9 @@ public final class AnimationView extends AbstractTemplateView<AnimationModel, An
 
         final VBox vb = buildDefaultContent(model().getContent(slideStep));
 
-        this.demoRectangle = RectangleBuilder.create()
-                .width(200)
-                .height(200)
-                .strokeWidth(10)
-                .fill(JfxColors.GRADIENT_3.get())
-                .build();
+        this.demoRectangle = new Rectangle(200, 200);
+        this.demoRectangle.setStrokeWidth(10);
+        this.demoRectangle.setFill(JfxColors.GRADIENT_3.get());
         vb.getChildren().add(0, this.demoRectangle);
         StackPane.setAlignment(this.demoRectangle, Pos.TOP_CENTER);
 
@@ -99,30 +95,26 @@ public final class AnimationView extends AbstractTemplateView<AnimationModel, An
      */
     public void showFade() {
 
-        FadeTransitionBuilder.create()
-                .node(this.demoRectangle)
-                .fromValue(0.0)
-                .toValue(1.0)
-                .autoReverse(true)
-                .cycleCount(Animation.INDEFINITE)
-                .interpolator(Interpolator.EASE_IN)
-                .duration(Duration.seconds(1))
-                .build().play();
+        final FadeTransition fade = new FadeTransition(Duration.seconds(1), this.demoRectangle);
+        fade.setFromValue(0.0);
+        fade.setToValue(1.0);
+        fade.setAutoReverse(true);
+        fade.setCycleCount(Animation.INDEFINITE);
+        fade.setInterpolator(Interpolator.EASE_IN);
+        fade.play();
     }
 
     /**
      * TODO To complete.
      */
     public void showFill() {
-        FillTransitionBuilder.create()
-                .shape(this.demoRectangle)
-                .fromValue(JfxColors.GRADIENT_1.get())
-                .toValue(JfxColors.GRADIENT_2.get())
-                .autoReverse(true)
-                .cycleCount(Animation.INDEFINITE)
-                .interpolator(Interpolator.EASE_IN)
-                .duration(Duration.seconds(1))
-                .build().play();
+        final FillTransition fill = new FillTransition(Duration.seconds(1), this.demoRectangle);
+        fill.setFromValue(JfxColors.GRADIENT_1.get());
+        fill.setToValue(JfxColors.GRADIENT_2.get());
+        fill.setAutoReverse(true);
+        fill.setCycleCount(Animation.INDEFINITE);
+        fill.setInterpolator(Interpolator.EASE_IN);
+        fill.play();
 
     }
 
@@ -131,14 +123,13 @@ public final class AnimationView extends AbstractTemplateView<AnimationModel, An
      */
     public void showPath() {
         final String path = "M0 230.717C0 230.717 206.085 48.7446 313.587 86.8569 421.089 124.969 407.816 319.824 506.692 298.352 605.567 276.881 704.442 -39.8258 800 4.19133";
-        PathTransitionBuilder.create()
-                .node(this.demoRectangle)
-                .path(SVGPathBuilder.create().content(path).build())
-                .autoReverse(true)
-                .cycleCount(Animation.INDEFINITE)
-                .interpolator(Interpolator.EASE_IN)
-                .duration(Duration.seconds(1))
-                .build().play();
+        final SVGPath svgPath = new SVGPath();
+        svgPath.setContent(path);
+        final PathTransition pathTrans = new PathTransition(Duration.seconds(1), svgPath, this.demoRectangle);
+        pathTrans.setAutoReverse(true);
+        pathTrans.setCycleCount(Animation.INDEFINITE);
+        pathTrans.setInterpolator(Interpolator.EASE_IN);
+        pathTrans.play();
 
     }
 
@@ -147,34 +138,30 @@ public final class AnimationView extends AbstractTemplateView<AnimationModel, An
      */
     public void showPause() {
 
-        SequentialTransitionBuilder.create()
-                .autoReverse(true)
-                .cycleCount(Animation.INDEFINITE)
-                .children(
-                        RotateTransitionBuilder.create()
-                                .node(this.demoRectangle)
-                                .fromAngle(0)
-                                .toAngle(180)
-                                .interpolator(Interpolator.EASE_IN)
-                                .duration(Duration.millis(400))
-                                .build(),
-                        PauseTransitionBuilder.create().duration(Duration.millis(600)).build())
-                .build().play();
+        final RotateTransition rotatePause = new RotateTransition(Duration.millis(400), this.demoRectangle);
+        rotatePause.setFromAngle(0);
+        rotatePause.setToAngle(180);
+        rotatePause.setInterpolator(Interpolator.EASE_IN);
+
+        final PauseTransition pause = new PauseTransition(Duration.millis(600));
+
+        final SequentialTransition seq = new SequentialTransition(rotatePause, pause);
+        seq.setAutoReverse(true);
+        seq.setCycleCount(Animation.INDEFINITE);
+        seq.play();
     }
 
     /**
      * TODO To complete.
      */
     public void showRotate() {
-        RotateTransitionBuilder.create()
-                .node(this.demoRectangle)
-                .autoReverse(true)
-                .fromAngle(0)
-                .toAngle(540)
-                .cycleCount(Animation.INDEFINITE)
-                .interpolator(Interpolator.EASE_IN)
-                .duration(Duration.seconds(1))
-                .build().play();
+        final RotateTransition rotate = new RotateTransition(Duration.seconds(1), this.demoRectangle);
+        rotate.setAutoReverse(true);
+        rotate.setFromAngle(0);
+        rotate.setToAngle(540);
+        rotate.setCycleCount(Animation.INDEFINITE);
+        rotate.setInterpolator(Interpolator.EASE_IN);
+        rotate.play();
 
     }
 
@@ -182,19 +169,17 @@ public final class AnimationView extends AbstractTemplateView<AnimationModel, An
      * TODO To complete.
      */
     public void showScale() {
-        ScaleTransitionBuilder.create()
-                .node(this.demoRectangle)
-                .fromX(1.0)
-                .byX(0.1)
-                .toX(2.0)
-                .fromY(1.0)
-                .byY(0.1)
-                .toY(2.0)
-                .autoReverse(true)
-                .cycleCount(Animation.INDEFINITE)
-                .interpolator(Interpolator.EASE_IN)
-                .duration(Duration.seconds(1))
-                .build().play();
+        final ScaleTransition scale = new ScaleTransition(Duration.seconds(1), this.demoRectangle);
+        scale.setFromX(1.0);
+        scale.setByX(0.1);
+        scale.setToX(2.0);
+        scale.setFromY(1.0);
+        scale.setByY(0.1);
+        scale.setToY(2.0);
+        scale.setAutoReverse(true);
+        scale.setCycleCount(Animation.INDEFINITE);
+        scale.setInterpolator(Interpolator.EASE_IN);
+        scale.play();
 
     }
 
@@ -202,15 +187,13 @@ public final class AnimationView extends AbstractTemplateView<AnimationModel, An
      * TODO To complete.
      */
     public void showStroke() {
-        StrokeTransitionBuilder.create()
-                .shape(this.demoRectangle)
-                .fromValue(JfxColors.GRADIENT_1.get())
-                .toValue(JfxColors.GRADIENT_2.get())
-                .autoReverse(true)
-                .cycleCount(Animation.INDEFINITE)
-                .interpolator(Interpolator.EASE_IN)
-                .duration(Duration.seconds(1))
-                .build().play();
+        final StrokeTransition stroke = new StrokeTransition(Duration.seconds(1), this.demoRectangle);
+        stroke.setFromValue(JfxColors.GRADIENT_1.get());
+        stroke.setToValue(JfxColors.GRADIENT_2.get());
+        stroke.setAutoReverse(true);
+        stroke.setCycleCount(Animation.INDEFINITE);
+        stroke.setInterpolator(Interpolator.EASE_IN);
+        stroke.play();
     }
 
     /**
@@ -218,17 +201,15 @@ public final class AnimationView extends AbstractTemplateView<AnimationModel, An
      */
     public void showTranslate() {
 
-        TranslateTransitionBuilder.create()
-                .node(this.demoRectangle)
-                .fromX(0.0)
-                .toX(400.0)
-                .fromY(0.0)
-                .toY(200)
-                .autoReverse(true)
-                .cycleCount(Animation.INDEFINITE)
-                .interpolator(Interpolator.EASE_BOTH)
-                .duration(Duration.seconds(1))
-                .build().play();
+        final TranslateTransition translate = new TranslateTransition(Duration.seconds(1), this.demoRectangle);
+        translate.setFromX(0.0);
+        translate.setToX(400.0);
+        translate.setFromY(0.0);
+        translate.setToY(200);
+        translate.setAutoReverse(true);
+        translate.setCycleCount(Animation.INDEFINITE);
+        translate.setInterpolator(Interpolator.EASE_BOTH);
+        translate.play();
     }
 
 }

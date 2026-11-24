@@ -39,7 +39,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.ScatterChart;
 import javafx.scene.chart.XYChart;
-import javafx.scene.effect.ReflectionBuilder;
+import javafx.scene.effect.Reflection;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
@@ -262,7 +262,10 @@ public final class ChartView extends AbstractTemplateView<ChartModel, AnchorPane
         }
         bc.getData().addAll(series1, series2);
 
-        bc.setEffect(ReflectionBuilder.create().topOpacity(0.8).bottomOpacity(0).build());
+        final Reflection refl = new Reflection();
+        refl.setTopOpacity(0.8);
+        refl.setBottomOpacity(0);
+        bc.setEffect(refl);
         showCustomSlideStep(bc);
     }
 
