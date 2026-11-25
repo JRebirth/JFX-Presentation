@@ -4,12 +4,12 @@
 	<parent>
 		<groupId>org.jrebirth</groupId>
 		<artifactId>ria</artifactId>
-		<version>5.0.0</version>
+		<version>5.0.1-SNAPSHOT</version>
 	</parent>
 	
 	<groupId>org.jrebirth.af.presentation</groupId>
 	<artifactId>javafx2</artifactId>
-	<version>3.0.0</version>
+	<version>3.0.1-SNAPSHOT</version>
 	
 	<name>JavaFX 2.0 Presentation</name>
 	<url>http://www.jrebirth.org</url>
@@ -19,7 +19,7 @@
 	
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<jrebirth.version>12.0.1</jrebirth.version>
+		<jrebirth.version>12.1.0-SNAPSHOT</jrebirth.version>
 		<!-- Avoid JPMS split package with org.jrebirth.af.presentation (root presentation/). -->
 		<resources.base.path>org/jrebirth/af/presentation/javafx</resources.base.path>
 
